@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>디앤아이로지스 | 물류 3PL 전문기업</title>
+
+<!-- Tailwind -->
+<script src="https://cdn.tailwindcss.com"></script>
+
+<!-- Font -->
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+
+<style>
+html { scroll-behavior: smooth; }
+body { font-family: 'Noto Sans KR', sans-serif; background-color: #F3F4F6; }
+
+.nav-link {
+  transition: all 0.2s ease;
+}
+
+.nav-link:hover {
+  color: #1E3A8A;
+}
+</style>
+
+<script>
+tailwind.config = {
+  theme: {
+    extend: {
+      fontFamily: { sans: ['"Noto Sans KR"', 'sans-serif'] },
+      colors: {
+        brand: {
+          blue: '#1E3A8A',
+          green: '#16A34A',
+          light: '#F3F4F6'
+        }
+      }
+    }
+  }
+}
+</script>
+</head>
+
+<body class="text-gray-800 antialiased">
+
+<!-- 헤더 -->
+<header class="fixed w-full z-50 bg-white shadow-sm border-b">
+  <div class="max-w-7xl mx-auto px-6 h-20 flex justify-between items-center">
+
+    <!-- 로고 -->
+    <div class="font-black text-2xl text-brand-blue cursor-pointer" onclick="window.scrollTo(0,0)">
+      D&I LOGIS
+    </div>
+
+    <!-- 메뉴 -->
+    <nav class="hidden md:flex space-x-8">
+      <a href="#company" class="nav-link">회사소개</a>
+      <a href="#services" class="nav-link">서비스소개</a>
+      <a href="#differentiation" class="nav-link">차별화포인트</a>
+      <a href="#case-study" class="nav-link">협업 사례</a>
+      <a href="#esg" class="nav-link">ESG경영</a>
+    </nav>
+
+  </div>
+</header>
+
+<!-- 메인 -->
+<main class="pt-24">
+
+  <!-- Hero -->
+  <section class="py-32 bg-brand-blue text-white text-center">
+    <h1 class="text-5xl font-black mb-6">
+      물류는 운송이 아니라 설계입니다
+    </h1>
+    <p class="text-lg text-blue-100">
+      데이터 기반 물류 최적화 솔루션
+    </p>
+  </section>
+
+  <!-- 동적 섹션 로드 -->
+  <div id="company-section"></div>
+  <div id="services-section"></div>
+  <div id="differentiation-section"></div>
+  <div id="case-section"></div>
+  <div id="esg-section"></div>
+
+  <!-- 문의 -->
+  <section id="contact" class="py-24 bg-brand-blue text-white text-center">
+    <h2 class="text-3xl font-black mb-6">
+      물류 구조를 지금 점검해보세요
+    </h2>
+    <p class="mb-8 text-blue-100">
+      맞춤형 컨설팅을 통해 비용과 효율을 동시에 개선합니다
+    </p>
+    <button class="bg-white text-brand-blue px-8 py-4 rounded-lg font-bold">
+      문의하기
+    </button>
+  </section>
+
+</main>
+
+<!-- 푸터 -->
+<footer class="bg-gray-900 text-gray-400 py-10 text-center text-sm">
+  © 2026 D&I LOGIS. All rights reserved.
+</footer>
+
+<!-- 섹션 로드 JS -->
+<script>
+async function loadSection(id, file) {
+  try {
+    const res = await fetch(file);
+    const html = await res.text();
+    document.getElementById(id).innerHTML = html;
+  } catch (e) {
+    console.error("로드 실패:", file);
+  }
+}
+
+/* ⭐ homepage 기준 상대경로 */
+loadSection("company-section", "./sections/company.html");
+loadSection("services-section", "./sections/services.html");
+loadSection("differentiation-section", "./sections/differentiation.html");
+loadSection("case-section", "./sections/case-study.html");
+loadSection("esg-section", "./sections/esg.html");
+</script>
+
+<!-- 메뉴 활성화 -->
+<script>
+window.addEventListener("scroll", () => {
+  const sections = document.querySelectorAll("section");
+  const navLinks = document.querySelectorAll(".nav-link");
+
+  let current = "";
+
+  sections.forEach(section => {
+    const sectionTop = section.offsetTop - 120;
+    if (window.scrollY >= sectionTop) {
+      current = section.getAttribute("id");
+    }
+  });
+
+  navLinks.forEach(link => {
+    link.classList.remove("text-brand-blue", "font-bold");
+    if (link.getAttribute("href") === "#" + current) {
+      link.classList.add("text-brand-blue", "font-bold");
+    }
+  });
+});
+</script>
+
+</body>
+</html>
