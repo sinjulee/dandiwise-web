@@ -15,7 +15,7 @@ body {
   background-color: #F3F4F6;
 }
 
-/* 스크롤 등장 애니메이션 */
+/* 스크롤 애니메이션 */
 .fade-up {
   opacity: 0;
   transform: translateY(40px);
@@ -67,8 +67,8 @@ tailwind.config = {
 </header>
 
 <!-- Hero -->
-<section class="py-28 pb-40 bg-brand-blue text-white text-center">
-  <h1 class="text-5xl font-black mb-6">
+<section class="pt-24 pb-20 bg-brand-blue text-white text-center">
+  <h1 class="text-4xl md:text-5xl font-black mb-4">
     차별화 포인트
   </h1>
   <p class="text-lg text-blue-100">
@@ -76,80 +76,80 @@ tailwind.config = {
   </p>
 </section>
 
-<!-- 타겟 시장 -->
-<section class="mb-24 fade-up">
-
-  <h2 class="text-3xl font-black text-brand-blue mb-10 text-center">
-    타겟 시장 및 고객
-  </h2>
-
-  <div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-
-    <div class="card bg-white p-8 rounded-xl shadow border">
-      <h3 class="font-black text-lg mb-3 text-brand-blue">식품 제조 업체</h3>
-      <p class="text-gray-600 text-sm">안정적인 물류 및 유통 관리 수행</p>
-    </div>
-
-    <div class="card bg-white p-8 rounded-xl shadow border">
-      <h3 class="font-black text-lg mb-3 text-brand-blue">전자상거래</h3>
-      <p class="text-gray-600 text-sm">매출 증가 및 고객 유입 극대화</p>
-    </div>
-
-    <div class="card bg-white p-8 rounded-xl shadow border">
-      <h3 class="font-black text-lg mb-3 text-brand-blue">유통 대행</h3>
-      <p class="text-gray-600 text-sm">통합 물류 운영 수행</p>
-    </div>
-
-    <div class="card bg-white p-8 rounded-xl shadow border">
-      <h3 class="font-black text-lg mb-3 text-brand-blue">해외 상품 소싱</h3>
-      <p class="text-gray-600 text-sm">글로벌 공급망 구축</p>
-    </div>
-
-  </div>
-
-</section>
-
 <main class="py-20">
 
 <div class="max-w-6xl mx-auto px-6">
 
-  <!-- 설명 -->
-  <section class="mb-24 text-center fade-up">
+  <!-- 타겟 시장 -->
+  <section class="mb-24 fade-up">
+
+    <h2 class="text-3xl font-black text-brand-blue mb-10 text-center">
+      타겟 시장 및 고객
+    </h2>
+
+    <div class="grid md:grid-cols-2 gap-8">
+
+      <!-- 카드 -->
+      <div class="card bg-white p-8 rounded-xl shadow border text-center">
+        <h3 class="font-black text-lg mb-3 text-brand-blue">식품 제조 업체</h3>
+        <p class="text-gray-600 text-sm">안정적인 물류 및 유통 관리 수행</p>
+      </div>
+
+      <div class="card bg-white p-8 rounded-xl shadow border text-center">
+        <h3 class="font-black text-lg mb-3 text-brand-blue">전자상거래</h3>
+        <p class="text-gray-600 text-sm">매출 증가 및 고객 유입 극대화</p>
+      </div>
+
+      <div class="card bg-white p-8 rounded-xl shadow border text-center">
+        <h3 class="font-black text-lg mb-3 text-brand-blue">유통 대행</h3>
+        <p class="text-gray-600 text-sm">통합 물류 운영 수행</p>
+      </div>
+
+      <div class="card bg-white p-8 rounded-xl shadow border text-center">
+        <h3 class="font-black text-lg mb-3 text-brand-blue">해외 상품 소싱</h3>
+        <p class="text-gray-600 text-sm">글로벌 공급망 구축</p>
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- 차별화 설명 -->
+  <section class="mb-16 text-center fade-up">
     <h2 class="text-3xl font-black text-brand-blue mb-6">
       경쟁력을 만드는 핵심 요소
     </h2>
   </section>
 
-  <!-- 카드 -->
+  <!-- 차별화 카드 -->
   <section class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
 
-    <!-- 카드 반복 -->
-    <div class="card fade-up bg-white p-8 rounded-xl shadow border">
+    <div class="card fade-up bg-white p-8 rounded-xl shadow border text-center">
       <h3 class="font-black text-lg mb-3 text-brand-blue">대응 역량 보유</h3>
       <p class="text-gray-600 text-sm">고도화된 물류 대응 역량 확보</p>
     </div>
 
-    <div class="card fade-up bg-white p-8 rounded-xl shadow border">
+    <div class="card fade-up bg-white p-8 rounded-xl shadow border text-center">
       <h3 class="font-black text-lg mb-3 text-brand-blue">전문적 관리</h3>
       <p class="text-gray-600 text-sm">전문 인력 기반 운영</p>
     </div>
 
-    <div class="card fade-up bg-white p-8 rounded-xl shadow border">
+    <div class="card fade-up bg-white p-8 rounded-xl shadow border text-center">
       <h3 class="font-black text-lg mb-3 text-brand-blue">통합 물류</h3>
       <p class="text-gray-600 text-sm">통합 관리 시스템 제공</p>
     </div>
 
-    <div class="card fade-up bg-white p-8 rounded-xl shadow border">
+    <div class="card fade-up bg-white p-8 rounded-xl shadow border text-center">
       <h3 class="font-black text-lg mb-3 text-brand-blue">판매 기회</h3>
       <p class="text-gray-600 text-sm">판로 확대 지원</p>
     </div>
 
-    <div class="card fade-up bg-white p-8 rounded-xl shadow border">
+    <div class="card fade-up bg-white p-8 rounded-xl shadow border text-center">
       <h3 class="font-black text-lg mb-3 text-brand-blue">대기업 인력</h3>
       <p class="text-gray-600 text-sm">즉각 대응 가능</p>
     </div>
 
-    <div class="card fade-up bg-white p-8 rounded-xl shadow border">
+    <div class="card fade-up bg-white p-8 rounded-xl shadow border text-center">
       <h3 class="font-black text-lg mb-3 text-brand-blue">사후관리</h3>
       <p class="text-gray-600 text-sm">체계적 대응 시스템</p>
     </div>
@@ -165,7 +165,7 @@ tailwind.config = {
   © 2026 D&I WISE
 </footer>
 
-<!-- JS -->
+<!-- 인터랙션 JS -->
 <script>
 /* 스크롤 애니메이션 */
 const observer = new IntersectionObserver(entries => {
@@ -178,7 +178,7 @@ const observer = new IntersectionObserver(entries => {
 
 document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
 
-/* 카드 hover 인터랙션 */
+/* 카드 hover */
 document.querySelectorAll('.card').forEach(card => {
 
   card.addEventListener('mouseenter', () => {
