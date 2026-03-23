@@ -72,77 +72,82 @@ tailwind.config = {
 
     <!-- 운영 역량 -->
     <section class="mb-24">
-      <div class="text-center mb-12">
-        <h2 class="text-3xl font-black text-brand-blue mb-4">
-          운영 역량 및 주요 거점
-        </h2>
-        <p class="text-gray-600 max-w-3xl mx-auto leading-relaxed">
-          디앤아이로지스는 자체 거점과 파트너사 거점을 기반으로
-          식자재 물류 운영에 필요한 인프라와 수송 역량을 확보하고 있습니다.
-        </p>
+
+  <h2 class="text-3xl font-black text-brand-blue mb-10 text-center">
+    운영 역량 및 물류 거점
+  </h2>
+
+  <div class="bg-white p-8 rounded-2xl shadow border">
+
+    <!-- 좌우 레이아웃 -->
+    <div class="grid lg:grid-cols-2 gap-10 items-center">
+
+      <!-- 지도 -->
+      <div class="flex justify-center">
+        <img
+          src="./assets/case-study-map.png"
+          alt="대한민국 물류 거점 개념도"
+          class="w-full max-w-md h-auto rounded-xl border border-gray-200"
+        >
       </div>
 
-      <!-- 지도 이미지 -->
-      <div class="bg-white rounded-2xl shadow border border-gray-200 overflow-hidden mb-10">
-        <div class="px-8 pt-8 pb-4">
-          <h3 class="text-xl font-black text-brand-blue mb-2">전국 운영 네트워크 개념도</h3>
-          <p class="text-sm text-gray-500">
-            광주 센터를 중심으로 이천 및 평택 거점과 연결된 운영 구조
-          </p>
-        </div>
+      <!-- 카드 영역 -->
+      <div class="space-y-6">
 
-        <div class="px-8 pb-8">
-          <!-- 실제 파일명에 맞게 src 수정 -->
-            <img
-              src="./assets/case-study-map.png"
-              alt="대한민국 물류 거점 개념도"
-              class="w-full max-w-md mx-auto h-auto rounded-xl border border-gray-200 bg-gray-50"
-              loading="lazy"
-            >
-        </div>
-      </div>
-
-      <!-- 운영 거점 정보 -->
-      <div class="grid lg:grid-cols-3 gap-8">
-        <div class="bg-white p-8 rounded-2xl shadow border border-gray-200">
-          <div class="inline-flex items-center px-3 py-1 rounded-full bg-blue-50 text-brand-blue text-xs font-bold mb-5">
+        <!-- 카드 1 -->
+        <div class="bg-gray-50 p-6 rounded-xl border">
+          <span class="text-xs font-bold text-brand-blue bg-blue-100 px-3 py-1 rounded-full">
             디앤아이로지스 물류 거점
-          </div>
-          <p class="text-gray-700 font-bold mb-4">
+          </span>
+
+          <p class="mt-4 text-sm text-gray-700 font-bold">
             ○ 경기도 이천시, 광주시 2개 거점 운영 中
           </p>
-          <ul class="space-y-2 text-sm text-gray-600 leading-relaxed">
-            <li>· 경기도 이천시 마장면 (DRY 창고 750坪)</li>
-            <li>· 경기도 광주시 도척면 (WE T창고 약500坪)</li>
+
+          <ul class="mt-3 text-sm text-gray-600 space-y-1">
+            <li>· 경기도 이천시 마장면 (DRY 창고 750평)</li>
+            <li>· 경기도 광주시 도척면 (WE T창고 약500평)</li>
           </ul>
         </div>
 
-        <div class="bg-white p-8 rounded-2xl shadow border border-gray-200">
-          <div class="inline-flex items-center px-3 py-1 rounded-full bg-green-50 text-brand-green text-xs font-bold mb-5">
+        <!-- 카드 2 -->
+        <div class="bg-gray-50 p-6 rounded-xl border">
+          <span class="text-xs font-bold text-brand-green bg-green-100 px-3 py-1 rounded-full">
             파트너사 물류 거점
-          </div>
-          <p class="text-gray-700 font-bold mb-4">
-            ○ 도급운영 거점(현대글로비스,한라홀딩스, 현대그린푸드) 6개소 거점 운영
+          </span>
+
+          <p class="mt-4 text-sm text-gray-700 font-bold">
+            ○ 도급운영 거점 6개소 거점 운영
           </p>
-          <ul class="space-y-2 text-sm text-gray-600 leading-relaxed">
+
+          <ul class="mt-3 text-sm text-gray-600 space-y-1">
             <li>· 경기도 이천시 4개소 (H사, F사, S사)</li>
             <li>· 경기도 평택시 1개소 (F사)</li>
           </ul>
         </div>
 
-        <div class="bg-white p-8 rounded-2xl shadow border border-gray-200">
-          <div class="inline-flex items-center px-3 py-1 rounded-full bg-blue-50 text-brand-blue text-xs font-bold mb-5">
+        <!-- 카드 3 -->
+        <div class="bg-gray-50 p-6 rounded-xl border">
+          <span class="text-xs font-bold text-brand-blue bg-blue-100 px-3 py-1 rounded-full">
             운송사 배송 역량
-          </div>
-          <p class="text-gray-700 font-bold mb-4">
+          </span>
+
+          <p class="mt-4 text-sm text-gray-700 font-bold">
             ○ 식자재 영역 운송사 일일 약350여대 공급 중
           </p>
-          <p class="text-sm text-gray-600 leading-relaxed">
-            (H사 200여대, S사 120여대, 기타30여대 콜드차량)
+
+          <p class="mt-3 text-sm text-gray-600">
+            (H사 200여대, S사 120여대, 기타 30여대 콜드차량)
           </p>
         </div>
+
       </div>
-    </section>
+
+    </div>
+
+  </div>
+
+</section>
 
     <!-- 협업 사례 -->
     <section>
