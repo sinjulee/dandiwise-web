@@ -135,23 +135,27 @@ tailwind.config = {
       </div>
 
       <!-- 연결선 영역 -->
-      <div class="relative h-[190px] mt-2 mb-0">
+      <div class="relative h-[175px] mt-2 mb-0">
+
         <!-- 중앙 아래 세로 점선 -->
         <div class="absolute left-1/2 top-0 -translate-x-1/2 h-16 border-l-2 border-dashed border-slate-300"></div>
 
-        <!-- 메인 가로 점선 -->
-        <div class="absolute left-[11%] right-[11%] top-16 border-t-2 border-dashed border-slate-300"></div>
+        <!-- 가운데에서 왼쪽 카드 세로선까지 -->
+        <div class="absolute left-[16.66%] right-1/2 top-16 border-t-2 border-dashed border-slate-300"></div>
 
-        <!-- 각 카드로 내려가는 세로 점선 : 카드 상단에 닿게 길게 -->
-        <div class="absolute left-[16.66%] top-16 -translate-x-1/2 h-[112px] border-l-2 border-dashed border-slate-300"></div>
-        <div class="absolute left-1/2 top-16 -translate-x-1/2 h-[112px] border-l-2 border-dashed border-slate-300"></div>
-        <div class="absolute left-[83.33%] top-16 -translate-x-1/2 h-[112px] border-l-2 border-dashed border-slate-300"></div>
+        <!-- 가운데에서 오른쪽 카드 세로선까지 -->
+        <div class="absolute left-1/2 right-[16.66%] top-16 border-t-2 border-dashed border-slate-300"></div>
 
-        <!-- 카드 사이 중간 플러스 -->
-        <div class="absolute left-[33.33%] top-[142px] -translate-x-1/2 -translate-y-1/2 bg-amber-300 text-white w-10 h-10 rounded-full flex items-center justify-center text-2xl font-bold shadow z-10">
+        <!-- 좌/중/우 카드로 내려가는 세로 점선 -->
+        <div class="absolute left-[16.66%] top-16 -translate-x-1/2 h-[96px] border-l-2 border-dashed border-slate-300"></div>
+        <div class="absolute left-1/2 top-16 -translate-x-1/2 h-[96px] border-l-2 border-dashed border-slate-300"></div>
+        <div class="absolute left-[83.33%] top-16 -translate-x-1/2 h-[96px] border-l-2 border-dashed border-slate-300"></div>
+
+        <!-- 카드 사이 플러스 : 더 아래로 -->
+        <div class="absolute left-[33.33%] top-[146px] -translate-x-1/2 -translate-y-1/2 bg-amber-300 text-white w-10 h-10 rounded-full flex items-center justify-center text-2xl font-bold shadow z-10">
           +
         </div>
-        <div class="absolute left-[66.66%] top-[142px] -translate-x-1/2 -translate-y-1/2 bg-amber-300 text-white w-10 h-10 rounded-full flex items-center justify-center text-2xl font-bold shadow z-10">
+        <div class="absolute left-[66.66%] top-[146px] -translate-x-1/2 -translate-y-1/2 bg-amber-300 text-white w-10 h-10 rounded-full flex items-center justify-center text-2xl font-bold shadow z-10">
           +
         </div>
       </div>
