@@ -33,12 +33,19 @@ body {
   border-color: #cbd5e1;
 }
 
+/* 바텀시트 애니메이션 */
 .modal-box {
-  animation: popup 0.25s ease;
+  animation: sheetUp 1s ease forwards;
 }
-@keyframes popup {
-  from { transform: translateY(12px) scale(0.96); opacity: 0; }
-  to { transform: translateY(0) scale(1); opacity: 1; }
+@keyframes sheetUp {
+  from {
+    transform: translateY(80px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
 }
 </style>
 
@@ -189,9 +196,9 @@ tailwind.config = {
   © 2026 D&I WISE. All rights reserved.
 </footer>
 
-<!-- 모달 -->
-<div id="modal" class="fixed inset-0 bg-black/55 hidden items-center justify-center z-[100] px-4">
-  <div class="modal-box bg-white w-full max-w-3xl rounded-2xl shadow-2xl relative overflow-hidden">
+<!-- 바텀시트 모달 -->
+<div id="modal" class="fixed inset-0 bg-black/55 hidden items-end justify-center z-[100] px-4 pb-0 md:pb-6">
+  <div class="modal-box bg-white w-full max-w-2xl rounded-t-3xl md:rounded-3xl shadow-2xl relative overflow-hidden">
     <div class="bg-brand-blue px-8 py-6 text-white">
       <button onclick="closeModal()"
         class="absolute top-5 right-5 text-white/80 hover:text-white text-xl leading-none">
@@ -201,7 +208,11 @@ tailwind.config = {
       <h3 id="modal-title" class="text-2xl md:text-3xl font-black"></h3>
     </div>
 
-    <div class="p-8 md:p-10">
+    <div class="flex justify-center pt-3 bg-white">
+      <div class="w-12 h-1.5 rounded-full bg-gray-300"></div>
+    </div>
+
+    <div class="p-8 md:p-10 max-h-[72vh] overflow-y-auto">
       <div id="modal-image" class="mb-6 hidden">
         <img id="modal-image-tag" src="" alt="" class="w-full h-auto rounded-xl border border-gray-200">
       </div>
@@ -228,7 +239,7 @@ const modalData = {
   target_food: {
     kicker: 'Target Market',
     title: '식품 제조 업체',
-    body: `식품 제조 후 공급 영역에 대한 물류서비스를 제공하고, 안정적인 물류와 유통 관리 영역을 수행하고자 합니다.`,
+    body: `식품 제조 후 공급 영역에 대한 물류서비스를 제공하고, 안정적인 물류와 유통 관리 영역을 하고자 합니다.`,
     image: ''
   },
   target_ecom: {
