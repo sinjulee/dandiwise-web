@@ -24,16 +24,15 @@ body {
   transform: translateY(0);
 }
 
-.card {
+.service-card {
   transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
 }
-.card:hover {
-  transform: translateY(-8px) scale(1.04);
+.service-card:hover {
+  transform: translateY(-8px) scale(1.03);
   box-shadow: 0 20px 40px rgba(0,0,0,0.14);
   border-color: #cbd5e1;
 }
 
-/* 바텀시트 애니메이션 */
 .modal-box {
   animation: sheetUp 1s ease forwards;
 }
@@ -128,45 +127,76 @@ tailwind.config = {
       </div>
     </section>
 
-    <!-- 서비스 카드 -->
+    <!-- 서비스 안내 -->
     <section class="mb-16 text-center fade-up">
       <h2 class="text-3xl font-black text-brand-blue mb-4">
         주요 서비스 영역
       </h2>
       <p class="text-gray-600 max-w-3xl mx-auto leading-relaxed">
-        각 서비스 카드를 클릭하면 상세 내용을 확인할 수 있습니다.
+        각 서비스를 클릭하면 상세 내용을 확인할 수 있습니다.
       </p>
     </section>
 
-    <section class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+    <!-- 정사각형 서비스 카드 -->
+    <section class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
       <button type="button" onclick="openModal('service_1')"
-        class="card fade-up bg-white p-8 rounded-2xl shadow border text-center">
-        <h3 class="font-black text-xl mb-3 text-brand-blue">1. 물류 컨설팅 솔루션</h3>
-        <p class="text-gray-600 text-sm">노하우를 통한 안정적 원가 실현</p>
+        class="service-card fade-up bg-white rounded-2xl shadow border overflow-hidden text-left">
+        <div class="aspect-square overflow-hidden">
+          <img src="/assets/services-01.jpg" alt="물류 컨설팅 솔루션"
+            class="w-full h-full object-cover">
+        </div>
+        <div class="p-6 text-center">
+          <h3 class="font-black text-xl text-brand-blue mb-2">1. 물류 컨설팅 솔루션</h3>
+          <p class="text-gray-600 text-sm">노하우를 통한 안정적 원가 실현</p>
+        </div>
       </button>
 
       <button type="button" onclick="openModal('service_2')"
-        class="card fade-up bg-white p-8 rounded-2xl shadow border text-center">
-        <h3 class="font-black text-xl mb-3 text-brand-blue">2. 효율적 3PL 원가 구조</h3>
-        <p class="text-gray-600 text-sm">안정적 공급과 운영 노하우 기반 효율 추구</p>
+        class="service-card fade-up bg-white rounded-2xl shadow border overflow-hidden text-left">
+        <div class="aspect-square overflow-hidden">
+          <img src="/assets/services-02.jpg" alt="효율적 3PL 원가 구조"
+            class="w-full h-full object-cover">
+        </div>
+        <div class="p-6 text-center">
+          <h3 class="font-black text-xl text-brand-blue mb-2">2. 효율적 3PL 원가 구조</h3>
+          <p class="text-gray-600 text-sm">운영 노하우 기반 효율 구조 설계</p>
+        </div>
       </button>
 
       <button type="button" onclick="openModal('service_3')"
-        class="card fade-up bg-white p-8 rounded-2xl shadow border text-center">
-        <h3 class="font-black text-xl mb-3 text-brand-blue">3. 소통형 고객사 관리</h3>
-        <p class="text-gray-600 text-sm">즉각적인 사전 조율과 소통창구 기능</p>
+        class="service-card fade-up bg-white rounded-2xl shadow border overflow-hidden text-left">
+        <div class="aspect-square overflow-hidden">
+          <img src="/assets/services-03.jpg" alt="소통형 고객사 관리"
+            class="w-full h-full object-cover">
+        </div>
+        <div class="p-6 text-center">
+          <h3 class="font-black text-xl text-brand-blue mb-2">3. 소통형 고객사 관리</h3>
+          <p class="text-gray-600 text-sm">즉각적인 사전 조율과 소통창구 기능</p>
+        </div>
       </button>
 
       <button type="button" onclick="openModal('service_4')"
-        class="card fade-up bg-white p-8 rounded-2xl shadow border text-center">
-        <h3 class="font-black text-xl mb-3 text-brand-blue">4. 안정적 물류관리 체계</h3>
-        <p class="text-gray-600 text-sm">인력 및 차량 공급 우위 기반 운영 일원화</p>
+        class="service-card fade-up bg-white rounded-2xl shadow border overflow-hidden text-left">
+        <div class="aspect-square overflow-hidden">
+          <img src="/assets/services-04.jpg" alt="안정적 물류관리 체계"
+            class="w-full h-full object-cover">
+        </div>
+        <div class="p-6 text-center">
+          <h3 class="font-black text-xl text-brand-blue mb-2">4. 안정적 물류관리 체계</h3>
+          <p class="text-gray-600 text-sm">인력 및 차량 공급 우위 기반 운영</p>
+        </div>
       </button>
 
       <button type="button" onclick="openModal('service_5')"
-        class="card fade-up bg-white p-8 rounded-2xl shadow border text-center md:col-span-2 lg:col-span-1">
-        <h3 class="font-black text-xl mb-3 text-brand-blue">5. 데이터 분석 및 자원 관리</h3>
-        <p class="text-gray-600 text-sm">실시간 데이터 기반 맞춤형 전략 실행</p>
+        class="service-card fade-up bg-white rounded-2xl shadow border overflow-hidden text-left sm:col-span-2 lg:col-span-1">
+        <div class="aspect-square overflow-hidden">
+          <img src="/assets/services-05.jpg" alt="데이터 분석 및 자원 관리"
+            class="w-full h-full object-cover">
+        </div>
+        <div class="p-6 text-center">
+          <h3 class="font-black text-xl text-brand-blue mb-2">5. 데이터 분석 및 자원 관리</h3>
+          <p class="text-gray-600 text-sm">실시간 데이터 기반 맞춤형 전략 실행</p>
+        </div>
       </button>
     </section>
 
@@ -195,7 +225,7 @@ tailwind.config = {
     </div>
 
     <div class="p-8 md:p-10 max-h-[72vh] overflow-y-auto">
-      <div id="modal-image" class="mb-6 hidden">
+      <div id="modal-image" class="mb-6">
         <img id="modal-image-tag" src="" alt="" class="w-full h-auto rounded-xl border border-gray-200">
       </div>
 
@@ -205,12 +235,10 @@ tailwind.config = {
 </div>
 
 <script>
-/* 스크롤 등장 애니메이션 */
+/* 스크롤 등장 */
 const observer = new IntersectionObserver((entries) => {
   entries.forEach((entry) => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('show');
-    }
+    if (entry.isIntersecting) entry.target.classList.add('show');
   });
 }, { threshold: 0.15 });
 
@@ -228,7 +256,7 @@ const modalData = {
 · 現 식자재 기업에 운영 중인 인력망 활용
 · 식자재 배송차량을 활용한 원가 절감
 · 보유 네트워크를 통한 비용 관리 및 원가 인하`,
-    image: ''
+    image: '/assets/services-01.jpg'
   },
   service_2: {
     kicker: 'Service 02',
@@ -236,7 +264,7 @@ const modalData = {
     body: `현재 해당 산업 내에서 각자의 포지션에서 운영 중인 회사를 통하여 안정적인 공급과 물류 운영 노하우를 바탕으로 3PL 원가의 효율성을 추구합니다.
 
 안정적 공급, 비용 관리, 운영 경험을 기반으로 효율적인 3PL 구조를 실현하고자 합니다.`,
-    image: ''
+    image: '/assets/services-02.jpg'
   },
   service_3: {
     kicker: 'Service 03',
@@ -246,7 +274,7 @@ const modalData = {
 
 구매 및 매입팀 공급 지원
 식자재 기업의 바이어들과의 공급 상품 확대 및 안정적 매출 향상을 위한 매개체 역할을 수행합니다.`,
-    image: ''
+    image: '/assets/services-03.jpg'
   },
   service_4: {
     kicker: 'Service 04',
@@ -255,7 +283,7 @@ const modalData = {
 
 현재 식자재 대기업 물류센터 중분류 및 피팅 도급 운영 중으로 높은 업무 이해도와 취급 상품 특성 파악을 통해 문제를 최소화하고 있습니다.
 또한 식자재 운영 운송사 네트워킹을 통한 차량 수급 안정화를 기반으로 공급 우위 시장을 선정하며, 관리 전 영역의 일원화를 수행합니다.`,
-    image: ''
+    image: '/assets/services-04.jpg'
   },
   service_5: {
     kicker: 'Service 05',
@@ -266,7 +294,7 @@ const modalData = {
 
 물류 운영 KPI 제공
 운영 데이터를 분석하여 KPI(성과지표)를 제공하고, 양사 간의 업무 성과와 과오를 분석하여 윈윈 전략 운영을 수행합니다.`,
-    image: ''
+    image: '/assets/services-05.jpg'
   }
 };
 
@@ -278,18 +306,9 @@ function openModal(key) {
   document.getElementById('modal-title').textContent = data.title;
   document.getElementById('modal-body').textContent = data.body;
 
-  const imageWrap = document.getElementById('modal-image');
   const imageTag = document.getElementById('modal-image-tag');
-
-  if (data.image) {
-    imageWrap.classList.remove('hidden');
-    imageTag.src = data.image;
-    imageTag.alt = data.title;
-  } else {
-    imageWrap.classList.add('hidden');
-    imageTag.src = '';
-    imageTag.alt = '';
-  }
+  imageTag.src = data.image || '';
+  imageTag.alt = data.title || '';
 
   const modal = document.getElementById('modal');
   modal.classList.remove('hidden');
@@ -304,12 +323,10 @@ function closeModal() {
   document.body.style.overflow = '';
 }
 
-/* 배경 클릭 닫기 */
 document.getElementById('modal').addEventListener('click', (e) => {
   if (e.target.id === 'modal') closeModal();
 });
 
-/* ESC 닫기 */
 document.addEventListener('keydown', (e) => {
   if (e.key === 'Escape') closeModal();
 });
