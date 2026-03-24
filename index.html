@@ -2,13 +2,36 @@
 <html lang="ko">
 <head>
 <meta charset="UTF-8">
-<title>D&I WISE</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>D&I WISE | 물류 3PL 전문기업</title>
 
 <script src="https://cdn.tailwindcss.com"></script>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap" rel="stylesheet">
 
 <style>
-body { font-family: 'Noto Sans KR', sans-serif; background:#F3F4F6; }
+body {
+  font-family: 'Noto Sans KR', sans-serif;
+  background-color: #F3F4F6;
+}
+
+.fade-up {
+  opacity: 0;
+  transform: translateY(36px);
+  transition: all 0.8s ease;
+}
+.fade-up.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.summary-card {
+  transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
+}
+.summary-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.12);
+  border-color: #cbd5e1;
+}
 </style>
 
 <script>
@@ -17,8 +40,9 @@ tailwind.config = {
     extend: {
       colors: {
         brand: {
-          blue:'#1E3A8A',
-          green:'#16A34A'
+          blue: '#1E3A8A',
+          green: '#16A34A',
+          light: '#F3F4F6'
         }
       }
     }
@@ -27,47 +51,164 @@ tailwind.config = {
 </script>
 </head>
 
-<body>
+<body class="text-gray-800">
 
 <!-- 헤더 -->
-<header class="bg-white h-20 flex items-center justify-between px-10 shadow">
-  <div class="font-black text-2xl text-brand-blue">D&I WISE</div>
+<header class="bg-white shadow-sm border-b sticky top-0 z-50">
+  <div class="max-w-7xl mx-auto px-6 h-20 flex justify-between items-center">
+    <a href="index.html" class="text-2xl font-black text-brand-blue">
+      D&I WISE
+    </a>
 
-  <nav class="space-x-8">
-    <a href="company.html">회사소개</a>
-    <a href="services.html">서비스소개</a>
-    <a href="differentiation.html">차별화포인트</a>
-    <a href="case-study.html">운영역량</a>
-    <a href="esg.html">ESG</a>
-  </nav>
+    <nav class="hidden md:flex space-x-8 text-sm font-medium">
+      <a href="company.html" class="hover:text-brand-blue transition">회사소개</a>
+      <a href="services.html" class="hover:text-brand-blue transition">서비스소개</a>
+      <a href="differentiation.html" class="hover:text-brand-blue transition">차별화포인트</a>
+      <a href="case-study.html" class="hover:text-brand-blue transition">운영역량</a>
+      <a href="esg.html" class="hover:text-brand-blue transition">ESG경영</a>
+    </nav>
+  </div>
 </header>
 
 <!-- Hero -->
-<section class="py-32 bg-brand-blue text-white text-center">
-  <h1 class="text-5xl font-black mb-6">
-    물류는 운송이 아니라 설계입니다
-  </h1>
+<section class="pt-28 pb-24 bg-brand-blue text-white text-center">
+  <div class="max-w-5xl mx-auto px-6">
+    <p class="text-sm md:text-base font-bold tracking-[0.2em] text-blue-200 uppercase mb-5">
+      Demand & Innovation Wise
+    </p>
+    <h1 class="text-4xl md:text-6xl font-black leading-tight mb-6">
+      물류는 운송이 아니라<br class="hidden md:block">
+      설계입니다
+    </h1>
+    <p class="text-lg md:text-xl text-blue-100 leading-relaxed max-w-3xl mx-auto">
+      식자재 및 유통 물류 분야의 전문성과 운영 노하우를 바탕으로,<br class="hidden md:block">
+      고객사의 성장을 함께 만드는 물류 파트너입니다.
+    </p>
+  </div>
 </section>
 
-<!-- 요약 -->
-<section class="py-20 text-center">
-  <h2 class="text-2xl font-bold mb-4">회사소개</h2>
-  <a href="company.html" class="text-brand-blue">자세히 보기 →</a>
-</section>
+<main class="py-20">
+  <div class="max-w-6xl mx-auto px-6">
 
-<section class="py-20 text-center">
-  <h2 class="text-2xl font-bold mb-4">서비스소개</h2>
-  <a href="services.html" class="text-brand-blue">자세히 보기 →</a>
-</section>
+    <!-- 소개 문구 -->
+    <section class="mb-24 text-center fade-up">
+      <h2 class="text-3xl font-black text-brand-blue mb-5">
+        고객과 함께 성장하는 혁신적인 유통공급 파트너
+      </h2>
+      <p class="text-gray-600 leading-relaxed max-w-4xl mx-auto">
+        D&I WISE는 단순한 물류대행을 넘어 물류 전략 수립, 운영 최적화, 공급망 연결,
+        데이터 기반 관리까지 아우르는 종합 물류 솔루션을 제공합니다.
+      </p>
+    </section>
 
-<section class="py-20 text-center">
-  <h2 class="text-2xl font-bold mb-4">차별화포인트</h2>
-  <a href="differentiation.html" class="text-brand-blue">자세히 보기 →</a>
-</section>
+    <!-- 요약 카드 -->
+    <section class="grid md:grid-cols-2 xl:grid-cols-3 gap-8">
 
-<footer class="bg-gray-900 text-white py-10 text-center">
-© D&I Wise
+      <!-- 회사소개 -->
+      <a href="company.html" class="summary-card fade-up bg-white rounded-2xl border shadow p-8 block">
+        <div class="mb-6">
+          <span class="inline-flex items-center px-3 py-1 rounded-full bg-blue-50 text-brand-blue text-xs font-bold">
+            Company
+          </span>
+        </div>
+        <h3 class="text-2xl font-black text-brand-blue mb-4">회사소개</h3>
+        <p class="text-gray-600 leading-relaxed mb-6">
+          회사 개요, 비전, 핵심 가치를 통해 D&I WISE의 정체성과 방향성을 소개합니다.
+        </p>
+        <span class="text-sm font-bold text-brand-blue">자세히 보기 →</span>
+      </a>
+
+      <!-- 서비스소개 -->
+      <a href="services.html" class="summary-card fade-up bg-white rounded-2xl border shadow p-8 block">
+        <div class="mb-6">
+          <span class="inline-flex items-center px-3 py-1 rounded-full bg-blue-50 text-brand-blue text-xs font-bold">
+            Services
+          </span>
+        </div>
+        <h3 class="text-2xl font-black text-brand-blue mb-4">서비스소개</h3>
+        <p class="text-gray-600 leading-relaxed mb-6">
+          SCM 전략 수립부터 실행까지, 물류 컨설팅과 운영 구조 설계를 포함한 핵심 서비스를 제공합니다.
+        </p>
+        <span class="text-sm font-bold text-brand-blue">자세히 보기 →</span>
+      </a>
+
+      <!-- 차별화포인트 -->
+      <a href="differentiation.html" class="summary-card fade-up bg-white rounded-2xl border shadow p-8 block">
+        <div class="mb-6">
+          <span class="inline-flex items-center px-3 py-1 rounded-full bg-blue-50 text-brand-blue text-xs font-bold">
+            Differentiation
+          </span>
+        </div>
+        <h3 class="text-2xl font-black text-brand-blue mb-4">차별화포인트</h3>
+        <p class="text-gray-600 leading-relaxed mb-6">
+          타깃 시장과 경쟁 우위를 바탕으로 D&I WISE만의 차별화된 강점을 보여드립니다.
+        </p>
+        <span class="text-sm font-bold text-brand-blue">자세히 보기 →</span>
+      </a>
+
+      <!-- 운영역량 -->
+      <a href="case-study.html" class="summary-card fade-up bg-white rounded-2xl border shadow p-8 block">
+        <div class="mb-6">
+          <span class="inline-flex items-center px-3 py-1 rounded-full bg-green-50 text-brand-green text-xs font-bold">
+            Capability
+          </span>
+        </div>
+        <h3 class="text-2xl font-black text-brand-blue mb-4">운영역량</h3>
+        <p class="text-gray-600 leading-relaxed mb-6">
+          주요 거점, 운영 인프라, 협업 사례를 통해 실제 수행 역량과 실행 구조를 확인할 수 있습니다.
+        </p>
+        <span class="text-sm font-bold text-brand-blue">자세히 보기 →</span>
+      </a>
+
+      <!-- ESG -->
+      <a href="esg.html" class="summary-card fade-up bg-white rounded-2xl border shadow p-8 block">
+        <div class="mb-6">
+          <span class="inline-flex items-center px-3 py-1 rounded-full bg-green-50 text-brand-green text-xs font-bold">
+            ESG
+          </span>
+        </div>
+        <h3 class="text-2xl font-black text-brand-blue mb-4">ESG경영</h3>
+        <p class="text-gray-600 leading-relaxed mb-6">
+          환경, 사회, 지배구조를 기반으로 지속 가능한 운영과 책임 있는 기업 경영 방향을 제시합니다.
+        </p>
+        <span class="text-sm font-bold text-brand-blue">자세히 보기 →</span>
+      </a>
+
+      <!-- 브랜드 요약 -->
+      <div class="summary-card fade-up bg-brand-blue text-white rounded-2xl border border-brand-blue shadow p-8">
+        <div class="mb-6">
+          <span class="inline-flex items-center px-3 py-1 rounded-full bg-white/15 text-white text-xs font-bold">
+            Brand Message
+          </span>
+        </div>
+        <h3 class="text-2xl font-black mb-4">신뢰를 설계하는 물류 파트너</h3>
+        <p class="text-blue-100 leading-relaxed">
+          식자재 물류의 전문성과 운영 구조 설계 역량을 바탕으로,
+          고객사의 성장과 시장 경쟁력을 함께 만들어갑니다.
+        </p>
+      </div>
+
+    </section>
+
+  </div>
+</main>
+
+<!-- 푸터 -->
+<footer class="bg-gray-900 text-gray-400 py-10 text-center text-sm">
+  © 2026 D&I WISE. All rights reserved.
 </footer>
+
+<script>
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((entry) => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('show');
+    }
+  });
+}, { threshold: 0.15 });
+
+document.querySelectorAll('.fade-up').forEach((el) => observer.observe(el));
+</script>
 
 </body>
 </html>
