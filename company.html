@@ -173,66 +173,94 @@ tailwind.config = {
     </section>
 
     <!-- 핵심 가치 -->
-    <section class="fade-up">
-      <div class="text-center mb-10">
-        <h2 class="text-3xl font-black text-brand-blue mb-4">
-          핵심 가치
-        </h2>
-        <p class="text-gray-600 max-w-4xl mx-auto leading-relaxed">
-          물류공급 영역의 노하우와 파트너사 네트워크를 활용하여
-          화주사의 성장과 번영에 기여하며, 물류 전반의 솔루션과 성장 동력을 제공하는 것을 핵심 가치로 합니다.
+    <section class="fade-up overflow-hidden py-10">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl font-black text-brand-blue mb-4">핵심 가치</h2>
+        <p class="text-gray-600 max-w-2xl mx-auto">
+          물류공급 영역의 노하우를 바탕으로 화주사의 성장을 돕는 5가지 핵심 원칙입니다.
         </p>
       </div>
 
-      <div class="grid md:grid-cols-2 xl:grid-cols-3 gap-8">
-        <div class="value-card bg-white rounded-2xl shadow border p-8">
-          <h3 class="text-2xl font-black text-brand-blue mb-2">창의성</h3>
-          <p class="text-sm font-semibold text-gray-400 mb-4">Creativity</p>
-          <p class="text-gray-700 leading-relaxed">
-            고객사의 고유 상품을 안전하게 관리하고 물류 체계를 운영하는 솔루션을 통해
-            차별화된 가치를 제공합니다. 항상 새로운 아이디어를 발굴하며,
-            고정관념을 넘어서는 사고방식을 추구합니다.
-          </p>
+      <div class="relative max-w-5xl mx-auto h-[auto] md:h-[700px] flex items-center justify-center">
+        
+        <div class="hidden md:block absolute border-2 border-dashed border-slate-200 rounded-full w-[450px] h-[450px] z-0"></div>
+
+        <div class="hidden md:flex absolute z-30 bg-brand-blue text-white w-32 h-32 rounded-full shadow-2xl items-center justify-center border-4 border-white">
+          <span class="text-xl font-black">핵심 가치</span>
         </div>
 
-        <div class="value-card bg-white rounded-2xl shadow border p-8">
-          <h3 class="text-2xl font-black text-brand-blue mb-2">고객 중심</h3>
-          <p class="text-sm font-semibold text-gray-400 mb-4">Customer-Centric</p>
-          <p class="text-gray-700 leading-relaxed">
-            고객사의 성공이 곧 우리의 성공이라는 신념을 바탕으로,
-            고객의 니즈와 목표를 최우선으로 생각합니다.
-            고객의 목소리를 경청하며 맞춤형 물류 솔루션을 제공하여 신뢰를 구축합니다.
-          </p>
-        </div>
+        <div class="grid md:block grid-cols-1 gap-6 w-full px-6 md:px-0">
+          
+          <div class="group md:absolute md:top-[10%] md:left-1/2 md:-translate-x-1/2 z-20">
+            <div class="flex flex-col items-center">
+              <div class="w-24 h-24 md:w-28 md:h-28 bg-white border-4 border-amber-400 rounded-full flex items-center justify-center shadow-lg transition-transform duration-300 group-hover:scale-110 cursor-pointer">
+                <span class="font-bold text-gray-800">창의성</span>
+              </div>
+              <div class="hidden md:block opacity-0 group-hover:opacity-100 transition-all duration-300 absolute bottom-32 w-72 bg-white p-6 rounded-2xl shadow-2xl border border-amber-100 pointer-events-none translate-y-4 group-hover:translate-y-0">
+                <div class="absolute left-1/2 -bottom-6 -translate-x-1/2 w-px h-6 border-l-2 border-dashed border-amber-400"></div>
+                <h4 class="text-amber-500 font-bold mb-2">Creativity</h4>
+                <p class="text-sm text-gray-600 leading-relaxed">고객사의 고유 상품을 안전하게 관리하고 차별화된 가치를 제공하며 고정관념을 넘어서는 사고방식을 추구합니다.</p>
+              </div>
+              <p class="md:hidden mt-3 text-center text-sm text-gray-600">고객사의 고유 상품을 안전하게 관리하고 차별화된 가치를 제공합니다.</p>
+            </div>
+          </div>
 
-        <div class="value-card bg-white rounded-2xl shadow border p-8">
-          <h3 class="text-2xl font-black text-brand-blue mb-2">성과 지향</h3>
-          <p class="text-sm font-semibold text-gray-400 mb-4">Results-Oriented</p>
-          <p class="text-gray-700 leading-relaxed">
-            모든 물류관리 활동은 구체적인 성과를 목표로 합니다.
-            데이터를 기반으로 한 전략적 접근을 통해 실질적인 비즈니스 성과를 창출하고,
-            고객사의 성장에 기여합니다.
-          </p>
-        </div>
+          <div class="group md:absolute md:top-[35%] md:right-[5%] z-20">
+            <div class="flex flex-col items-center">
+              <div class="w-24 h-24 md:w-28 md:h-28 bg-white border-4 border-blue-500 rounded-full flex items-center justify-center shadow-lg transition-transform duration-300 group-hover:scale-110 cursor-pointer">
+                <span class="font-bold text-gray-800">고객 중심</span>
+              </div>
+              <div class="hidden md:block opacity-0 group-hover:opacity-100 transition-all duration-300 absolute left-32 top-0 w-72 bg-white p-6 rounded-2xl shadow-2xl border border-blue-100 pointer-events-none -translate-x-4 group-hover:translate-x-0">
+                <div class="absolute -left-6 top-1/2 -translate-y-1/2 h-px w-6 border-t-2 border-dashed border-blue-500"></div>
+                <h4 class="text-blue-500 font-bold mb-2">Customer-Centric</h4>
+                <p class="text-sm text-gray-600 leading-relaxed">고객사의 성공이 곧 우리의 성공이라는 신념으로 고객의 니즈와 목표를 최우선으로 생각합니다.</p>
+              </div>
+              <p class="md:hidden mt-3 text-center text-sm text-gray-600">고객사의 성공이 곧 우리의 성공이라는 신념으로 행동합니다.</p>
+            </div>
+          </div>
 
-        <div class="value-card bg-white rounded-2xl shadow border p-8">
-          <h3 class="text-2xl font-black text-brand-blue mb-2">협력과 소통</h3>
-          <p class="text-sm font-semibold text-gray-400 mb-4">Collaboration & Communication</p>
-          <p class="text-gray-700 leading-relaxed">
-            고객사와의 협력은 물론, 고객사의 파트너사와의 소통을 중시합니다.
-            지속적인 피드백과 개선을 통해 최고의 결과를 이끌어내며,
-            식품 및 식자재 분야의 전문적인 노하우를 기반으로 차별화된 서비스를 제공합니다.
-          </p>
-        </div>
+          <div class="group md:absolute md:bottom-[15%] md:right-[15%] z-20">
+            <div class="flex flex-col items-center">
+              <div class="w-24 h-24 md:w-28 md:h-28 bg-white border-4 border-green-500 rounded-full flex items-center justify-center shadow-lg transition-transform duration-300 group-hover:scale-110 cursor-pointer">
+                <span class="font-bold text-gray-800">성과 지향</span>
+              </div>
+              <div class="hidden md:block opacity-0 group-hover:opacity-100 transition-all duration-300 absolute left-24 top-24 w-72 bg-white p-6 rounded-2xl shadow-2xl border border-green-100 pointer-events-none translate-y-4 group-hover:translate-y-0">
+                <div class="absolute -left-4 -top-4 w-10 h-10 border-l-2 border-t-2 border-dashed border-green-500 rounded-tl-full"></div>
+                <h4 class="text-green-500 font-bold mb-2">Results-Oriented</h4>
+                <p class="text-sm text-gray-600 leading-relaxed">데이터 기반의 전략적 접근을 통해 실질적인 비즈니스 성과를 창출하고 고객사의 성장에 기여합니다.</p>
+              </div>
+              <p class="md:hidden mt-3 text-center text-sm text-gray-600">데이터를 기반으로 실질적인 비즈니스 성과를 창출합니다.</p>
+            </div>
+          </div>
 
-        <div class="value-card bg-white rounded-2xl shadow border p-8 md:col-span-2 xl:col-span-1">
-          <h3 class="text-2xl font-black text-brand-blue mb-2">지속 가능성</h3>
-          <p class="text-sm font-semibold text-gray-400 mb-4">Sustainability</p>
-          <p class="text-gray-700 leading-relaxed">
-            지속 가능한 경영과 윤리적 관리 체계를 추구하며,
-            사회와 환경에 긍정적인 영향을 미치는 활동을 전개합니다.
-            환경 보호와 사회적 책임을 고려한 운영을 통해 미래를 준비합니다.
-          </p>
+          <div class="group md:absolute md:bottom-[15%] md:left-[15%] z-20">
+            <div class="flex flex-col items-center">
+              <div class="w-24 h-24 md:w-28 md:h-28 bg-white border-4 border-indigo-500 rounded-full flex items-center justify-center shadow-lg transition-transform duration-300 group-hover:scale-110 cursor-pointer">
+                <span class="font-bold text-gray-800">협력/소통</span>
+              </div>
+              <div class="hidden md:block opacity-0 group-hover:opacity-100 transition-all duration-300 absolute right-24 top-24 w-72 bg-white p-6 rounded-2xl shadow-2xl border border-indigo-100 pointer-events-none translate-y-4 group-hover:translate-y-0 text-right">
+                <div class="absolute -right-4 -top-4 w-10 h-10 border-r-2 border-t-2 border-dashed border-indigo-500 rounded-tr-full"></div>
+                <h4 class="text-indigo-500 font-bold mb-2">Collaboration</h4>
+                <p class="text-sm text-gray-600 leading-relaxed text-left">지속적인 피드백과 소통을 통해 최고의 결과를 이끌어내며 전문적인 노하우를 기반으로 차별화된 서비스를 제공합니다.</p>
+              </div>
+              <p class="md:hidden mt-3 text-center text-sm text-gray-600">지속적인 피드백과 소통으로 최고의 결과를 도출합니다.</p>
+            </div>
+          </div>
+
+          <div class="group md:absolute md:top-[35%] md:left-[5%] z-20">
+            <div class="flex flex-col items-center">
+              <div class="w-24 h-24 md:w-28 md:h-28 bg-white border-4 border-rose-500 rounded-full flex items-center justify-center shadow-lg transition-transform duration-300 group-hover:scale-110 cursor-pointer">
+                <span class="font-bold text-gray-800">지속 가능성</span>
+              </div>
+              <div class="hidden md:block opacity-0 group-hover:opacity-100 transition-all duration-300 absolute right-32 top-0 w-72 bg-white p-6 rounded-2xl shadow-2xl border border-rose-100 pointer-events-none translate-x-4 group-hover:translate-x-0 text-right">
+                <div class="absolute -right-6 top-1/2 -translate-y-1/2 h-px w-6 border-t-2 border-dashed border-rose-500"></div>
+                <h4 class="text-rose-500 font-bold mb-2">Sustainability</h4>
+                <p class="text-sm text-gray-600 leading-relaxed text-left">윤리적 관리 체계를 추구하며 사회와 환경에 긍정적인 영향을 미치는 활동을 전개하여 미래를 준비합니다.</p>
+              </div>
+              <p class="md:hidden mt-3 text-center text-sm text-gray-600">윤리 경영을 통해 사회와 환경에 긍정적인 영향을 미칩니다.</p>
+            </div>
+          </div>
+
         </div>
       </div>
     </section>
