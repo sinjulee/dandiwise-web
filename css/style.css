@@ -2,6 +2,10 @@
    D&I WISE - Global Styles
    ========================= */
 
+body {
+  background: red !important;
+}
+
 /* 폰트 */
 @font-face {
   font-family: 'Pretendard';
