@@ -71,17 +71,21 @@ tailwind.config = {
 <!-- 헤더 -->
 <header class="bg-white shadow-sm border-b sticky top-0 z-50">
   <div class="max-w-7xl mx-auto px-6 h-20 flex justify-between items-center">
-    <a href="index.html" class="text-2xl font-black text-brand-blue">
-      D&I WISE
+
+    <!-- 로고 -->
+    <a href="index.html" class="flex items-center">
+      <img src="assets/logo.jpg" alt="D&I WISE 로고" class="h-10 object-contain">
     </a>
 
+    <!-- 네비게이션 -->
     <nav class="hidden md:flex space-x-8 text-sm font-medium">
       <a href="company.html" class="hover:text-brand-blue transition">회사소개</a>
       <a href="services.html" class="hover:text-brand-blue transition">서비스소개</a>
-      <a href="differentiation.html" class="text-brand-blue font-bold">차별화포인트</a>
+      <a href="differentiation.html" class="hover:text-brand-blue transition">차별화포인트</a>
       <a href="case-study.html" class="hover:text-brand-blue transition">운영역량</a>
       <a href="esg.html" class="hover:text-brand-blue transition">ESG경영</a>
     </nav>
+
   </div>
 </header>
 
