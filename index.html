@@ -10,7 +10,6 @@
 
 <style>
 body {
-  font-family: 'Noto Sans KR', sans-serif;
   background-color: #F3F4F6;
 }
 
@@ -76,32 +75,66 @@ tailwind.config = {
 
 <!-- HERO -->
 <section class="hero">
+
   <div class="hero-inner">
 
     <!-- 좌측 텍스트 -->
     <div class="hero-text">
+
+      <!-- 작은 상단 라벨 -->
+      <div class="hero-eyebrow">
+        Cold Chain Logistics Solution
+      </div>
+
+      <!-- 메인 타이틀 -->
       <h1>
         완벽한 콜드체인,<br>
         <span>물류 설계에서 완성하다.</span>
       </h1>
 
+      <!-- 설명 -->
       <p>
         유통 물류 분야의 전문성과 운영 노하우를 바탕으로,<br>
         고객사의 성장을 함께 만드는 물류 파트너입니다.
       </p>
 
+      <!-- 버튼 -->
       <div class="hero-buttons">
-        <a href="#" class="btn-primary">서비스 알아보기</a>
-        <a href="#" class="btn-outline">문의하기</a>
+        <a href="services.html" class="btn-primary">서비스 알아보기</a>
+        <a href="contact.html" class="btn-outline">문의하기</a>
       </div>
+
     </div>
 
-    <!-- 우측 비주얼 -->
+    <!-- 우측 3D 비주얼 -->
     <div class="hero-visual">
-      <div class="orb"></div>
+
+      <div class="orb-scene">
+
+        <!-- 그림자 -->
+        <div class="orb-shadow"></div>
+
+        <!-- 링 -->
+        <div class="ring ring-1"></div>
+        <div class="ring ring-2"></div>
+        <div class="ring ring-3"></div>
+
+        <!-- 코어 -->
+        <div class="orb-core"></div>
+
+        <!-- 하이라이트 -->
+        <div class="orb-highlight"></div>
+
+      </div>
+
+      <!-- 주변 빛 -->
+      <div class="hero-glow-dot dot-1"></div>
+      <div class="hero-glow-dot dot-2"></div>
+
     </div>
 
   </div>
+
 </section>
 
 <main class="py-20">
