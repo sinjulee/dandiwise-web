@@ -149,19 +149,22 @@ body {
 }
 
 /* =========================
-   Rings (입체 띠)
+   Rings (가벼운 냉기 느낌으로 수정)
    ========================= */
 
 .ring {
-  /* 🔥 핵심 3: 타원이 아닌 '정원(가로=세로)'으로 만들어야 3D 회전 시 찌그러지지 않고 자연스럽습니다. */
   border-radius: 50%;
-  /* 기존 14px 굵기는 투박해 보일 수 있어 얇고 빛나게 수정했습니다. */
-  border: 3px solid rgba(255, 255, 255, 0.15);
-  border-top-color: rgba(255, 255, 255, 0.8); /* 띠가 돌면서 빛나는 효과 */
-  box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
+  /* 아주 얇고 투명한 기본 선 */
+  border: 1px solid rgba(255, 255, 255, 0.15); 
+  /* 회전할 때 빛나는 포인트 (유성 꼬리 같은 역할) */
+  border-top: 1px solid rgba(255, 255, 255, 0.8); 
+  
+  /* 🔥 핵심: 안개처럼 퍼지는 푸른/흰빛 글로우 효과 */
+  box-shadow: 
+    0 0 20px rgba(255, 255, 255, 0.15), 
+    inset 0 0 20px rgba(200, 220, 255, 0.1);
 }
 
-/* 구체(260px)보다 넉넉히 크게 설정해야 띠가 구체를 가로지르지 않고 깔끔하게 바깥쪽을 감쌉니다. */
 .ring-1 {
   width: 350px;
   height: 350px;
@@ -171,14 +174,17 @@ body {
 .ring-2 {
   width: 390px;
   height: 390px;
-  border-bottom-color: rgba(96, 165, 250, 0.8);
+  /* 회전하는 빛의 위치를 다르게 부여 */
+  border-top: 1px solid rgba(255, 255, 255, 0.15); 
+  border-bottom: 1px solid rgba(147, 197, 253, 0.8);
   animation: spin2 16s linear infinite;
 }
 
 .ring-3 {
   width: 430px;
   height: 430px;
-  border-left-color: rgba(147, 197, 253, 0.6);
+  border-top: 1px solid rgba(255, 255, 255, 0.15); 
+  border-left: 1px solid rgba(255, 255, 255, 0.7);
   animation: spin3 20s linear infinite;
 }
 
