@@ -1,280 +1,209 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>D&I WISE | 물류 3PL 전문기업</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>D&I WISE | 물류 3PL 전문기업</title>
 
-<script src="https://cdn.tailwindcss.com"></script>
-<link rel="stylesheet" href="css/style.css">
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="css/style.css" />
 
-<style>
-/* 타이틀 줄바꿈 방지 */
-.hero-text h1 {
-  max-width: 900px;
-  white-space: nowrap;
-}
-
-/* ===== 3D 오브젝트 2배 확대 ===== */
-.orb-scene {
-  width: 600px;
-  height: 600px;
-}
-
-.orb-core {
-  width: 320px;
-  height: 320px;
-}
-
-.ring {
-  width: 420px;
-  height: 140px;
-}
-
-.ring-2 {
-  width: 460px;
-  height: 160px;
-}
-
-.ring-3 {
-  width: 500px;
-  height: 180px;
-}
-
-/* ===== 디테일 강화 ===== */
-
-/* orb glow 강화 */
-.orb-core {
-  box-shadow:
-    inset -30px -40px 80px rgba(10,20,50,0.5),
-    inset 20px 20px 60px rgba(255,255,255,0.3),
-    0 50px 120px rgba(59,130,246,0.5),
-    0 0 60px rgba(96,165,250,0.4);
-}
-
-/* 링 광택 */
-.ring {
-  background: linear-gradient(
-    90deg,
-    rgba(255,255,255,0.1),
-    rgba(255,255,255,0.4),
-    rgba(255,255,255,0.1)
-  );
-  backdrop-filter: blur(2px);
-}
-
-/* hover 인터랙션 */
-.hero-visual:hover .orb-scene {
-  transform: rotateY(8deg) rotateX(6deg);
-  transition: 0.6s ease;
-}
-
-/* 부드러운 glow dot */
-.hero-glow-dot {
-  animation: floatDot 5s ease-in-out infinite;
-}
-</style>
-
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              blue: '#1E3A8A',
+              green: '#16A34A',
+              light: '#F3F4F6'
+            }
+          }
+        }
+      }
+    }
+  </script>
 </head>
 
 <body class="text-gray-800">
 
-<!-- 헤더 -->
-<header class="bg-white shadow-sm border-b sticky top-0 z-50">
-  <div class="max-w-7xl mx-auto px-6 h-20 flex justify-between items-center">
+  <!-- 헤더 -->
+  <header class="bg-white shadow-sm border-b sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-6 h-20 flex justify-between items-center">
+      <a href="index.html" class="flex items-center">
+        <img src="assets/logo.jpg" alt="D&I WISE 로고" class="h-10 object-contain">
+      </a>
 
-    <a href="index.html" class="flex items-center">
-      <img src="assets/logo.jpg" alt="D&I WISE 로고" class="h-10">
-    </a>
+      <nav class="hidden md:flex space-x-8 text-sm font-medium">
+        <a href="company.html" class="hover:text-brand-blue transition">회사소개</a>
+        <a href="services.html" class="hover:text-brand-blue transition">서비스소개</a>
+        <a href="differentiation.html" class="hover:text-brand-blue transition">차별화포인트</a>
+        <a href="case-study.html" class="hover:text-brand-blue transition">운영역량</a>
+        <a href="esg.html" class="hover:text-brand-blue transition">ESG경영</a>
+      </nav>
+    </div>
+  </header>
 
-    <nav class="hidden md:flex space-x-8 text-sm font-medium">
-      <a href="company.html">회사소개</a>
-      <a href="services.html">서비스소개</a>
-      <a href="differentiation.html">차별화포인트</a>
-      <a href="case-study.html">운영역량</a>
-      <a href="esg.html">ESG경영</a>
-    </nav>
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-inner">
 
-  </div>
-</header>
+      <!-- 좌측 텍스트 -->
+      <div class="hero-text">
+        <div class="hero-eyebrow">Cold Chain Logistics Solution</div>
 
-<!-- HERO -->
-<section class="hero">
+        <h1>
+          완벽한 콜드체인,
+          <span>물류 설계에서 완성하다.</span>
+        </h1>
 
-  <div class="hero-inner">
+        <p>
+          유통 물류 분야의 전문성과 운영 노하우를 바탕으로,<br>
+          고객사의 성장을 함께 만드는 물류 파트너입니다.
+        </p>
 
-    <!-- 좌측 텍스트 -->
-    <div class="hero-text">
-
-      <div class="hero-eyebrow">
-        Cold Chain Logistics Solution
+        <div class="hero-buttons">
+          <a href="services.html" class="btn-primary">서비스 알아보기</a>
+          <a href="contact.html" class="btn-outline">문의하기</a>
+        </div>
       </div>
 
-      <h1>
-        완벽한 콜드체인, 
-        <span>물류 설계에서 완성하다.</span>
-      </h1>
+      <!-- 우측 비주얼 -->
+      <div class="hero-visual">
+        <div class="planet-system">
+          <div class="planet-ring"></div>
+          <div class="planet"></div>
+        </div>
 
-      <p>
-        유통 물류 분야의 전문성과 운영 노하우를 바탕으로,<br>
-        고객사의 성장을 함께 만드는 물류 파트너입니다.
-      </p>
-
-      <div class="hero-buttons">
-        <a href="services.html" class="btn-primary">서비스 알아보기</a>
-        <a href="contact.html" class="btn-outline">문의하기</a>
+        <div class="hero-glow-dot dot-1"></div>
+        <div class="hero-glow-dot dot-2"></div>
       </div>
 
     </div>
+  </section>
 
-    <!-- 우측 비주얼 -->
-    <div class="hero-visual">
+  <main class="py-20 bg-brand-light">
+    <div class="max-w-6xl mx-auto px-6">
 
-      <div class="orb-scene">
+      <!-- 소개 문구 -->
+      <section class="mb-24 text-center fade-up">
+        <h2 class="text-3xl font-black text-brand-blue mb-5">
+          고객과 함께 성장하는 혁신적인 유통공급 파트너
+        </h2>
+        <p class="text-gray-600 leading-relaxed max-w-4xl mx-auto">
+          D&I WISE는 단순한 물류대행을 넘어 <br>
+          물류 전략 수립, 운영 최적화, 공급망 연결, 데이터 기반 관리까지 아우르는 <br>
+          종합 물류 솔루션을 제공합니다.
+        </p>
+      </section>
 
-        <div class="orb-shadow"></div>
+      <!-- 요약 카드 -->
+      <section class="grid md:grid-cols-2 xl:grid-cols-3 gap-8">
 
-        <div class="ring ring-1"></div>
-        <div class="ring ring-2"></div>
-        <div class="ring ring-3"></div>
+        <a href="company.html" class="summary-card fade-up bg-white rounded-2xl border shadow p-8 block">
+          <div class="mb-6">
+            <span class="inline-flex items-center px-3 py-1 rounded-full bg-blue-50 text-brand-blue text-xs font-bold">
+              Company
+            </span>
+          </div>
+          <h3 class="text-2xl font-black text-brand-blue mb-4">회사소개</h3>
+          <p class="text-gray-600 leading-relaxed mb-6">
+            회사 개요, 비전, 핵심 가치를 통해 <br>
+            D&I WISE의 정체성과 방향성을 소개합니다.
+          </p>
+          <span class="text-sm font-bold text-brand-blue">자세히 보기 →</span>
+        </a>
 
-        <div class="orb-core"></div>
-        <div class="orb-highlight"></div>
+        <a href="services.html" class="summary-card fade-up bg-white rounded-2xl border shadow p-8 block">
+          <div class="mb-6">
+            <span class="inline-flex items-center px-3 py-1 rounded-full bg-blue-50 text-brand-blue text-xs font-bold">
+              Services
+            </span>
+          </div>
+          <h3 class="text-2xl font-black text-brand-blue mb-4">서비스소개</h3>
+          <p class="text-gray-600 leading-relaxed mb-6">
+            SCM 전략 수립부터 실행까지, <br>
+            물류 컨설팅과 운영 구조 설계를 포함한 <br>
+            핵심 서비스를 제공합니다.
+          </p>
+          <span class="text-sm font-bold text-brand-blue">자세히 보기 →</span>
+        </a>
 
-      </div>
+        <a href="differentiation.html" class="summary-card fade-up bg-white rounded-2xl border shadow p-8 block">
+          <div class="mb-6">
+            <span class="inline-flex items-center px-3 py-1 rounded-full bg-blue-50 text-brand-blue text-xs font-bold">
+              Differentiation
+            </span>
+          </div>
+          <h3 class="text-2xl font-black text-brand-blue mb-4">차별화포인트</h3>
+          <p class="text-gray-600 leading-relaxed mb-6">
+            타깃 시장과 경쟁 우위를 바탕으로 <br>
+            D&I WISE만의 차별화된 강점을 <br>
+            보여드립니다.
+          </p>
+          <span class="text-sm font-bold text-brand-blue">자세히 보기 →</span>
+        </a>
 
-      <div class="hero-glow-dot dot-1"></div>
-      <div class="hero-glow-dot dot-2"></div>
+        <a href="case-study.html" class="summary-card fade-up bg-white rounded-2xl border shadow p-8 block">
+          <div class="mb-6">
+            <span class="inline-flex items-center px-3 py-1 rounded-full bg-green-50 text-brand-green text-xs font-bold">
+              Capability
+            </span>
+          </div>
+          <h3 class="text-2xl font-black text-brand-blue mb-4">운영역량</h3>
+          <p class="text-gray-600 leading-relaxed mb-6">
+            주요 거점, 운영 인프라, 협업 사례를 통해 실제 수행 역량과 실행 구조를 확인할 수 있습니다.
+          </p>
+          <span class="text-sm font-bold text-brand-blue">자세히 보기 →</span>
+        </a>
 
+        <a href="esg.html" class="summary-card fade-up bg-white rounded-2xl border shadow p-8 block">
+          <div class="mb-6">
+            <span class="inline-flex items-center px-3 py-1 rounded-full bg-green-50 text-brand-green text-xs font-bold">
+              ESG
+            </span>
+          </div>
+          <h3 class="text-2xl font-black text-brand-blue mb-4">ESG경영</h3>
+          <p class="text-gray-600 leading-relaxed mb-6">
+            환경, 사회, 지배구조를 기반으로 <br>
+            지속 가능한 운영과 책임 있는 <br>
+            기업 경영 방향을 제시합니다.
+          </p>
+          <span class="text-sm font-bold text-brand-blue">자세히 보기 →</span>
+        </a>
+
+        <div class="summary-card fade-up bg-brand-blue text-white rounded-2xl border border-brand-blue shadow p-8">
+          <div class="mb-6">
+            <span class="inline-flex items-center px-3 py-1 rounded-full bg-white/15 text-white text-xs font-bold">
+              Brand Message
+            </span>
+          </div>
+          <h3 class="text-2xl font-black mb-4">신뢰를 설계하는 <br>물류 파트너</h3>
+          <p class="text-blue-100 leading-relaxed">
+            유통 물류의 전문성과 운영 구조 설계 역량을 바탕으로,
+            고객사의 성장과 시장 경쟁력을 함께 만들어갑니다.
+          </p>
+        </div>
+
+      </section>
     </div>
+  </main>
 
-  </div>
+  <!-- 푸터 -->
+  <footer class="bg-gray-900 text-gray-400 py-10 text-center text-sm">
+    © 2026 D&I WISE. All rights reserved.
+  </footer>
 
-</section>
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('show');
+        }
+      });
+    }, { threshold: 0.15 });
 
-<main class="py-20">
-  <div class="max-w-6xl mx-auto px-6">
-
-    <!-- 소개 문구 -->
-    <section class="mb-24 text-center fade-up">
-      <h2 class="text-3xl font-black text-brand-blue mb-5">
-        고객과 함께 성장하는 혁신적인 유통공급 파트너
-      </h2>
-      <p class="text-gray-600 leading-relaxed max-w-4xl mx-auto">
-        D&I WISE는 단순한 물류대행을 넘어 <br>물류 전략 수립, 운영 최적화, 공급망 연결,
-        데이터 기반 관리까지 아우르는 <br>종합 물류 솔루션을 제공합니다.
-      </p>
-    </section>
-
-    <!-- 요약 카드 -->
-    <section class="grid md:grid-cols-2 xl:grid-cols-3 gap-8">
-
-      <!-- 회사소개 -->
-      <a href="company.html" class="summary-card fade-up bg-white rounded-2xl border shadow p-8 block">
-        <div class="mb-6">
-          <span class="inline-flex items-center px-3 py-1 rounded-full bg-blue-50 text-brand-blue text-xs font-bold">
-            Company
-          </span>
-        </div>
-        <h3 class="text-2xl font-black text-brand-blue mb-4">회사소개</h3>
-        <p class="text-gray-600 leading-relaxed mb-6">
-          회사 개요, 비전, 핵심 가치를 통해 <br>D&I WISE의 정체성과 방향성을 소개합니다.
-        </p>
-        <span class="text-sm font-bold text-brand-blue">자세히 보기 →</span>
-      </a>
-
-      <!-- 서비스소개 -->
-      <a href="services.html" class="summary-card fade-up bg-white rounded-2xl border shadow p-8 block">
-        <div class="mb-6">
-          <span class="inline-flex items-center px-3 py-1 rounded-full bg-blue-50 text-brand-blue text-xs font-bold">
-            Services
-          </span>
-        </div>
-        <h3 class="text-2xl font-black text-brand-blue mb-4">서비스소개</h3>
-        <p class="text-gray-600 leading-relaxed mb-6">
-          SCM 전략 수립부터 실행까지, <br>물류 컨설팅과 운영 구조 설계를 포함한 <br>핵심 서비스를 제공합니다.
-        </p>
-        <span class="text-sm font-bold text-brand-blue">자세히 보기 →</span>
-      </a>
-
-      <!-- 차별화포인트 -->
-      <a href="differentiation.html" class="summary-card fade-up bg-white rounded-2xl border shadow p-8 block">
-        <div class="mb-6">
-          <span class="inline-flex items-center px-3 py-1 rounded-full bg-blue-50 text-brand-blue text-xs font-bold">
-            Differentiation
-          </span>
-        </div>
-        <h3 class="text-2xl font-black text-brand-blue mb-4">차별화포인트</h3>
-        <p class="text-gray-600 leading-relaxed mb-6">
-          타깃 시장과 경쟁 우위를 바탕으로 <br>D&I WISE만의 차별화된 강점을 <br>보여드립니다.
-        </p>
-        <span class="text-sm font-bold text-brand-blue">자세히 보기 →</span>
-      </a>
-
-      <!-- 운영역량 -->
-      <a href="case-study.html" class="summary-card fade-up bg-white rounded-2xl border shadow p-8 block">
-        <div class="mb-6">
-          <span class="inline-flex items-center px-3 py-1 rounded-full bg-green-50 text-brand-green text-xs font-bold">
-            Capability
-          </span>
-        </div>
-        <h3 class="text-2xl font-black text-brand-blue mb-4">운영역량</h3>
-        <p class="text-gray-600 leading-relaxed mb-6">
-          주요 거점, 운영 인프라, 협업 사례를 통해 실제 수행 역량과 실행 구조를 확인할 수 있습니다.
-        </p>
-        <span class="text-sm font-bold text-brand-blue">자세히 보기 →</span>
-      </a>
-
-      <!-- ESG -->
-      <a href="esg.html" class="summary-card fade-up bg-white rounded-2xl border shadow p-8 block">
-        <div class="mb-6">
-          <span class="inline-flex items-center px-3 py-1 rounded-full bg-green-50 text-brand-green text-xs font-bold">
-            ESG
-          </span>
-        </div>
-        <h3 class="text-2xl font-black text-brand-blue mb-4">ESG경영</h3>
-        <p class="text-gray-600 leading-relaxed mb-6">
-          환경, 사회, 지배구조를 기반으로 <br>지속 가능한 운영과 책임 있는 <br>기업 경영 방향을 제시합니다.
-        </p>
-        <span class="text-sm font-bold text-brand-blue">자세히 보기 →</span>
-      </a>
-
-      <!-- 브랜드 요약 -->
-      <div class="summary-card fade-up bg-brand-blue text-white rounded-2xl border border-brand-blue shadow p-8">
-        <div class="mb-6">
-          <span class="inline-flex items-center px-3 py-1 rounded-full bg-white/15 text-white text-xs font-bold">
-            Brand Message
-          </span>
-        </div>
-        <h3 class="text-2xl font-black mb-4">신뢰를 설계하는 <br>물류 파트너</h3>
-        <p class="text-blue-100 leading-relaxed">
-          유통 물류의 전문성과 운영 구조 설계 역량을 바탕으로,
-          고객사의 성장과 시장 경쟁력을 함께 만들어갑니다.
-        </p>
-      </div>
-
-    </section>
-
-  </div>
-</main>
-
-<!-- 푸터 -->
-<footer class="bg-gray-900 text-gray-400 py-10 text-center text-sm">
-  © 2026 D&I WISE. All rights reserved.
-</footer>
-
-<script>
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach((entry) => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('show');
-    }
-  });
-}, { threshold: 0.15 });
-
-document.querySelectorAll('.fade-up').forEach((el) => observer.observe(el));
-</script>
-
+    document.querySelectorAll('.fade-up').forEach((el) => observer.observe(el));
+  </script>
 </body>
 </html>

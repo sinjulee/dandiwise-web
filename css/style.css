@@ -26,7 +26,6 @@
   --brand-navy: #0b1120;
   --white: #ffffff;
   --text-soft: rgba(226, 232, 240, 0.92);
-  --text-soft-2: #cbd5f5;
   --hero-max: 1280px;
   --radius-pill: 999px;
 }
@@ -157,7 +156,7 @@ a {
 .hero-text p {
   margin-top: 28px;
   margin-bottom: 0;
-  max-width: 28ch;
+  max-width: none;
   word-break: keep-all;
   font-size: clamp(17px, 1.25vw, 20px);
   line-height: 1.75;
@@ -220,7 +219,7 @@ a {
   display: flex;
   align-items: center;
   justify-content: center;
-  perspective: 1600px;
+  perspective: 1400px;
   z-index: 2;
 }
 
@@ -235,28 +234,27 @@ a {
   animation: pulseGlow 6s ease-in-out infinite;
 }
 
-.orb-scene {
+/* =========================
+   Planet System
+   ========================= */
+
+.planet-system {
   position: relative;
   width: clamp(420px, 40vw, 620px);
   aspect-ratio: 1 / 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   transform-style: preserve-3d;
-  animation: sceneFloat 10s ease-in-out infinite;
+  animation: planetRotate 20s linear infinite;
 }
 
-/* =========================
-   Orb
-   ========================= */
-
-.orb-core {
-  position: absolute;
-  top: 50%;
-  left: 50%;
+.planet {
+  position: relative;
   width: clamp(240px, 21vw, 330px);
   aspect-ratio: 1 / 1;
-  transform: translate(-50%, -50%);
   border-radius: 50%;
-  z-index: 3;
-  overflow: visible;
+  z-index: 2;
   background:
     radial-gradient(circle at 34% 28%, rgba(255, 255, 255, 0.96) 0%, rgba(219, 234, 254, 0.96) 18%, rgba(123, 179, 255, 0.95) 38%, rgba(59, 130, 246, 0.92) 58%, rgba(30, 58, 138, 0.95) 82%, rgba(9, 20, 49, 0.98) 100%);
   box-shadow:
@@ -265,7 +263,7 @@ a {
     0 24px 70px rgba(30, 58, 138, 0.55);
 }
 
-.orb-core::before {
+.planet::before {
   content: "";
   position: absolute;
   top: 17%;
@@ -277,106 +275,28 @@ a {
   filter: blur(1px);
 }
 
-.orb-core::after {
-  content: "";
+.planet-ring {
   position: absolute;
-  left: 50%;
-  top: 54%;
-  width: 168%;
-  height: 38%;
-  transform: translate(-50%, -50%) rotate(-14deg);
-  border-radius: 50%;
-  background:
-    linear-gradient(
-      90deg,
-      rgba(255, 255, 255, 0) 0%,
-      rgba(191, 219, 254, 0.06) 14%,
-      rgba(255, 255, 255, 0.72) 38%,
-      rgba(191, 219, 254, 0.92) 50%,
-      rgba(255, 255, 255, 0.72) 62%,
-      rgba(191, 219, 254, 0.06) 86%,
-      rgba(255, 255, 255, 0) 100%
-    );
-  -webkit-mask: radial-gradient(farthest-side, transparent calc(100% - 3px), #000 calc(100% - 2px));
-  mask: radial-gradient(farthest-side, transparent calc(100% - 3px), #000 calc(100% - 2px));
-  filter: blur(0.3px) drop-shadow(0 0 10px rgba(191, 219, 254, 0.34));
-  opacity: 0.82;
-  pointer-events: none;
-  animation: frontSweep 14s linear infinite;
-}
-
-.orb-highlight {
-  display: none;
-}
-
-/* =========================
-   Cold Chain Ribbons
-   ========================= */
-
-.ring {
-  position: absolute;
-  top: 50%;
-  left: 50%;
+  width: clamp(360px, 34vw, 500px);
+  height: clamp(110px, 10vw, 150px);
   border-radius: 50%;
   z-index: 1;
-  opacity: 0.88;
-  transform-origin: center;
+  transform: rotateX(72deg) rotateZ(-12deg);
   background:
     linear-gradient(
       90deg,
       rgba(255, 255, 255, 0) 0%,
-      rgba(191, 219, 254, 0.06) 14%,
-      rgba(255, 255, 255, 0.64) 42%,
+      rgba(191, 219, 254, 0.08) 16%,
+      rgba(255, 255, 255, 0.72) 40%,
       rgba(147, 197, 253, 0.92) 50%,
-      rgba(255, 255, 255, 0.62) 58%,
-      rgba(191, 219, 254, 0.06) 86%,
+      rgba(255, 255, 255, 0.72) 60%,
+      rgba(191, 219, 254, 0.08) 84%,
       rgba(255, 255, 255, 0) 100%
     );
-  -webkit-mask: radial-gradient(farthest-side, transparent calc(100% - 3px), #000 calc(100% - 2px));
-  mask: radial-gradient(farthest-side, transparent calc(100% - 3px), #000 calc(100% - 2px));
-  filter: drop-shadow(0 0 12px rgba(147, 197, 253, 0.28));
-}
-
-.ring-1 {
-  width: 380px;
-  height: 108px;
-  animation: ribbonSpin1 13s linear infinite;
-}
-
-.ring-2 {
-  width: 450px;
-  height: 140px;
-  opacity: 0.74;
-  background:
-    linear-gradient(
-      90deg,
-      rgba(255, 255, 255, 0) 0%,
-      rgba(96, 165, 250, 0.05) 12%,
-      rgba(191, 219, 254, 0.54) 40%,
-      rgba(96, 165, 250, 0.86) 50%,
-      rgba(191, 219, 254, 0.54) 60%,
-      rgba(96, 165, 250, 0.05) 88%,
-      rgba(255, 255, 255, 0) 100%
-    );
-  animation: ribbonSpin2 17s linear infinite reverse;
-}
-
-.ring-3 {
-  width: 520px;
-  height: 176px;
-  opacity: 0.56;
-  background:
-    linear-gradient(
-      90deg,
-      rgba(255, 255, 255, 0) 0%,
-      rgba(191, 219, 254, 0.04) 14%,
-      rgba(255, 255, 255, 0.44) 42%,
-      rgba(147, 197, 253, 0.74) 50%,
-      rgba(255, 255, 255, 0.44) 58%,
-      rgba(191, 219, 254, 0.04) 86%,
-      rgba(255, 255, 255, 0) 100%
-    );
-  animation: ribbonSpin3 21s linear infinite;
+  -webkit-mask: radial-gradient(farthest-side, transparent calc(100% - 4px), #000 calc(100% - 3px));
+  mask: radial-gradient(farthest-side, transparent calc(100% - 4px), #000 calc(100% - 3px));
+  filter: blur(0.6px) drop-shadow(0 0 12px rgba(147, 197, 253, 0.35));
+  opacity: 0.95;
 }
 
 /* =========================
@@ -411,15 +331,6 @@ a {
    Motion
    ========================= */
 
-@keyframes sceneFloat {
-  0%, 100% {
-    transform: translateY(0) rotateZ(0deg);
-  }
-  50% {
-    transform: translateY(-14px) rotateZ(-1.2deg);
-  }
-}
-
 @keyframes pulseGlow {
   0%, 100% {
     transform: scale(1);
@@ -431,45 +342,12 @@ a {
   }
 }
 
-@keyframes ribbonSpin1 {
+@keyframes planetRotate {
   from {
-    transform: translate(-50%, -50%) rotateX(78deg) rotateY(6deg) rotateZ(0deg);
+    transform: rotateY(0deg) rotateX(-10deg);
   }
   to {
-    transform: translate(-50%, -50%) rotateX(78deg) rotateY(6deg) rotateZ(360deg);
-  }
-}
-
-@keyframes ribbonSpin2 {
-  from {
-    transform: translate(-50%, -50%) rotateX(72deg) rotateY(-18deg) rotateZ(24deg);
-  }
-  to {
-    transform: translate(-50%, -50%) rotateX(72deg) rotateY(-18deg) rotateZ(-336deg);
-  }
-}
-
-@keyframes ribbonSpin3 {
-  from {
-    transform: translate(-50%, -50%) rotateX(84deg) rotateY(14deg) rotateZ(-18deg);
-  }
-  to {
-    transform: translate(-50%, -50%) rotateX(84deg) rotateY(14deg) rotateZ(342deg);
-  }
-}
-
-@keyframes frontSweep {
-  0% {
-    transform: translate(-50%, -50%) rotate(-14deg) rotateZ(0deg);
-    opacity: 0.62;
-  }
-  50% {
-    transform: translate(-50%, -50%) rotate(-14deg) rotateZ(180deg);
-    opacity: 0.92;
-  }
-  100% {
-    transform: translate(-50%, -50%) rotate(-14deg) rotateZ(360deg);
-    opacity: 0.62;
+    transform: rotateY(360deg) rotateX(-10deg);
   }
 }
 
@@ -489,13 +367,9 @@ a {
    ========================= */
 
 @supports not ((-webkit-mask: radial-gradient(white, black)) or (mask: radial-gradient(white, black))) {
-  .ring,
-  .orb-core::after {
+  .planet-ring {
     background: none;
-    border: 2px solid rgba(191, 219, 254, 0.65);
-  }
-
-  .ring {
+    border: 2px solid rgba(191, 219, 254, 0.7);
     filter: none;
   }
 }
@@ -549,23 +423,8 @@ a {
     min-height: 520px;
   }
 
-  .orb-scene {
+  .planet-system {
     width: 520px;
-  }
-
-  .ring-1 {
-    width: 336px;
-    height: 96px;
-  }
-
-  .ring-2 {
-    width: 400px;
-    height: 126px;
-  }
-
-  .ring-3 {
-    width: 462px;
-    height: 156px;
   }
 }
 
@@ -587,10 +446,7 @@ a {
     flex-basis: auto;
   }
 
-  .hero-text h1 {
-    max-width: 100%;
-  }
-
+  .hero-text h1,
   .hero-text p {
     max-width: 100%;
   }
@@ -602,7 +458,7 @@ a {
     justify-content: center;
   }
 
-  .orb-scene {
+  .planet-system {
     width: min(78vw, 460px);
   }
 }
@@ -648,27 +504,17 @@ a {
     min-height: 300px;
   }
 
-  .orb-scene {
+  .planet-system {
     width: min(86vw, 320px);
   }
 
-  .orb-core {
+  .planet {
     width: 168px;
   }
 
-  .ring-1 {
-    width: 230px;
-    height: 66px;
-  }
-
-  .ring-2 {
-    width: 270px;
-    height: 86px;
-  }
-
-  .ring-3 {
-    width: 308px;
-    height: 104px;
+  .planet-ring {
+    width: 250px;
+    height: 78px;
   }
 
   .hero-glow-dot.dot-1 {
