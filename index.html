@@ -26,56 +26,57 @@
   </header>
 
   <!-- HERO -->
-  <section class="hero">
-    <div class="hero-inner">
-      <div class="hero-text fade-up show">
-        <div class="hero-eyebrow">Demand &amp; Innovation Wise</div>
-
-        <h1>
-          완벽한 콜드체인,<br>
-          <span class="hero-line-fixed">물류 설계에서 완성하다.</span>
-        </h1>
-
-        <p>
-          유통 물류 분야의 전문성과 운영 노하우를 바탕으로,<br>
-          고객사의 성장을 함께 만드는 물류 파트너입니다.
-        </p>
-
-        <div class="hero-buttons">
-          <a href="services.html" class="btn-primary">서비스 알아보기</a>
-          <a href="contact.html" class="btn-outline">문의하기</a>
-        </div>
-      </div>
-
-      <div class="hero-visual fade-up show">
-        <div class="planet-system">
-          <div class="planet-ring ring-back"></div>
-
-          <div class="cold-particles">
-            <span class="particle p1"></span>
-            <span class="particle p2"></span>
-            <span class="particle p3"></span>
-            <span class="particle p4"></span>
-            <span class="particle p5"></span>
-            <span class="particle p6"></span>
-            <span class="particle p7"></span>
-            <span class="particle p8"></span>
-          </div>
-
-          <div class="planet"></div>
-          <div class="planet-ring ring-front"></div>
-        </div>
-
-        <div class="hero-glow-dot dot-1"></div>
-        <div class="hero-glow-dot dot-2"></div>
-      </div>
+  <section id="hero" class="relative min-h-[88vh] flex items-center overflow-hidden">
+    <!-- 배경 사진 -->
+    <div class="absolute inset-0 z-0">
+        <img 
+            src="https://images.unsplash.com/photo-1586528116493-35c7f3523f8a?q=80&w=2070&auto=format&fit=crop" 
+            alt="냉장 물류 창고 배경" 
+            class="w-full h-full object-cover"
+        >
     </div>
 
-    <div class="scroll-indicator">
-      <span>Scroll</span>
-      <div class="scroll-line"></div>
+    <!-- 톤 오버레이 -->
+    <div class="absolute inset-0 z-10 bg-gradient-to-r from-[#06152f]/88 via-[#0d2d63]/76 to-[#1E3A8A]/48"></div>
+
+    <!-- 추가 어둡기 보정 -->
+    <div class="absolute inset-0 z-10 bg-black/18"></div>
+
+    <!-- 콘텐츠 -->
+    <div class="relative z-20 max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 pt-24 pb-20">
+        <div class="max-w-3xl">
+            <span class="inline-flex items-center px-4 py-2 rounded-full bg-white/10 border border-white/20 text-white text-sm font-semibold tracking-wide backdrop-blur-sm mb-6">
+                Demand & Innovation Wise
+            </span>
+
+            <h1 class="text-white font-black leading-[1.12] tracking-tight text-4xl sm:text-5xl lg:text-7xl">
+                완벽한 콜드체인,<br>
+                <span class="text-[#7DB7FF]">물류 설계에서 완성하다.</span>
+            </h1>
+
+            <p class="mt-7 text-blue-50/92 text-lg sm:text-xl leading-relaxed max-w-2xl font-light">
+                유통 물류 분야의 전문성과 운영 노하우를 바탕으로,<br class="hidden md:block">
+                고객사의 성장을 함께 만드는 식자재 물류 파트너입니다.
+            </p>
+
+            <div class="mt-10 flex flex-col sm:flex-row gap-4">
+                <a href="#competence" class="inline-flex items-center justify-center px-8 py-4 rounded-full bg-[#3B82F6] text-white font-bold text-base shadow-lg hover:bg-[#2563EB] transition">
+                    서비스 알아보기
+                </a>
+                <a href="#contact" class="inline-flex items-center justify-center px-8 py-4 rounded-full border border-white/30 bg-white/8 text-white font-bold text-base backdrop-blur-sm hover:bg-white/14 transition">
+                    문의하기
+                </a>
+            </div>
+        </div>
     </div>
-  </section>
+
+    <!-- 하단 스크롤 인디케이터 -->
+    <div class="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 flex flex-col items-center text-white/70">
+        <span class="text-xs tracking-[0.25em] font-semibold">SCROLL</span>
+        <span class="mt-2 text-xl animate-bounce">↓</span>
+    </div>
+</section>
+
 
   <main>
     <!-- Intro -->
