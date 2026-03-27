@@ -3,43 +3,24 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>D&I WISE | 물류 3PL 전문기업</title>
-
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="stylesheet" href="css/style.css" />
-
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            brand: {
-              blue: '#1E3A8A',
-              green: '#16A34A',
-              light: '#F3F4F6'
-            }
-          }
-        }
-      }
-    }
-  </script>
+  <title>D&I WISE | 완벽한 콜드체인, 물류 설계에서 완성하다</title>
+  <link rel="stylesheet" href="assets/css/style.css" />
 </head>
 
-<body class="text-gray-800">
-
-  <!-- 헤더 -->
-  <header class="bg-white shadow-sm border-b sticky top-0 z-50">
-    <div class="max-w-7xl mx-auto px-6 h-20 flex justify-between items-center">
-      <a href="index.html" class="flex items-center">
-        <img src="assets/logo.jpg" alt="D&I WISE 로고" class="h-10 object-contain">
+<body>
+  <!-- Header -->
+  <header class="header-shell">
+    <div class="header-inner">
+      <a href="index.html" class="header-logo">
+        <img src="assets/logo.jpg" alt="D&I WISE 로고" />
       </a>
 
-      <nav class="hidden md:flex space-x-8 text-sm font-medium">
-        <a href="company.html" class="hover:text-brand-blue transition">회사소개</a>
-        <a href="services.html" class="hover:text-brand-blue transition">서비스소개</a>
-        <a href="differentiation.html" class="hover:text-brand-blue transition">차별화포인트</a>
-        <a href="case-study.html" class="hover:text-brand-blue transition">운영역량</a>
-        <a href="esg.html" class="hover:text-brand-blue transition">ESG경영</a>
+      <nav class="nav-desktop">
+        <a href="company.html" class="nav-link">회사소개</a>
+        <a href="services.html" class="nav-link">서비스소개</a>
+        <a href="differentiation.html" class="nav-link">차별화포인트</a>
+        <a href="case-study.html" class="nav-link">운영역량</a>
+        <a href="esg.html" class="nav-link">ESG경영</a>
       </nav>
     </div>
   </header>
@@ -47,10 +28,8 @@
   <!-- HERO -->
   <section class="hero">
     <div class="hero-inner">
-
-      <!-- 좌측 텍스트 -->
-      <div class="hero-text">
-        <div class="hero-eyebrow">Demand & Innovation Wise</div>
+      <div class="hero-text fade-up show">
+        <div class="hero-eyebrow">Demand &amp; Innovation Wise</div>
 
         <h1>
           완벽한 콜드체인,<br>
@@ -68,10 +47,8 @@
         </div>
       </div>
 
-      <!-- 우측 비주얼 -->
-      <div class="hero-visual">
+      <div class="hero-visual fade-up show">
         <div class="planet-system">
-
           <div class="planet-ring ring-back"></div>
 
           <div class="cold-particles">
@@ -86,124 +63,552 @@
           </div>
 
           <div class="planet"></div>
-
           <div class="planet-ring ring-front"></div>
         </div>
 
         <div class="hero-glow-dot dot-1"></div>
         <div class="hero-glow-dot dot-2"></div>
       </div>
+    </div>
 
+    <div class="scroll-indicator">
+      <span>Scroll</span>
+      <div class="scroll-line"></div>
     </div>
   </section>
 
-  <main class="py-20 bg-brand-light">
-    <div class="max-w-6xl mx-auto px-6">
-
-      <section class="mb-24 text-center fade-up">
-        <h2 class="text-3xl font-black text-brand-blue mb-5">
-          고객과 함께 성장하는 혁신적인 유통공급 파트너
-        </h2>
-        <p class="text-gray-600 leading-relaxed max-w-4xl mx-auto">
-          D&I WISE는 단순한 물류대행을 넘어 <br>
-          물류 전략 수립, 운영 최적화, 공급망 연결, 데이터 기반 관리까지 아우르는 <br>
-          종합 물류 솔루션을 제공합니다.
-        </p>
-      </section>
-
-      <section class="grid md:grid-cols-2 xl:grid-cols-3 gap-8">
-
-        <a href="company.html" class="summary-card fade-up bg-white rounded-2xl border shadow p-8 block">
-          <div class="mb-6">
-            <span class="inline-flex items-center px-3 py-1 rounded-full bg-blue-50 text-brand-blue text-xs font-bold">
-              Company
-            </span>
-          </div>
-          <h3 class="text-2xl font-black text-brand-blue mb-4">회사소개</h3>
-          <p class="text-gray-600 leading-relaxed mb-6">
-            회사 개요, 비전, 핵심 가치를 통해 <br>
-            D&I WISE의 정체성과 방향성을 소개합니다.
-          </p>
-          <span class="text-sm font-bold text-brand-blue">자세히 보기 →</span>
-        </a>
-
-        <a href="services.html" class="summary-card fade-up bg-white rounded-2xl border shadow p-8 block">
-          <div class="mb-6">
-            <span class="inline-flex items-center px-3 py-1 rounded-full bg-blue-50 text-brand-blue text-xs font-bold">
-              Services
-            </span>
-          </div>
-          <h3 class="text-2xl font-black text-brand-blue mb-4">서비스소개</h3>
-          <p class="text-gray-600 leading-relaxed mb-6">
-            SCM 전략 수립부터 실행까지, <br>
-            물류 컨설팅과 운영 구조 설계를 포함한 <br>
-            핵심 서비스를 제공합니다.
-          </p>
-          <span class="text-sm font-bold text-brand-blue">자세히 보기 →</span>
-        </a>
-
-        <a href="differentiation.html" class="summary-card fade-up bg-white rounded-2xl border shadow p-8 block">
-          <div class="mb-6">
-            <span class="inline-flex items-center px-3 py-1 rounded-full bg-blue-50 text-brand-blue text-xs font-bold">
-              Differentiation
-            </span>
-          </div>
-          <h3 class="text-2xl font-black text-brand-blue mb-4">차별화포인트</h3>
-          <p class="text-gray-600 leading-relaxed mb-6">
-            타깃 시장과 경쟁 우위를 바탕으로 <br>
-            D&I WISE만의 차별화된 강점을 <br>
-            보여드립니다.
-          </p>
-          <span class="text-sm font-bold text-brand-blue">자세히 보기 →</span>
-        </a>
-
-        <a href="case-study.html" class="summary-card fade-up bg-white rounded-2xl border shadow p-8 block">
-          <div class="mb-6">
-            <span class="inline-flex items-center px-3 py-1 rounded-full bg-green-50 text-brand-green text-xs font-bold">
-              Capability
-            </span>
-          </div>
-          <h3 class="text-2xl font-black text-brand-blue mb-4">운영역량</h3>
-          <p class="text-gray-600 leading-relaxed mb-6">
-            주요 거점, 운영 인프라, 협업 사례를 통해 실제 수행 역량과 실행 구조를 확인할 수 있습니다.
-          </p>
-          <span class="text-sm font-bold text-brand-blue">자세히 보기 →</span>
-        </a>
-
-        <a href="esg.html" class="summary-card fade-up bg-white rounded-2xl border shadow p-8 block">
-          <div class="mb-6">
-            <span class="inline-flex items-center px-3 py-1 rounded-full bg-green-50 text-brand-green text-xs font-bold">
-              ESG
-            </span>
-          </div>
-          <h3 class="text-2xl font-black text-brand-blue mb-4">ESG경영</h3>
-          <p class="text-gray-600 leading-relaxed mb-6">
-            환경, 사회, 지배구조를 기반으로 <br>
-            지속 가능한 운영과 책임 있는 <br>
-            기업 경영 방향을 제시합니다.
-          </p>
-          <span class="text-sm font-bold text-brand-blue">자세히 보기 →</span>
-        </a>
-
-        <div class="summary-card fade-up bg-brand-blue text-white rounded-2xl border border-brand-blue shadow p-8">
-          <div class="mb-6">
-            <span class="inline-flex items-center px-3 py-1 rounded-full bg-white/15 text-white text-xs font-bold">
-              Brand Message
-            </span>
-          </div>
-          <h3 class="text-2xl font-black mb-4">신뢰를 설계하는 <br>물류 파트너</h3>
-          <p class="text-blue-100 leading-relaxed">
-            유통 물류의 전문성과 운영 구조 설계 역량을 바탕으로,
-            고객사의 성장과 시장 경쟁력을 함께 만들어갑니다.
+  <main>
+    <!-- Intro -->
+    <section class="section section-dark">
+      <div class="container-wide">
+        <div class="section-heading fade-up">
+          <span class="section-kicker">INTRODUCTION</span>
+          <h2 class="section-title text-white">
+            물류를 운영하는 회사를 넘어,<br>
+            물류를 설계하는 파트너
+          </h2>
+          <p class="section-desc text-blue-soft">
+            D&amp;I WISE는 단순한 물류대행을 넘어,
+            물류 전략 수립, 운영 최적화, 공급망 연결, 데이터 기반 관리까지
+            아우르는 종합 물류 솔루션을 제공합니다.
           </p>
         </div>
 
-      </section>
+        <div class="grid-3">
+          <div class="dark-card fade-up">
+            <div class="card-badge">01</div>
+            <h3 class="dark-title">물류 컨설팅</h3>
+            <p class="dark-text">
+              SCM 전략 수립부터 운영 구조 진단, 원가 안정화 방향까지
+              실행 가능한 물류 솔루션을 제안합니다.
+            </p>
+          </div>
+
+          <div class="dark-card fade-up">
+            <div class="card-badge">02</div>
+            <h3 class="dark-title">3PL 운영</h3>
+            <p class="dark-text">
+              창고, 피킹, 출고, 배송, 납품까지 이어지는
+              전 과정의 운영 체계를 설계하고 안정적으로 실행합니다.
+            </p>
+          </div>
+
+          <div class="dark-card fade-up">
+            <div class="card-badge">03</div>
+            <h3 class="dark-title">데이터 기반 관리</h3>
+            <p class="dark-text">
+              실시간 운영 데이터와 KPI를 기반으로
+              성과와 개선 포인트를 함께 점검하는 체계를 만듭니다.
+            </p>
+          </div>
+        </div>
+
+        <div class="stats-wrap fade-up">
+          <div class="stat-card">
+            <span class="stat-num">2021</span>
+            <p class="stat-label">설립 이후 축적된 운영 경험</p>
+          </div>
+          <div class="stat-card">
+            <span class="stat-num">15명</span>
+            <p class="stat-label">핵심 인력 중심의 운영 조직</p>
+          </div>
+          <div class="stat-card">
+            <span class="stat-num">2개</span>
+            <p class="stat-label">이천·광주 주요 물류 거점 운영</p>
+          </div>
+          <div class="stat-card">
+            <span class="stat-num">3PL</span>
+            <p class="stat-label">컨설팅부터 실행까지 이어지는 구조</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Service Summary -->
+    <section class="section section-light">
+      <div class="container-wide">
+        <div class="section-heading fade-up">
+          <span class="section-kicker">SERVICES</span>
+          <h2 class="section-title">
+            SCM 전략 수립부터 실행까지,<br>
+            전체 흐름을 설계합니다
+          </h2>
+          <p class="section-desc">
+            안정적 원가 구조, 소통형 고객사 관리, 데이터 기반 운영까지
+            고객사 상황에 맞는 물류 구조를 유기적으로 연결합니다.
+          </p>
+        </div>
+
+        <div class="grid-3">
+          <div class="info-card fade-up">
+            <div class="card-badge">A</div>
+            <h3 class="card-title">안정적 원가 구조</h3>
+            <p class="card-text">
+              인력망, 차량 운영, 보유 네트워크를 바탕으로
+              3PL 운영 원가의 효율성을 높이고
+              보다 안정적인 공급 구조를 만듭니다.
+            </p>
+          </div>
+
+          <div class="info-card fade-up">
+            <div class="card-badge">B</div>
+            <h3 class="card-title">소통형 고객사 관리</h3>
+            <p class="card-text">
+              물류 납품 과정에서 발생하는 공급, 클레임, 운영 이슈를
+              빠르게 조율하고 고객사와 화주사의 만족도를 높입니다.
+            </p>
+          </div>
+
+          <div class="info-card fade-up">
+            <div class="card-badge">C</div>
+            <h3 class="card-title">KPI 및 데이터 분석</h3>
+            <p class="card-text">
+              운영 데이터를 분석하여 KPI를 제공하고,
+              성과와 과오를 함께 점검하는 윈윈 구조의 운영 체계를 지원합니다.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Process -->
+    <section class="section section-light" style="padding-top: 0;">
+      <div class="container-wide">
+        <div class="section-heading fade-up">
+          <span class="section-kicker">PROCESS FLOW</span>
+          <h2 class="section-title">
+            물류 흐름을 더 단순하게,<br>
+            운영은 더 정밀하게
+          </h2>
+          <p class="section-desc">
+            입고부터 납품까지 끊기지 않는 흐름 설계가
+            결국 비용 절감, 운영 안정성, 납기 품질로 이어집니다.
+          </p>
+        </div>
+
+        <div class="flow-wrap fade-up">
+          <div class="flow-line"></div>
+
+          <div class="flow-grid">
+            <div class="flow-card">
+              <div class="flow-icon">01</div>
+              <h3 class="flow-title">입고</h3>
+              <p class="flow-text">상품 특성에 맞는 입고 기준과 초기 프로세스를 정리합니다.</p>
+            </div>
+
+            <div class="flow-card">
+              <div class="flow-icon">02</div>
+              <h3 class="flow-title">보관</h3>
+              <p class="flow-text">온도와 제품 특성을 고려한 창고 운영 기준을 세웁니다.</p>
+            </div>
+
+            <div class="flow-card">
+              <div class="flow-icon">03</div>
+              <h3 class="flow-title">피킹</h3>
+              <p class="flow-text">속도와 정확도를 높이는 피킹 체계를 운영합니다.</p>
+            </div>
+
+            <div class="flow-card">
+              <div class="flow-icon">04</div>
+              <h3 class="flow-title">출고</h3>
+              <p class="flow-text">납기와 정확도를 고려한 출고 프로세스를 설계합니다.</p>
+            </div>
+
+            <div class="flow-card">
+              <div class="flow-icon">05</div>
+              <h3 class="flow-title">배송</h3>
+              <p class="flow-text">차량 수급과 운송 네트워크를 통해 안정적인 배송을 지원합니다.</p>
+            </div>
+
+            <div class="flow-card">
+              <div class="flow-icon">06</div>
+              <h3 class="flow-title">납품</h3>
+              <p class="flow-text">최종 납품 이후 이슈 대응까지 포함한 관리 구조를 제공합니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Differentiation -->
+    <section class="section section-dark">
+      <div class="container-wide">
+        <div class="section-heading fade-up">
+          <span class="section-kicker">WHY D&amp;I WISE</span>
+          <h2 class="section-title text-white">
+            왜 디앤아이와이즈인가
+          </h2>
+          <p class="section-desc text-blue-soft">
+            우리는 단순히 운송하지 않습니다.
+            비용, 속도, 안정성, 현장 대응력까지 함께 설계합니다.
+          </p>
+        </div>
+
+        <div class="grid-2">
+          <div class="dark-card fade-up">
+            <div class="card-badge">01</div>
+            <h3 class="dark-title">식자재·식품 특화 운영력</h3>
+            <p class="dark-text">
+              식자재 및 식품 물류 운영에 대한 높은 이해도를 바탕으로
+              현장에 맞는 실질적인 운영 방안을 제공합니다.
+            </p>
+          </div>
+
+          <div class="dark-card fade-up">
+            <div class="card-badge">02</div>
+            <h3 class="dark-title">인력·차량 공급 우위</h3>
+            <p class="dark-text">
+              도급 및 파견 네트워크, 운송 네트워크를 기반으로
+              인력과 차량 수급 안정성을 동시에 확보합니다.
+            </p>
+          </div>
+
+          <div class="dark-card fade-up">
+            <div class="card-badge">03</div>
+            <h3 class="dark-title">대기업 관리자 출신 소통 역량</h3>
+            <p class="dark-text">
+              고객사와 현장 모두를 이해하는 운영 경험을 바탕으로
+              납품, 공급, 클레임 이슈를 빠르게 조율합니다.
+            </p>
+          </div>
+
+          <div class="dark-card fade-up">
+            <div class="card-badge">04</div>
+            <h3 class="dark-title">통합 물류관리 솔루션</h3>
+            <p class="dark-text">
+              물류 공급 채널과 운영 시스템을 함께 이해하고,
+              더 안정적이고 일원화된 물류 구조를 구축합니다.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Network -->
+    <section class="section section-dark" style="padding-top: 0;">
+      <div class="container-wide">
+        <div class="section-heading fade-up">
+          <span class="section-kicker">NETWORK STRUCTURE</span>
+          <h2 class="section-title text-white">
+            전문성과 실행력을 연결하는<br>
+            협업 구조
+          </h2>
+          <p class="section-desc text-blue-soft">
+            컨설팅, 인력 운영, 운송 네트워크가 분리되지 않고 하나의 구조로 연결될 때
+            더 안정적인 물류 운영이 가능합니다.
+          </p>
+        </div>
+
+        <div class="network-shell fade-up">
+          <div class="network-top">
+            <div class="network-core">
+              <h3>물류 전문가 집단</h3>
+              <p>
+                식자재 대기업 출신 물류 전문가를 중심으로
+                물류전문 컨설팅, 인력 도급 및 파견, 운송사 및 주선 네트워크가 결합된
+                차별화된 솔루션 구조를 제공합니다.
+              </p>
+            </div>
+          </div>
+
+          <div class="network-row">
+            <div class="network-plus plus-a">+</div>
+            <div class="network-plus plus-b">+</div>
+
+            <div class="network-item">
+              <h4>물류전문 컨설팅</h4>
+              <p>
+                ㈜디앤아이 중심의 물류 구조 설계와
+                운영 개선, 비용 최적화 방향을 제안합니다.
+              </p>
+            </div>
+
+            <div class="network-item">
+              <h4>인력 운영 네트워크</h4>
+              <p>
+                ㈜로지스앤크루, ㈜두드림 기반의
+                도급 및 파견 운영 체계를 통해 현장 대응력을 높입니다.
+              </p>
+            </div>
+
+            <div class="network-item">
+              <h4>운송사·주선 네트워크</h4>
+              <p>
+                ㈜콜드온, ㈜A7 등 운송 네트워크와 연계해
+                차량 수급 안정화와 납품 품질 향상을 지원합니다.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Capability -->
+    <section class="section section-light">
+      <div class="container-wide">
+        <div class="section-heading fade-up">
+          <span class="section-kicker">CAPABILITY</span>
+          <h2 class="section-title">
+            실제 운영 역량은<br>
+            협업 결과로 증명됩니다
+          </h2>
+          <p class="section-desc">
+            주요 거점, 운송 대응력, 장기 협업 사례를 통해
+            D&amp;I WISE의 실행력을 확인할 수 있습니다.
+          </p>
+        </div>
+
+        <div class="case-grid">
+          <div class="case-card fade-up">
+            <div class="case-chip">거점 운영</div>
+            <h3 class="case-title">이천·광주 물류 거점 운영</h3>
+            <p class="case-text">
+              경기도 이천시와 광주시를 중심으로
+              DRY 및 저온 창고 거점을 운영하며,
+              상품 특성과 운영 구조에 맞춘 물류 흐름을 지원합니다.
+            </p>
+            <div class="case-list">
+              <span>거점 운영</span>
+              <span>창고 운영</span>
+              <span>콜드체인 대응</span>
+            </div>
+          </div>
+
+          <div class="case-card fade-up">
+            <div class="case-chip">운송 역량</div>
+            <h3 class="case-title">운송 네트워크 기반 공급 안정화</h3>
+            <p class="case-text">
+              식자재 영역 운송 네트워크를 바탕으로
+              일일 대응력과 유연한 차량 운영 구조를 확보하고 있습니다.
+            </p>
+            <div class="case-list">
+              <span>차량 수급</span>
+              <span>유통 대응</span>
+              <span>납품 안정성</span>
+            </div>
+          </div>
+
+          <div class="case-card fade-up">
+            <div class="case-chip">협업 사례</div>
+            <h3 class="case-title">현대그린푸드 협업</h3>
+            <p class="case-text">
+              TC 인력 도급, 패션물류센터 3PL 운영 대행,
+              납품 협력사 피킹 대행 등 다양한 물류 영역에서
+              장기 협업 기반의 성과를 이어가고 있습니다.
+            </p>
+            <div class="case-list">
+              <span>인력 도급</span>
+              <span>3PL 운영</span>
+              <span>피킹 대행</span>
+            </div>
+          </div>
+
+          <div class="case-card fade-up">
+            <div class="case-chip">컨설팅 사례</div>
+            <h3 class="case-title">한라홀딩스 3PL 컨설팅</h3>
+            <p class="case-text">
+              식자재 외식형 3PL 물류센터 컨설팅과 운영 지원을 통해
+              신규 사업 진출을 위한 안정적인 물류 프로세스 구축에 기여했습니다.
+            </p>
+            <div class="case-list">
+              <span>센터 컨설팅</span>
+              <span>운영 지원</span>
+              <span>프로세스 구축</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ESG -->
+    <section class="section section-dark">
+      <div class="container-wide">
+        <div class="section-heading fade-up">
+          <span class="section-kicker">ESG MANAGEMENT</span>
+          <h2 class="section-title text-white">
+            지속 가능한 운영은<br>
+            선택이 아니라 기준입니다
+          </h2>
+          <p class="section-desc text-blue-soft">
+            환경, 사회, 지배구조 관점에서 책임 있는 운영 방향을 함께 고민합니다.
+          </p>
+        </div>
+
+        <div class="esg-grid">
+          <div class="esg-card fade-up">
+            <div class="esg-icon">E</div>
+            <h3>Environmental</h3>
+            <p>
+              에너지 효율성 개선과 친환경 운영 방향을 고려하며
+              지속 가능한 물류 운영 체계를 지향합니다.
+            </p>
+          </div>
+
+          <div class="esg-card fade-up">
+            <div class="esg-icon">S</div>
+            <h3>Social</h3>
+            <p>
+              다양한 인재와 협력 네트워크를 존중하고
+              고객 및 지역사회와의 신뢰를 바탕으로 관계를 만들어갑니다.
+            </p>
+          </div>
+
+          <div class="esg-card fade-up">
+            <div class="esg-icon">G</div>
+            <h3>Governance</h3>
+            <p>
+              윤리적 경영과 투명한 의사결정 구조를 지향하며
+              지속 가능한 성장을 위한 운영 기준을 지켜갑니다.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-dark contact-estimate-section">
+  <div class="container-wide">
+    <div class="contact-estimate-wrap fade-up">
+      <div class="contact-estimate-left">
+        <span class="section-kicker contact-kicker">CONTACT US</span>
+
+        <h2 class="contact-estimate-title">
+          복잡한 식자재 물류,<br>
+          이제 전문가에게 맡기세요.
+        </h2>
+
+        <p class="contact-estimate-desc">
+          빠르고 정확한 맞춤형 물류 진단과 견적 제안을 통해
+          고객사 상황에 맞는 최적의 운영 구조를 함께 설계합니다.
+        </p>
+
+        <div class="contact-info-list">
+          <div class="contact-info-card">
+            <div class="contact-info-icon">☎</div>
+            <div class="contact-info-text">
+              <span>대표 상담전화</span>
+              <strong>1588-0000</strong>
+            </div>
+          </div>
+
+          <div class="contact-info-card">
+            <div class="contact-info-icon">✉</div>
+            <div class="contact-info-text">
+              <span>이메일 문의</span>
+              <strong>sales@dniwise.co.kr</strong>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="contact-estimate-form-card">
+        <h3 class="contact-form-title">무료 물류 진단 및 견적 의뢰</h3>
+
+        <form class="estimate-form">
+          <div class="estimate-grid two-col">
+            <div class="form-group">
+              <label for="company">회사명 <em>*</em></label>
+              <input type="text" id="company" name="company" placeholder="회사명을 입력해주세요" />
+            </div>
+
+            <div class="form-group">
+              <label for="manager">담당자명 <em>*</em></label>
+              <input type="text" id="manager" name="manager" placeholder="담당자명을 입력해주세요" />
+            </div>
+          </div>
+
+          <div class="estimate-grid">
+            <div class="form-group">
+              <label for="phone">연락처 <em>*</em></label>
+              <input type="tel" id="phone" name="phone" placeholder="010-0000-0000" />
+            </div>
+          </div>
+
+          <div class="estimate-grid">
+            <div class="form-group">
+              <label for="volume">월 평균 물동량</label>
+              <select id="volume" name="volume">
+                <option value="">선택해주세요</option>
+                <option>월 1,000건 미만</option>
+                <option>월 1,000~5,000건</option>
+                <option>월 5,000~10,000건</option>
+                <option>월 10,000건 이상</option>
+                <option>별도 협의 필요</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="estimate-grid">
+            <div class="form-group">
+              <label for="message">문의 내용</label>
+              <textarea
+                id="message"
+                name="message"
+                rows="5"
+                placeholder="현재 겪고 있는 물류 고민(배송, 단가, 운영 이슈 등)을 적어주세요."
+              ></textarea>
+            </div>
+          </div>
+
+          <button type="submit" class="estimate-submit-btn">🚀 견적 문의 접수하기</button>
+
+          <p class="estimate-form-note">
+            제출 시 개인정보 수집 및 이용에 동의하는 것으로 간주됩니다.
+          </p>
+        </form>
+      </div>
     </div>
+  </div>
+</section>
+
+    <!-- CTA -->
+    <section class="section section-light">
+      <div class="container-wide">
+        <div class="cta-panel fade-up">
+          <h2 class="cta-title">
+            물류는 비용이 아니라 전략입니다.<br>
+            지금, 구조를 바꿔보세요.
+          </h2>
+          <p class="cta-text">
+            D&amp;I WISE는 현재 운영 상태를 점검하고,
+            더 효율적이고 안정적인 물류 구조를 함께 설계합니다.
+          </p>
+
+          <div class="hero-buttons">
+            <a href="contact.html" class="btn-primary">문의하기</a>
+            <a href="services.html" class="btn-light">서비스 소개 보기</a>
+          </div>
+        </div>
+      </div>
+    </section>
   </main>
 
-  <footer class="bg-gray-900 text-gray-400 py-10 text-center text-sm">
-    © 2026 D&I WISE. All rights reserved.
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div>© 2026 D&amp;I WISE. All rights reserved.</div>
+      <div>Demand &amp; Innovation Wise</div>
+    </div>
   </footer>
 
   <script>
@@ -213,9 +618,13 @@
           entry.target.classList.add('show');
         }
       });
-    }, { threshold: 0.15 });
+    }, { threshold: 0.14 });
 
-    document.querySelectorAll('.fade-up').forEach((el) => observer.observe(el));
+    document.querySelectorAll('.fade-up').forEach((el) => {
+      if (!el.classList.contains('show')) {
+        observer.observe(el);
+      }
+    });
   </script>
 </body>
 </html>
