@@ -26,57 +26,42 @@
   </header>
 
   <!-- HERO -->
-  <section id="hero" class="relative min-h-[88vh] flex items-center overflow-hidden">
-    <!-- 배경 사진 -->
-    <div class="absolute inset-0 z-0">
-        <img 
-            src="https://images.unsplash.com/photo-1586528116493-35c7f3523f8a?q=80&w=2070&auto=format&fit=crop" 
-            alt="냉장 물류 창고 배경" 
-            class="w-full h-full object-cover"
-        >
+  <section id="hero" class="hero hero-photo">
+    <div class="hero-photo-bg">
+      <img
+        src="https://images.unsplash.com/photo-1586528116493-35c7f3523f8a?q=80&w=2070&auto=format&fit=crop"
+        alt="냉장 물류 창고 배경"
+      />
     </div>
 
-    <!-- 톤 오버레이 -->
-    <div class="absolute inset-0 z-10 bg-gradient-to-r from-[#06152f]/88 via-[#0d2d63]/76 to-[#1E3A8A]/48"></div>
+    <div class="hero-photo-overlay"></div>
 
-    <!-- 추가 어둡기 보정 -->
-    <div class="absolute inset-0 z-10 bg-black/18"></div>
+    <div class="hero-inner">
+      <div class="hero-text">
+        <span class="hero-eyebrow">Demand &amp; Innovation Wise</span>
 
-    <!-- 콘텐츠 -->
-    <div class="relative z-20 max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 pt-24 pb-20">
-        <div class="max-w-3xl">
-            <span class="inline-flex items-center px-4 py-2 rounded-full bg-white/10 border border-white/20 text-white text-sm font-semibold tracking-wide backdrop-blur-sm mb-6">
-                Demand & Innovation Wise
-            </span>
+        <h1>
+          완벽한 콜드체인,
+          <span class="hero-line-fixed">물류 설계에서 완성하다.</span>
+        </h1>
 
-            <h1 class="text-white font-black leading-[1.12] tracking-tight text-4xl sm:text-5xl lg:text-7xl">
-                완벽한 콜드체인,<br>
-                <span class="text-[#7DB7FF]">물류 설계에서 완성하다.</span>
-            </h1>
+        <p>
+          유통 물류 분야의 전문성과 운영 노하우를 바탕으로,<br>
+          고객사의 성장을 함께 만드는 식자재 물류 파트너입니다.
+        </p>
 
-            <p class="mt-7 text-blue-50/92 text-lg sm:text-xl leading-relaxed max-w-2xl font-light">
-                유통 물류 분야의 전문성과 운영 노하우를 바탕으로,<br class="hidden md:block">
-                고객사의 성장을 함께 만드는 식자재 물류 파트너입니다.
-            </p>
-
-            <div class="mt-10 flex flex-col sm:flex-row gap-4">
-                <a href="#competence" class="inline-flex items-center justify-center px-8 py-4 rounded-full bg-[#3B82F6] text-white font-bold text-base shadow-lg hover:bg-[#2563EB] transition">
-                    서비스 알아보기
-                </a>
-                <a href="#contact" class="inline-flex items-center justify-center px-8 py-4 rounded-full border border-white/30 bg-white/8 text-white font-bold text-base backdrop-blur-sm hover:bg-white/14 transition">
-                    문의하기
-                </a>
-            </div>
+        <div class="hero-buttons">
+          <a href="services.html" class="btn-primary">서비스 알아보기</a>
+          <a href="#contact-estimate" class="btn-outline">문의하기</a>
         </div>
+      </div>
     </div>
 
-    <!-- 하단 스크롤 인디케이터 -->
-    <div class="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 flex flex-col items-center text-white/70">
-        <span class="text-xs tracking-[0.25em] font-semibold">SCROLL</span>
-        <span class="mt-2 text-xl animate-bounce">↓</span>
+    <div class="scroll-indicator">
+      <span>SCROLL</span>
+      <div class="scroll-line"></div>
     </div>
-</section>
-
+  </section>
 
   <main>
     <!-- Intro -->
@@ -486,100 +471,101 @@
       </div>
     </section>
 
-    <section class="section section-dark contact-estimate-section">
-  <div class="container-wide">
-    <div class="contact-estimate-wrap fade-up">
-      <div class="contact-estimate-left">
-        <span class="section-kicker contact-kicker">CONTACT US</span>
+    <!-- Contact Estimate -->
+    <section id="contact-estimate" class="section section-dark contact-estimate-section">
+      <div class="container-wide">
+        <div class="contact-estimate-wrap fade-up">
+          <div class="contact-estimate-left">
+            <span class="section-kicker contact-kicker">CONTACT US</span>
 
-        <h2 class="contact-estimate-title">
-          복잡한 식자재 물류,<br>
-          이제 전문가에게 맡기세요.
-        </h2>
+            <h2 class="contact-estimate-title">
+              복잡한 식자재 물류,<br>
+              이제 전문가에게 맡기세요.
+            </h2>
 
-        <p class="contact-estimate-desc">
-          빠르고 정확한 맞춤형 물류 진단과 견적 제안을 통해
-          고객사 상황에 맞는 최적의 운영 구조를 함께 설계합니다.
-        </p>
+            <p class="contact-estimate-desc">
+              빠르고 정확한 맞춤형 물류 진단과 견적 제안을 통해
+              고객사 상황에 맞는 최적의 운영 구조를 함께 설계합니다.
+            </p>
 
-        <div class="contact-info-list">
-          <div class="contact-info-card">
-            <div class="contact-info-icon">☎</div>
-            <div class="contact-info-text">
-              <span>대표 상담전화</span>
-              <strong>1588-0000</strong>
+            <div class="contact-info-list">
+              <div class="contact-info-card">
+                <div class="contact-info-icon">☎</div>
+                <div class="contact-info-text">
+                  <span>대표 상담전화</span>
+                  <strong>1588-0000</strong>
+                </div>
+              </div>
+
+              <div class="contact-info-card">
+                <div class="contact-info-icon">✉</div>
+                <div class="contact-info-text">
+                  <span>이메일 문의</span>
+                  <strong>sales@dniwise.co.kr</strong>
+                </div>
+              </div>
             </div>
           </div>
 
-          <div class="contact-info-card">
-            <div class="contact-info-icon">✉</div>
-            <div class="contact-info-text">
-              <span>이메일 문의</span>
-              <strong>sales@dniwise.co.kr</strong>
-            </div>
+          <div class="contact-estimate-form-card">
+            <h3 class="contact-form-title">무료 물류 진단 및 견적 의뢰</h3>
+
+            <form class="estimate-form">
+              <div class="estimate-grid two-col">
+                <div class="form-group">
+                  <label for="company">회사명 <em>*</em></label>
+                  <input type="text" id="company" name="company" placeholder="회사명을 입력해주세요" />
+                </div>
+
+                <div class="form-group">
+                  <label for="manager">담당자명 <em>*</em></label>
+                  <input type="text" id="manager" name="manager" placeholder="담당자명을 입력해주세요" />
+                </div>
+              </div>
+
+              <div class="estimate-grid">
+                <div class="form-group">
+                  <label for="phone">연락처 <em>*</em></label>
+                  <input type="tel" id="phone" name="phone" placeholder="010-0000-0000" />
+                </div>
+              </div>
+
+              <div class="estimate-grid">
+                <div class="form-group">
+                  <label for="volume">월 평균 물동량</label>
+                  <select id="volume" name="volume">
+                    <option value="">선택해주세요</option>
+                    <option>월 1,000건 미만</option>
+                    <option>월 1,000~5,000건</option>
+                    <option>월 5,000~10,000건</option>
+                    <option>월 10,000건 이상</option>
+                    <option>별도 협의 필요</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="estimate-grid">
+                <div class="form-group">
+                  <label for="message">문의 내용</label>
+                  <textarea
+                    id="message"
+                    name="message"
+                    rows="5"
+                    placeholder="현재 겪고 있는 물류 고민(배송, 단가, 운영 이슈 등)을 적어주세요."
+                  ></textarea>
+                </div>
+              </div>
+
+              <button type="submit" class="estimate-submit-btn">🚀 견적 문의 접수하기</button>
+
+              <p class="estimate-form-note">
+                제출 시 개인정보 수집 및 이용에 동의하는 것으로 간주됩니다.
+              </p>
+            </form>
           </div>
         </div>
       </div>
-
-      <div class="contact-estimate-form-card">
-        <h3 class="contact-form-title">무료 물류 진단 및 견적 의뢰</h3>
-
-        <form class="estimate-form">
-          <div class="estimate-grid two-col">
-            <div class="form-group">
-              <label for="company">회사명 <em>*</em></label>
-              <input type="text" id="company" name="company" placeholder="회사명을 입력해주세요" />
-            </div>
-
-            <div class="form-group">
-              <label for="manager">담당자명 <em>*</em></label>
-              <input type="text" id="manager" name="manager" placeholder="담당자명을 입력해주세요" />
-            </div>
-          </div>
-
-          <div class="estimate-grid">
-            <div class="form-group">
-              <label for="phone">연락처 <em>*</em></label>
-              <input type="tel" id="phone" name="phone" placeholder="010-0000-0000" />
-            </div>
-          </div>
-
-          <div class="estimate-grid">
-            <div class="form-group">
-              <label for="volume">월 평균 물동량</label>
-              <select id="volume" name="volume">
-                <option value="">선택해주세요</option>
-                <option>월 1,000건 미만</option>
-                <option>월 1,000~5,000건</option>
-                <option>월 5,000~10,000건</option>
-                <option>월 10,000건 이상</option>
-                <option>별도 협의 필요</option>
-              </select>
-            </div>
-          </div>
-
-          <div class="estimate-grid">
-            <div class="form-group">
-              <label for="message">문의 내용</label>
-              <textarea
-                id="message"
-                name="message"
-                rows="5"
-                placeholder="현재 겪고 있는 물류 고민(배송, 단가, 운영 이슈 등)을 적어주세요."
-              ></textarea>
-            </div>
-          </div>
-
-          <button type="submit" class="estimate-submit-btn">🚀 견적 문의 접수하기</button>
-
-          <p class="estimate-form-note">
-            제출 시 개인정보 수집 및 이용에 동의하는 것으로 간주됩니다.
-          </p>
-        </form>
-      </div>
-    </div>
-  </div>
-</section>
+    </section>
 
     <!-- CTA -->
     <section class="section section-light">
@@ -595,14 +581,13 @@
           </p>
 
           <div class="hero-buttons">
-            <a href="contact.html" class="btn-primary">문의하기</a>
+            <a href="#contact-estimate" class="btn-primary">문의하기</a>
             <a href="services.html" class="btn-light">서비스 소개 보기</a>
           </div>
         </div>
       </div>
     </section>
   </main>
-
 
   <!-- Footer -->
   <footer class="footer">
