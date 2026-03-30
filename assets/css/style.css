@@ -257,24 +257,27 @@ a {
 
 .hero-photo-bg {
   position: absolute;
-  /* 브라우저 렌더링 한계를 막기 위해 명시적으로 크기 지정 */
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+  inset: 0;
   z-index: 0;
   overflow: hidden;
-
-  /* 폴더 한 단계 위로 올라가서 이미지 파일 지정 */
   background-image: url("../hero_back_img.jpg");
-
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
-  transform: scale(1.03);
-  filter: brightness(0.68) saturate(1.04) contrast(1.02);
+  transform: scale(1.06);
+  filter: brightness(0.52) saturate(1.08) contrast(1.08);
 }
 
+.hero-photo-bg::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 78% 18%, rgba(255,255,255,0.16) 0%, rgba(255,255,255,0.06) 16%, rgba(255,255,255,0) 34%),
+    radial-gradient(circle at 82% 78%, rgba(96,165,250,0.16) 0%, rgba(96,165,250,0) 28%);
+  mix-blend-mode: screen;
+  pointer-events: none;
+}
 
 .hero-photo-bg::after {
   content: "";
@@ -283,11 +286,20 @@ a {
   background:
     linear-gradient(
       90deg,
-      rgba(3, 12, 34, 0.62) 0%,
-      rgba(5, 24, 66, 0.48) 28%,
-      rgba(10, 42, 112, 0.28) 60%,
-      rgba(20, 71, 170, 0.16) 100%
+      rgba(2, 10, 28, 0.82) 0%,
+      rgba(5, 18, 46, 0.68) 28%,
+      rgba(8, 27, 68, 0.52) 52%,
+      rgba(12, 36, 88, 0.30) 72%,
+      rgba(20, 71, 170, 0.12) 100%
+    ),
+    linear-gradient(
+      180deg,
+      rgba(3, 10, 26, 0.34) 0%,
+      rgba(3, 10, 26, 0.08) 22%,
+      rgba(3, 10, 26, 0.22) 70%,
+      rgba(3, 10, 26, 0.52) 100%
     );
+  pointer-events: none;
 }
 
 .hero-photo-overlay {
@@ -295,9 +307,24 @@ a {
   inset: 0;
   z-index: 1;
   background:
-    linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)), /* ← 추가 */
-    radial-gradient(circle at 82% 24%, rgba(255,255,255,0.25) 0%, rgba(255,255,255,0.1) 12%, rgba(255,255,255,0) 26%),
-    radial-gradient(circle at 78% 82%, rgba(147,197,253,0.2) 0%, rgba(147,197,253,0) 22%);
+    linear-gradient(
+      to bottom,
+      rgba(7, 22, 52, 0.18) 0%,
+      rgba(7, 22, 52, 0.08) 26%,
+      rgba(7, 22, 52, 0.18) 58%,
+      rgba(7, 22, 52, 0.34) 100%
+    ),
+    radial-gradient(
+      circle at 80% 20%,
+      rgba(255,255,255,0.12) 0%,
+      rgba(255,255,255,0.04) 14%,
+      rgba(255,255,255,0) 34%
+    ),
+    radial-gradient(
+      circle at 72% 82%,
+      rgba(147,197,253,0.16) 0%,
+      rgba(147,197,253,0) 24%
+    );
   pointer-events: none;
 }
 
@@ -306,10 +333,10 @@ a {
   position: absolute;
   inset: 0;
   background:
-    linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
+    linear-gradient(rgba(255,255,255,0.018) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.018) 1px, transparent 1px);
   background-size: 120px 120px;
-  opacity: 0.12;
+  opacity: 0.10;
   z-index: 1;
   pointer-events: none;
 }
@@ -320,121 +347,18 @@ a {
   right: -120px;
   top: 50%;
   transform: translateY(-50%);
-  width: 560px;
-  height: 560px;
+  width: 620px;
+  height: 620px;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(147,197,253,0.22) 0%, rgba(96,165,250,0.10) 30%, rgba(96,165,250,0) 72%);
-  filter: blur(24px);
+  background:
+    radial-gradient(circle,
+      rgba(255,255,255,0.10) 0%,
+      rgba(147,197,253,0.14) 18%,
+      rgba(96,165,250,0.08) 36%,
+      rgba(96,165,250,0) 72%);
+  filter: blur(34px);
   z-index: 1;
   pointer-events: none;
-}
-
-.hero-photo .hero-inner {
-  position: relative;
-  z-index: 2;
-  max-width: 1280px;
-  width: 100%;
-  margin: 0 auto;
-  padding: 0 80px;
-}
-
-.hero-photo .hero-text {
-  max-width: 760px;
-  padding: 120px 0 140px;
-}
-
-.hero-photo .hero-eyebrow {
-  display: inline-flex;
-  align-items: center;
-  padding: 10px 18px;
-  margin-bottom: 28px;
-  border-radius: 999px;
-  border: 1px solid rgba(255,255,255,0.16);
-  background: rgba(255,255,255,0.08);
-  color: rgba(255,255,255,0.92);
-  font-size: 15px;
-  font-weight: 600;
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-}
-
-.hero-photo .hero-text h1 {
-  margin: 0;
-  max-width: 760px;
-  font-size: clamp(52px, 5.4vw, 84px);
-  font-weight: 700;
-  line-height: 1.08;
-  letter-spacing: -0.05em;
-  word-break: keep-all;
-}
-
-.hero-photo .hero-text h1 span {
-  display: inline-block;
-  margin-top: 0.04em;
-  color: #7fb8ff;
-}
-
-.hero-photo .hero-line-fixed {
-  white-space: nowrap;
-}
-
-.hero-photo .hero-text p {
-  margin: 30px 0 0;
-  max-width: 760px;
-  font-size: clamp(18px, 1.3vw, 26px);
-  line-height: 1.75;
-  color: rgba(235,243,255,0.92);
-  word-break: keep-all;
-}
-
-.hero-photo .hero-buttons {
-  display: flex;
-  gap: 16px;
-  margin-top: 42px;
-}
-
-.hero-photo .btn-primary,
-.hero-photo .btn-outline {
-  min-width: 152px;
-  height: 56px;
-  padding: 0 26px;
-  border-radius: 999px;
-  font-size: 17px;
-}
-
-.scroll-indicator {
-  position: absolute;
-  left: 50%;
-  bottom: 34px;
-  transform: translateX(-50%);
-  z-index: 3;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 12px;
-  color: rgba(255,255,255,0.72);
-  font-size: 13px;
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
-}
-
-.scroll-line {
-  width: 1px;
-  height: 48px;
-  background: linear-gradient(to bottom, rgba(255,255,255,0.9), rgba(255,255,255,0.1));
-  position: relative;
-  overflow: hidden;
-}
-
-.scroll-line::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: -20px;
-  width: 100%;
-  height: 20px;
-  background: #fff;
-  animation: scrollLine 2s ease-in-out infinite;
 }
 
 /* =========================
