@@ -484,6 +484,11 @@ a {
 .section-dark {
   position: relative;
   overflow: hidden;
+  background:
+    radial-gradient(circle at 85% 12%, rgba(96,165,250,0.12), transparent 24%),
+    radial-gradient(circle at 12% 88%, rgba(147,197,253,0.08), transparent 22%),
+    linear-gradient(180deg, #071634 0%, #081b44 100%);
+  color: #ffffff;
 }
 
 .section-dark::before {
