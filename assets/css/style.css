@@ -1033,6 +1033,103 @@ a {
 }
 
 /* =========================
+   Intro Service List
+   ========================= */
+
+.intro-service-list {
+  margin-top: 68px;
+  border-top: 1px solid rgba(255,255,255,0.10);
+}
+
+.intro-service-item {
+  display: grid;
+  grid-template-columns: minmax(280px, 420px) minmax(0, 1fr);
+  gap: 40px;
+  align-items: center;
+  padding: 34px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.10);
+  transition: background 0.25s ease;
+}
+
+.intro-service-item:hover {
+  background: linear-gradient(
+    90deg,
+    rgba(255,255,255,0.02) 0%,
+    rgba(255,255,255,0.03) 100%
+  );
+}
+
+.intro-service-left {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 14px;
+}
+
+.intro-service-number {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 58px;
+  height: 34px;
+  padding: 0 14px;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(147,197,253,0.24);
+  color: #7fb8ff;
+  font-size: 0.95rem;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+}
+
+.intro-service-title {
+  margin: 0;
+  font-size: clamp(2rem, 2.6vw, 3.2rem);
+  line-height: 1.15;
+  font-weight: 800;
+  letter-spacing: -0.05em;
+  color: #ffffff;
+  word-break: keep-all;
+  text-align: left;
+}
+
+.intro-service-right {
+  display: flex;
+  align-items: center;
+}
+
+.intro-service-text {
+  margin: 0;
+  max-width: 760px;
+  font-size: clamp(1.08rem, 1.2vw, 1.34rem);
+  line-height: 1.95;
+  color: rgba(235,243,255,0.82);
+  word-break: keep-all;
+  text-align: left;
+}
+
+@media (max-width: 991px) {
+  .intro-service-item {
+    grid-template-columns: 1fr;
+    gap: 18px;
+    padding: 28px 0;
+  }
+
+  .intro-service-left {
+    gap: 12px;
+  }
+
+  .intro-service-title {
+    font-size: clamp(1.8rem, 7vw, 2.4rem);
+  }
+
+  .intro-service-text {
+    font-size: 1rem;
+    line-height: 1.8;
+  }
+}
+
+/* =========================
    Flow
    ========================= */
 
