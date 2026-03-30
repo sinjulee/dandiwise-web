@@ -295,8 +295,9 @@ a {
   inset: 0;
   z-index: 1;
   background:
-    radial-gradient(circle at 82% 24%, rgba(255,255,255,0.16) 0%, rgba(255,255,255,0.05) 12%, rgba(255,255,255,0) 26%),
-    radial-gradient(circle at 78% 82%, rgba(147,197,253,0.10) 0%, rgba(147,197,253,0) 22%);
+    linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)), /* ← 추가 */
+    radial-gradient(circle at 82% 24%, rgba(255,255,255,0.25) 0%, rgba(255,255,255,0.1) 12%, rgba(255,255,255,0) 26%),
+    radial-gradient(circle at 78% 82%, rgba(147,197,253,0.2) 0%, rgba(147,197,253,0) 22%);
   pointer-events: none;
 }
 
