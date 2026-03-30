@@ -555,7 +555,7 @@ a {
   margin: 0 auto;
   max-width: 920px;
   font-size: clamp(1.08rem, 1.35vw, 1.32rem);
-  line-height: 1.9;
+  line-height: 1.1;
   color: #4F638F;
   word-break: keep-all;
   white-space: normal;
