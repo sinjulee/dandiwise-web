@@ -714,7 +714,7 @@
     });
   </script>
 
-  <script>
+<script>
   document.addEventListener('DOMContentLoaded', function () {
     const slider = document.querySelector('.why-slider');
     if (!slider) return;
@@ -725,7 +725,8 @@
     const nextBtn = slider.querySelector('.why-next');
 
     let currentIndex = 0;
-    let autoRotate;
+    let autoRotate = null;
+    const ROTATE_DELAY = 1800; // 1.8초마다 전환
 
     function updateSlider(index) {
       slides.forEach((slide, i) => {
@@ -751,12 +752,15 @@
 
     function startAutoRotate() {
       stopAutoRotate();
-      autoRotate = setInterval(showNext, 3500);
+      autoRotate = setInterval(() => {
+        showNext();
+      }, ROTATE_DELAY);
     }
 
     function stopAutoRotate() {
       if (autoRotate) {
         clearInterval(autoRotate);
+        autoRotate = null;
       }
     }
 
