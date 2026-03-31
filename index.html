@@ -15,13 +15,50 @@
         <img src="assets/logo.jpg" alt="D&I WISE 로고" />
       </a>
 
-      <nav class="nav-desktop">
-        <a href="company.html" class="nav-link">회사소개</a>
-        <a href="services.html" class="nav-link">서비스소개</a>
-        <a href="differentiation.html" class="nav-link">차별화포인트</a>
-        <a href="case-study.html" class="nav-link">운영역량</a>
-        <a href="esg.html" class="nav-link">ESG경영</a>
-      </nav>
+<nav class="nav-desktop">
+  <div class="nav-item">
+    <a href="company.html" class="nav-link">회사소개</a>
+    <div class="nav-dropdown">
+      <a href="company.html#overview">회사 개요</a>
+      <a href="company.html#vision">비전</a>
+      <a href="company.html#value">핵심 가치</a>
+    </div>
+  </div>
+
+  <div class="nav-item">
+    <a href="services.html" class="nav-link">서비스소개</a>
+    <div class="nav-dropdown">
+      <a href="services.html#consulting">물류 컨설팅</a>
+      <a href="services.html#operation">3PL 운영</a>
+      <a href="services.html#data">데이터 기반 관리</a>
+    </div>
+  </div>
+
+  <div class="nav-item">
+    <a href="differentiation.html" class="nav-link">차별화포인트</a>
+    <div class="nav-dropdown">
+      <a href="differentiation.html#strength">핵심 강점</a>
+      <a href="differentiation.html#network">협업 구조</a>
+    </div>
+  </div>
+
+  <div class="nav-item">
+    <a href="case-study.html" class="nav-link">운영역량</a>
+    <div class="nav-dropdown">
+      <a href="case-study.html#capability">운영 능력</a>
+      <a href="case-study.html#cases">협업 사례</a>
+    </div>
+  </div>
+
+  <div class="nav-item">
+    <a href="esg.html" class="nav-link">ESG경영</a>
+    <div class="nav-dropdown">
+      <a href="esg.html#environment">Environment</a>
+      <a href="esg.html#social">Social</a>
+      <a href="esg.html#governance">Governance</a>
+    </div>
+  </div>
+</nav>
     </div>
   </header>
 
@@ -726,7 +763,7 @@
 
     let currentIndex = 0;
     let autoRotate = null;
-    const ROTATE_DELAY = 1800; // 1.8초마다 전환
+    const ROTATE_DELAY = 2200; // 1.8초마다 전환
 
     function updateSlider(index) {
       slides.forEach((slide, i) => {
