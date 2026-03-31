@@ -2451,3 +2451,7 @@ button {
     font-size: 1rem;
   }
 }
+
+.sub-hero-esg .sub-hero-bg {
+  background-image: url("../esg-hero.jpg");
+}
