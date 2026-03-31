@@ -1843,3 +1843,149 @@ button {
     line-height: 1.65;
   }
 }
+
+/* =========================
+   Service Summary FINAL
+   A + C Combination
+   ========================= */
+
+#service.section-light {
+  background:
+    radial-gradient(circle at 12% 18%, rgba(96,165,250,0.10), transparent 18%),
+    radial-gradient(circle at 88% 82%, rgba(147,197,253,0.14), transparent 20%),
+    linear-gradient(180deg, #eef4fb 0%, #e8f0fb 100%);
+}
+
+#service .section-heading {
+  margin-bottom: 72px;
+}
+
+#service .section-kicker {
+  background: rgba(255,255,255,0.76);
+  border: 1px solid rgba(37,99,235,0.12);
+  color: #2563eb;
+  box-shadow: 0 10px 24px rgba(37,99,235,0.06);
+}
+
+#service .section-title {
+  color: #102a5c;
+}
+
+#service .section-desc {
+  color: #4f6694;
+}
+
+#service .grid-3 {
+  gap: 26px;
+}
+
+#service .info-card {
+  position: relative;
+  overflow: hidden;
+  background: rgba(255,255,255,0.97);
+  border: 1px solid rgba(148,173,220,0.24);
+  border-radius: 30px;
+  box-shadow:
+    0 18px 40px rgba(8,27,68,0.08),
+    0 4px 14px rgba(8,27,68,0.04);
+  padding: 36px 34px;
+  transition:
+    transform 0.28s ease,
+    border-color 0.28s ease,
+    box-shadow 0.28s ease;
+}
+
+#service .info-card:hover {
+  transform: translateY(-8px);
+  border-color: rgba(96,165,250,0.34);
+  box-shadow:
+    0 24px 54px rgba(8,27,68,0.12),
+    0 8px 18px rgba(37,99,235,0.08);
+}
+
+#service .info-card::before {
+  content: "";
+  position: absolute;
+  width: 160px;
+  height: 160px;
+  right: -26px;
+  top: -26px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(96,165,250,0.12), transparent 68%);
+  pointer-events: none;
+}
+
+/* 옵션 C: 카드 상단 포인트 바 */
+#service .info-card::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 34px;
+  right: 34px;
+  height: 4px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #2563eb, #93c5fd);
+  pointer-events: none;
+}
+
+#service .card-badge {
+  width: 48px;
+  min-width: 48px;
+  height: 48px;
+  margin-bottom: 22px;
+  border-radius: 16px;
+  background: linear-gradient(180deg, #eaf2ff 0%, #dbeafe 100%);
+  color: #1d4ed8;
+  box-shadow:
+    inset 0 0 0 1px rgba(96,165,250,0.20),
+    0 8px 18px rgba(37,99,235,0.10);
+}
+
+#service .card-title {
+  color: #0f2858;
+  font-size: 1.55rem;
+  margin-bottom: 16px;
+}
+
+#service .card-text {
+  color: #58709b;
+  font-size: 1.02rem;
+  line-height: 1.9;
+}
+
+@media (max-width: 991px) {
+  #service .grid-3 {
+    gap: 18px;
+  }
+
+  #service .info-card {
+    padding: 28px 24px;
+    border-radius: 24px;
+  }
+
+  #service .info-card::after {
+    left: 24px;
+    right: 24px;
+  }
+}
+
+@media (max-width: 640px) {
+  #service.section-light {
+    background:
+      radial-gradient(circle at 18% 12%, rgba(96,165,250,0.10), transparent 22%),
+      linear-gradient(180deg, #eef4fb 0%, #e7eef9 100%);
+  }
+
+  #service .section-heading {
+    margin-bottom: 48px;
+  }
+
+  #service .card-title {
+    font-size: 1.32rem;
+  }
+
+  #service .card-text {
+    font-size: 0.96rem;
+    line-height: 1.8;
+  }
+}
