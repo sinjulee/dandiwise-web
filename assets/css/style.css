@@ -2552,6 +2552,16 @@ button {
   text-shadow: 0 4px 18px rgba(0,0,0,0.18);
 }
 
+.sub-hero-company .sub-hero-bg {
+  background-image: url("../company-hero.jpg");
+}
+
+.sub-hero-services .sub-hero-bg {
+  background-image: url("../services-hero.jpg");
+}
+
+
 .sub-hero-esg .sub-hero-bg {
   background-image: url("../esg-hero.jpg");
 }
+
