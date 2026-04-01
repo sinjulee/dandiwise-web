@@ -1,375 +1,597 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>차별화포인트 | D&I WISE</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>차별화포인트 | D&I WISE</title>
 
-<script src="https://cdn.tailwindcss.com"></script>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap" rel="stylesheet">
 
-<style>
-body.diff-page {
-  background:
-    linear-gradient(180deg, #071634 0%, #081b44 18%, #f5f9ff 18%, #eef4ff 100%);
-}
+  <style>
+    body.diff-page {
+      background:
+        linear-gradient(180deg, #071634 0%, #081b44 18%, #f5f9ff 18%, #eef4ff 100%);
+    }
 
-.diff-page-main {
-  position: relative;
-  z-index: 1;
-  background: transparent;
-}
+    .diff-page-main {
+      position: relative;
+      z-index: 1;
+      background: transparent;
+    }
 
-.diff-overview-section {
-  position: relative;
-  padding: 56px 0 34px;
-  background:
-    linear-gradient(180deg, #f7faff 0%, #eef4ff 100%);
-}
+    .diff-overview-section {
+      position: relative;
+      padding: 56px 0 34px;
+      background: linear-gradient(180deg, #f7faff 0%, #eef4ff 100%);
+    }
 
-.fade-up {
-  opacity: 0;
-  transform: translateY(36px);
-  transition: all 0.8s ease;
-}
-.fade-up.show {
-  opacity: 1;
-  transform: translateY(0);
-}
+    .fade-up {
+      opacity: 0;
+      transform: translateY(36px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
 
-.card {
-  transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
-}
-.card:hover {
-  transform: translateY(-8px) scale(1.04);
-  box-shadow: 0 20px 40px rgba(0,0,0,0.14);
-  border-color: #cbd5e1;
-}
+    .fade-up.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
 
-/* 바텀시트 애니메이션 */
-.modal-box {
-  animation: sheetUp 1s ease forwards;
-}
-@keyframes sheetUp {
-  from {
-    transform: translateY(80px);
-    opacity: 0;
-  }
-  to {
-    transform: translateY(0);
-    opacity: 1;
-  }
-}
-</style>
+    .diff-section-heading {
+      text-align: center;
+      margin-bottom: 18px;
+    }
 
-<script>
-tailwind.config = {
-  theme: {
-    extend: {
-      colors: {
-        brand: {
-          blue: '#1E3A8A',
-          green: '#16A34A',
-          light: '#F3F4F6'
-        }
+    .diff-section-title {
+      margin: 0 0 14px;
+      font-size: clamp(2rem, 3vw, 2.8rem);
+      line-height: 1.2;
+      font-weight: 800;
+      letter-spacing: -0.04em;
+      color: #102a5c;
+      word-break: keep-all;
+    }
+
+    .diff-section-desc {
+      margin: 0 auto;
+      max-width: 920px;
+      color: #5d749d;
+      font-size: 1.04rem;
+      line-height: 1.9;
+      word-break: keep-all;
+    }
+
+    .target-grid,
+    .diff-card-grid {
+      display: grid;
+      gap: 24px;
+    }
+
+    .target-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      margin-top: 34px;
+    }
+
+    .diff-card-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      margin-top: 34px;
+    }
+
+    .diff-card-btn {
+      position: relative;
+      overflow: hidden;
+      width: 100%;
+      min-height: 220px;
+      padding: 34px 28px 30px;
+      border-radius: 30px;
+      border: 1px solid rgba(148,173,220,0.22);
+      background: rgba(255,255,255,0.97);
+      box-shadow:
+        0 18px 40px rgba(8,27,68,0.08),
+        0 6px 14px rgba(8,27,68,0.04);
+      text-align: center;
+      cursor: pointer;
+      transition:
+        transform 0.28s ease,
+        box-shadow 0.28s ease,
+        border-color 0.28s ease;
+    }
+
+    .diff-card-btn:hover {
+      transform: translateY(-8px);
+      border-color: rgba(96,165,250,0.30);
+      box-shadow:
+        0 24px 50px rgba(8,27,68,0.12),
+        0 10px 18px rgba(37,99,235,0.06);
+    }
+
+    .diff-card-btn::before {
+      content: "";
+      position: absolute;
+      width: 170px;
+      height: 170px;
+      right: -28px;
+      top: -30px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(96,165,250,0.10), transparent 68%);
+      pointer-events: none;
+    }
+
+    .diff-card-btn::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 28px;
+      right: 28px;
+      height: 4px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, #2563eb, #93c5fd);
+      pointer-events: none;
+    }
+
+    .diff-card-btn h3 {
+      margin: 0 0 12px;
+      color: #102a5c;
+      font-size: 1.35rem;
+      line-height: 1.35;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      word-break: keep-all;
+    }
+
+    .diff-card-btn p {
+      margin: 0;
+      color: #62779f;
+      font-size: 0.97rem;
+      line-height: 1.8;
+      word-break: keep-all;
+    }
+
+    .diff-modal {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.55);
+      display: none;
+      align-items: flex-end;
+      justify-content: center;
+      z-index: 100;
+      padding: 0 16px 24px;
+    }
+
+    .diff-modal.show {
+      display: flex;
+    }
+
+    .modal-box {
+      width: 100%;
+      max-width: 820px;
+      border-radius: 28px;
+      overflow: hidden;
+      background: #ffffff;
+      box-shadow: 0 24px 60px rgba(0,0,0,0.24);
+      animation: sheetUp 0.45s ease forwards;
+      position: relative;
+    }
+
+    @keyframes sheetUp {
+      from {
+        transform: translateY(70px);
+        opacity: 0;
+      }
+      to {
+        transform: translateY(0);
+        opacity: 1;
       }
     }
-  }
-}
-</script>
+
+    .modal-top {
+      position: relative;
+      padding: 28px 30px 22px;
+      background:
+        radial-gradient(circle at 84% 18%, rgba(147,197,253,0.14), transparent 20%),
+        linear-gradient(135deg, #071634 0%, #0d275d 45%, #1c4fb7 100%);
+      color: #fff;
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 18px;
+      right: 18px;
+      width: 40px;
+      height: 40px;
+      border: 0;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.10);
+      color: #fff;
+      font-size: 1.15rem;
+      cursor: pointer;
+    }
+
+    .modal-kicker {
+      margin: 0 0 8px;
+      color: rgba(219,234,254,0.88);
+      font-size: 0.8rem;
+      font-weight: 800;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+    }
+
+    .modal-title {
+      margin: 0;
+      font-size: 2rem;
+      line-height: 1.2;
+      font-weight: 900;
+      letter-spacing: -0.04em;
+      word-break: keep-all;
+    }
+
+    .modal-handle-wrap {
+      display: flex;
+      justify-content: center;
+      padding-top: 10px;
+      background: #fff;
+    }
+
+    .modal-handle {
+      width: 46px;
+      height: 5px;
+      border-radius: 999px;
+      background: #d1d5db;
+    }
+
+    .modal-body {
+      padding: 28px 30px 32px;
+      max-height: 72vh;
+      overflow-y: auto;
+      color: #475569;
+      font-size: 1rem;
+      line-height: 1.9;
+      white-space: pre-line;
+      word-break: keep-all;
+    }
+
+    .modal-image {
+      margin-bottom: 18px;
+      display: none;
+    }
+
+    .modal-image.show {
+      display: block;
+    }
+
+    .modal-image img {
+      width: 100%;
+      height: auto;
+      border-radius: 16px;
+      border: 1px solid #e5e7eb;
+    }
+
+    @media (max-width: 991px) {
+      .diff-overview-section {
+        padding: 56px 0 24px;
+      }
+
+      .target-grid,
+      .diff-card-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .diff-card-btn {
+        min-height: 190px;
+        padding: 28px 24px 24px;
+        border-radius: 24px;
+      }
+
+      .diff-card-btn::after {
+        left: 24px;
+        right: 24px;
+      }
+
+      .modal-box {
+        border-radius: 24px;
+      }
+
+      .modal-top {
+        padding: 24px 24px 20px;
+      }
+
+      .modal-body {
+        padding: 24px 24px 28px;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .diff-section-title {
+        font-size: 1.8rem;
+      }
+
+      .diff-section-desc,
+      .diff-card-btn p {
+        font-size: 0.96rem;
+        line-height: 1.8;
+      }
+
+      .diff-card-btn h3 {
+        font-size: 1.2rem;
+      }
+
+      .modal-title {
+        font-size: 1.5rem;
+      }
+
+      .diff-modal {
+        padding: 0 10px 14px;
+      }
+    }
+  </style>
 </head>
 
 <body class="diff-page">
+  <!-- Header -->
+  <header class="header-shell">
+    <div class="header-inner">
+      <a href="index.html" class="header-logo">
+        <img src="assets/logo.png" alt="D&I WISE 로고">
+      </a>
 
-<!-- 헤더 -->
-<header class="bg-white shadow-sm border-b sticky top-0 z-50">
-  <div class="max-w-7xl mx-auto px-6 h-20 flex justify-between items-center">
+      <nav class="nav-desktop">
+        <a href="company.html" class="nav-link">회사소개</a>
+        <a href="services.html" class="nav-link">서비스소개</a>
+        <a href="differentiation.html" class="nav-link">차별화포인트</a>
+        <a href="case-study.html" class="nav-link">운영역량</a>
+        <a href="esg.html" class="nav-link">ESG경영</a>
+      </nav>
+    </div>
+  </header>
 
-    <!-- 로고 -->
-    <a href="index.html" class="flex items-center">
-      <img src="assets/logo.jpg" alt="D&I WISE 로고" class="h-10 object-contain">
-    </a>
-
-    <!-- 네비게이션 -->
-    <nav class="hidden md:flex space-x-8 text-sm font-medium">
-      <a href="company.html" class="hover:text-brand-blue transition">회사소개</a>
-      <a href="services.html" class="hover:text-brand-blue transition">서비스소개</a>
-      <a href="differentiation.html" class="hover:text-brand-blue transition">차별화포인트</a>
-      <a href="case-study.html" class="hover:text-brand-blue transition">운영역량</a>
-      <a href="esg.html" class="hover:text-brand-blue transition">ESG경영</a>
-    </nav>
-
-  </div>
-</header>
-
-<!-- Hero -->
-<section class="pt-24 pb-20 bg-brand-blue text-white text-center">
-  <div class="max-w-4xl mx-auto px-6">
-    <h1 class="text-4xl md:text-5xl font-black mb-4">
-      차별화 포인트
-    </h1>
-    <p class="text-lg text-blue-100">
-      타깃 시장과 경쟁 우위를 통해 디앤아이와이즈의 강점을 보여드립니다.
-    </p>
-  </div>
-</section>
-
-<main class="py-20">
-  <div class="max-w-6xl mx-auto px-6">
-
-    <!-- 타깃 시장 -->
-    <section class="mb-24 fade-up">
-      <div class="text-center mb-10">
-        <h2 class="text-3xl font-black text-brand-blue mb-4">
-          타깃 시장 및 고객
-        </h2>
-        <p class="text-gray-600 max-w-3xl mx-auto leading-relaxed">
-          식품 제조·유통 협력사의 전문적인 물류대행(3PL) 영역의 서비스를 제공하고,
-          경우에 따라 Vendor 역할을 수행하여 고객사의 매출 향상과 다양한 비즈니스 모델에 대응하고자 합니다.
-        </p>
+  <!-- Hero -->
+  <section class="sub-hero sub-hero-differentiation">
+    <div class="sub-hero-bg"></div>
+    <div class="sub-hero-overlay"></div>
+    <div class="container-wide sub-hero-inner">
+      <div class="sub-hero-text">
+        <span class="sub-hero-kicker">DIFFERENTIATION</span>
+        <h1>차별화포인트</h1>
+        <p>타깃 시장과 경쟁 우위를 통해 디앤아이와이즈의 강점을 보여드립니다.</p>
       </div>
+    </div>
+  </section>
 
-      <div class="grid md:grid-cols-2 gap-8">
-        <button type="button" onclick="openModal('target_food')"
-          class="card bg-white p-8 rounded-2xl shadow border text-center">
-          <h3 class="font-black text-xl mb-3 text-brand-blue">식품 제조 업체</h3>
-          <p class="text-gray-600 text-sm">공급 영역 물류서비스 및 안정적인 유통 관리</p>
-        </button>
+  <main class="diff-page-main">
+    <section class="diff-overview-section">
+      <div class="container-wide">
+        <!-- 타깃 시장 -->
+        <section class="company-section fade-up">
+          <div class="diff-section-heading">
+            <h2 class="diff-section-title">타깃 시장 및 고객</h2>
+            <p class="diff-section-desc">
+              식품 제조·유통 협력사의 전문적인 물류대행(3PL) 영역의 서비스를 제공하고,
+              경우에 따라 Vendor 역할을 수행하여 고객사의 매출 향상과 다양한 비즈니스 모델에 대응하고자 합니다.
+            </p>
+          </div>
 
-        <button type="button" onclick="openModal('target_ecom')"
-          class="card bg-white p-8 rounded-2xl shadow border text-center">
-          <h3 class="font-black text-xl mb-3 text-brand-blue">전자상거래 (E-commerce)</h3>
-          <p class="text-gray-600 text-sm">매출 증가 및 고객 유입 극대화</p>
-        </button>
+          <div class="target-grid">
+            <button type="button" onclick="openModal('target_food')" class="diff-card-btn">
+              <h3>식품 제조 업체</h3>
+              <p>공급 영역 물류서비스 및 안정적인 유통 관리</p>
+            </button>
 
-        <button type="button" onclick="openModal('target_distribution')"
-          class="card bg-white p-8 rounded-2xl shadow border text-center">
-          <h3 class="font-black text-xl mb-3 text-brand-blue">유통 대행 영역</h3>
-          <p class="text-gray-600 text-sm">수·출입 전반의 통합 물류 서비스 제공</p>
-        </button>
+            <button type="button" onclick="openModal('target_ecom')" class="diff-card-btn">
+              <h3>전자상거래 (E-commerce)</h3>
+              <p>매출 증가 및 고객 유입 극대화</p>
+            </button>
 
-        <button type="button" onclick="openModal('target_global')"
-          class="card bg-white p-8 rounded-2xl shadow border text-center">
-          <h3 class="font-black text-xl mb-3 text-brand-blue">해외 상품 소싱</h3>
-          <p class="text-gray-600 text-sm">글로벌 소싱 및 공급 시장 역할 수행</p>
-        </button>
+            <button type="button" onclick="openModal('target_distribution')" class="diff-card-btn">
+              <h3>유통 대행 영역</h3>
+              <p>수·출입 전반의 통합 물류 서비스 제공</p>
+            </button>
+
+            <button type="button" onclick="openModal('target_global')" class="diff-card-btn">
+              <h3>해외 상품 소싱</h3>
+              <p>글로벌 소싱 및 공급 시장 역할 수행</p>
+            </button>
+          </div>
+        </section>
+
+        <!-- 차별화 포인트 -->
+        <section class="company-section fade-up">
+          <div class="diff-section-heading">
+            <h2 class="diff-section-title">차별화 포인트 및 경쟁 우위</h2>
+            <p class="diff-section-desc">
+              차별화된 강점을 통해 경쟁사와 차별화되며, 시장에서의 우위를 확보하고 있습니다.
+            </p>
+          </div>
+
+          <div class="diff-card-grid">
+            <button type="button" onclick="openModal('diff_1')" class="diff-card-btn">
+              <h3>대응 역량 보유</h3>
+              <p>인력 공급 및 차량 운영 노하우 기반</p>
+            </button>
+
+            <button type="button" onclick="openModal('diff_2')" class="diff-card-btn">
+              <h3>전문적 관리 기업</h3>
+              <p>유통 물류 전문 노하우 보유</p>
+            </button>
+
+            <button type="button" onclick="openModal('diff_3')" class="diff-card-btn">
+              <h3>통합 물류관리 솔루션 제공</h3>
+              <p>공급 채널 및 시스템 이해 기반 운영</p>
+            </button>
+
+            <button type="button" onclick="openModal('diff_4')" class="diff-card-btn">
+              <h3>판매 기회 제공 및 역할 수행</h3>
+              <p>판로 연결 및 추가 판매 기회 확대</p>
+            </button>
+
+            <button type="button" onclick="openModal('diff_5')" class="diff-card-btn">
+              <h3>대기업 관리자 출신 구성원</h3>
+              <p>즉각적인 소통과 현장 대응 가능</p>
+            </button>
+
+            <button type="button" onclick="openModal('diff_6')" class="diff-card-btn">
+              <h3>안정적 납품 사후관리</h3>
+              <p>납품 이후 문제에 대한 긴밀한 대응</p>
+            </button>
+          </div>
+        </section>
       </div>
     </section>
+  </main>
 
-    <!-- 차별화 설명 -->
-    <section class="mb-16 text-center fade-up">
-      <h2 class="text-3xl font-black text-brand-blue mb-4">
-        차별화 포인트 및 경쟁 우위
-      </h2>
-      <p class="text-gray-600 max-w-3xl mx-auto leading-relaxed">
-        차별화된 강점을 통해 경쟁사와 차별화되며, 시장에서의 우위를 확보하고 있습니다.
-      </p>
-    </section>
-
-    <!-- 차별화 카드 -->
-    <section class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-      <button type="button" onclick="openModal('diff_1')"
-        class="card fade-up bg-white p-8 rounded-2xl shadow border text-center">
-        <h3 class="font-black text-xl mb-3 text-brand-blue">대응 역량 보유</h3>
-        <p class="text-gray-600 text-sm">인력 공급 및 차량 운영 노하우 기반</p>
-      </button>
-
-      <button type="button" onclick="openModal('diff_2')"
-        class="card fade-up bg-white p-8 rounded-2xl shadow border text-center">
-        <h3 class="font-black text-xl mb-3 text-brand-blue">전문적 관리 기업</h3>
-        <p class="text-gray-600 text-sm">유통 물류 전문 노하우 보유</p>
-      </button>
-
-      <button type="button" onclick="openModal('diff_3')"
-        class="card fade-up bg-white p-8 rounded-2xl shadow border text-center">
-        <h3 class="font-black text-xl mb-3 text-brand-blue">통합 물류관리 솔루션 제공</h3>
-        <p class="text-gray-600 text-sm">공급 채널 및 시스템 이해 기반 운영</p>
-      </button>
-
-      <button type="button" onclick="openModal('diff_4')"
-        class="card fade-up bg-white p-8 rounded-2xl shadow border text-center">
-        <h3 class="font-black text-xl mb-3 text-brand-blue">판매 기회 제공 및 역할 수행</h3>
-        <p class="text-gray-600 text-sm">판로 연결 및 추가 판매 기회 확대</p>
-      </button>
-
-      <button type="button" onclick="openModal('diff_5')"
-        class="card fade-up bg-white p-8 rounded-2xl shadow border text-center">
-        <h3 class="font-black text-xl mb-3 text-brand-blue">대기업 관리자 출신 구성원</h3>
-        <p class="text-gray-600 text-sm">즉각적인 소통과 현장 대응 가능</p>
-      </button>
-
-      <button type="button" onclick="openModal('diff_6')"
-        class="card fade-up bg-white p-8 rounded-2xl shadow border text-center">
-        <h3 class="font-black text-xl mb-3 text-brand-blue">안정적 납품 사후관리</h3>
-        <p class="text-gray-600 text-sm">납품 이후 문제에 대한 긴밀한 대응</p>
-      </button>
-    </section>
-
-  </div>
-</main>
-
-<!-- 푸터 -->
-<footer class="bg-gray-900 text-gray-400 py-10 text-center text-sm">
-  © 2026 D&I WISE. All rights reserved.
-</footer>
-
-<!-- 바텀시트 모달 -->
-<div id="modal" class="fixed inset-0 bg-black/55 hidden items-end justify-center z-[100] px-4 pb-0 md:pb-6">
-  <div class="modal-box bg-white w-full max-w-2xl rounded-t-3xl md:rounded-3xl shadow-2xl relative overflow-hidden">
-    <div class="bg-brand-blue px-8 py-6 text-white">
-      <button onclick="closeModal()"
-        class="absolute top-5 right-5 text-white/80 hover:text-white text-xl leading-none">
-        ✕
-      </button>
-      <p id="modal-kicker" class="text-sm font-bold tracking-[0.15em] text-blue-200 uppercase mb-2"></p>
-      <h3 id="modal-title" class="text-2xl md:text-3xl font-black"></h3>
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div>© 2026 D&amp;I WISE. All rights reserved.</div>
+      <div>Demand &amp; Innovation Wise</div>
     </div>
+  </footer>
 
-    <div class="flex justify-center pt-3 bg-white">
-      <div class="w-12 h-1.5 rounded-full bg-gray-300"></div>
-    </div>
-
-    <div class="p-8 md:p-10 max-h-[72vh] overflow-y-auto">
-      <div id="modal-image" class="mb-6 hidden">
-        <img id="modal-image-tag" src="" alt="" class="w-full h-auto rounded-xl border border-gray-200">
+  <!-- Modal -->
+  <div id="modal" class="diff-modal">
+    <div class="modal-box">
+      <div class="modal-top">
+        <button onclick="closeModal()" class="modal-close" aria-label="닫기">✕</button>
+        <p id="modal-kicker" class="modal-kicker"></p>
+        <h3 id="modal-title" class="modal-title"></h3>
       </div>
 
-      <div id="modal-body" class="text-gray-700 leading-relaxed whitespace-pre-line text-[15px] md:text-base"></div>
+      <div class="modal-handle-wrap">
+        <div class="modal-handle"></div>
+      </div>
+
+      <div class="modal-body">
+        <div id="modal-image" class="modal-image">
+          <img id="modal-image-tag" src="" alt="">
+        </div>
+        <div id="modal-body"></div>
+      </div>
     </div>
   </div>
-</div>
 
-<script>
-/* 스크롤 등장 애니메이션 */
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach((entry) => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('show');
-    }
-  });
-}, { threshold: 0.15 });
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('show');
+        }
+      });
+    }, { threshold: 0.15 });
 
-document.querySelectorAll('.fade-up').forEach((el) => observer.observe(el));
+    document.querySelectorAll('.fade-up').forEach((el) => observer.observe(el));
 
-/* 모달 데이터 */
-const modalData = {
-  target_food: {
-    kicker: 'Target Market',
-    title: '식품 제조 업체',
-    body: `식품 제조 후 공급 영역에 대한 물류서비스를 제공하고, 안정적인 물류와 유통 관리 영역을 하고자 합니다.`,
-    image: ''
-  },
-  target_ecom: {
-    kicker: 'Target Market',
-    title: '전자상거래 (E-commerce)',
-    body: `온라인 쇼핑몰, 플랫폼 기업과의 협업을 통해 물류 대행 영역의 서비스를 집중적으로 수행하여, 매출 증가와 고객 유입을 극대화합니다.`,
-    image: ''
-  },
-  target_distribution: {
-    kicker: 'Target Market',
-    title: '유통 대행 영역',
-    body: `식품 및 식자재 영역의 다양한 수·출입에 대한 물류 영역 서비스를 제공합니다.
+    const modalData = {
+      target_food: {
+        kicker: 'Target Market',
+        title: '식품 제조 업체',
+        body: `식품 제조 후 공급 영역에 대한 물류서비스를 제공하고, 안정적인 물류와 유통 관리 영역을 하고자 합니다.`,
+        image: ''
+      },
+      target_ecom: {
+        kicker: 'Target Market',
+        title: '전자상거래 (E-commerce)',
+        body: `온라인 쇼핑몰, 플랫폼 기업과의 협업을 통해 물류 대행 영역의 서비스를 집중적으로 수행하여, 매출 증가와 고객 유입을 극대화합니다.`,
+        image: ''
+      },
+      target_distribution: {
+        kicker: 'Target Market',
+        title: '유통 대행 영역',
+        body: `식품 및 식자재 영역의 다양한 수·출입에 대한 물류 영역 서비스를 제공합니다.
 
 통관대행, 창고운영, 재고, 인력, 배송, 납품 등 물류 대행 영역 전반을 수행합니다.
 
 3PL (Third Party Logistics)
 공장물류, 유통물류, 납품대행, 운송대행 전 영역에서 창고, 인력, 배송차량의 물류 서비스 Operation을 제공합니다.`,
-    image: ''
-  },
-  target_global: {
-    kicker: 'Target Market',
-    title: '해외 상품 소싱',
-    body: `당사의 식자재 및 식품 소싱을 통하여 대기업 유통사 또는 공급 시장에서 역할을 수행합니다.
+        image: ''
+      },
+      target_global: {
+        kicker: 'Target Market',
+        title: '해외 상품 소싱',
+        body: `당사의 식자재 및 식품 소싱을 통하여 대기업 유통사 또는 공급 시장에서 역할을 수행합니다.
 
 상품 구매 및 공급대행
 글로벌소싱 (Global Sourcing)
 
 해외 또는 국내 식품 및 식자재 구매·판매대행을 통하여 공급시장에서 역할을 수행합니다.`,
-    image: ''
-  },
+        image: ''
+      },
 
-  diff_1: {
-    kicker: 'Differentiation',
-    title: '대응 역량 보유',
-    body: `기존의 식자재 기업의 인력 공급과 차량 운영 노하우 역량을 보유하고 있으며, 고도화된 인력과 차량 운영 기반을 갖추고 있습니다.`,
-    image: ''
-  },
-  diff_2: {
-    kicker: 'Differentiation',
-    title: '전문적 관리 기업',
-    body: `당사 경영진들의 식자재 및 식품 분야 노하우와 역량을 통하여 높은 수준의 물류관리 서비스를 제공합니다.`,
-    image: ''
-  },
-  diff_3: {
-    kicker: 'Differentiation',
-    title: '통합 물류관리 솔루션 제공',
-    body: `물류 공급 채널 및 식자재 기업 물류 관리 SYSTEM 이해와 자체 관리 시스템을 통한 안정적 물류관리 솔루션을 제공합니다.`,
-    image: ''
-  },
-  diff_4: {
-    kicker: 'Differentiation',
-    title: '판매 기회 제공 및 역할 수행',
-    body: `당사만의 식자재 기업 구매(매입)팀 차별화 네트워킹을 통하여 화주사 상품 등록 및 추가 판매 기회 연결, 그리고 판로 역할을 수행합니다.`,
-    image: ''
-  },
-  diff_5: {
-    kicker: 'Differentiation',
-    title: '대기업 관리자 출신 구성원',
-    body: `대기업 물류 관리자 출신이 3PL 영역을 수행함으로써 기존 식자재 기업 물류담당자들과 즉각적인 소통관리가 가능합니다.`,
-    image: ''
-  },
-  diff_6: {
-    kicker: 'Differentiation',
-    title: '안정적 납품 사후관리',
-    body: `최종 납품 이후 발생하는 문제점에 대하여 식자재 대기업의 CS(고객서비스센터)와 긴밀하게 대응하고 역할을 수행합니다.`,
-    image: ''
-  }
-};
+      diff_1: {
+        kicker: 'Differentiation',
+        title: '대응 역량 보유',
+        body: `기존의 식자재 기업의 인력 공급과 차량 운영 노하우 역량을 보유하고 있으며, 고도화된 인력과 차량 운영 기반을 갖추고 있습니다.`,
+        image: ''
+      },
+      diff_2: {
+        kicker: 'Differentiation',
+        title: '전문적 관리 기업',
+        body: `당사 경영진들의 식자재 및 식품 분야 노하우와 역량을 통하여 높은 수준의 물류관리 서비스를 제공합니다.`,
+        image: ''
+      },
+      diff_3: {
+        kicker: 'Differentiation',
+        title: '통합 물류관리 솔루션 제공',
+        body: `물류 공급 채널 및 식자재 기업 물류 관리 SYSTEM 이해와 자체 관리 시스템을 통한 안정적 물류관리 솔루션을 제공합니다.`,
+        image: ''
+      },
+      diff_4: {
+        kicker: 'Differentiation',
+        title: '판매 기회 제공 및 역할 수행',
+        body: `당사만의 식자재 기업 구매(매입)팀 차별화 네트워킹을 통하여 화주사 상품 등록 및 추가 판매 기회 연결, 그리고 판로 역할을 수행합니다.`,
+        image: ''
+      },
+      diff_5: {
+        kicker: 'Differentiation',
+        title: '대기업 관리자 출신 구성원',
+        body: `대기업 물류 관리자 출신이 3PL 영역을 수행함으로써 기존 식자재 기업 물류담당자들과 즉각적인 소통관리가 가능합니다.`,
+        image: ''
+      },
+      diff_6: {
+        kicker: 'Differentiation',
+        title: '안정적 납품 사후관리',
+        body: `최종 납품 이후 발생하는 문제점에 대하여 식자재 대기업의 CS(고객서비스센터)와 긴밀하게 대응하고 역할을 수행합니다.`,
+        image: ''
+      }
+    };
 
-function openModal(key) {
-  const data = modalData[key];
-  if (!data) return;
+    function openModal(key) {
+      const data = modalData[key];
+      if (!data) return;
 
-  document.getElementById('modal-kicker').textContent = data.kicker;
-  document.getElementById('modal-title').textContent = data.title;
-  document.getElementById('modal-body').textContent = data.body;
+      document.getElementById('modal-kicker').textContent = data.kicker;
+      document.getElementById('modal-title').textContent = data.title;
+      document.getElementById('modal-body').textContent = data.body;
 
-  const imageWrap = document.getElementById('modal-image');
-  const imageTag = document.getElementById('modal-image-tag');
+      const imageWrap = document.getElementById('modal-image');
+      const imageTag = document.getElementById('modal-image-tag');
 
-  if (data.image) {
-    imageWrap.classList.remove('hidden');
-    imageTag.src = data.image;
-    imageTag.alt = data.title;
-  } else {
-    imageWrap.classList.add('hidden');
-    imageTag.src = '';
-    imageTag.alt = '';
-  }
+      if (data.image) {
+        imageWrap.classList.add('show');
+        imageTag.src = data.image;
+        imageTag.alt = data.title;
+      } else {
+        imageWrap.classList.remove('show');
+        imageTag.src = '';
+        imageTag.alt = '';
+      }
 
-  const modal = document.getElementById('modal');
-  modal.classList.remove('hidden');
-  modal.classList.add('flex');
-  document.body.style.overflow = 'hidden';
-}
+      const modal = document.getElementById('modal');
+      modal.classList.add('show');
+      document.body.style.overflow = 'hidden';
+    }
 
-function closeModal() {
-  const modal = document.getElementById('modal');
-  modal.classList.add('hidden');
-  modal.classList.remove('flex');
-  document.body.style.overflow = '';
-}
+    function closeModal() {
+      const modal = document.getElementById('modal');
+      modal.classList.remove('show');
+      document.body.style.overflow = '';
+    }
 
-/* 배경 클릭 닫기 */
-document.getElementById('modal').addEventListener('click', (e) => {
-  if (e.target.id === 'modal') closeModal();
-});
+    document.getElementById('modal').addEventListener('click', (e) => {
+      if (e.target.id === 'modal') closeModal();
+    });
 
-/* ESC 닫기 */
-document.addEventListener('keydown', (e) => {
-  if (e.key === 'Escape') closeModal();
-});
-</script>
-
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeModal();
+    });
+  </script>
 </body>
 </html>

@@ -1,260 +1,567 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>운영역량 및 협업 사례 | D&I WISE</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>운영역량 및 협업 사례 | D&I WISE</title>
 
-<script src="https://cdn.tailwindcss.com"></script>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap" rel="stylesheet">
 
-<style>
-  body.case-page {
-  background:
-    linear-gradient(180deg, #071634 0%, #081b44 18%, #f5f9ff 18%, #eef4ff 100%);
-}
+  <style>
+    body.case-page {
+      background:
+        linear-gradient(180deg, #071634 0%, #081b44 18%, #f5f9ff 18%, #eef4ff 100%);
+    }
 
-.case-page-main {
-  position: relative;
-  z-index: 1;
-  background: transparent;
-}
+    .case-page-main {
+      position: relative;
+      z-index: 1;
+      background: transparent;
+    }
 
-.case-overview-section {
-  position: relative;
-  padding: 56px 0 34px;
-  background:
-    linear-gradient(180deg, #f7faff 0%, #eef4ff 100%);
-}
-</style>
+    .case-overview-section {
+      position: relative;
+      padding: 56px 0 34px;
+      background:
+        linear-gradient(180deg, #f7faff 0%, #eef4ff 100%);
+    }
 
-<script>
-tailwind.config = {
-  theme: {
-    extend: {
-      colors: {
-        brand: {
-          blue: '#1E3A8A',
-          green: '#16A34A',
-          light: '#F3F4F6'
-        }
+    .fade-up {
+      opacity: 0;
+      transform: translateY(36px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+
+    .fade-up.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .case-section {
+      padding: 42px 0 48px;
+    }
+
+    .case-section-heading {
+      text-align: center;
+      margin-bottom: 18px;
+    }
+
+    .case-section-title {
+      margin: 0 0 14px;
+      font-size: clamp(2rem, 3vw, 2.8rem);
+      line-height: 1.2;
+      font-weight: 800;
+      letter-spacing: -0.04em;
+      color: #102a5c;
+      word-break: keep-all;
+    }
+
+    .case-section-desc {
+      margin: 0 auto;
+      max-width: 920px;
+      color: #5d749d;
+      font-size: 1.04rem;
+      line-height: 1.9;
+      word-break: keep-all;
+    }
+
+    .capability-panel {
+      position: relative;
+      overflow: hidden;
+      margin-top: 34px;
+      padding: 36px;
+      border-radius: 32px;
+      background:
+        radial-gradient(circle at 16% 16%, rgba(96,165,250,0.10), transparent 18%),
+        radial-gradient(circle at 86% 18%, rgba(147,197,253,0.12), transparent 18%),
+        linear-gradient(180deg, rgba(255,255,255,0.98) 0%, rgba(248,251,255,0.98) 100%);
+      border: 1px solid rgba(148,173,220,0.20);
+      box-shadow:
+        0 20px 46px rgba(8,27,68,0.08),
+        0 6px 16px rgba(8,27,68,0.04);
+    }
+
+    .capability-panel::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 36px;
+      right: 36px;
+      height: 4px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, #2563eb, #93c5fd);
+      pointer-events: none;
+    }
+
+    .capability-grid {
+      display: grid;
+      grid-template-columns: 1.02fr 1fr;
+      gap: 34px;
+      align-items: center;
+    }
+
+    .case-map-wrap {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .case-map-image {
+      width: 100%;
+      max-width: 500px;
+      height: auto;
+      border-radius: 22px;
+      border: 1px solid rgba(148,173,220,0.18);
+      box-shadow:
+        0 18px 40px rgba(8,27,68,0.08),
+        0 6px 14px rgba(8,27,68,0.04);
+      background: #fff;
+    }
+
+    .capability-cards {
+      display: grid;
+      gap: 18px;
+    }
+
+    .capability-card {
+      position: relative;
+      overflow: hidden;
+      padding: 24px 22px 22px;
+      border-radius: 22px;
+      background: rgba(255,255,255,0.96);
+      border: 1px solid rgba(148,173,220,0.18);
+      box-shadow:
+        0 14px 30px rgba(8,27,68,0.06),
+        0 4px 10px rgba(8,27,68,0.03);
+    }
+
+    .capability-card::before {
+      content: "";
+      position: absolute;
+      width: 120px;
+      height: 120px;
+      right: -22px;
+      top: -22px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(96,165,250,0.10), transparent 68%);
+      pointer-events: none;
+    }
+
+    .capability-badge {
+      display: inline-flex;
+      align-items: center;
+      min-height: 34px;
+      padding: 0 12px;
+      border-radius: 999px;
+      font-size: 0.78rem;
+      font-weight: 800;
+      letter-spacing: 0.02em;
+    }
+
+    .capability-badge.blue {
+      background: #eaf2ff;
+      color: #1d4ed8;
+    }
+
+    .capability-badge.green {
+      background: #ecfdf3;
+      color: #16a34a;
+    }
+
+    .capability-card strong {
+      display: block;
+      margin-top: 14px;
+      color: #102a5c;
+      font-size: 0.98rem;
+      line-height: 1.7;
+      font-weight: 800;
+      word-break: keep-all;
+    }
+
+    .capability-card ul,
+    .capability-card p {
+      margin: 12px 0 0;
+      color: #62779f;
+      font-size: 0.94rem;
+      line-height: 1.8;
+      word-break: keep-all;
+    }
+
+    .capability-card ul {
+      padding-left: 0;
+      list-style: none;
+    }
+
+    .capability-card ul li {
+      position: relative;
+      padding-left: 14px;
+      margin-bottom: 6px;
+    }
+
+    .capability-card ul li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 12px;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #93c5fd;
+    }
+
+    .case-article-list {
+      display: grid;
+      gap: 28px;
+      margin-top: 34px;
+    }
+
+    .case-article {
+      position: relative;
+      overflow: hidden;
+      padding: 36px 34px;
+      border-radius: 30px;
+      background: rgba(255,255,255,0.97);
+      border: 1px solid rgba(148,173,220,0.22);
+      box-shadow:
+        0 18px 40px rgba(8,27,68,0.08),
+        0 6px 14px rgba(8,27,68,0.04);
+    }
+
+    .case-article::before {
+      content: "";
+      position: absolute;
+      width: 160px;
+      height: 160px;
+      right: -24px;
+      top: -24px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(96,165,250,0.10), transparent 68%);
+      pointer-events: none;
+    }
+
+    .case-chip {
+      display: inline-flex;
+      align-items: center;
+      min-height: 34px;
+      padding: 0 12px;
+      border-radius: 999px;
+      font-size: 0.78rem;
+      font-weight: 800;
+      letter-spacing: 0.02em;
+      margin-bottom: 16px;
+    }
+
+    .case-chip.blue {
+      background: #eaf2ff;
+      color: #1d4ed8;
+    }
+
+    .case-chip.green {
+      background: #ecfdf3;
+      color: #16a34a;
+    }
+
+    .case-article h3 {
+      margin: 0 0 10px;
+      color: #0f2858;
+      font-size: 1.8rem;
+      line-height: 1.25;
+      font-weight: 900;
+      letter-spacing: -0.04em;
+      word-break: keep-all;
+    }
+
+    .case-article-desc {
+      margin: 0;
+      color: #62779f;
+      line-height: 1.85;
+      word-break: keep-all;
+    }
+
+    .case-article-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 24px;
+      margin-top: 26px;
+    }
+
+    .case-subcard {
+      position: relative;
+      overflow: hidden;
+      padding: 24px 22px 22px;
+      border-radius: 22px;
+      background: #f8fbff;
+      border: 1px solid #e2ebfb;
+    }
+
+    .case-subcard h4 {
+      margin: 0 0 12px;
+      font-size: 1rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      word-break: keep-all;
+    }
+
+    .case-subcard.blue h4 {
+      color: #1d4ed8;
+    }
+
+    .case-subcard.green h4 {
+      color: #16a34a;
+    }
+
+    .case-subcard ul,
+    .case-subcard p {
+      margin: 0;
+      color: #62779f;
+      font-size: 0.94rem;
+      line-height: 1.8;
+      word-break: keep-all;
+    }
+
+    .case-subcard ul {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    .case-subcard ul li {
+      position: relative;
+      padding-left: 14px;
+      margin-bottom: 6px;
+    }
+
+    .case-subcard ul li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 12px;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #93c5fd;
+    }
+
+    @media (max-width: 991px) {
+      .case-overview-section {
+        padding: 56px 0 24px;
+      }
+
+      .capability-panel {
+        padding: 28px 22px;
+        border-radius: 24px;
+      }
+
+      .capability-panel::after {
+        left: 22px;
+        right: 22px;
+      }
+
+      .capability-grid,
+      .case-article-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .case-article {
+        padding: 28px 24px;
+        border-radius: 24px;
+      }
+
+      .case-article h3 {
+        font-size: 1.45rem;
       }
     }
-  }
-}
-</script>
+
+    @media (max-width: 640px) {
+      .case-section-title {
+        font-size: 1.8rem;
+      }
+
+      .case-section-desc,
+      .case-article-desc,
+      .case-subcard p,
+      .capability-card p {
+        font-size: 0.96rem;
+        line-height: 1.8;
+      }
+    }
+  </style>
 </head>
 
 <body class="case-page">
+  <!-- Header -->
+  <header class="header-shell">
+    <div class="header-inner">
+      <a href="index.html" class="header-logo">
+        <img src="assets/logo.png" alt="D&I WISE 로고">
+      </a>
 
-<!-- 헤더 -->
-<header class="bg-white shadow-sm border-b sticky top-0 z-50">
-  <div class="max-w-7xl mx-auto px-6 h-20 flex justify-between items-center">
-
-    <!-- 로고 -->
-    <a href="index.html" class="flex items-center">
-      <img src="assets/logo.jpg" alt="D&I WISE 로고" class="h-10 object-contain">
-    </a>
-
-    <!-- 네비게이션 -->
-    <nav class="hidden md:flex space-x-8 text-sm font-medium">
-      <a href="company.html" class="hover:text-brand-blue transition">회사소개</a>
-      <a href="services.html" class="hover:text-brand-blue transition">서비스소개</a>
-      <a href="differentiation.html" class="hover:text-brand-blue transition">차별화포인트</a>
-      <a href="case-study.html" class="hover:text-brand-blue transition">운영역량</a>
-      <a href="esg.html" class="hover:text-brand-blue transition">ESG경영</a>
-    </nav>
-
-  </div>
-</header>
-
-<!-- Hero -->
-<section class="py-28 bg-brand-blue text-white text-center">
-  <div class="max-w-5xl mx-auto px-6">
-    <p class="text-sm font-bold tracking-[0.2em] text-blue-200 mb-4 uppercase">Operation Capability & Case Study</p>
-    <h1 class="text-4xl md:text-5xl font-black mb-6">
-      운영역량 및 협업 사례
-    </h1>
-    <p class="text-lg text-blue-100 leading-relaxed">
-      주요 물류 거점과 검증된 협업 경험을 기반으로<br class="hidden md:block">
-      안정적인 운영 구조를 제공합니다.
-    </p>
-  </div>
-</section>
-
-<main class="py-20">
-  <div class="max-w-6xl mx-auto px-6">
-
-    <!-- 운영 역량 -->
-    <section class="mb-24">
-
-  <h2 class="text-3xl font-black text-brand-blue mb-10 text-center">
-    운영 역량 및 물류 거점
-  </h2>
-
-  <div class="bg-white p-8 rounded-2xl shadow border">
-
-    <!-- 좌우 레이아웃 -->
-    <div class="grid lg:grid-cols-2 gap-10 items-center">
-
-      <!-- 지도 -->
-      <div class="flex justify-center">
-        <img
-          src="/assets/case-study-map2.png"
-          alt="대한민국 물류 거점 개념도"
-          class="w-full max-w-md h-auto rounded-xl border border-gray-200"
-        >
-      </div>
-
-      <!-- 카드 영역 -->
-      <div class="space-y-6">
-
-        <!-- 카드 1 -->
-        <div class="bg-gray-50 p-6 rounded-xl border">
-          <span class="text-xs font-bold text-brand-blue bg-blue-100 px-3 py-1 rounded-full">
-            디앤아이와이즈 물류 거점
-          </span>
-
-          <p class="mt-4 text-sm text-gray-700 font-bold">
-            ○ 경기도 이천시, 광주시 2개 거점 운영 中
-          </p>
-
-          <ul class="mt-3 text-sm text-gray-600 space-y-1">
-            <li>· 경기도 이천시 마장면 (DRY 창고 750평)</li>
-            <li>· 경기도 광주시 도척면 (WE T창고 약500평)</li>
-          </ul>
-        </div>
-
-        <!-- 카드 2 -->
-        <div class="bg-gray-50 p-6 rounded-xl border">
-          <span class="text-xs font-bold text-brand-green bg-green-100 px-3 py-1 rounded-full">
-            파트너사 물류 거점
-          </span>
-
-          <p class="mt-4 text-sm text-gray-700 font-bold">
-            ○ 도급운영 거점 6개소 거점 운영
-          </p>
-
-          <ul class="mt-3 text-sm text-gray-600 space-y-1">
-            <li>· 경기도 이천시 4개소 (H사, F사, S사)</li>
-            <li>· 경기도 평택시 1개소 (F사)</li>
-          </ul>
-        </div>
-
-        <!-- 카드 3 -->
-        <div class="bg-gray-50 p-6 rounded-xl border">
-          <span class="text-xs font-bold text-brand-blue bg-blue-100 px-3 py-1 rounded-full">
-            운송사 배송 역량
-          </span>
-
-          <p class="mt-4 text-sm text-gray-700 font-bold">
-            ○ 식자재 영역 운송사 일일 약350여대 공급 중
-          </p>
-
-          <p class="mt-3 text-sm text-gray-600">
-            (H사 200여대, S사 120여대, 기타 30여대 콜드차량)
-          </p>
-        </div>
-
-      </div>
-
+      <nav class="nav-desktop">
+        <a href="company.html" class="nav-link">회사소개</a>
+        <a href="services.html" class="nav-link">서비스소개</a>
+        <a href="differentiation.html" class="nav-link">차별화포인트</a>
+        <a href="case-study.html" class="nav-link">운영역량</a>
+        <a href="esg.html" class="nav-link">ESG경영</a>
+      </nav>
     </div>
+  </header>
 
-  </div>
-
-</section>
-
-    <!-- 협업 사례 -->
-    <section>
-      <div class="text-center mb-12">
-        <h2 class="text-3xl font-black text-brand-blue mb-4">
-          성공적인 협업 사례
-        </h2>
-        <p class="text-gray-600 max-w-3xl mx-auto leading-relaxed">
-          식자재 공급을 넘어 다양한 물류 운영 경험을 바탕으로
-          고객사의 성장과 신규 사업 진출을 지원하고 있습니다.
-        </p>
+  <!-- Hero -->
+  <section class="sub-hero sub-hero-capability">
+    <div class="sub-hero-bg"></div>
+    <div class="sub-hero-overlay"></div>
+    <div class="container-wide sub-hero-inner">
+      <div class="sub-hero-text">
+        <span class="sub-hero-kicker">CAPABILITY</span>
+        <h1>운영역량</h1>
+        <p>주요 물류 거점과 검증된 협업 경험을 기반으로 안정적인 운영 구조를 제공합니다.</p>
       </div>
+    </div>
+  </section>
 
-      <div class="space-y-8">
+  <main class="case-page-main">
+    <section class="case-overview-section">
+      <div class="container-wide">
+        <!-- 운영 역량 -->
+        <section class="case-section fade-up">
+          <div class="case-section-heading">
+            <h2 class="case-section-title">운영 역량 및 물류 거점</h2>
+            <p class="case-section-desc">
+              경기도 이천시와 광주시를 중심으로 한 물류 거점 운영,
+              파트너사 도급 운영 거점, 그리고 식자재 운송 네트워크까지
+              현장 기반의 실행 역량을 구축하고 있습니다.
+            </p>
+          </div>
 
-        <!-- 현대그린푸드 -->
-        <article class="bg-white p-10 rounded-2xl shadow border border-gray-200">
-          <div class="flex flex-col md:flex-row md:items-start md:justify-between gap-6 mb-6">
-            <div>
-              <div class="inline-flex items-center px-3 py-1 rounded-full bg-blue-50 text-brand-blue text-xs font-bold mb-4">
-                장기 운영 협업 사례
+          <div class="capability-panel">
+            <div class="capability-grid">
+              <div class="case-map-wrap">
+                <img
+                  src="assets/case-study-map2.png"
+                  alt="대한민국 물류 거점 개념도"
+                  class="case-map-image"
+                >
               </div>
-              <h3 class="text-2xl font-black text-gray-900 mb-3">현대그린푸드와 협업</h3>
-              <p class="text-gray-600 leading-relaxed">
-                식자재 공급 영역을 넘어 패션과 피킹 대행 등의 다양한 물류 대행 영역 수행
-              </p>
-            </div>
-          </div>
 
-          <div class="grid md:grid-cols-2 gap-8">
-            <div class="bg-gray-50 rounded-xl p-6">
-              <h4 class="font-bold text-brand-blue mb-4">협업 내용</h4>
-              <ul class="space-y-2 text-sm text-gray-600 leading-relaxed">
-                <li>TC(Transfer Center) 인력 도급 대행</li>
-                <li>패션물류센터 3PL 운영 대행</li>
-                <li>납품 협력사 피킹대행 수행</li>
-              </ul>
-            </div>
+              <div class="capability-cards">
+                <article class="capability-card">
+                  <span class="capability-badge blue">디앤아이와이즈 물류 거점</span>
+                  <strong>○ 경기도 이천시, 광주시 2개 거점 운영 中</strong>
+                  <ul>
+                    <li>경기도 이천시 마장면 (DRY 창고 750평)</li>
+                    <li>경기도 광주시 도척면 (WE T창고 약 500평)</li>
+                  </ul>
+                </article>
 
-            <div class="bg-gray-50 rounded-xl p-6">
-              <h4 class="font-bold text-brand-blue mb-4">운영 성과</h4>
-              <p class="text-sm text-gray-600 leading-relaxed">
-                현대그린푸드 5년동안 회사의 발전고 성장에 뒷받침하기 위하여 다양한 분야의 업무 수행
-                (만족 수준 높음으로 현재 5년째 연속 수주 운영 中)
-              </p>
-            </div>
-          </div>
-        </article>
+                <article class="capability-card">
+                  <span class="capability-badge green">파트너사 물류 거점</span>
+                  <strong>○ 도급운영 거점 6개소 운영</strong>
+                  <ul>
+                    <li>경기도 이천시 4개소 (H사, F사, S사)</li>
+                    <li>경기도 평택시 1개소 (F사)</li>
+                  </ul>
+                </article>
 
-        <!-- 한라홀딩스 -->
-        <article class="bg-white p-10 rounded-2xl shadow border border-gray-200">
-          <div class="flex flex-col md:flex-row md:items-start md:justify-between gap-6 mb-6">
-            <div>
-              <div class="inline-flex items-center px-3 py-1 rounded-full bg-green-50 text-brand-green text-xs font-bold mb-4">
-                3PL 진출 컨설팅 사례
+                <article class="capability-card">
+                  <span class="capability-badge blue">운송사 배송 역량</span>
+                  <strong>○ 식자재 영역 운송사 일일 약 350여 대 공급 중</strong>
+                  <p>(H사 200여대, S사 120여대, 기타 30여대 콜드차량)</p>
+                </article>
               </div>
-              <h3 class="text-2xl font-black text-gray-900 mb-3">한라홀딩스 3PL 컨설팅</h3>
-              <p class="text-gray-600 leading-relaxed">
-                한라홀딩스 식자재 및 식품 영역 3PL 진출을 위한 컨설팅 및 현장 운영 지원
-              </p>
             </div>
           </div>
+        </section>
 
-          <div class="grid md:grid-cols-2 gap-8">
-            <div class="bg-gray-50 rounded-xl p-6">
-              <h4 class="font-bold text-brand-green mb-4">협업 내용</h4>
-              <ul class="space-y-2 text-sm text-gray-600 leading-relaxed">
-                <li>식자재 (S사) 외식형 3PL 물류센터 컨설팅</li>
-                <li>3PL Operation 수행 (센터, 차량,인력, 시스템)</li>
-              </ul>
-            </div>
-
-            <div class="bg-gray-50 rounded-xl p-6">
-              <h4 class="font-bold text-brand-green mb-4">운영 성과</h4>
-              <p class="text-sm text-gray-600 leading-relaxed">
-                신규 사업 진출을 위한 컨설팅 수행 및 운영 지원을 통한 안정적 물류 Process 구축
-                한라홀딩스 3PL 영역의 마중물 역할 만족도 高
-              </p>
-            </div>
+        <!-- 협업 사례 -->
+        <section class="case-section fade-up">
+          <div class="case-section-heading">
+            <h2 class="case-section-title">성공적인 협업 사례</h2>
+            <p class="case-section-desc">
+              식자재 공급을 넘어 다양한 물류 운영 경험을 바탕으로
+              고객사의 성장과 신규 사업 진출을 지원하고 있습니다.
+            </p>
           </div>
-        </article>
 
+          <div class="case-article-list">
+            <article class="case-article">
+              <span class="case-chip blue">장기 운영 협업 사례</span>
+              <h3>현대그린푸드와 협업</h3>
+              <p class="case-article-desc">
+                식자재 공급 영역을 넘어 패션과 피킹 대행 등의 다양한 물류 대행 영역을 수행하며,
+                장기 협업 기반의 안정적인 운영 성과를 이어가고 있습니다.
+              </p>
+
+              <div class="case-article-grid">
+                <div class="case-subcard blue">
+                  <h4>협업 내용</h4>
+                  <ul>
+                    <li>TC (Transfer Center) 인력 도급 대행</li>
+                    <li>패션물류센터 3PL 운영 대행</li>
+                    <li>납품 협력사 피킹대행 수행</li>
+                  </ul>
+                </div>
+
+                <div class="case-subcard blue">
+                  <h4>운영 성과</h4>
+                  <p>
+                    현대그린푸드와 5년 동안 다양한 분야의 업무를 수행하며
+                    높은 만족도를 바탕으로 현재까지 연속 수주 운영을 이어가고 있습니다.
+                  </p>
+                </div>
+              </div>
+            </article>
+
+            <article class="case-article">
+              <span class="case-chip green">3PL 진출 컨설팅 사례</span>
+              <h3>한라홀딩스 3PL 컨설팅</h3>
+              <p class="case-article-desc">
+                한라홀딩스의 식자재 및 식품 영역 3PL 진출을 위한 컨설팅과 현장 운영 지원을 통해
+                신규 사업 진출의 기반을 함께 구축했습니다.
+              </p>
+
+              <div class="case-article-grid">
+                <div class="case-subcard green">
+                  <h4>협업 내용</h4>
+                  <ul>
+                    <li>식자재 (S사) 외식형 3PL 물류센터 컨설팅</li>
+                    <li>3PL Operation 수행 (센터, 차량, 인력, 시스템)</li>
+                  </ul>
+                </div>
+
+                <div class="case-subcard green">
+                  <h4>운영 성과</h4>
+                  <p>
+                    신규 사업 진출을 위한 컨설팅 수행과 운영 지원을 통해
+                    안정적인 물류 프로세스를 구축했으며,
+                    3PL 영역 진출의 마중물 역할을 수행했습니다.
+                  </p>
+                </div>
+              </div>
+            </article>
+          </div>
+        </section>
       </div>
     </section>
+  </main>
 
-  </div>
-</main>
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div>© 2026 D&amp;I WISE. All rights reserved.</div>
+      <div>Demand &amp; Innovation Wise</div>
+    </div>
+  </footer>
 
-<!-- 푸터 -->
-<footer class="bg-gray-900 text-gray-400 py-10 text-center text-sm">
-  © 2026 D&I WISE. All rights reserved.
-</footer>
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('show');
+        }
+      });
+    }, { threshold: 0.15 });
 
+    document.querySelectorAll('.fade-up').forEach((el) => observer.observe(el));
+  </script>
 </body>
 </html>
