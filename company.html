@@ -619,96 +619,94 @@
     </p>
   </div>
 
-  <div class="core-pentagon-stage">
-    <div class="core-pentagon-3d">
-      <div class="core-pentagon-inner">
-        <div class="core-pentagon-sheen"></div>
-        <div class="core-pentagon-grid"></div>
-        <div class="core-pentagon-glow glow-1"></div>
-        <div class="core-pentagon-glow glow-2"></div>
+  <div class="core-value-visual-stage">
+    <div class="core-value-visual">
+      <div class="core-value-image-wrap">
+        <img src="assets/core-value.jpg" alt="핵심 가치 비주얼" class="core-value-image">
+        <div class="core-value-image-overlay"></div>
+        <div class="core-value-center-text">핵심 가치</div>
+      </div>
 
-        <div class="core-pentagon-center-label">핵심 가치</div>
+      <!-- 항목 배치 -->
+      <button class="core-value-node node-top is-active" data-index="0" type="button">
+        <span class="node-dot gold"></span>
+        <span class="node-ko">창의성</span>
+        <span class="node-en">Creativity</span>
+      </button>
 
-        <button class="core-pentagon-item item-top is-active" data-index="0" type="button">
-          <span class="item-dot gold"></span>
-          <span class="item-ko">창의성</span>
-          <span class="item-en">Creativity</span>
-        </button>
+      <button class="core-value-node node-right-top" data-index="1" type="button">
+        <span class="node-dot blue"></span>
+        <span class="node-ko">고객 중심</span>
+        <span class="node-en">Customer-Centric</span>
+      </button>
 
-        <button class="core-pentagon-item item-right-top" data-index="1" type="button">
-          <span class="item-dot blue"></span>
-          <span class="item-ko">고객 중심</span>
-          <span class="item-en">Customer-Centric</span>
-        </button>
+      <button class="core-value-node node-right-bottom" data-index="2" type="button">
+        <span class="node-dot green"></span>
+        <span class="node-ko">성과 지향</span>
+        <span class="node-en">Results-Oriented</span>
+      </button>
 
-        <button class="core-pentagon-item item-right-bottom" data-index="2" type="button">
-          <span class="item-dot green"></span>
-          <span class="item-ko">성과 지향</span>
-          <span class="item-en">Results-Oriented</span>
-        </button>
+      <button class="core-value-node node-left-bottom" data-index="3" type="button">
+        <span class="node-dot indigo"></span>
+        <span class="node-ko">협력/소통</span>
+        <span class="node-en">Collaboration</span>
+      </button>
 
-        <button class="core-pentagon-item item-left-bottom" data-index="3" type="button">
-          <span class="item-dot indigo"></span>
-          <span class="item-ko">협력/소통</span>
-          <span class="item-en">Collaboration</span>
-        </button>
+      <button class="core-value-node node-left-top" data-index="4" type="button">
+        <span class="node-dot rose"></span>
+        <span class="node-ko">지속 가능성</span>
+        <span class="node-en">Sustainability</span>
+      </button>
 
-        <button class="core-pentagon-item item-left-top" data-index="4" type="button">
-          <span class="item-dot rose"></span>
-          <span class="item-ko">지속 가능성</span>
-          <span class="item-en">Sustainability</span>
-        </button>
+      <!-- 설명 카드 -->
+      <div class="core-value-popup is-active popup-top" data-card="0">
+        <div class="core-value-badge tag-gold">01</div>
+        <h3>창의성</h3>
+        <h4>Creativity</h4>
+        <p>
+          고객사의 고유 상품을 안전하게 관리하고 차별화된 가치를 제공하며,
+          고정관념을 넘어서는 사고방식을 추구합니다.
+        </p>
+      </div>
 
-        <!-- 설명 카드 -->
-        <div class="core-floating-card is-active pos-top" data-card="0">
-          <div class="core-floating-badge tag-gold">01</div>
-          <h3>창의성</h3>
-          <h4>Creativity</h4>
-          <p>
-            고객사의 고유 상품을 안전하게 관리하고 차별화된 가치를 제공하며,
-            고정관념을 넘어서는 사고방식을 추구합니다.
-          </p>
-        </div>
+      <div class="core-value-popup popup-right-top" data-card="1">
+        <div class="core-value-badge tag-blue">02</div>
+        <h3>고객 중심</h3>
+        <h4>Customer-Centric</h4>
+        <p>
+          고객사의 성공이 곧 우리의 성공이라는 신념으로
+          고객의 니즈와 목표를 최우선으로 생각합니다.
+        </p>
+      </div>
 
-        <div class="core-floating-card pos-right-top" data-card="1">
-          <div class="core-floating-badge tag-blue">02</div>
-          <h3>고객 중심</h3>
-          <h4>Customer-Centric</h4>
-          <p>
-            고객사의 성공이 곧 우리의 성공이라는 신념으로
-            고객의 니즈와 목표를 최우선으로 생각합니다.
-          </p>
-        </div>
+      <div class="core-value-popup popup-right-bottom" data-card="2">
+        <div class="core-value-badge tag-green">03</div>
+        <h3>성과 지향</h3>
+        <h4>Results-Oriented</h4>
+        <p>
+          데이터를 기반으로 한 전략적 접근을 통해
+          실질적인 비즈니스 성과를 창출하고 고객사의 성장에 기여합니다.
+        </p>
+      </div>
 
-        <div class="core-floating-card pos-right-bottom" data-card="2">
-          <div class="core-floating-badge tag-green">03</div>
-          <h3>성과 지향</h3>
-          <h4>Results-Oriented</h4>
-          <p>
-            데이터를 기반으로 한 전략적 접근을 통해
-            실질적인 비즈니스 성과를 창출하고 고객사의 성장에 기여합니다.
-          </p>
-        </div>
+      <div class="core-value-popup popup-left-bottom" data-card="3">
+        <div class="core-value-badge tag-indigo">04</div>
+        <h3>협력/소통</h3>
+        <h4>Collaboration</h4>
+        <p>
+          지속적인 피드백과 소통을 통해 최고의 결과를 이끌어내며,
+          전문적인 노하우를 기반으로 서비스를 제공합니다.
+        </p>
+      </div>
 
-        <div class="core-floating-card pos-left-bottom" data-card="3">
-          <div class="core-floating-badge tag-indigo">04</div>
-          <h3>협력/소통</h3>
-          <h4>Collaboration</h4>
-          <p>
-            지속적인 피드백과 소통을 통해 최고의 결과를 이끌어내며,
-            전문적인 노하우를 기반으로 서비스를 제공합니다.
-          </p>
-        </div>
-
-        <div class="core-floating-card pos-left-top" data-card="4">
-          <div class="core-floating-badge tag-rose">05</div>
-          <h3>지속 가능성</h3>
-          <h4>Sustainability</h4>
-          <p>
-            윤리적 관리 체계를 추구하며 사회와 환경에 긍정적인 영향을 미치는 활동을 전개하여
-            미래를 준비합니다.
-          </p>
-        </div>
+      <div class="core-value-popup popup-left-top" data-card="4">
+        <div class="core-value-badge tag-rose">05</div>
+        <h3>지속 가능성</h3>
+        <h4>Sustainability</h4>
+        <p>
+          윤리적 관리 체계를 추구하며 사회와 환경에 긍정적인 영향을 미치는 활동을 전개하여
+          미래를 준비합니다.
+        </p>
       </div>
     </div>
   </div>
@@ -738,62 +736,62 @@
 
   <script>
   document.addEventListener('DOMContentLoaded', function () {
-    const valueItems = document.querySelectorAll('.core-pentagon-item');
-    const floatingCards = document.querySelectorAll('.core-floating-card');
+    const valueNodes = document.querySelectorAll('.core-value-node');
+    const valueCards = document.querySelectorAll('.core-value-popup');
 
-    if (!valueItems.length || !floatingCards.length) return;
+    if (!valueNodes.length || !valueCards.length) return;
 
     let currentIndex = 0;
-    let autoRotate = null;
+    let rotateTimer = null;
     const ROTATE_DELAY = 2000;
 
-    function activateValue(index) {
-      valueItems.forEach((item, i) => {
-        item.classList.toggle('is-active', i === index);
+    function activateCoreValue(index) {
+      valueNodes.forEach((node, i) => {
+        node.classList.toggle('is-active', i === index);
       });
 
-      floatingCards.forEach((card, i) => {
+      valueCards.forEach((card, i) => {
         card.classList.toggle('is-active', i === index);
       });
 
       currentIndex = index;
     }
 
-    function showNextValue() {
-      const nextIndex = (currentIndex + 1) % valueItems.length;
-      activateValue(nextIndex);
+    function showNextCoreValue() {
+      const nextIndex = (currentIndex + 1) % valueNodes.length;
+      activateCoreValue(nextIndex);
     }
 
-    function startAutoRotate() {
-      stopAutoRotate();
-      autoRotate = setInterval(showNextValue, ROTATE_DELAY);
+    function startCoreRotation() {
+      stopCoreRotation();
+      rotateTimer = setInterval(showNextCoreValue, ROTATE_DELAY);
     }
 
-    function stopAutoRotate() {
-      if (autoRotate) {
-        clearInterval(autoRotate);
-        autoRotate = null;
+    function stopCoreRotation() {
+      if (rotateTimer) {
+        clearInterval(rotateTimer);
+        rotateTimer = null;
       }
     }
 
-    valueItems.forEach((item, index) => {
-      item.addEventListener('mouseenter', function () {
-        activateValue(index);
-        stopAutoRotate();
+    valueNodes.forEach((node, index) => {
+      node.addEventListener('mouseenter', function () {
+        activateCoreValue(index);
+        stopCoreRotation();
       });
 
-      item.addEventListener('mouseleave', function () {
-        startAutoRotate();
+      node.addEventListener('mouseleave', function () {
+        startCoreRotation();
       });
 
-      item.addEventListener('click', function () {
-        activateValue(index);
-        startAutoRotate();
+      node.addEventListener('click', function () {
+        activateCoreValue(index);
+        startCoreRotation();
       });
     });
 
-    activateValue(0);
-    startAutoRotate();
+    activateCoreValue(0);
+    startCoreRotation();
   });
 </script>
 </body>

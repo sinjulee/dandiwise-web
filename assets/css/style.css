@@ -2552,100 +2552,63 @@ button {
   text-shadow: 0 4px 18px rgba(0,0,0,0.18);
 }
 
-.core-pentagon-stage {
-  margin-top: 40px;
+.core-value-visual-stage {
+  margin-top: 44px;
   display: flex;
   justify-content: center;
 }
 
-.core-pentagon-3d {
+.core-value-visual {
   position: relative;
-  width: 760px;
-  height: 700px;
+  width: 940px;
+  min-height: 760px;
 }
 
-.core-pentagon-inner {
+.core-value-image-wrap {
   position: relative;
+  width: 620px;
+  height: 620px;
+  margin: 0 auto;
+  border-radius: 50%;
+  overflow: hidden;
+  box-shadow:
+    0 34px 70px rgba(8,27,68,0.20),
+    0 12px 24px rgba(8,27,68,0.08);
+}
+
+.core-value-image {
   width: 100%;
   height: 100%;
-  clip-path: polygon(50% 0%, 100% 37%, 82% 100%, 18% 100%, 0% 37%);
-  background:
-    linear-gradient(145deg, #2f5be7 0%, #2548bd 26%, #1f3d9c 56%, #172554 100%);
-  box-shadow:
-    0 34px 70px rgba(8,27,68,0.22),
-    inset 0 1px 0 rgba(255,255,255,0.16),
-    inset 0 -20px 32px rgba(0,0,0,0.16);
-  overflow: hidden;
+  object-fit: cover;
+  filter: hue-rotate(185deg) saturate(1.35) brightness(0.52) contrast(1.1);
+  transform: scale(1.08);
 }
 
-.core-pentagon-inner::before {
-  content: "";
-  position: absolute;
-  inset: 22px;
-  clip-path: polygon(50% 0%, 100% 37%, 82% 100%, 18% 100%, 0% 37%);
-  border: 1px solid rgba(255,255,255,0.10);
-  pointer-events: none;
-}
-
-.core-pentagon-sheen {
+.core-value-image-overlay {
   position: absolute;
   inset: 0;
   background:
-    radial-gradient(circle at 32% 20%, rgba(255,255,255,0.22), transparent 12%),
-    linear-gradient(180deg, rgba(255,255,255,0.06), transparent 30%);
+    radial-gradient(circle at center, rgba(37,99,235,0.10), rgba(8,27,68,0.18) 45%, rgba(7,22,52,0.42) 100%),
+    linear-gradient(180deg, rgba(7,22,52,0.18), rgba(7,22,52,0.28));
   pointer-events: none;
 }
 
-.core-pentagon-grid {
-  position: absolute;
-  inset: 0;
-  background:
-    linear-gradient(rgba(255,255,255,0.028) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255,255,255,0.028) 1px, transparent 1px);
-  background-size: 44px 44px;
-  opacity: 0.22;
-  mask-image: linear-gradient(to bottom, rgba(0,0,0,0.65), rgba(0,0,0,0.15));
-  pointer-events: none;
-}
-
-.core-pentagon-glow {
-  position: absolute;
-  border-radius: 50%;
-  pointer-events: none;
-}
-
-.core-pentagon-glow.glow-1 {
-  width: 260px;
-  height: 260px;
-  top: -40px;
-  right: -40px;
-  background: radial-gradient(circle, rgba(96,165,250,0.18), transparent 70%);
-}
-
-.core-pentagon-glow.glow-2 {
-  width: 220px;
-  height: 220px;
-  bottom: -50px;
-  left: 80px;
-  background: radial-gradient(circle, rgba(255,255,255,0.08), transparent 72%);
-}
-
-.core-pentagon-center-label {
+.core-value-center-text {
   position: absolute;
   left: 50%;
-  top: 52%;
+  top: 50%;
   transform: translate(-50%, -50%);
   color: #ffffff;
-  font-size: 3rem;
+  font-size: 2.8rem;
   line-height: 1.15;
   font-weight: 900;
   letter-spacing: -0.05em;
   text-align: center;
-  z-index: 4;
-  text-shadow: 0 10px 24px rgba(0,0,0,0.18);
+  text-shadow: 0 10px 24px rgba(0,0,0,0.22);
+  z-index: 3;
 }
 
-.core-pentagon-item {
+.core-value-node {
   position: absolute;
   z-index: 4;
   display: flex;
@@ -2654,75 +2617,76 @@ button {
   text-align: center;
   background: transparent;
   border: 0;
-  cursor: pointer;
   padding: 0;
-  color: rgba(255,255,255,0.84);
-  transition: transform 0.28s ease, opacity 0.28s ease, color 0.28s ease;
+  cursor: pointer;
+  color: #102a5c;
+  transition: transform 0.28s ease, opacity 0.28s ease, filter 0.28s ease;
 }
 
-.core-pentagon-item:hover,
-.core-pentagon-item.is-active {
+.core-value-node:hover,
+.core-value-node.is-active {
   transform: scale(1.06);
-  color: #ffffff;
+  filter: drop-shadow(0 8px 16px rgba(37,99,235,0.12));
 }
 
-.core-pentagon-item .item-dot {
+.core-value-node .node-dot {
   width: 12px;
   height: 12px;
   margin-bottom: 10px;
   border-radius: 50%;
-  box-shadow: 0 0 14px rgba(255,255,255,0.24);
+  box-shadow: 0 0 14px rgba(255,255,255,0.18);
 }
 
-.item-dot.gold   { background: #f59e0b; }
-.item-dot.blue   { background: #3b82f6; }
-.item-dot.green  { background: #22c55e; }
-.item-dot.indigo { background: #6366f1; }
-.item-dot.rose   { background: #f43f5e; }
+.node-dot.gold   { background: #f59e0b; }
+.node-dot.blue   { background: #3b82f6; }
+.node-dot.green  { background: #22c55e; }
+.node-dot.indigo { background: #6366f1; }
+.node-dot.rose   { background: #f43f5e; }
 
-.core-pentagon-item .item-ko {
-  font-size: 1.42rem;
+.core-value-node .node-ko {
+  font-size: 1.4rem;
   font-weight: 800;
   line-height: 1.2;
   letter-spacing: -0.03em;
+  color: #17336d;
 }
 
-.core-pentagon-item .item-en {
+.core-value-node .node-en {
   margin-top: 6px;
-  font-size: 0.92rem;
-  font-weight: 600;
-  color: rgba(230,238,255,0.82);
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #6b86b3;
 }
 
-/* 내부 모서리 방향 배치 */
-.item-top {
-  top: 86px;
+/* 오각형 배치 느낌 */
+.node-top {
+  top: 18px;
   left: 50%;
   transform: translateX(-50%);
 }
 
-.item-right-top {
-  top: 226px;
-  right: 92px;
+.node-right-top {
+  top: 178px;
+  right: 70px;
 }
 
-.item-right-bottom {
-  bottom: 120px;
-  right: 138px;
+.node-right-bottom {
+  bottom: 94px;
+  right: 126px;
 }
 
-.item-left-bottom {
-  bottom: 120px;
-  left: 138px;
+.node-left-bottom {
+  bottom: 94px;
+  left: 126px;
 }
 
-.item-left-top {
-  top: 226px;
-  left: 92px;
+.node-left-top {
+  top: 178px;
+  left: 70px;
 }
 
 /* 설명 카드 */
-.core-floating-card {
+.core-value-popup {
   position: absolute;
   width: 280px;
   padding: 22px 22px 20px;
@@ -2730,7 +2694,7 @@ button {
   background: rgba(255,255,255,0.98);
   border: 1px solid rgba(148,173,220,0.18);
   box-shadow:
-    0 22px 40px rgba(8,27,68,0.14),
+    0 22px 40px rgba(8,27,68,0.12),
     0 8px 18px rgba(8,27,68,0.05);
   opacity: 0;
   visibility: hidden;
@@ -2743,13 +2707,13 @@ button {
   pointer-events: none;
 }
 
-.core-floating-card.is-active {
+.core-value-popup.is-active {
   opacity: 1;
   visibility: visible;
   transform: translateY(0) scale(1);
 }
 
-.core-floating-badge {
+.core-value-badge {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -2763,7 +2727,7 @@ button {
   box-shadow: 0 10px 20px rgba(15,23,42,0.10);
 }
 
-.core-floating-card h3 {
+.core-value-popup h3 {
   margin: 0 0 4px;
   color: #102a5c;
   font-size: 1.2rem;
@@ -2772,14 +2736,14 @@ button {
   letter-spacing: -0.03em;
 }
 
-.core-floating-card h4 {
+.core-value-popup h4 {
   margin: 0 0 12px;
   color: #6b86b3;
   font-size: 0.9rem;
   font-weight: 700;
 }
 
-.core-floating-card p {
+.core-value-popup p {
   margin: 0;
   color: #62779f;
   font-size: 0.92rem;
@@ -2787,35 +2751,34 @@ button {
   word-break: keep-all;
 }
 
-/* 각 모서리 옆 카드 위치 */
-.pos-top {
-  top: 34px;
+.popup-top {
+  top: 76px;
   left: 50%;
   transform: translateX(-50%) translateY(8px) scale(0.96);
 }
 
-.pos-top.is-active {
+.popup-top.is-active {
   transform: translateX(-50%) translateY(0) scale(1);
 }
 
-.pos-right-top {
-  top: 176px;
-  right: -165px;
+.popup-right-top {
+  top: 150px;
+  right: -6px;
 }
 
-.pos-right-bottom {
-  bottom: 70px;
-  right: -160px;
+.popup-right-bottom {
+  bottom: 52px;
+  right: 16px;
 }
 
-.pos-left-bottom {
-  bottom: 70px;
-  left: -160px;
+.popup-left-bottom {
+  bottom: 52px;
+  left: 16px;
 }
 
-.pos-left-top {
-  top: 176px;
-  left: -165px;
+.popup-left-top {
+  top: 150px;
+  left: -6px;
 }
 
 .tag-gold   { background: linear-gradient(180deg, #f59e0b 0%, #d97706 100%); }
@@ -2824,108 +2787,127 @@ button {
 .tag-indigo { background: linear-gradient(180deg, #6366f1 0%, #4f46e5 100%); }
 .tag-rose   { background: linear-gradient(180deg, #f43f5e 0%, #e11d48 100%); }
 
-@media (max-width: 1400px) {
-  .core-floating-card {
+@media (max-width: 1200px) {
+  .core-value-visual {
+    width: 820px;
+    min-height: 700px;
+  }
+
+  .core-value-image-wrap {
+    width: 540px;
+    height: 540px;
+  }
+
+  .core-value-center-text {
+    font-size: 2.3rem;
+  }
+
+  .core-value-popup {
     width: 250px;
   }
 
-  .pos-right-top,
-  .pos-right-bottom {
-    right: -120px;
+  .node-right-top,
+  .node-right-bottom {
+    right: 54px;
   }
 
-  .pos-left-top,
-  .pos-left-bottom {
-    left: -120px;
+  .node-left-top,
+  .node-left-bottom {
+    left: 54px;
   }
 }
 
 @media (max-width: 991px) {
-  .core-pentagon-3d {
-    width: 520px;
-    height: 480px;
+  .core-value-visual {
+    width: 100%;
+    min-height: auto;
   }
 
-  .core-pentagon-center-label {
-    font-size: 2.2rem;
+  .core-value-image-wrap {
+    width: 420px;
+    height: 420px;
   }
 
-  .core-pentagon-item .item-ko {
-    font-size: 1.08rem;
+  .core-value-center-text {
+    font-size: 2rem;
   }
 
-  .core-pentagon-item .item-en {
-    font-size: 0.76rem;
+  .core-value-node .node-ko {
+    font-size: 1rem;
   }
 
-  .item-top {
-    top: 62px;
+  .core-value-node .node-en {
+    font-size: 0.74rem;
   }
 
-  .item-right-top {
-    top: 160px;
-    right: 54px;
+  .node-top {
+    top: -8px;
   }
 
-  .item-right-bottom {
-    bottom: 86px;
-    right: 88px;
+  .node-right-top {
+    top: 118px;
+    right: 20px;
   }
 
-  .item-left-bottom {
-    bottom: 86px;
-    left: 88px;
+  .node-right-bottom {
+    bottom: 58px;
+    right: 48px;
   }
 
-  .item-left-top {
-    top: 160px;
-    left: 54px;
+  .node-left-bottom {
+    bottom: 58px;
+    left: 48px;
   }
 
-  .core-floating-card {
+  .node-left-top {
+    top: 118px;
+    left: 20px;
+  }
+
+  .core-value-popup {
     display: none;
   }
 }
 
 @media (max-width: 640px) {
-  .core-pentagon-3d {
-    width: 340px;
-    height: 320px;
+  .core-value-image-wrap {
+    width: 300px;
+    height: 300px;
   }
 
-  .core-pentagon-center-label {
-    font-size: 1.55rem;
+  .core-value-center-text {
+    font-size: 1.5rem;
   }
 
-  .core-pentagon-item .item-ko {
+  .core-value-node .node-ko {
     font-size: 0.78rem;
   }
 
-  .core-pentagon-item .item-en {
+  .core-value-node .node-en {
     display: none;
   }
 
-  .item-top {
-    top: 44px;
+  .node-top {
+    top: -10px;
   }
 
-  .item-right-top {
-    top: 112px;
-    right: 30px;
+  .node-right-top {
+    top: 82px;
+    right: 0;
   }
 
-  .item-right-bottom {
-    bottom: 58px;
-    right: 48px;
+  .node-right-bottom {
+    bottom: 28px;
+    right: 16px;
   }
 
-  .item-left-bottom {
-    bottom: 58px;
-    left: 48px;
+  .node-left-bottom {
+    bottom: 28px;
+    left: 16px;
   }
 
-  .item-left-top {
-    top: 112px;
-    left: 30px;
+  .node-left-top {
+    top: 82px;
+    left: 0;
   }
 }
