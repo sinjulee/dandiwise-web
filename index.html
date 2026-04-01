@@ -616,69 +616,94 @@
             </div>
           </div>
 
-          <div class="contact-estimate-form-card">
-            <h3 class="contact-form-title">무료 물류 진단 및 견적 의뢰</h3>
+<div class="contact-estimate-form-card">
+  <h3 class="contact-form-title">무료 물류 진단 및 견적 의뢰</h3>
 
-            <form class="estimate-form">
-              <div class="estimate-grid two-col">
-                <div class="form-group">
-                  <label for="company">회사명 <em>*</em></label>
-                  <input type="text" id="company" name="company" placeholder="회사명을 입력해주세요" />
-                </div>
+  <form id="estimateForm" class="estimate-form">
+    <div class="estimate-grid two-col">
+      <div class="form-group">
+        <label for="company">회사명 <em>*</em></label>
+        <input
+          type="text"
+          id="company"
+          name="company"
+          placeholder="회사명을 입력해주세요"
+          required
+        />
+      </div>
 
-                <div class="form-group">
-                  <label for="manager">담당자명 <em>*</em></label>
-                  <input type="text" id="manager" name="manager" placeholder="담당자명을 입력해주세요" />
-                </div>
-              </div>
+      <div class="form-group">
+        <label for="manager">담당자명 <em>*</em></label>
+        <input
+          type="text"
+          id="manager"
+          name="manager"
+          placeholder="담당자명을 입력해주세요"
+          required
+        />
+      </div>
+    </div>
 
-              <div class="estimate-grid">
-                <div class="form-group">
-                  <label for="phone">연락처 <em>*</em></label>
-                  <input type="tel" id="phone" name="phone" placeholder="010-0000-0000" />
-                </div>
-              </div>
+    <div class="estimate-grid">
+      <div class="form-group">
+        <label for="phone">연락처 <em>*</em></label>
+        <input
+          type="tel"
+          id="phone"
+          name="phone"
+          placeholder="010-0000-0000"
+          required
+        />
+      </div>
+    </div>
 
-              <div class="estimate-grid">
-                <div class="form-group">
-                  <label for="email">이메일 <em>*</em></label>
-                  <input type="email" id="email" name="email" placeholder="example@email.com" required />
-                </div>
-              </div>
+    <div class="estimate-grid">
+      <div class="form-group">
+        <label for="email">이메일 <em>*</em></label>
+        <input
+          type="email"
+          id="email"
+          name="email"
+          placeholder="example@email.com"
+          required
+        />
+      </div>
+    </div>
 
-              <div class="estimate-grid">
-                <div class="form-group">
-                  <label for="volume">월 평균 물동량</label>
-                  <select id="volume" name="volume">
-                    <option value="">선택해주세요</option>
-                    <option>월 1,000건 미만</option>
-                    <option>월 1,000~5,000건</option>
-                    <option>월 5,000~10,000건</option>
-                    <option>월 10,000건 이상</option>
-                    <option>별도 협의 필요</option>
-                  </select>
-                </div>
-              </div>
+    <div class="estimate-grid">
+      <div class="form-group">
+        <label for="monthlyVolume">월 평균 물동량</label>
+        <select id="monthlyVolume" name="monthlyVolume">
+          <option value="">선택해주세요</option>
+          <option value="월 1,000건 미만">월 1,000건 미만</option>
+          <option value="월 1,000~5,000건">월 1,000~5,000건</option>
+          <option value="월 5,000~10,000건">월 5,000~10,000건</option>
+          <option value="월 10,000건 이상">월 10,000건 이상</option>
+          <option value="별도 협의 필요">별도 협의 필요</option>
+        </select>
+      </div>
+    </div>
 
-              <div class="estimate-grid">
-                <div class="form-group">
-                  <label for="message">문의 내용</label>
-                  <textarea
-                    id="message"
-                    name="message"
-                    rows="5"
-                    placeholder="현재 겪고 있는 물류 고민(배송, 단가, 운영 이슈 등)을 적어주세요."
-                  ></textarea>
-                </div>
-              </div>
+    <div class="estimate-grid">
+      <div class="form-group">
+        <label for="inquiry">문의 내용 <em>*</em></label>
+        <textarea
+          id="inquiry"
+          name="inquiry"
+          rows="5"
+          placeholder="현재 겪고 있는 물류 고민(배송, 단가, 운영 이슈 등)을 적어주세요."
+          required
+        ></textarea>
+      </div>
+    </div>
 
-              <button type="submit" class="estimate-submit-btn">🚀 견적 문의 접수하기</button>
+    <button type="submit" class="estimate-submit-btn">🚀 견적 문의 접수하기</button>
 
-              <p class="estimate-form-note">
-                제출 시 개인정보 수집 및 이용에 동의하는 것으로 간주됩니다.
-              </p>
-            </form>
-          </div>
+    <p class="estimate-form-note">
+      제출 시 개인정보 수집 및 이용에 동의하는 것으로 간주됩니다.
+    </p>
+  </form>
+</div>
         </div>
       </div>
     </section>
@@ -842,51 +867,55 @@
 
   const estimateForm = document.getElementById('estimateForm');
 
-  estimateForm.addEventListener('submit', async function (e) {
-    e.preventDefault();
+  if (estimateForm) {
+    estimateForm.addEventListener('submit', async function (e) {
+      e.preventDefault();
 
-    const submitButton = estimateForm.querySelector('button[type="submit"]');
-    const originalText = submitButton.textContent;
+      const submitButton = estimateForm.querySelector('button[type="submit"]');
+      const originalText = submitButton.textContent;
 
-    const formData = {
-      company: document.getElementById('company').value.trim(),
-      manager: document.getElementById('manager').value.trim(),
-      phone: document.getElementById('phone').value.trim(),
-      email: document.getElementById('email').value.trim(),
-      monthlyVolume: document.getElementById('monthlyVolume').value,
-      inquiry: document.getElementById('inquiry').value.trim(),
-      pageUrl: window.location.href
-    };
+      const formData = {
+        company: document.getElementById('company').value.trim(),
+        manager: document.getElementById('manager').value.trim(),
+        phone: document.getElementById('phone').value.trim(),
+        email: document.getElementById('email').value.trim(),
+        monthlyVolume: document.getElementById('monthlyVolume').value,
+        inquiry: document.getElementById('inquiry').value.trim(),
+        pageUrl: window.location.href
+      };
 
-    try {
-      submitButton.disabled = true;
-      submitButton.textContent = '접수 중입니다...';
+      console.log('보내는 데이터:', formData);
 
-      const response = await fetch(SCRIPT_URL, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'text/plain;charset=utf-8'
-        },
-        body: JSON.stringify(formData)
-      });
+      try {
+        submitButton.disabled = true;
+        submitButton.textContent = '접수 중입니다...';
 
-      const result = await response.json();
+        const response = await fetch(SCRIPT_URL, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'text/plain;charset=utf-8'
+          },
+          body: JSON.stringify(formData)
+        });
 
-      if (result.result === 'success') {
-        alert('문의가 정상 접수되었습니다. 빠르게 확인 후 연락드리겠습니다.');
-        estimateForm.reset();
-      } else {
-        alert('접수 중 오류가 발생했습니다: ' + result.message);
+        const result = await response.json();
+        console.log('응답:', result);
+
+        if (result.result === 'success') {
+          alert('문의가 정상 접수되었습니다. 빠르게 확인 후 연락드리겠습니다.');
+          estimateForm.reset();
+        } else {
+          alert('접수 중 오류가 발생했습니다: ' + result.message);
+        }
+      } catch (error) {
+        console.error(error);
+        alert('네트워크 오류가 발생했습니다. 잠시 후 다시 시도해주세요.');
+      } finally {
+        submitButton.disabled = false;
+        submitButton.textContent = originalText;
       }
-
-    } catch (error) {
-      alert('네트워크 오류가 발생했습니다. 잠시 후 다시 시도해주세요.');
-      console.error(error);
-    } finally {
-      submitButton.disabled = false;
-      submitButton.textContent = originalText;
-    }
-  });
+    });
+  }
 </script>
 
 </body>
