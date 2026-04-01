@@ -1,287 +1,727 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>회사소개 | D&I WISE</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>회사소개 | D&I WISE</title>
 
-<script src="https://cdn.tailwindcss.com"></script>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap" rel="stylesheet">
 
-<style>
-body {
-  background-color: #F3F4F6;
-}
+  <style>
+    body {
+      background:
+        linear-gradient(180deg, #071634 0%, #081b44 28%, #f5f9ff 28%, #eef4ff 100%);
+    }
 
-.fade-up {
-  opacity: 0;
-  transform: translateY(36px);
-  transition: all 0.8s ease;
-}
-.fade-up.show {
-  opacity: 1;
-  transform: translateY(0);
-}
+    .company-page-main {
+      position: relative;
+      z-index: 1;
+    }
 
-.value-card {
-  transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
-}
-.value-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 18px 36px rgba(0,0,0,0.10);
-  border-color: #cbd5e1;
-}
-</style>
+    .company-overview-section {
+      padding: 84px 0 34px;
+    }
 
-<script>
-tailwind.config = {
-  theme: {
-    extend: {
-      colors: {
-        brand: {
-          blue: '#1E3A8A',
-          green: '#16A34A',
-          light: '#F3F4F6'
-        }
+    .company-section {
+      padding: 42px 0 46px;
+    }
+
+    .company-section-title {
+      margin: 0 0 18px;
+      font-size: clamp(2rem, 3vw, 2.8rem);
+      line-height: 1.2;
+      font-weight: 800;
+      letter-spacing: -0.04em;
+      color: #102a5c;
+      word-break: keep-all;
+    }
+
+    .company-section-desc {
+      margin: 0;
+      max-width: 920px;
+      color: #5c739d;
+      font-size: 1.04rem;
+      line-height: 1.9;
+      word-break: keep-all;
+    }
+
+    .company-grid-2 {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 24px;
+      margin-top: 34px;
+    }
+
+    .company-card {
+      position: relative;
+      overflow: hidden;
+      padding: 34px 32px;
+      border-radius: 30px;
+      background: rgba(255,255,255,0.96);
+      border: 1px solid rgba(148,173,220,0.22);
+      box-shadow:
+        0 18px 40px rgba(8,27,68,0.08),
+        0 6px 14px rgba(8,27,68,0.04);
+    }
+
+    .company-card::before {
+      content: "";
+      position: absolute;
+      width: 180px;
+      height: 180px;
+      right: -34px;
+      top: -34px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(96,165,250,0.10), transparent 68%);
+      pointer-events: none;
+    }
+
+    .company-card h3 {
+      margin: 0 0 20px;
+      color: #0f2858;
+      font-size: 1.55rem;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+    }
+
+    .company-card p {
+      margin: 0;
+      color: #60779f;
+      line-height: 1.9;
+      word-break: keep-all;
+    }
+
+    .company-info-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px 22px;
+    }
+
+    .company-info-item {
+      position: relative;
+      padding-bottom: 14px;
+      border-bottom: 1px solid #e8eef9;
+    }
+
+    .company-info-item.full {
+      grid-column: 1 / -1;
+    }
+
+    .company-info-label {
+      display: block;
+      margin-bottom: 6px;
+      color: #8aa0c6;
+      font-size: 0.9rem;
+      font-weight: 600;
+    }
+
+    .company-info-value {
+      color: #102a5c;
+      font-size: 1rem;
+      font-weight: 700;
+      line-height: 1.7;
+      word-break: keep-all;
+    }
+
+    .vision-panel {
+      position: relative;
+      overflow: hidden;
+      margin-top: 8px;
+      padding: 54px 42px;
+      border-radius: 34px;
+      background:
+        radial-gradient(circle at 18% 20%, rgba(96,165,250,0.12), transparent 20%),
+        radial-gradient(circle at 86% 18%, rgba(147,197,253,0.12), transparent 18%),
+        linear-gradient(180deg, rgba(255,255,255,0.98) 0%, rgba(248,251,255,0.98) 100%);
+      border: 1px solid rgba(148,173,220,0.20);
+      box-shadow:
+        0 20px 46px rgba(8,27,68,0.08),
+        0 6px 16px rgba(8,27,68,0.04);
+      text-align: center;
+    }
+
+    .vision-panel::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 42px;
+      right: 42px;
+      height: 4px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, #2563eb, #93c5fd);
+    }
+
+    .vision-kicker {
+      display: inline-block;
+      margin-bottom: 16px;
+      color: rgba(37,99,235,0.76);
+      font-size: 0.88rem;
+      font-weight: 800;
+      letter-spacing: 0.20em;
+      text-transform: uppercase;
+    }
+
+    .vision-title {
+      margin: 0 0 22px;
+      color: #102a5c;
+      font-size: clamp(2rem, 3.2vw, 3rem);
+      line-height: 1.24;
+      letter-spacing: -0.05em;
+      font-weight: 800;
+      word-break: keep-all;
+    }
+
+    .vision-text {
+      margin: 0 auto;
+      max-width: 980px;
+      color: #5d749d;
+      font-size: 1.05rem;
+      line-height: 1.95;
+      word-break: keep-all;
+    }
+
+    .values-section-header {
+      text-align: center;
+      margin-bottom: 18px;
+    }
+
+    .values-shell {
+      position: relative;
+      max-width: 1120px;
+      margin: 0 auto;
+      min-height: 760px;
+    }
+
+    .values-center {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      width: 220px;
+      height: 220px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      background:
+        radial-gradient(circle at 30% 25%, rgba(255,255,255,0.24), transparent 18%),
+        linear-gradient(135deg, #1e40af 0%, #1e3a8a 100%);
+      color: #fff;
+      box-shadow:
+        0 28px 60px rgba(8,27,68,0.18),
+        inset 0 1px 0 rgba(255,255,255,0.18);
+      z-index: 3;
+    }
+
+    .values-center span {
+      font-size: 2rem;
+      line-height: 1.25;
+      font-weight: 900;
+      letter-spacing: -0.04em;
+      word-break: keep-all;
+    }
+
+    .values-ring {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      width: 560px;
+      height: 560px;
+      transform: translate(-50%, -50%);
+      border: 2px dashed rgba(148,173,220,0.46);
+      border-radius: 50%;
+      z-index: 1;
+    }
+
+    .value-node {
+      position: absolute;
+      z-index: 2;
+    }
+
+    .value-node.core-1 { top: 2%; left: 50%; transform: translateX(-50%); }
+    .value-node.core-2 { top: 23%; right: 8%; }
+    .value-node.core-3 { bottom: 10%; right: 14%; }
+    .value-node.core-4 { bottom: 10%; left: 14%; }
+    .value-node.core-5 { top: 23%; left: 8%; }
+
+    .value-dot {
+      width: 138px;
+      height: 138px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      background: #ffffff;
+      font-size: 1.12rem;
+      font-weight: 800;
+      color: #172554;
+      box-shadow:
+        0 16px 30px rgba(8,27,68,0.10),
+        inset 0 0 0 1px rgba(148,173,220,0.18);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      cursor: default;
+      padding: 10px;
+      word-break: keep-all;
+    }
+
+    .value-node:hover .value-dot {
+      transform: translateY(-6px) scale(1.04);
+      box-shadow:
+        0 24px 40px rgba(8,27,68,0.14),
+        inset 0 0 0 1px rgba(148,173,220,0.24);
+    }
+
+    .value-dot.c1 { border: 4px solid #f59e0b; }
+    .value-dot.c2 { border: 4px solid #3b82f6; }
+    .value-dot.c3 { border: 4px solid #22c55e; }
+    .value-dot.c4 { border: 4px solid #6366f1; }
+    .value-dot.c5 { border: 4px solid #f43f5e; }
+
+    .value-panel {
+      position: absolute;
+      width: 310px;
+      padding: 22px 22px 20px;
+      border-radius: 24px;
+      background: rgba(255,255,255,0.98);
+      border: 1px solid rgba(148,173,220,0.18);
+      box-shadow:
+        0 20px 40px rgba(8,27,68,0.10),
+        0 8px 16px rgba(8,27,68,0.04);
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+      transition: opacity 0.28s ease, transform 0.28s ease, visibility 0.28s ease;
+      word-break: keep-all;
+    }
+
+    .value-node:hover .value-panel {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .value-panel h4 {
+      margin: 0 0 10px;
+      font-size: 1rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+    }
+
+    .value-panel p {
+      margin: 0;
+      color: #62779f;
+      font-size: 0.95rem;
+      line-height: 1.8;
+    }
+
+    .value-node.core-1 .value-panel {
+      left: 50%;
+      bottom: 164px;
+      transform: translateX(-50%) translateY(10px);
+    }
+    .value-node.core-1:hover .value-panel {
+      transform: translateX(-50%) translateY(0);
+    }
+
+    .value-node.core-2 .value-panel {
+      left: 156px;
+      top: 50%;
+      transform: translateY(-50%) translateX(-10px);
+    }
+    .value-node.core-2:hover .value-panel {
+      transform: translateY(-50%) translateX(0);
+    }
+
+    .value-node.core-3 .value-panel {
+      left: 124px;
+      top: 118px;
+      transform: translateY(10px);
+    }
+    .value-node.core-3:hover .value-panel {
+      transform: translateY(0);
+    }
+
+    .value-node.core-4 .value-panel {
+      right: 124px;
+      top: 118px;
+      transform: translateY(10px);
+      text-align: right;
+    }
+    .value-node.core-4:hover .value-panel {
+      transform: translateY(0);
+    }
+
+    .value-node.core-5 .value-panel {
+      right: 156px;
+      top: 50%;
+      transform: translateY(-50%) translateX(10px);
+      text-align: right;
+    }
+    .value-node.core-5:hover .value-panel {
+      transform: translateY(-50%) translateX(0);
+    }
+
+    .value-panel.v1 h4 { color: #f59e0b; }
+    .value-panel.v2 h4 { color: #3b82f6; }
+    .value-panel.v3 h4 { color: #22c55e; }
+    .value-panel.v4 h4 { color: #6366f1; }
+    .value-panel.v5 h4 { color: #f43f5e; }
+
+    .fade-up {
+      opacity: 0;
+      transform: translateY(36px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+
+    .fade-up.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .values-mobile-list {
+      display: none;
+    }
+
+    @media (max-width: 991px) {
+      body {
+        background:
+          linear-gradient(180deg, #071634 0%, #081b44 20%, #f5f9ff 20%, #eef4ff 100%);
+      }
+
+      .company-overview-section {
+        padding: 68px 0 24px;
+      }
+
+      .company-grid-2 {
+        grid-template-columns: 1fr;
+      }
+
+      .company-card {
+        padding: 28px 24px;
+        border-radius: 24px;
+      }
+
+      .vision-panel {
+        padding: 40px 24px;
+        border-radius: 26px;
+      }
+
+      .vision-panel::after {
+        left: 24px;
+        right: 24px;
+      }
+
+      .values-shell {
+        display: none;
+      }
+
+      .values-mobile-list {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 18px;
+        margin-top: 26px;
+      }
+
+      .values-mobile-card {
+        background: rgba(255,255,255,0.96);
+        border: 1px solid rgba(148,173,220,0.20);
+        border-radius: 22px;
+        box-shadow:
+          0 16px 32px rgba(8,27,68,0.08),
+          0 6px 14px rgba(8,27,68,0.04);
+        padding: 24px 20px;
+      }
+
+      .values-mobile-card h4 {
+        margin: 0 0 10px;
+        font-size: 1.06rem;
+        font-weight: 800;
+        letter-spacing: -0.02em;
+      }
+
+      .values-mobile-card p {
+        margin: 0;
+        color: #62779f;
+        line-height: 1.8;
+        font-size: 0.95rem;
       }
     }
-  }
-}
-</script>
+
+    @media (max-width: 640px) {
+      .company-section-title {
+        font-size: 1.8rem;
+      }
+
+      .company-section-desc,
+      .vision-text {
+        font-size: 0.97rem;
+        line-height: 1.8;
+      }
+
+      .company-info-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .company-info-item.full {
+        grid-column: auto;
+      }
+
+      .vision-title {
+        font-size: 1.9rem;
+      }
+    }
+  </style>
 </head>
 
-<body class="text-gray-800">
+<body>
+  <!-- Header -->
+  <header class="header-shell">
+    <div class="header-inner">
+      <a href="index.html" class="header-logo">
+        <img src="assets/logo.jpg" alt="D&I WISE 로고">
+      </a>
 
-<!-- 헤더 -->
-<header class="bg-white shadow-sm border-b sticky top-0 z-50">
-  <div class="max-w-7xl mx-auto px-6 h-20 flex justify-between items-center">
+      <nav class="nav-desktop">
+        <a href="company.html" class="nav-link">회사소개</a>
+        <a href="services.html" class="nav-link">서비스소개</a>
+        <a href="differentiation.html" class="nav-link">차별화포인트</a>
+        <a href="case-study.html" class="nav-link">운영역량</a>
+        <a href="esg.html" class="nav-link">ESG경영</a>
+      </nav>
+    </div>
+  </header>
 
-    <!-- 로고 -->
-    <a href="index.html" class="flex items-center">
-      <img src="assets/logo.jpg" alt="D&I WISE 로고" class="h-10 object-contain">
-    </a>
-
-    <!-- 네비게이션 -->
-    <nav class="hidden md:flex space-x-8 text-sm font-medium">
-      <a href="company.html" class="hover:text-brand-blue transition">회사소개</a>
-      <a href="services.html" class="hover:text-brand-blue transition">서비스소개</a>
-      <a href="differentiation.html" class="hover:text-brand-blue transition">차별화포인트</a>
-      <a href="case-study.html" class="hover:text-brand-blue transition">운영역량</a>
-      <a href="esg.html" class="hover:text-brand-blue transition">ESG경영</a>
-    </nav>
-
-  </div>
-</header>
-
-<!-- Hero -->
-<section class="pt-24 pb-20 bg-brand-blue text-white text-center">
-  <div class="max-w-4xl mx-auto px-6">
-    <h1 class="text-4xl md:text-5xl font-black mb-4">
-      회사소개
-    </h1>
-    <p class="text-lg text-blue-100">
-      고객과 함께 성장하는 혁신적인 유통공급 파트너
-    </p>
-  </div>
-</section>
-
-<main class="py-20">
-  <div class="max-w-6xl mx-auto px-6">
-
-    <!-- 회사 개요 -->
-    <section class="mb-24 fade-up">
-      <div class="text-center mb-10">
-        <h2 class="text-3xl font-black text-brand-blue mb-4">
-          회사 개요
-        </h2>
-        <p class="text-gray-600 max-w-4xl mx-auto leading-relaxed">
-          2021년에 설립된 ㈜디앤아이와이즈는 물류대행 전문 기업으로,
-          물류 전략 수립을 중심으로 다양한 SCM 솔루션을 제공하고 있습니다.
-          고객사의 비즈니스 성장을 최우선으로 생각하며, 맞춤형 물류 전략을 통해
-          지속 가능한 성장을 지원하고 있습니다.
-        </p>
+  <!-- Hero -->
+  <section class="sub-hero sub-hero-company">
+    <div class="sub-hero-bg"></div>
+    <div class="sub-hero-overlay"></div>
+    <div class="container-wide sub-hero-inner">
+      <div class="sub-hero-text">
+        <span class="sub-hero-kicker">COMPANY</span>
+        <h1>회사소개</h1>
+        <p>고객과 함께 성장하는 혁신적인 유통공급 파트너, D&amp;I WISE를 소개합니다.</p>
       </div>
+    </div>
+  </section>
 
-      <div class="grid lg:grid-cols-2 gap-8">
-        <div class="bg-white rounded-2xl shadow border p-8 md:p-10">
-          <h3 class="text-2xl font-black text-brand-blue mb-6">About Company</h3>
-          <p class="text-gray-700 leading-relaxed">
-            2021년에 설립된 ㈜디앤아이와이즈는 물류대행 전문 기업으로, <br>물류 전략 수립을 중심으로 다양한 SCM 솔루션을 제공하고 있습니다.
-            당사는 고객사의 비즈니스 성장을 최우선으로 생각하며, <br>최신 트렌드에 맞춘 맞춤형 SCM 전략을 통해 성과를 창출합니다.
-            물류대행 영역 등 다방면에서 시장을 선도하며, <br>지속 가능한 성장을 위해 <br>혁신적인 물류 및 유통공급 솔루션을 제공하고 있습니다.
+  <main class="company-page-main">
+    <section class="company-overview-section">
+      <div class="container-wide">
+        <!-- 회사 개요 -->
+        <section class="company-section fade-up">
+          <h2 class="company-section-title">회사 개요</h2>
+          <p class="company-section-desc">
+            2021년에 설립된 ㈜디앤아이와이즈는 물류대행 전문 기업으로,
+            물류 전략 수립을 중심으로 다양한 SCM 솔루션을 제공하고 있습니다.
+            고객사의 비즈니스 성장을 최우선으로 생각하며, 맞춤형 물류 전략을 통해
+            지속 가능한 성장을 지원하고 있습니다.
           </p>
-        </div>
 
-        <div class="bg-white rounded-2xl shadow border p-8 md:p-10">
-          <h3 class="text-2xl font-black text-brand-blue mb-6">기본 정보</h3>
-          <div class="grid grid-cols-1 sm:grid-cols-2 gap-5 text-sm">
-            <div class="border-b border-gray-100 pb-3">
-              <p class="text-gray-400 mb-1">회사명</p>
-              <p class="font-bold text-gray-800">㈜디앤아이와이즈(D&I WISE)</p>
-            </div>
-            <div class="border-b border-gray-100 pb-3">
-              <p class="text-gray-400 mb-1">설립 연도</p>
-              <p class="font-bold text-gray-800">2021년</p>
-            </div>
-            <div class="border-b border-gray-100 pb-3">
-              <p class="text-gray-400 mb-1">대표이사</p>
-              <p class="font-bold text-gray-800">김혜진</p>
-            </div>
-            <div class="border-b border-gray-100 pb-3">
-              <p class="text-gray-400 mb-1">자본금</p>
-              <p class="font-bold text-gray-800">110,000,000</p>
-            </div>
-            <div class="border-b border-gray-100 pb-3">
-              <p class="text-gray-400 mb-1">설립일</p>
-              <p class="font-bold text-gray-800">2021년 3월</p>
-            </div>
-            <div class="border-b border-gray-100 pb-3">
-              <p class="text-gray-400 mb-1">직원 수</p>
-              <p class="font-bold text-gray-800">15명</p>
-            </div>
-            <div class="sm:col-span-2 border-b border-gray-100 pb-3">
-              <p class="text-gray-400 mb-1">주소</p>
-              <p class="font-bold text-gray-800">경기도 용인시 수지구 만현로88, 상현종합상가 508호</p>
-            </div>
-            <div class="sm:col-span-2">
-              <p class="text-gray-400 mb-1">사업영역</p>
-              <p class="font-bold text-gray-800 leading-relaxed">
-                물류컨설팅업, 온라인식품판매업, 식품운반업, 축산물운반업, 화물주선업, 창고임대업
+          <div class="company-grid-2">
+            <article class="company-card">
+              <h3>About Company</h3>
+              <p>
+                2021년에 설립된 ㈜디앤아이와이즈는 물류대행 전문 기업으로,
+                물류 전략 수립을 중심으로 다양한 SCM 솔루션을 제공하고 있습니다.
+                당사는 고객사의 비즈니스 성장을 최우선으로 생각하며,
+                최신 트렌드에 맞춘 맞춤형 SCM 전략을 통해 성과를 창출합니다.
+                물류대행 영역 등 다방면에서 시장을 선도하며,
+                지속 가능한 성장을 위해 혁신적인 물류 및 유통공급 솔루션을 제공하고 있습니다.
               </p>
+            </article>
+
+            <article class="company-card">
+              <h3>기본 정보</h3>
+              <div class="company-info-grid">
+                <div class="company-info-item">
+                  <span class="company-info-label">회사명</span>
+                  <div class="company-info-value">㈜디앤아이와이즈 (D&amp;I WISE)</div>
+                </div>
+
+                <div class="company-info-item">
+                  <span class="company-info-label">설립 연도</span>
+                  <div class="company-info-value">2021년</div>
+                </div>
+
+                <div class="company-info-item">
+                  <span class="company-info-label">대표이사</span>
+                  <div class="company-info-value">김혜진</div>
+                </div>
+
+                <div class="company-info-item">
+                  <span class="company-info-label">자본금</span>
+                  <div class="company-info-value">110,000,000</div>
+                </div>
+
+                <div class="company-info-item">
+                  <span class="company-info-label">설립일</span>
+                  <div class="company-info-value">2021년 3월</div>
+                </div>
+
+                <div class="company-info-item">
+                  <span class="company-info-label">직원 수</span>
+                  <div class="company-info-value">15명</div>
+                </div>
+
+                <div class="company-info-item full">
+                  <span class="company-info-label">주소</span>
+                  <div class="company-info-value">경기도 용인시 수지구 만현로88, 상현종합상가 508호</div>
+                </div>
+
+                <div class="company-info-item full" style="border-bottom: 0; padding-bottom: 0;">
+                  <span class="company-info-label">사업영역</span>
+                  <div class="company-info-value">
+                    물류컨설팅업, 온라인식품판매업, 식품운반업, 축산물운반업, 화물주선업, 창고임대업
+                  </div>
+                </div>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <!-- 비전 -->
+        <section class="company-section fade-up">
+          <div class="vision-panel">
+            <span class="vision-kicker">Vision</span>
+            <h2 class="vision-title">
+              고객과 함께 성장하는<br>
+              혁신적인 유통공급 파트너
+            </h2>
+            <p class="vision-text">
+              단순한 물류대행 활동을 넘어, 고객사의 브랜드 가치를 극대화하고
+              소비자와의 깊은 소통을 통해 세상을 변화시키는 힘을 가진 기업이 되고자 합니다.
+              당사는 끊임없는 물류 혁신과 물류비용 절감관리를 통해 화주사의 가치를 실현하고,
+              함께 성장하는 전략적 파트너로 자리매김할 것입니다.
+              이를 통해 유통 물류시장에서 긍정적인 영향을 미치고,
+              지속 가능한 성장을 이루는 기업이 되는 것을 목표로 합니다.
+            </p>
+          </div>
+        </section>
+
+        <!-- 핵심 가치 -->
+        <section class="company-section fade-up">
+          <div class="values-section-header">
+            <h2 class="company-section-title" style="margin-bottom: 10px;">핵심 가치</h2>
+            <p class="company-section-desc" style="margin: 0 auto; text-align: center; max-width: 760px;">
+              물류공급 영역의 노하우를 바탕으로 화주사의 성장을 돕는
+              D&amp;I WISE의 5가지 핵심 원칙입니다.
+            </p>
+          </div>
+
+          <div class="values-shell">
+            <div class="values-ring"></div>
+
+            <div class="values-center">
+              <span>핵심 가치</span>
+            </div>
+
+            <div class="value-node core-1">
+              <div class="value-dot c1">창의성</div>
+              <div class="value-panel v1">
+                <h4>Creativity</h4>
+                <p>
+                  고객사의 고유 상품을 안전하게 관리하고 차별화된 가치를 제공하며,
+                  고정관념을 넘어서는 사고방식을 추구합니다.
+                </p>
+              </div>
+            </div>
+
+            <div class="value-node core-2">
+              <div class="value-dot c2">고객 중심</div>
+              <div class="value-panel v2">
+                <h4>Customer-Centric</h4>
+                <p>
+                  고객사의 성공이 곧 우리의 성공이라는 신념으로
+                  고객의 니즈와 목표를 최우선으로 생각합니다.
+                </p>
+              </div>
+            </div>
+
+            <div class="value-node core-3">
+              <div class="value-dot c3">성과 지향</div>
+              <div class="value-panel v3">
+                <h4>Results-Oriented</h4>
+                <p>
+                  데이터를 기반으로 한 전략적 접근을 통해
+                  실질적인 비즈니스 성과를 창출하고 고객사의 성장에 기여합니다.
+                </p>
+              </div>
+            </div>
+
+            <div class="value-node core-4">
+              <div class="value-dot c4">협력/소통</div>
+              <div class="value-panel v4">
+                <h4>Collaboration</h4>
+                <p>
+                  지속적인 피드백과 소통을 통해 최고의 결과를 이끌어내며,
+                  전문적인 노하우를 기반으로 서비스를 제공합니다.
+                </p>
+              </div>
+            </div>
+
+            <div class="value-node core-5">
+              <div class="value-dot c5">지속 가능성</div>
+              <div class="value-panel v5">
+                <h4>Sustainability</h4>
+                <p>
+                  윤리적 관리 체계를 추구하며 사회와 환경에 긍정적인 영향을 미치는 활동을 전개하여
+                  미래를 준비합니다.
+                </p>
+              </div>
             </div>
           </div>
-        </div>
+
+          <div class="values-mobile-list">
+            <article class="values-mobile-card">
+              <h4 style="color:#f59e0b;">창의성 · Creativity</h4>
+              <p>고객사의 고유 상품을 안전하게 관리하고 차별화된 가치를 제공하며, 고정관념을 넘어서는 사고방식을 추구합니다.</p>
+            </article>
+
+            <article class="values-mobile-card">
+              <h4 style="color:#3b82f6;">고객 중심 · Customer-Centric</h4>
+              <p>고객사의 성공이 곧 우리의 성공이라는 신념으로 고객의 니즈와 목표를 최우선으로 생각합니다.</p>
+            </article>
+
+            <article class="values-mobile-card">
+              <h4 style="color:#22c55e;">성과 지향 · Results-Oriented</h4>
+              <p>데이터 기반의 전략적 접근을 통해 실질적인 비즈니스 성과를 창출하고 고객사의 성장에 기여합니다.</p>
+            </article>
+
+            <article class="values-mobile-card">
+              <h4 style="color:#6366f1;">협력/소통 · Collaboration</h4>
+              <p>지속적인 피드백과 소통을 통해 최고의 결과를 이끌어내며 전문적인 노하우를 기반으로 서비스를 제공합니다.</p>
+            </article>
+
+            <article class="values-mobile-card">
+              <h4 style="color:#f43f5e;">지속 가능성 · Sustainability</h4>
+              <p>윤리적 관리 체계를 추구하며 사회와 환경에 긍정적인 영향을 미치는 활동을 전개하여 미래를 준비합니다.</p>
+            </article>
+          </div>
+        </section>
       </div>
     </section>
+  </main>
 
-    <!-- 비전 -->
-    <section class="mb-24 fade-up">
-      <div class="bg-white rounded-2xl shadow border p-10 md:p-14 text-center">
-        <p class="text-sm font-bold tracking-[0.2em] text-brand-blue/70 mb-4 uppercase">
-          Vision
-        </p>
-        <h2 class="text-3xl md:text-4xl font-black text-brand-blue mb-8">
-          고객과 함께 성장하는<br class="hidden md:block">
-          혁신적인 유통공급 파트너
-        </h2>
-        <p class="text-gray-700 max-w-4xl mx-auto leading-relaxed">
-          단순한 물류대행 활동을 넘어, 고객사의 브랜드 가치를 극대화하고
-          소비자와의 깊은 소통을 통해 세상을 변화시키는 힘을 가진 기업이 되고자 합니다.
-          당사는 끊임없는 물류 혁신과 물류비용 절감관리를 통해 화주사의 가치를 실현하고,
-          함께 성장하는 전략적 파트너로 자리매김할 것입니다.
-          이를 통해 유통 물류시장에서 긍정적인 영향을 미치고,
-          지속 가능한 성장을 이루는 기업이 되는 것을 목표로 합니다.
-        </p>
-      </div>
-    </section>
-
-    <!-- 핵심 가치 -->
-<section class="fade-up py-10">
-  <div class="text-center mb-16 md:mb-20">
-    <h2 class="text-3xl font-black text-brand-blue mb-4">핵심 가치</h2>
-    <p class="text-gray-600 max-w-2xl mx-auto px-4">
-      물류공급 영역의 노하우를 바탕으로 화주사의 성장을 돕는 5가지 핵심 원칙입니다.
-    </p>
-  </div>
-
-  <div class="relative max-w-5xl mx-auto h-auto md:h-[650px] flex items-center justify-center">
-    
-    <div class="hidden md:flex absolute z-30 bg-brand-blue text-white w-40 h-40 rounded-full shadow-2xl items-center justify-center border-4 border-white">
-      <span class="text-2xl font-black">핵심 가치</span>
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div>© 2026 D&amp;I WISE. All rights reserved.</div>
+      <div>Demand &amp; Innovation Wise</div>
     </div>
+  </footer>
 
-    <div class="hidden md:block absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 border-2 border-dashed border-slate-300 rounded-full w-[460px] h-[460px] z-10 pointer-events-none"></div>
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('show');
+        }
+      });
+    }, { threshold: 0.15 });
 
-    <div class="grid md:block grid-cols-1 gap-12 w-full px-6 md:px-0">
-      
-      <div class="group md:absolute md:top-[15%] md:left-1/2 md:-translate-x-1/2 md:-translate-y-1/2 z-20">
-        <div class="flex flex-col items-center">
-          <div class="w-32 h-32 bg-white border-4 border-amber-400 rounded-full flex items-center justify-center shadow-lg transition-transform duration-300 group-hover:scale-110 cursor-pointer">
-            <span class="font-bold text-gray-800 text-lg">창의성</span>
-          </div>
-          <div class="hidden md:block opacity-0 group-hover:opacity-100 transition-all duration-300 absolute bottom-36 w-80 bg-white p-7 rounded-2xl shadow-2xl border border-amber-100 pointer-events-none translate-y-4 group-hover:translate-y-0 text-center">
-            <div class="absolute left-1/2 -bottom-8 -translate-x-1/2 w-px h-8 border-l-2 border-dashed border-amber-400"></div>
-            <h4 class="text-amber-500 font-bold mb-2">Creativity</h4>
-            <p class="text-sm text-gray-600 leading-relaxed">고객사의 고유 상품을 안전하게 관리하고 차별화된 가치를 제공하며 고정관념을 넘어서는 사고방식을 추구합니다.</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="group md:absolute md:top-[36%] md:left-[72%] md:-translate-x-1/2 md:-translate-y-1/2 z-20">
-        <div class="flex flex-col items-center">
-          <div class="w-32 h-32 bg-white border-4 border-blue-500 rounded-full flex items-center justify-center shadow-lg transition-transform duration-300 group-hover:scale-110 cursor-pointer">
-            <span class="font-bold text-gray-800 text-lg">고객 중심</span>
-          </div>
-          <div class="hidden md:block opacity-0 group-hover:opacity-100 transition-all duration-300 absolute left-36 top-1/2 -translate-y-1/2 w-80 bg-white p-7 rounded-2xl shadow-2xl border border-blue-100 pointer-events-none -translate-x-4 group-hover:translate-x-0">
-            <div class="absolute -left-8 top-1/2 -translate-y-1/2 h-px w-8 border-t-2 border-dashed border-blue-500"></div>
-            <h4 class="text-blue-500 font-bold mb-2">Customer-Centric</h4>
-            <p class="text-sm text-gray-600 leading-relaxed">고객사의 성공이 곧 우리의 성공이라는 신념으로 고객의 니즈와 목표를 최우선으로 생각합니다.</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="group md:absolute md:top-[74%] md:left-[64%] md:-translate-x-1/2 md:-translate-y-1/2 z-20">
-        <div class="flex flex-col items-center">
-          <div class="w-32 h-32 bg-white border-4 border-green-500 rounded-full flex items-center justify-center shadow-lg transition-transform duration-300 group-hover:scale-110 cursor-pointer">
-            <span class="font-bold text-gray-800 text-lg">성과 지향</span>
-          </div>
-          <div class="hidden md:block opacity-0 group-hover:opacity-100 transition-all duration-300 absolute left-28 top-28 w-80 bg-white p-7 rounded-2xl shadow-2xl border border-green-100 pointer-events-none translate-y-4 group-hover:translate-y-0">
-            <div class="absolute -left-6 -top-6 w-12 h-12 border-l-2 border-t-2 border-dashed border-green-500 rounded-tl-full"></div>
-            <h4 class="text-green-500 font-bold mb-2">Results-Oriented</h4>
-            <p class="text-sm text-gray-600 leading-relaxed">데이터 기반의 전략적 접근을 통해 실질적인 비즈니스 성과를 창출하고 고객사의 성장에 기여합니다.</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="group md:absolute md:top-[74%] md:left-[36%] md:-translate-x-1/2 md:-translate-y-1/2 z-20">
-        <div class="flex flex-col items-center">
-          <div class="w-32 h-32 bg-white border-4 border-indigo-500 rounded-full flex items-center justify-center shadow-lg transition-transform duration-300 group-hover:scale-110 cursor-pointer">
-            <span class="font-bold text-gray-800 text-lg">협력/소통</span>
-          </div>
-          <div class="hidden md:block opacity-0 group-hover:opacity-100 transition-all duration-300 absolute right-28 top-28 w-80 bg-white p-7 rounded-2xl shadow-2xl border border-indigo-100 pointer-events-none translate-y-4 group-hover:translate-y-0 text-right">
-            <div class="absolute -right-6 -top-6 w-12 h-12 border-r-2 border-t-2 border-dashed border-indigo-500 rounded-tr-full"></div>
-            <h4 class="text-indigo-500 font-bold mb-2">Collaboration</h4>
-            <p class="text-sm text-gray-600 leading-relaxed text-left">지속적인 피드백과 소통을 통해 최고의 결과를 이끌어내며 전문적인 노하우를 기반으로 서비스를 제공합니다.</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="group md:absolute md:top-[36%] md:left-[28%] md:-translate-x-1/2 md:-translate-y-1/2 z-20">
-        <div class="flex flex-col items-center">
-          <div class="w-32 h-32 bg-white border-4 border-rose-500 rounded-full flex items-center justify-center shadow-lg transition-transform duration-300 group-hover:scale-110 cursor-pointer">
-            <span class="font-bold text-gray-800 text-lg">지속 가능성</span>
-          </div>
-          <div class="hidden md:block opacity-0 group-hover:opacity-100 transition-all duration-300 absolute right-36 top-1/2 -translate-y-1/2 w-80 bg-white p-7 rounded-2xl shadow-2xl border border-rose-100 pointer-events-none translate-x-4 group-hover:translate-x-0 text-right">
-            <div class="absolute -right-8 top-1/2 -translate-y-1/2 h-px w-8 border-t-2 border-dashed border-rose-500"></div>
-            <h4 class="text-rose-500 font-bold mb-2">Sustainability</h4>
-            <p class="text-sm text-gray-600 leading-relaxed text-left">윤리적 관리 체계를 추구하며 사회와 환경에 긍정적인 영향을 미치는 활동을 전개하여 미래를 준비합니다.</p>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-  </div>
-</main>
-
-<!-- 푸터 -->
-<footer class="bg-gray-900 text-gray-400 py-10 text-center text-sm">
-  © 2026 D&I WISE. All rights reserved.
-</footer>
-
-<script>
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach((entry) => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('show');
-    }
-  });
-}, { threshold: 0.15 });
-
-document.querySelectorAll('.fade-up').forEach((el) => observer.observe(el));
-</script>
-
+    document.querySelectorAll('.fade-up').forEach((el) => observer.observe(el));
+  </script>
 </body>
 </html>

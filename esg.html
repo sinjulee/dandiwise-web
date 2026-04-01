@@ -6,35 +6,204 @@
   <title>ESG 경영 | D&I WISE</title>
 
   <link rel="stylesheet" href="assets/css/style.css" />
-
-  <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap" rel="stylesheet">
 
   <style>
     body {
-      background-color: #F3F4F6;
+      background:
+        linear-gradient(180deg, #071634 0%, #081b44 34%, #f4f8ff 34%, #eef4ff 100%);
     }
-  </style>
 
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            brand: {
-              blue: '#1E3A8A',
-              green: '#16A34A',
-              light: '#F3F4F6'
-            }
-          }
-        }
+    .esg-page-main {
+      position: relative;
+      z-index: 1;
+    }
+
+    .esg-overview-section {
+      position: relative;
+      padding: 84px 0 40px;
+      background: transparent;
+    }
+
+    .esg-block {
+      padding: 44px 0 48px;
+    }
+
+    .esg-block + .esg-block {
+      margin-top: 8px;
+    }
+
+    .esg-block-title {
+      margin: 0 0 26px;
+      font-size: clamp(2rem, 3vw, 2.8rem);
+      line-height: 1.2;
+      letter-spacing: -0.04em;
+      font-weight: 800;
+      word-break: keep-all;
+    }
+
+    .esg-block-title.environment {
+      color: #16a34a;
+    }
+
+    .esg-block-title.social {
+      color: #1e3a8a;
+    }
+
+    .esg-block-title.governance {
+      color: #0f172a;
+    }
+
+    .esg-card-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 24px;
+    }
+
+    .esg-detail-card {
+      position: relative;
+      overflow: hidden;
+      min-height: 196px;
+      padding: 30px 26px 26px;
+      border-radius: 28px;
+      background: rgba(255,255,255,0.96);
+      border: 1px solid rgba(148,173,220,0.20);
+      box-shadow:
+        0 18px 40px rgba(8,27,68,0.08),
+        0 6px 14px rgba(8,27,68,0.04);
+      transition:
+        transform 0.28s ease,
+        border-color 0.28s ease,
+        box-shadow 0.28s ease;
+    }
+
+    .esg-detail-card:hover {
+      transform: translateY(-6px);
+      border-color: rgba(96,165,250,0.28);
+      box-shadow:
+        0 24px 50px rgba(8,27,68,0.11),
+        0 10px 18px rgba(37,99,235,0.06);
+    }
+
+    .esg-detail-card::before {
+      content: "";
+      position: absolute;
+      width: 150px;
+      height: 150px;
+      top: -32px;
+      right: -30px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(96,165,250,0.10), transparent 68%);
+      pointer-events: none;
+    }
+
+    .esg-detail-card::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 26px;
+      right: 26px;
+      height: 4px;
+      border-radius: 999px;
+      pointer-events: none;
+    }
+
+    .esg-detail-card.environment::after {
+      background: linear-gradient(90deg, #16a34a, #4ade80);
+    }
+
+    .esg-detail-card.social::after {
+      background: linear-gradient(90deg, #2563eb, #93c5fd);
+    }
+
+    .esg-detail-card.governance::after {
+      background: linear-gradient(90deg, #0f172a, #475569);
+    }
+
+    .esg-detail-card h4 {
+      margin: 0 0 14px;
+      color: #0f2858;
+      font-size: 1.28rem;
+      line-height: 1.35;
+      letter-spacing: -0.03em;
+      font-weight: 800;
+      word-break: keep-all;
+    }
+
+    .esg-detail-card p {
+      margin: 0;
+      color: #62779f;
+      font-size: 1rem;
+      line-height: 1.85;
+      word-break: keep-all;
+    }
+
+    .esg-divider {
+      width: 100%;
+      height: 1px;
+      background: linear-gradient(
+        90deg,
+        rgba(148,173,220,0),
+        rgba(148,173,220,0.42),
+        rgba(148,173,220,0)
+      );
+      margin: 6px 0 2px;
+    }
+
+    @media (max-width: 991px) {
+      body {
+        background:
+          linear-gradient(180deg, #071634 0%, #081b44 26%, #f4f8ff 26%, #eef4ff 100%);
+      }
+
+      .esg-overview-section {
+        padding: 68px 0 28px;
+      }
+
+      .esg-card-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .esg-block {
+        padding: 32px 0 34px;
+      }
+
+      .esg-detail-card {
+        min-height: 170px;
+        padding: 26px 22px 22px;
+        border-radius: 22px;
+      }
+
+      .esg-detail-card::after {
+        left: 22px;
+        right: 22px;
       }
     }
-  </script>
+
+    @media (max-width: 640px) {
+      .esg-overview-section {
+        padding: 52px 0 18px;
+      }
+
+      .esg-block-title {
+        margin-bottom: 18px;
+        font-size: 1.8rem;
+      }
+
+      .esg-detail-card h4 {
+        font-size: 1.1rem;
+      }
+
+      .esg-detail-card p {
+        font-size: 0.94rem;
+        line-height: 1.75;
+      }
+    }
+  </style>
 </head>
 
-<body class="text-gray-800">
-  <!-- 헤더 -->
+<body>
+  <!-- Header -->
   <header class="header-shell">
     <div class="header-inner">
       <a href="index.html" class="header-logo">
@@ -64,101 +233,80 @@
     </div>
   </section>
 
-  <main class="py-20">
-    <div class="container-wide">
-      <!-- E -->
-      <section class="mb-24">
-        <h3 class="text-2xl md:text-3xl font-black text-brand-green mb-8">
-          환경 (Environmental)
-        </h3>
+  <main class="esg-page-main">
+    <section class="esg-overview-section">
+      <div class="container-wide">
+        <!-- E -->
+        <section class="esg-block">
+          <h2 class="esg-block-title environment">환경 (Environmental)</h2>
+          <div class="esg-card-grid">
+            <article class="esg-detail-card environment">
+              <h4>에너지 효율성 증대</h4>
+              <p>친환경 에너지 사용 확대 및 효율 개선을 통한 운영비 절감</p>
+            </article>
 
-        <div class="grid md:grid-cols-3 gap-8">
-          <div class="bg-white p-6 rounded-xl shadow border">
-            <h4 class="font-bold mb-2">에너지 효율성 증대</h4>
-            <p class="text-sm text-gray-600">
-              친환경 에너지 사용 확대 및 효율 개선을 통한 운영비 절감
-            </p>
+            <article class="esg-detail-card environment">
+              <h4>탄소 배출 감축</h4>
+              <p>탄소 배출 감소를 위한 구체적인 목표 설정 및 실행</p>
+            </article>
+
+            <article class="esg-detail-card environment">
+              <h4>지속 가능한 운영</h4>
+              <p>친환경 자원 활용 및 지속 가능한 물류 시스템 구축</p>
+            </article>
           </div>
+        </section>
 
-          <div class="bg-white p-6 rounded-xl shadow border">
-            <h4 class="font-bold mb-2">탄소 배출 감축</h4>
-            <p class="text-sm text-gray-600">
-              탄소 배출 감소를 위한 구체적인 목표 설정 및 실행
-            </p>
+        <div class="esg-divider"></div>
+
+        <!-- S -->
+        <section class="esg-block">
+          <h2 class="esg-block-title social">사회 (Social)</h2>
+          <div class="esg-card-grid">
+            <article class="esg-detail-card social">
+              <h4>다양성과 포용성</h4>
+              <p>다양한 인재 채용과 공정한 근무 환경 조성</p>
+            </article>
+
+            <article class="esg-detail-card social">
+              <h4>지역사회 기여</h4>
+              <p>지역사회 참여 및 사회적 책임 실천</p>
+            </article>
+
+            <article class="esg-detail-card social">
+              <h4>고객 신뢰</h4>
+              <p>투명한 서비스 운영을 통한 고객 신뢰 구축</p>
+            </article>
           </div>
+        </section>
 
-          <div class="bg-white p-6 rounded-xl shadow border">
-            <h4 class="font-bold mb-2">지속 가능한 운영</h4>
-            <p class="text-sm text-gray-600">
-              친환경 자원 활용 및 지속 가능한 물류 시스템 구축
-            </p>
+        <div class="esg-divider"></div>
+
+        <!-- G -->
+        <section class="esg-block">
+          <h2 class="esg-block-title governance">지배구조 (Governance)</h2>
+          <div class="esg-card-grid">
+            <article class="esg-detail-card governance">
+              <h4>투명한 의사결정</h4>
+              <p>경영 과정과 결과의 투명한 공개</p>
+            </article>
+
+            <article class="esg-detail-card governance">
+              <h4>윤리 경영</h4>
+              <p>공정 거래 및 윤리 기준 준수</p>
+            </article>
+
+            <article class="esg-detail-card governance">
+              <h4>이사회 다양성</h4>
+              <p>다양한 관점 기반 의사결정 구조 구축</p>
+            </article>
           </div>
-        </div>
-      </section>
-
-      <!-- S -->
-      <section class="mb-24">
-        <h3 class="text-2xl md:text-3xl font-black text-brand-blue mb-8">
-          사회 (Social)
-        </h3>
-
-        <div class="grid md:grid-cols-3 gap-8">
-          <div class="bg-white p-6 rounded-xl shadow border">
-            <h4 class="font-bold mb-2">다양성과 포용성</h4>
-            <p class="text-sm text-gray-600">
-              다양한 인재 채용과 공정한 근무 환경 조성
-            </p>
-          </div>
-
-          <div class="bg-white p-6 rounded-xl shadow border">
-            <h4 class="font-bold mb-2">지역사회 기여</h4>
-            <p class="text-sm text-gray-600">
-              지역사회 참여 및 사회적 책임 실천
-            </p>
-          </div>
-
-          <div class="bg-white p-6 rounded-xl shadow border">
-            <h4 class="font-bold mb-2">고객 신뢰</h4>
-            <p class="text-sm text-gray-600">
-              투명한 서비스 운영을 통한 고객 신뢰 구축
-            </p>
-          </div>
-        </div>
-      </section>
-
-      <!-- G -->
-      <section>
-        <h3 class="text-2xl md:text-3xl font-black text-gray-900 mb-8">
-          지배구조 (Governance)
-        </h3>
-
-        <div class="grid md:grid-cols-3 gap-8">
-          <div class="bg-white p-6 rounded-xl shadow border">
-            <h4 class="font-bold mb-2">투명한 의사결정</h4>
-            <p class="text-sm text-gray-600">
-              경영 과정과 결과의 투명한 공개
-            </p>
-          </div>
-
-          <div class="bg-white p-6 rounded-xl shadow border">
-            <h4 class="font-bold mb-2">윤리 경영</h4>
-            <p class="text-sm text-gray-600">
-              공정 거래 및 윤리 기준 준수
-            </p>
-          </div>
-
-          <div class="bg-white p-6 rounded-xl shadow border">
-            <h4 class="font-bold mb-2">이사회 다양성</h4>
-            <p class="text-sm text-gray-600">
-              다양한 관점 기반 의사결정 구조 구축
-            </p>
-          </div>
-        </div>
-      </section>
-    </div>
+        </section>
+      </div>
+    </section>
   </main>
 
-  <!-- 푸터 -->
+  <!-- Footer -->
   <footer class="footer">
     <div class="footer-inner">
       <div>© 2026 D&amp;I WISE. All rights reserved.</div>

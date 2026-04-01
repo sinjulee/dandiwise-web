@@ -1,401 +1,576 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>서비스소개 | D&I WISE</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>서비스소개 | D&I WISE</title>
 
-<script src="https://cdn.tailwindcss.com"></script>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap" rel="stylesheet">
 
-<style>
-body {
-  background-color: #F3F4F6;
-}
+  <style>
+    body {
+      background:
+        linear-gradient(180deg, #071634 0%, #081b44 24%, #f5f9ff 24%, #eef4ff 100%);
+    }
 
-.fade-up {
-  opacity: 0;
-  transform: translateY(36px);
-  transition: all 0.8s ease;
-}
-.fade-up.show {
-  opacity: 1;
-  transform: translateY(0);
-}
+    .services-page-main {
+      position: relative;
+      z-index: 1;
+    }
 
-.service-card {
-  transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
-}
-.service-card:hover {
-  transform: translateY(-8px) scale(1.03);
-  box-shadow: 0 20px 40px rgba(0,0,0,0.14);
-  border-color: #cbd5e1;
-}
+    .services-overview-section {
+      padding: 84px 0 34px;
+    }
 
-.modal-box {
-  animation: sheetUp 1s ease forwards;
-}
-@keyframes sheetUp {
-  from {
-    transform: translateY(80px);
-    opacity: 0;
-  }
-  to {
-    transform: translateY(0);
-    opacity: 1;
-  }
-}
-</style>
+    .services-section {
+      padding: 42px 0 48px;
+    }
 
-<script>
-tailwind.config = {
-  theme: {
-    extend: {
-      colors: {
-        brand: {
-          blue: '#1E3A8A',
-          green: '#16A34A',
-          light: '#F3F4F6'
-        }
+    .services-section-header {
+      text-align: center;
+      margin-bottom: 22px;
+    }
+
+    .services-section-title {
+      margin: 0 0 14px;
+      font-size: clamp(2rem, 3vw, 2.8rem);
+      line-height: 1.2;
+      font-weight: 800;
+      letter-spacing: -0.04em;
+      color: #102a5c;
+      word-break: keep-all;
+    }
+
+    .services-section-desc {
+      margin: 0 auto;
+      max-width: 920px;
+      color: #5d749d;
+      font-size: 1.04rem;
+      line-height: 1.9;
+      word-break: keep-all;
+    }
+
+    .services-highlight-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 24px;
+      margin-top: 34px;
+    }
+
+    .service-highlight-card {
+      position: relative;
+      overflow: hidden;
+      padding: 34px 30px 30px;
+      border-radius: 30px;
+      background: rgba(255,255,255,0.97);
+      border: 1px solid rgba(148,173,220,0.22);
+      box-shadow:
+        0 18px 40px rgba(8,27,68,0.08),
+        0 6px 14px rgba(8,27,68,0.04);
+      transition:
+        transform 0.28s ease,
+        border-color 0.28s ease,
+        box-shadow 0.28s ease;
+    }
+
+    .service-highlight-card:hover {
+      transform: translateY(-8px);
+      border-color: rgba(96,165,250,0.30);
+      box-shadow:
+        0 24px 50px rgba(8,27,68,0.12),
+        0 10px 18px rgba(37,99,235,0.06);
+    }
+
+    .service-highlight-card::before {
+      content: "";
+      position: absolute;
+      width: 170px;
+      height: 170px;
+      right: -30px;
+      top: -32px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(96,165,250,0.10), transparent 68%);
+      pointer-events: none;
+    }
+
+    .service-highlight-card::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 30px;
+      right: 30px;
+      height: 4px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, #2563eb, #93c5fd);
+      pointer-events: none;
+    }
+
+    .service-badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 50px;
+      height: 50px;
+      margin-bottom: 22px;
+      border-radius: 16px;
+      background: linear-gradient(180deg, #eaf2ff 0%, #dbeafe 100%);
+      color: #1d4ed8;
+      font-size: 1rem;
+      font-weight: 800;
+      box-shadow:
+        inset 0 0 0 1px rgba(96,165,250,0.20),
+        0 8px 18px rgba(37,99,235,0.10);
+    }
+
+    .service-highlight-card h3 {
+      margin: 0 0 14px;
+      color: #0f2858;
+      font-size: 1.5rem;
+      line-height: 1.3;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      word-break: keep-all;
+    }
+
+    .service-highlight-card p {
+      margin: 0;
+      color: #62779f;
+      line-height: 1.9;
+      word-break: keep-all;
+    }
+
+    .service-flow-panel {
+      position: relative;
+      overflow: hidden;
+      margin-top: 12px;
+      padding: 48px 36px;
+      border-radius: 34px;
+      background:
+        radial-gradient(circle at 16% 18%, rgba(96,165,250,0.10), transparent 18%),
+        radial-gradient(circle at 86% 20%, rgba(147,197,253,0.12), transparent 18%),
+        linear-gradient(180deg, rgba(255,255,255,0.98) 0%, rgba(248,251,255,0.98) 100%);
+      border: 1px solid rgba(148,173,220,0.20);
+      box-shadow:
+        0 20px 46px rgba(8,27,68,0.08),
+        0 6px 16px rgba(8,27,68,0.04);
+    }
+
+    .service-flow-panel::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 36px;
+      right: 36px;
+      height: 4px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, #2563eb, #93c5fd);
+    }
+
+    .service-flow-grid {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 18px;
+      align-items: stretch;
+    }
+
+    .service-flow-step {
+      position: relative;
+      text-align: center;
+      border-radius: 24px;
+      padding: 26px 16px 22px;
+      background: rgba(255,255,255,0.98);
+      border: 1px solid rgba(148,173,220,0.18);
+      box-shadow:
+        0 14px 30px rgba(8,27,68,0.06),
+        0 4px 10px rgba(8,27,68,0.03);
+    }
+
+    .service-flow-step .step-num {
+      width: 56px;
+      height: 56px;
+      border-radius: 18px;
+      margin: 0 auto 14px;
+      display: grid;
+      place-items: center;
+      background: linear-gradient(180deg, #eaf2ff 0%, #dbeafe 100%);
+      color: #1d4ed8;
+      font-size: 0.98rem;
+      font-weight: 800;
+      box-shadow:
+        inset 0 0 0 1px rgba(96,165,250,0.20),
+        0 8px 18px rgba(37,99,235,0.08);
+    }
+
+    .service-flow-step h4 {
+      margin: 0 0 8px;
+      color: #102a5c;
+      font-size: 1.02rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      word-break: keep-all;
+    }
+
+    .service-flow-step p {
+      margin: 0;
+      color: #62779f;
+      font-size: 0.92rem;
+      line-height: 1.7;
+      word-break: keep-all;
+    }
+
+    .service-detail-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 24px;
+      margin-top: 30px;
+    }
+
+    .service-detail-card {
+      position: relative;
+      overflow: hidden;
+      min-height: 250px;
+      padding: 34px 30px 30px;
+      border-radius: 30px;
+      background: rgba(255,255,255,0.97);
+      border: 1px solid rgba(148,173,220,0.22);
+      box-shadow:
+        0 18px 40px rgba(8,27,68,0.08),
+        0 6px 14px rgba(8,27,68,0.04);
+    }
+
+    .service-detail-card::before {
+      content: "";
+      position: absolute;
+      width: 170px;
+      height: 170px;
+      right: -30px;
+      top: -30px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(96,165,250,0.10), transparent 68%);
+      pointer-events: none;
+    }
+
+    .service-detail-card h3 {
+      margin: 0 0 16px;
+      color: #0f2858;
+      font-size: 1.4rem;
+      line-height: 1.3;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      word-break: keep-all;
+    }
+
+    .service-detail-card p {
+      margin: 0;
+      color: #62779f;
+      line-height: 1.9;
+      word-break: keep-all;
+    }
+
+    .service-detail-list {
+      margin: 18px 0 0;
+      padding: 0;
+      list-style: none;
+      display: grid;
+      gap: 10px;
+    }
+
+    .service-detail-list li {
+      position: relative;
+      padding-left: 18px;
+      color: #5e769f;
+      font-size: 0.96rem;
+      line-height: 1.8;
+      word-break: keep-all;
+    }
+
+    .service-detail-list li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 12px;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: linear-gradient(180deg, #3b82f6 0%, #93c5fd 100%);
+    }
+
+    .fade-up {
+      opacity: 0;
+      transform: translateY(36px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+
+    .fade-up.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (max-width: 991px) {
+      body {
+        background:
+          linear-gradient(180deg, #071634 0%, #081b44 20%, #f5f9ff 20%, #eef4ff 100%);
+      }
+
+      .services-overview-section {
+        padding: 68px 0 24px;
+      }
+
+      .services-highlight-grid,
+      .service-detail-grid,
+      .service-flow-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .service-highlight-card,
+      .service-detail-card {
+        padding: 28px 24px;
+        border-radius: 24px;
+      }
+
+      .service-highlight-card::after {
+        left: 24px;
+        right: 24px;
+      }
+
+      .service-flow-panel {
+        padding: 34px 22px;
+        border-radius: 26px;
+      }
+
+      .service-flow-panel::after {
+        left: 22px;
+        right: 22px;
       }
     }
-  }
-}
-</script>
+
+    @media (max-width: 640px) {
+      .services-section-title {
+        font-size: 1.8rem;
+      }
+
+      .services-section-desc,
+      .service-highlight-card p,
+      .service-detail-card p {
+        font-size: 0.96rem;
+        line-height: 1.8;
+      }
+
+      .service-highlight-card h3,
+      .service-detail-card h3 {
+        font-size: 1.24rem;
+      }
+    }
+  </style>
 </head>
 
-<body class="text-gray-800">
+<body>
+  <!-- Header -->
+  <header class="header-shell">
+    <div class="header-inner">
+      <a href="index.html" class="header-logo">
+        <img src="assets/logo.jpg" alt="D&I WISE 로고">
+      </a>
 
-<!-- 헤더 -->
-<header class="bg-white shadow-sm border-b sticky top-0 z-50">
-  <div class="max-w-7xl mx-auto px-6 h-20 flex justify-between items-center">
+      <nav class="nav-desktop">
+        <a href="company.html" class="nav-link">회사소개</a>
+        <a href="services.html" class="nav-link">서비스소개</a>
+        <a href="differentiation.html" class="nav-link">차별화포인트</a>
+        <a href="case-study.html" class="nav-link">운영역량</a>
+        <a href="esg.html" class="nav-link">ESG경영</a>
+      </nav>
+    </div>
+  </header>
 
-    <!-- 로고 -->
-    <a href="index.html" class="flex items-center">
-      <img src="assets/logo.jpg" alt="D&I WISE 로고" class="h-10 object-contain">
-    </a>
-
-    <!-- 네비게이션 -->
-    <nav class="hidden md:flex space-x-8 text-sm font-medium">
-      <a href="company.html" class="hover:text-brand-blue transition">회사소개</a>
-      <a href="services.html" class="hover:text-brand-blue transition">서비스소개</a>
-      <a href="differentiation.html" class="hover:text-brand-blue transition">차별화포인트</a>
-      <a href="case-study.html" class="hover:text-brand-blue transition">운영역량</a>
-      <a href="esg.html" class="hover:text-brand-blue transition">ESG경영</a>
-    </nav>
-
-  </div>
-</header>
-
-<!-- Hero -->
-<section class="pt-24 pb-20 bg-brand-blue text-white text-center">
-  <div class="max-w-4xl mx-auto px-6">
-    <h1 class="text-4xl md:text-5xl font-black mb-4">
-      서비스 소개
-    </h1>
-    <p class="text-lg text-blue-100">
-      SCM 전략 수립부터 실행까지, 전반적인 물류 솔루션을 제공합니다.
-    </p>
-  </div>
-</section>
-
-<main class="py-20">
-  <div class="max-w-6xl mx-auto px-6">
-
-    <!-- 사업 개요 -->
-    <section class="mb-24 fade-up">
-      <div class="text-center mb-10">
-        <h2 class="text-3xl font-black text-brand-blue mb-4">
-          사업 개요
-        </h2>
-        <p class="text-gray-600 max-w-4xl mx-auto leading-relaxed">
-          SCM 전략 수립부터 실행까지 전반적인 서비스를 제공하는 종합 물류 솔루션 기업입니다.
-          <br>당사는 최신 물류관리 트렌드와 창의적인 아이디어를 결합하여 고객사의 비즈니스 성장을 지원하며,
-          <br>다음과 같은 주요 영역을 중심으로 활동하고 있습니다.
-        </p>
-      </div>
-
-<div class="text-center mb-10">
-  <h2 class="text-3xl font-black text-brand-blue mb-4">
-    물류 전문가 집단
-  </h2>
-  <p class="text-gray-600 max-w-4xl mx-auto leading-relaxed">
-    유통 대기업 출신의 물류 담당들과 주요 파트너사들 중심으로 인력도급 및 파견업체 CEO와
-    운송업 및 주선사업 CEO 3인이 합자하여 만든 차별화된 식자재 물류 전문가 집단의 솔루션을 제공합니다.
-  </p>
-</div>
-
-<div class="bg-white rounded-2xl shadow border p-8 md:p-12">
-  <div class="max-w-6xl mx-auto">
-
-    <div class="flex justify-center relative z-30">
-      <div class="bg-brand-blue text-white rounded-full w-56 h-56 flex items-center justify-center text-center shadow-xl">
-        <p class="text-4xl font-black leading-tight">
-          물류<br>전문가 집단
-        </p>
+  <!-- Hero -->
+  <section class="sub-hero sub-hero-services">
+    <div class="sub-hero-bg"></div>
+    <div class="sub-hero-overlay"></div>
+    <div class="container-wide sub-hero-inner">
+      <div class="sub-hero-text">
+        <span class="sub-hero-kicker">SERVICES</span>
+        <h1>서비스소개</h1>
+        <p>SCM 전략 수립부터 실행까지, 전반적인 물류 솔루션을 제공합니다.</p>
       </div>
     </div>
+  </section>
 
-    <div class="relative h-[100px] -mt-2">
-      <div class="absolute left-1/2 top-0 -translate-x-1/2 h-10 border-l-2 border-dashed border-slate-300"></div>
-      <div class="absolute left-[16.66%] right-1/2 top-10 border-t-2 border-dashed border-slate-300"></div>
-      <div class="absolute left-1/2 right-[16.66%] top-10 border-t-2 border-dashed border-slate-300"></div>
-      <div class="absolute left-[16.66%] top-10 -translate-x-1/2 h-full border-l-2 border-dashed border-slate-300"></div>
-      <div class="absolute left-1/2 top-10 -translate-x-1/2 h-full border-l-2 border-dashed border-slate-300"></div>
-      <div class="absolute left-[83.33%] top-10 -translate-x-1/2 h-full border-l-2 border-dashed border-slate-300"></div>
-    </div>
-
-    <div class="relative">
-      
-      <div class="hidden md:block absolute inset-0 z-20 pointer-events-none">
-        <div class="absolute left-[33.33%] top-1/2 -translate-x-1/2 -translate-y-1/2 bg-amber-300 text-white w-10 h-10 rounded-full flex items-center justify-center text-2xl font-bold shadow-lg border-2 border-white">
-          +
-        </div>
-        <div class="absolute left-[66.66%] top-1/2 -translate-x-1/2 -translate-y-1/2 bg-amber-300 text-white w-10 h-10 rounded-full flex items-center justify-center text-2xl font-bold shadow-lg border-2 border-white">
-          +
-        </div>
-      </div>
-
-      <div class="grid md:grid-cols-3 gap-6 items-stretch relative z-10">
-        <div class="rounded-2xl overflow-hidden border border-slate-200 shadow-sm bg-white">
-          <div class="bg-slate-100 px-6 py-5 text-center">
-            <h3 class="text-xl font-black text-brand-blue">물류전문 컨설팅 기업</h3>
-          </div>
-          <div class="px-6 py-8 text-center flex items-center justify-center min-h-[110px]">
-            <p class="text-2xl font-bold text-gray-800">(주)디앤아이와이즈</p>
-          </div>
-        </div>
-
-        <div class="rounded-2xl overflow-hidden border border-slate-200 shadow-sm bg-white">
-          <div class="bg-green-50 px-6 py-5 text-center">
-            <h3 class="text-xl font-black text-brand-blue">인력도급 및 파견기업</h3>
-          </div>
-          <div class="px-6 py-8 text-center flex items-center justify-center min-h-[110px]">
-            <p class="text-2xl font-bold text-gray-800 leading-snug">
-              (주)로지스앤크루,<br>(주)두드림
+  <main class="services-page-main">
+    <section class="services-overview-section">
+      <div class="container-wide">
+        <!-- 핵심 서비스 -->
+        <section class="services-section fade-up">
+          <div class="services-section-header">
+            <h2 class="services-section-title">핵심 서비스</h2>
+            <p class="services-section-desc">
+              D&amp;I WISE는 단순한 물류대행을 넘어,
+              전략 수립부터 운영 구조 설계, 현장 실행, 데이터 기반 관리까지
+              전체 물류 흐름을 유기적으로 연결합니다.
             </p>
           </div>
-        </div>
 
-        <div class="rounded-2xl overflow-hidden border border-slate-200 shadow-sm bg-white">
-          <div class="bg-slate-100 px-6 py-5 text-center">
-            <h3 class="text-xl font-black text-brand-blue">운송사 및 주선기업</h3>
+          <div class="services-highlight-grid">
+            <article class="service-highlight-card">
+              <div class="service-badge">01</div>
+              <h3>물류 컨설팅</h3>
+              <p>
+                SCM 전략 수립부터 운영 구조 진단, 원가 안정화 방향까지
+                고객 상황에 맞는 실행형 물류 솔루션을 제안합니다.
+              </p>
+            </article>
+
+            <article class="service-highlight-card">
+              <div class="service-badge">02</div>
+              <h3>3PL 운영</h3>
+              <p>
+                창고, 피킹, 출고, 배송, 납품까지 이어지는 전 과정을
+                안정적으로 설계하고 운영 체계에 맞춰 실행합니다.
+              </p>
+            </article>
+
+            <article class="service-highlight-card">
+              <div class="service-badge">03</div>
+              <h3>데이터 기반 관리</h3>
+              <p>
+                실시간 운영 데이터와 KPI를 바탕으로
+                성과와 개선 포인트를 함께 점검하는 관리 체계를 제공합니다.
+              </p>
+            </article>
           </div>
-          <div class="px-6 py-8 text-center flex items-center justify-center min-h-[110px]">
-            <p class="text-2xl font-bold text-gray-800">(주)콜드온, (주)A7</p>
+        </section>
+
+        <!-- 운영 흐름 -->
+        <section class="services-section fade-up">
+          <div class="services-section-header">
+            <h2 class="services-section-title">운영 흐름</h2>
+            <p class="services-section-desc">
+              입고부터 최종 납품까지 끊기지 않는 구조를 설계하여
+              비용 절감, 운영 안정성, 납기 품질 향상으로 연결합니다.
+            </p>
           </div>
-        </div>
+
+          <div class="service-flow-panel">
+            <div class="service-flow-grid">
+              <article class="service-flow-step">
+                <div class="step-num">01</div>
+                <h4>입고</h4>
+                <p>상품 특성에 맞는 입고 기준과 초기 운영 프로세스를 정리합니다.</p>
+              </article>
+
+              <article class="service-flow-step">
+                <div class="step-num">02</div>
+                <h4>보관</h4>
+                <p>온도와 제품 특성을 고려한 보관 기준과 창고 운영 체계를 세웁니다.</p>
+              </article>
+
+              <article class="service-flow-step">
+                <div class="step-num">03</div>
+                <h4>피킹/출고</h4>
+                <p>속도와 정확도를 동시에 높이는 피킹 및 출고 프로세스를 설계합니다.</p>
+              </article>
+
+              <article class="service-flow-step">
+                <div class="step-num">04</div>
+                <h4>배송</h4>
+                <p>차량 수급과 운송 네트워크를 통해 안정적인 배송 구조를 지원합니다.</p>
+              </article>
+
+              <article class="service-flow-step">
+                <div class="step-num">05</div>
+                <h4>납품/사후관리</h4>
+                <p>최종 납품 이후 발생 가능한 이슈까지 포함한 대응 체계를 제공합니다.</p>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        <!-- 세부 역량 -->
+        <section class="services-section fade-up">
+          <div class="services-section-header">
+            <h2 class="services-section-title">세부 운영 역량</h2>
+            <p class="services-section-desc">
+              인력, 차량, 현장 소통, KPI 분석까지
+              각각의 운영 요소를 분리하지 않고 하나의 실행 구조로 묶습니다.
+            </p>
+          </div>
+
+          <div class="service-detail-grid">
+            <article class="service-detail-card">
+              <h3>안정적 원가 구조</h3>
+              <p>
+                보유 네트워크와 현장 운영 경험을 바탕으로
+                3PL 운영 원가의 효율성과 공급 안정성을 높입니다.
+              </p>
+              <ul class="service-detail-list">
+                <li>인력 운영 네트워크 활용</li>
+                <li>차량 수급 안정화 구조 확보</li>
+                <li>비용 관리 및 원가 절감 방향 제시</li>
+              </ul>
+            </article>
+
+            <article class="service-detail-card">
+              <h3>소통형 고객사 관리</h3>
+              <p>
+                납품 과정에서 발생하는 공급, 클레임, 운영 이슈를 빠르게 조율하며
+                고객사와 화주사의 만족도를 함께 높입니다.
+              </p>
+              <ul class="service-detail-list">
+                <li>현장 이슈 사전 조율</li>
+                <li>납품 및 공급 문제 대응</li>
+                <li>협력사와의 커뮤니케이션 강화</li>
+              </ul>
+            </article>
+
+            <article class="service-detail-card">
+              <h3>구매·공급 연계 지원</h3>
+              <p>
+                식자재 기업의 구매 및 매입 구조와 연결된 이해를 바탕으로
+                공급 기회 확대와 안정적 매출 향상을 지원합니다.
+              </p>
+              <ul class="service-detail-list">
+                <li>구매팀과의 연계 포인트 확보</li>
+                <li>공급 구조 확장 지원</li>
+                <li>판로 연계 가능성 검토</li>
+              </ul>
+            </article>
+
+            <article class="service-detail-card">
+              <h3>KPI 및 데이터 분석</h3>
+              <p>
+                운영 데이터를 정리하고 KPI를 제공하여
+                성과와 개선 포인트를 함께 점검하는 체계를 구축합니다.
+              </p>
+              <ul class="service-detail-list">
+                <li>운영 데이터 기반 성과 분석</li>
+                <li>양사 간 업무 지표 정리</li>
+                <li>개선 포인트 도출 및 보고</li>
+              </ul>
+            </article>
+          </div>
+        </section>
       </div>
-
-    </div>
-  </div>
-</div>
     </section>
+  </main>
 
-    <!-- 서비스 안내 -->
-    <section class="mb-16 text-center fade-up">
-      <h2 class="text-3xl font-black text-brand-blue mb-4">
-        주요 서비스 영역
-      </h2>
-      <p class="text-gray-600 max-w-3xl mx-auto leading-relaxed">
-        각 서비스를 클릭하면 상세 내용을 확인할 수 있습니다.
-      </p>
-    </section>
-
-    <!-- 서비스 카드 -->
-    <section class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
-
-      <!-- 1 -->
-      <button type="button" onclick="openModal('service_1')"
-        class="service-card fade-up bg-white rounded-2xl shadow border overflow-hidden text-left">
-        <div class="aspect-square relative overflow-hidden">
-          <img src="/assets/services-01.jpg" alt="물류 컨설팅 솔루션"
-            class="w-full h-full object-cover">
-          <div class="absolute inset-0 bg-[#0f172a]/35"></div>
-        </div>
-        <div class="p-6 text-center">
-          <h3 class="font-black text-xl text-brand-blue mb-2">1. 물류 컨설팅 솔루션</h3>
-          <p class="text-gray-600 text-sm">노하우를 통한 안정적 원가 실현</p>
-        </div>
-      </button>
-
-      <!-- 2 -->
-      <button type="button" onclick="openModal('service_2')"
-        class="service-card fade-up bg-white rounded-2xl shadow border overflow-hidden text-left">
-        <div class="aspect-square relative overflow-hidden">
-          <img src="/assets/services-02.jpg" alt="효율적 3PL 원가 구조"
-            class="w-full h-full object-cover">
-          <div class="absolute inset-0 bg-[#0f172a]/35"></div>
-        </div>
-        <div class="p-6 text-center">
-          <h3 class="font-black text-xl text-brand-blue mb-2">2. 효율적 3PL 원가 구조</h3>
-          <p class="text-gray-600 text-sm">운영 노하우 기반 효율 구조 설계</p>
-        </div>
-      </button>
-
-      <!-- 3 -->
-      <button type="button" onclick="openModal('service_3')"
-        class="service-card fade-up bg-white rounded-2xl shadow border overflow-hidden text-left">
-        <div class="aspect-square relative overflow-hidden">
-          <img src="/assets/services-03.jpg" alt="소통형 고객사 관리"
-            class="w-full h-full object-cover">
-          <div class="absolute inset-0 bg-[#0f172a]/35"></div>
-        </div>
-        <div class="p-6 text-center">
-          <h3 class="font-black text-xl text-brand-blue mb-2">3. 소통형 고객사 관리</h3>
-          <p class="text-gray-600 text-sm">즉각적인 사전 조율과 소통창구 기능</p>
-        </div>
-      </button>
-
-      <!-- 4 -->
-      <button type="button" onclick="openModal('service_4')"
-        class="service-card fade-up bg-white rounded-2xl shadow border overflow-hidden text-left">
-        <div class="aspect-square relative overflow-hidden">
-          <img src="/assets/services-04.jpg" alt="안정적 물류관리 체계"
-            class="w-full h-full object-cover">
-          <div class="absolute inset-0 bg-[#0f172a]/35"></div>
-        </div>
-        <div class="p-6 text-center">
-          <h3 class="font-black text-xl text-brand-blue mb-2">4. 안정적 물류관리 체계</h3>
-          <p class="text-gray-600 text-sm">인력 및 차량 공급 우위 기반 운영</p>
-        </div>
-      </button>
-
-      <!-- 5 -->
-      <button type="button" onclick="openModal('service_5')"
-        class="service-card fade-up bg-white rounded-2xl shadow border overflow-hidden text-left sm:col-span-2 lg:col-span-1 sm:max-w-md sm:mx-auto lg:max-w-none lg:mx-0">
-        <div class="aspect-square relative overflow-hidden">
-          <img src="/assets/services-05.jpg" alt="데이터 분석 및 자원 관리"
-            class="w-full h-full object-cover">
-          <div class="absolute inset-0 bg-[#0f172a]/35"></div>
-        </div>
-        <div class="p-6 text-center">
-          <h3 class="font-black text-xl text-brand-blue mb-2">5. 데이터 분석 및 자원 관리</h3>
-          <p class="text-gray-600 text-sm">실시간 데이터 기반 맞춤형 전략 실행</p>
-        </div>
-      </button>
-
-    </section>
-
-  </div>
-</main>
-
-<!-- 푸터 -->
-<footer class="bg-gray-900 text-gray-400 py-10 text-center text-sm">
-  © 2026 D&I WISE. All rights reserved.
-</footer>
-
-<!-- 바텀시트 모달 -->
-<div id="modal" class="fixed inset-0 bg-black/55 hidden items-end justify-center z-[100] px-4 pb-0 md:pb-6">
-  <div class="modal-box bg-white w-full max-w-2xl rounded-t-3xl md:rounded-3xl shadow-2xl relative overflow-hidden">
-    <div class="bg-brand-blue px-8 py-6 text-white">
-      <button onclick="closeModal()"
-        class="absolute top-5 right-5 text-white/80 hover:text-white text-xl leading-none">
-        ✕
-      </button>
-      <p id="modal-kicker" class="text-sm font-bold tracking-[0.15em] text-blue-200 uppercase mb-2"></p>
-      <h3 id="modal-title" class="text-2xl md:text-3xl font-black"></h3>
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div>© 2026 D&amp;I WISE. All rights reserved.</div>
+      <div>Demand &amp; Innovation Wise</div>
     </div>
+  </footer>
 
-    <div class="flex justify-center pt-3 bg-white">
-      <div class="w-12 h-1.5 rounded-full bg-gray-300"></div>
-    </div>
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('show');
+        }
+      });
+    }, { threshold: 0.15 });
 
-    <!-- 팝업에서는 사진 제외 -->
-    <div class="p-8 md:p-10 max-h-[72vh] overflow-y-auto">
-      <div id="modal-body" class="text-gray-700 leading-relaxed whitespace-pre-line text-[15px] md:text-base"></div>
-    </div>
-  </div>
-</div>
-
-<script>
-/* 스크롤 등장 */
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach((entry) => {
-    if (entry.isIntersecting) entry.target.classList.add('show');
-  });
-}, { threshold: 0.15 });
-
-document.querySelectorAll('.fade-up').forEach((el) => observer.observe(el));
-
-/* 모달 데이터 */
-const modalData = {
-  service_1: {
-    kicker: 'Service 01',
-    title: '물류 컨설팅 솔루션',
-    body: `노하우로 인한 안정적 원가 실현
-
-현재 해당 산업 내에서 각자의 포지션에서 운영 중인 회사를 통하여 안정적인 공급과 물류 운영 노하우를 바탕으로 3PL 원가의 효율성을 추구합니다.
-
-· 現 식자재 기업에 운영 중인 인력망 활용
-· 식자재 배송차량을 활용한 원가 절감
-· 보유 네트워크를 통한 비용 관리 및 원가 인하`
-  },
-  service_2: {
-    kicker: 'Service 02',
-    title: '효율적 3PL 원가 구조',
-    body: `현재 해당 산업 내에서 각자의 포지션에서 운영 중인 회사를 통하여 안정적인 공급과 물류 운영 노하우를 바탕으로 3PL 원가의 효율성을 추구합니다.
-
-안정적 공급, 비용 관리, 운영 경험을 기반으로 효율적인 3PL 구조를 실현하고자 합니다.`
-  },
-  service_3: {
-    kicker: 'Service 03',
-    title: '소통형 고객사 관리',
-    body: `식자재 기업 물류관리자 출신의 본부장을 통하여 물류 납품 영역에서 발생하는 문제점(공급 및 클레임 등)을 즉각적으로 사전에 조율합니다.
-고객사와 화주사의 납품 만족도 향상 및 소통창구 기능을 수행합니다.
-
-구매 및 매입팀 공급 지원
-식자재 기업의 바이어들과의 공급 상품 확대 및 안정적 매출 향상을 위한 매개체 역할을 수행합니다.`
-  },
-  service_4: {
-    kicker: 'Service 04',
-    title: '안정적 물류관리 체계',
-    body: `인력 및 차량 공급 우위
-
-현재 식자재 대기업 물류센터 중분류 및 피팅 도급 운영 중으로 높은 업무 이해도와 취급 상품 특성 파악을 통해 문제를 최소화하고 있습니다.
-또한 식자재 운영 운송사 네트워킹을 통한 차량 수급 안정화를 기반으로 공급 우위 시장을 선정하며, 관리 전 영역의 일원화를 수행합니다.`
-  },
-  service_5: {
-    kicker: 'Service 05',
-    title: '데이터 분석 및 자원 관리',
-    body: `데이터 기반 물류관리
-
-실시간 물류관리 데이터를 기반으로 고객 주문 및 재고 영역을 분석하여 맞춤형 전략을 실행합니다.
-
-물류 운영 KPI 제공
-운영 데이터를 분석하여 KPI(성과지표)를 제공하고, 양사 간의 업무 성과와 과오를 분석하여 윈윈 전략 운영을 수행합니다.`
-  }
-};
-
-function openModal(key) {
-  const data = modalData[key];
-  if (!data) return;
-
-  document.getElementById('modal-kicker').textContent = data.kicker;
-  document.getElementById('modal-title').textContent = data.title;
-  document.getElementById('modal-body').textContent = data.body;
-
-  const modal = document.getElementById('modal');
-  modal.classList.remove('hidden');
-  modal.classList.add('flex');
-  document.body.style.overflow = 'hidden';
-}
-
-function closeModal() {
-  const modal = document.getElementById('modal');
-  modal.classList.add('hidden');
-  modal.classList.remove('flex');
-  document.body.style.overflow = '';
-}
-
-document.getElementById('modal').addEventListener('click', (e) => {
-  if (e.target.id === 'modal') closeModal();
-});
-
-document.addEventListener('keydown', (e) => {
-  if (e.key === 'Escape') closeModal();
-});
-</script>
-
+    document.querySelectorAll('.fade-up').forEach((el) => observer.observe(el));
+  </script>
 </body>
 </html>
