@@ -9,18 +9,22 @@
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap" rel="stylesheet">
 
   <style>
-    body {
+    body.company-page {
       background:
-        linear-gradient(180deg, #071634 0%, #081b44 28%, #f5f9ff 28%, #eef4ff 100%);
+        linear-gradient(180deg, #071634 0%, #081b44 18%, #f5f9ff 18%, #eef4ff 100%);
     }
 
     .company-page-main {
       position: relative;
       z-index: 1;
+      background: transparent;
     }
 
     .company-overview-section {
-      padding: 84px 0 34px;
+      position: relative;
+      padding: 56px 0 34px;
+      background:
+        linear-gradient(180deg, #f7faff 0%, #eef4ff 100%);
     }
 
     .company-section {
@@ -58,7 +62,7 @@
       overflow: hidden;
       padding: 34px 32px;
       border-radius: 30px;
-      background: rgba(255,255,255,0.96);
+      background: rgba(255,255,255,0.97);
       border: 1px solid rgba(148,173,220,0.22);
       box-shadow:
         0 18px 40px rgba(8,27,68,0.08),
@@ -321,6 +325,7 @@
       bottom: 164px;
       transform: translateX(-50%) translateY(10px);
     }
+
     .value-node.core-1:hover .value-panel {
       transform: translateX(-50%) translateY(0);
     }
@@ -330,6 +335,7 @@
       top: 50%;
       transform: translateY(-50%) translateX(-10px);
     }
+
     .value-node.core-2:hover .value-panel {
       transform: translateY(-50%) translateX(0);
     }
@@ -339,6 +345,7 @@
       top: 118px;
       transform: translateY(10px);
     }
+
     .value-node.core-3:hover .value-panel {
       transform: translateY(0);
     }
@@ -349,6 +356,7 @@
       transform: translateY(10px);
       text-align: right;
     }
+
     .value-node.core-4:hover .value-panel {
       transform: translateY(0);
     }
@@ -359,6 +367,7 @@
       transform: translateY(-50%) translateX(10px);
       text-align: right;
     }
+
     .value-node.core-5:hover .value-panel {
       transform: translateY(-50%) translateX(0);
     }
@@ -385,7 +394,7 @@
     }
 
     @media (max-width: 991px) {
-      body {
+      body.company-page {
         background:
           linear-gradient(180deg, #071634 0%, #081b44 20%, #f5f9ff 20%, #eef4ff 100%);
       }
@@ -475,7 +484,7 @@
   </style>
 </head>
 
-<body>
+<body class="company-page">
   <!-- Header -->
   <header class="header-shell">
     <div class="header-inner">
@@ -601,107 +610,75 @@
         </section>
 
         <!-- 핵심 가치 -->
-        <section class="company-section fade-up">
-          <div class="values-section-header">
-            <h2 class="company-section-title" style="margin-bottom: 10px;">핵심 가치</h2>
-            <p class="company-section-desc" style="margin: 0 auto; text-align: center; max-width: 760px;">
-              물류공급 영역의 노하우를 바탕으로 화주사의 성장을 돕는
-              D&amp;I WISE의 5가지 핵심 원칙입니다.
-            </p>
-          </div>
+<section class="company-section fade-up">
+  <div class="values-section-header">
+    <h2 class="company-section-title" style="margin-bottom: 10px;">핵심 가치</h2>
+    <p class="company-section-desc" style="margin: 0 auto; text-align: center; max-width: 760px;">
+      물류공급 영역의 노하우를 바탕으로 화주사의 성장을 돕는
+      D&amp;I WISE의 5가지 핵심 원칙입니다.
+    </p>
+  </div>
 
-          <div class="values-shell">
-            <div class="values-ring"></div>
-
-            <div class="values-center">
-              <span>핵심 가치</span>
-            </div>
-
-            <div class="value-node core-1">
-              <div class="value-dot c1">창의성</div>
-              <div class="value-panel v1">
-                <h4>Creativity</h4>
-                <p>
-                  고객사의 고유 상품을 안전하게 관리하고 차별화된 가치를 제공하며,
-                  고정관념을 넘어서는 사고방식을 추구합니다.
-                </p>
-              </div>
-            </div>
-
-            <div class="value-node core-2">
-              <div class="value-dot c2">고객 중심</div>
-              <div class="value-panel v2">
-                <h4>Customer-Centric</h4>
-                <p>
-                  고객사의 성공이 곧 우리의 성공이라는 신념으로
-                  고객의 니즈와 목표를 최우선으로 생각합니다.
-                </p>
-              </div>
-            </div>
-
-            <div class="value-node core-3">
-              <div class="value-dot c3">성과 지향</div>
-              <div class="value-panel v3">
-                <h4>Results-Oriented</h4>
-                <p>
-                  데이터를 기반으로 한 전략적 접근을 통해
-                  실질적인 비즈니스 성과를 창출하고 고객사의 성장에 기여합니다.
-                </p>
-              </div>
-            </div>
-
-            <div class="value-node core-4">
-              <div class="value-dot c4">협력/소통</div>
-              <div class="value-panel v4">
-                <h4>Collaboration</h4>
-                <p>
-                  지속적인 피드백과 소통을 통해 최고의 결과를 이끌어내며,
-                  전문적인 노하우를 기반으로 서비스를 제공합니다.
-                </p>
-              </div>
-            </div>
-
-            <div class="value-node core-5">
-              <div class="value-dot c5">지속 가능성</div>
-              <div class="value-panel v5">
-                <h4>Sustainability</h4>
-                <p>
-                  윤리적 관리 체계를 추구하며 사회와 환경에 긍정적인 영향을 미치는 활동을 전개하여
-                  미래를 준비합니다.
-                </p>
-              </div>
-            </div>
-          </div>
-
-          <div class="values-mobile-list">
-            <article class="values-mobile-card">
-              <h4 style="color:#f59e0b;">창의성 · Creativity</h4>
-              <p>고객사의 고유 상품을 안전하게 관리하고 차별화된 가치를 제공하며, 고정관념을 넘어서는 사고방식을 추구합니다.</p>
-            </article>
-
-            <article class="values-mobile-card">
-              <h4 style="color:#3b82f6;">고객 중심 · Customer-Centric</h4>
-              <p>고객사의 성공이 곧 우리의 성공이라는 신념으로 고객의 니즈와 목표를 최우선으로 생각합니다.</p>
-            </article>
-
-            <article class="values-mobile-card">
-              <h4 style="color:#22c55e;">성과 지향 · Results-Oriented</h4>
-              <p>데이터 기반의 전략적 접근을 통해 실질적인 비즈니스 성과를 창출하고 고객사의 성장에 기여합니다.</p>
-            </article>
-
-            <article class="values-mobile-card">
-              <h4 style="color:#6366f1;">협력/소통 · Collaboration</h4>
-              <p>지속적인 피드백과 소통을 통해 최고의 결과를 이끌어내며 전문적인 노하우를 기반으로 서비스를 제공합니다.</p>
-            </article>
-
-            <article class="values-mobile-card">
-              <h4 style="color:#f43f5e;">지속 가능성 · Sustainability</h4>
-              <p>윤리적 관리 체계를 추구하며 사회와 환경에 긍정적인 영향을 미치는 활동을 전개하여 미래를 준비합니다.</p>
-            </article>
-          </div>
-        </section>
+  <div class="core-value-pentagon-wrap">
+    <div class="core-value-pentagon-center">
+      <div class="core-value-pentagon-shape">
+        <span>핵심 가치</span>
       </div>
-    </section>
+    </div>
+
+    <div class="core-value-grid">
+      <article class="core-value-card">
+        <div class="core-value-tag tag-gold">01</div>
+        <h3>창의성</h3>
+        <h4>Creativity</h4>
+        <p>
+          고객사의 고유 상품을 안전하게 관리하고 차별화된 가치를 제공하며,
+          고정관념을 넘어서는 사고방식을 추구합니다.
+        </p>
+      </article>
+
+      <article class="core-value-card">
+        <div class="core-value-tag tag-blue">02</div>
+        <h3>고객 중심</h3>
+        <h4>Customer-Centric</h4>
+        <p>
+          고객사의 성공이 곧 우리의 성공이라는 신념으로
+          고객의 니즈와 목표를 최우선으로 생각합니다.
+        </p>
+      </article>
+
+      <article class="core-value-card">
+        <div class="core-value-tag tag-green">03</div>
+        <h3>성과 지향</h3>
+        <h4>Results-Oriented</h4>
+        <p>
+          데이터를 기반으로 한 전략적 접근을 통해
+          실질적인 비즈니스 성과를 창출하고 고객사의 성장에 기여합니다.
+        </p>
+      </article>
+
+      <article class="core-value-card">
+        <div class="core-value-tag tag-indigo">04</div>
+        <h3>협력/소통</h3>
+        <h4>Collaboration</h4>
+        <p>
+          지속적인 피드백과 소통을 통해 최고의 결과를 이끌어내며,
+          전문적인 노하우를 기반으로 서비스를 제공합니다.
+        </p>
+      </article>
+
+      <article class="core-value-card">
+        <div class="core-value-tag tag-rose">05</div>
+        <h3>지속 가능성</h3>
+        <h4>Sustainability</h4>
+        <p>
+          윤리적 관리 체계를 추구하며 사회와 환경에 긍정적인 영향을 미치는 활동을 전개하여
+          미래를 준비합니다.
+        </p>
+      </article>
+    </div>
+  </div>
+</section>
   </main>
 
   <!-- Footer -->
