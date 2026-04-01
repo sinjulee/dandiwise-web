@@ -2552,63 +2552,112 @@ button {
   text-shadow: 0 4px 18px rgba(0,0,0,0.18);
 }
 
-.core-value-visual-stage {
+.sub-hero-company .sub-hero-bg {
+  background-image: url("../company-hero.jpg");
+}
+
+.sub-hero-services .sub-hero-bg {
+  background-image: url("../services-hero.jpg");
+}
+
+.sub-hero-differentiation .sub-hero-bg {
+  background-image: url("../differentiation-hero.png");
+}
+
+
+.core-ring-stage {
   margin-top: 44px;
   display: flex;
   justify-content: center;
 }
 
-.core-value-visual {
+.core-ring-system {
   position: relative;
-  width: 940px;
-  min-height: 760px;
+  width: 1100px;
+  height: 980px;
 }
 
-.core-value-image-wrap {
-  position: relative;
+/* 중앙 코어 */
+.core-ring-center {
+  position: absolute;
+  left: 50%;
+  top: 50%;
   width: 620px;
   height: 620px;
-  margin: 0 auto;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+}
+
+.core-ring-glow {
+  position: absolute;
+  inset: -18px;
+  border-radius: 50%;
+  background:
+    radial-gradient(circle, rgba(30,58,138,0.24) 0%, rgba(30,58,138,0.14) 38%, rgba(30,58,138,0.04) 62%, transparent 78%);
+  filter: blur(28px);
+  opacity: 0.95;
+}
+
+.core-ring-image-wrap {
+  position: relative;
+  width: 100%;
+  height: 100%;
   border-radius: 50%;
   overflow: hidden;
   box-shadow:
-    0 34px 70px rgba(8,27,68,0.20),
-    0 12px 24px rgba(8,27,68,0.08);
+    0 30px 60px rgba(8,27,68,0.16),
+    0 10px 24px rgba(8,27,68,0.08);
 }
 
-.core-value-image {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  filter: hue-rotate(185deg) saturate(1.35) brightness(0.52) contrast(1.1);
-  transform: scale(1.08);
-}
-
-.core-value-image-overlay {
+.core-ring-image-wrap::before {
+  content: "";
   position: absolute;
-  inset: 0;
-  background:
-    radial-gradient(circle at center, rgba(37,99,235,0.10), rgba(8,27,68,0.18) 45%, rgba(7,22,52,0.42) 100%),
-    linear-gradient(180deg, rgba(7,22,52,0.18), rgba(7,22,52,0.28));
+  inset: -10px;
+  border-radius: 50%;
+  border: 10px solid rgba(20, 52, 130, 0.92);
+  filter: blur(16px);
+  opacity: 0.9;
+  z-index: 2;
   pointer-events: none;
 }
 
-.core-value-center-text {
+.core-ring-image-wrap::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  box-shadow:
+    inset 0 0 0 1px rgba(255,255,255,0.08),
+    inset 0 -18px 40px rgba(0,0,0,0.10);
+  z-index: 2;
+  pointer-events: none;
+}
+
+.core-ring-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scale(1.04);
+  filter: none; /* 원본 그대로 */
+}
+
+.core-ring-center-text {
   position: absolute;
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
+  z-index: 3;
   color: #ffffff;
-  font-size: 2.8rem;
+  font-size: 2.9rem;
   line-height: 1.15;
   font-weight: 900;
   letter-spacing: -0.05em;
   text-align: center;
-  text-shadow: 0 10px 24px rgba(0,0,0,0.22);
-  z-index: 3;
+  text-shadow: 0 10px 24px rgba(0,0,0,0.24);
 }
 
-.core-value-node {
+/* 5개 노드 */
+.core-ring-node {
   position: absolute;
   z-index: 4;
   display: flex;
@@ -2619,22 +2668,21 @@ button {
   border: 0;
   padding: 0;
   cursor: pointer;
-  color: #102a5c;
+  color: #17336d;
   transition: transform 0.28s ease, opacity 0.28s ease, filter 0.28s ease;
 }
 
-.core-value-node:hover,
-.core-value-node.is-active {
-  transform: scale(1.06);
+.core-ring-node:hover,
+.core-ring-node.is-active {
+  transform: translate(-50%, -50%) scale(1.06);
   filter: drop-shadow(0 8px 16px rgba(37,99,235,0.12));
 }
 
-.core-value-node .node-dot {
+.core-ring-node .node-dot {
   width: 12px;
   height: 12px;
   margin-bottom: 10px;
   border-radius: 50%;
-  box-shadow: 0 0 14px rgba(255,255,255,0.18);
 }
 
 .node-dot.gold   { background: #f59e0b; }
@@ -2643,50 +2691,53 @@ button {
 .node-dot.indigo { background: #6366f1; }
 .node-dot.rose   { background: #f43f5e; }
 
-.core-value-node .node-ko {
-  font-size: 1.4rem;
+.core-ring-node .node-ko {
+  font-size: 1.36rem;
   font-weight: 800;
   line-height: 1.2;
   letter-spacing: -0.03em;
-  color: #17336d;
 }
 
-.core-value-node .node-en {
+.core-ring-node .node-en {
   margin-top: 6px;
   font-size: 0.9rem;
   font-weight: 700;
   color: #6b86b3;
 }
 
-/* 오각형 배치 느낌 */
-.node-top {
-  top: 18px;
+/* 중심 기준 동일 반경 배치 */
+.node-1 {
   left: 50%;
-  transform: translateX(-50%);
+  top: 90px;
+  transform: translate(-50%, -50%);
 }
 
-.node-right-top {
-  top: 178px;
-  right: 70px;
+.node-2 {
+  left: 82.34%;
+  top: 323.26px;
+  transform: translate(-50%, -50%);
 }
 
-.node-right-bottom {
-  bottom: 94px;
-  right: 126px;
+.node-3 {
+  left: 69.98%;
+  top: 700.74px;
+  transform: translate(-50%, -50%);
 }
 
-.node-left-bottom {
-  bottom: 94px;
-  left: 126px;
+.node-4 {
+  left: 30.02%;
+  top: 700.74px;
+  transform: translate(-50%, -50%);
 }
 
-.node-left-top {
-  top: 178px;
-  left: 70px;
+.node-5 {
+  left: 17.66%;
+  top: 323.26px;
+  transform: translate(-50%, -50%);
 }
 
-/* 설명 카드 */
-.core-value-popup {
+/* 설명 카드: 가장 외부 위치 */
+.core-ring-card {
   position: absolute;
   width: 280px;
   padding: 22px 22px 20px;
@@ -2707,13 +2758,13 @@ button {
   pointer-events: none;
 }
 
-.core-value-popup.is-active {
+.core-ring-card.is-active {
   opacity: 1;
   visibility: visible;
   transform: translateY(0) scale(1);
 }
 
-.core-value-badge {
+.core-ring-badge {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -2727,7 +2778,7 @@ button {
   box-shadow: 0 10px 20px rgba(15,23,42,0.10);
 }
 
-.core-value-popup h3 {
+.core-ring-card h3 {
   margin: 0 0 4px;
   color: #102a5c;
   font-size: 1.2rem;
@@ -2736,14 +2787,14 @@ button {
   letter-spacing: -0.03em;
 }
 
-.core-value-popup h4 {
+.core-ring-card h4 {
   margin: 0 0 12px;
   color: #6b86b3;
   font-size: 0.9rem;
   font-weight: 700;
 }
 
-.core-value-popup p {
+.core-ring-card p {
   margin: 0;
   color: #62779f;
   font-size: 0.92rem;
@@ -2751,34 +2802,50 @@ button {
   word-break: keep-all;
 }
 
-.popup-top {
-  top: 76px;
+/* 카드도 중심에서 더 바깥 동일한 방향에 배치 */
+.card-1 {
   left: 50%;
-  transform: translateX(-50%) translateY(8px) scale(0.96);
+  top: -10px;
+  transform: translate(-50%, 8px) scale(0.96);
+}
+.card-1.is-active {
+  transform: translate(-50%, 0) scale(1);
 }
 
-.popup-top.is-active {
-  transform: translateX(-50%) translateY(0) scale(1);
+.card-2 {
+  left: 88.94%;
+  top: 286px;
+  transform: translate(0, 8px) scale(0.96);
+}
+.card-2.is-active {
+  transform: translate(0, 0) scale(1);
 }
 
-.popup-right-top {
-  top: 150px;
-  right: -6px;
+.card-3 {
+  left: 74.05%;
+  top: 765px;
+  transform: translate(0, 8px) scale(0.96);
+}
+.card-3.is-active {
+  transform: translate(0, 0) scale(1);
 }
 
-.popup-right-bottom {
-  bottom: 52px;
-  right: 16px;
+.card-4 {
+  right: 74.05%;
+  top: 765px;
+  transform: translate(0, 8px) scale(0.96);
+}
+.card-4.is-active {
+  transform: translate(0, 0) scale(1);
 }
 
-.popup-left-bottom {
-  bottom: 52px;
-  left: 16px;
+.card-5 {
+  right: 88.94%;
+  top: 286px;
+  transform: translate(0, 8px) scale(0.96);
 }
-
-.popup-left-top {
-  top: 150px;
-  left: -6px;
+.card-5.is-active {
+  transform: translate(0, 0) scale(1);
 }
 
 .tag-gold   { background: linear-gradient(180deg, #f59e0b 0%, #d97706 100%); }
@@ -2788,126 +2855,84 @@ button {
 .tag-rose   { background: linear-gradient(180deg, #f43f5e 0%, #e11d48 100%); }
 
 @media (max-width: 1200px) {
-  .core-value-visual {
-    width: 820px;
-    min-height: 700px;
+  .core-ring-system {
+    width: 920px;
+    height: 900px;
   }
 
-  .core-value-image-wrap {
+  .core-ring-center {
     width: 540px;
     height: 540px;
   }
 
-  .core-value-center-text {
+  .core-ring-center-text {
     font-size: 2.3rem;
   }
 
-  .core-value-popup {
-    width: 250px;
-  }
-
-  .node-right-top,
-  .node-right-bottom {
-    right: 54px;
-  }
-
-  .node-left-top,
-  .node-left-bottom {
-    left: 54px;
+  .core-ring-card {
+    width: 240px;
   }
 }
 
 @media (max-width: 991px) {
-  .core-value-visual {
+  .core-ring-system {
     width: 100%;
-    min-height: auto;
+    height: 780px;
   }
 
-  .core-value-image-wrap {
+  .core-ring-center {
     width: 420px;
     height: 420px;
   }
 
-  .core-value-center-text {
+  .core-ring-center-text {
     font-size: 2rem;
   }
 
-  .core-value-node .node-ko {
+  .core-ring-node .node-ko {
     font-size: 1rem;
   }
 
-  .core-value-node .node-en {
+  .core-ring-node .node-en {
     font-size: 0.74rem;
   }
 
-  .node-top {
-    top: -8px;
-  }
+  .node-1 { top: 80px; }
+  .node-2 { left: 82%; top: 265px; }
+  .node-3 { left: 69%; top: 562px; }
+  .node-4 { left: 31%; top: 562px; }
+  .node-5 { left: 18%; top: 265px; }
 
-  .node-right-top {
-    top: 118px;
-    right: 20px;
-  }
-
-  .node-right-bottom {
-    bottom: 58px;
-    right: 48px;
-  }
-
-  .node-left-bottom {
-    bottom: 58px;
-    left: 48px;
-  }
-
-  .node-left-top {
-    top: 118px;
-    left: 20px;
-  }
-
-  .core-value-popup {
+  .core-ring-card {
     display: none;
   }
 }
 
 @media (max-width: 640px) {
-  .core-value-image-wrap {
+  .core-ring-system {
+    height: 600px;
+  }
+
+  .core-ring-center {
     width: 300px;
     height: 300px;
   }
 
-  .core-value-center-text {
+  .core-ring-center-text {
     font-size: 1.5rem;
   }
 
-  .core-value-node .node-ko {
+  .core-ring-node .node-ko {
     font-size: 0.78rem;
   }
 
-  .core-value-node .node-en {
+  .core-ring-node .node-en {
     display: none;
   }
 
-  .node-top {
-    top: -10px;
-  }
-
-  .node-right-top {
-    top: 82px;
-    right: 0;
-  }
-
-  .node-right-bottom {
-    bottom: 28px;
-    right: 16px;
-  }
-
-  .node-left-bottom {
-    bottom: 28px;
-    left: 16px;
-  }
-
-  .node-left-top {
-    top: 82px;
-    left: 0;
-  }
+  .node-1 { top: 64px; }
+  .node-2 { left: 84%; top: 214px; }
+  .node-3 { left: 70%; top: 438px; }
+  .node-4 { left: 30%; top: 438px; }
+  .node-5 { left: 16%; top: 214px; }
 }

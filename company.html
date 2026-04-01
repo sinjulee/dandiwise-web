@@ -609,7 +609,7 @@
           </div>
         </section>
 
-  <!-- 핵심 가치 -->
+ <!-- 핵심 가치 -->
 <section class="company-section fade-up">
   <div class="values-section-header">
     <h2 class="company-section-title" style="margin-bottom: 10px;">핵심 가치</h2>
@@ -619,48 +619,51 @@
     </p>
   </div>
 
-  <div class="core-value-visual-stage">
-    <div class="core-value-visual">
-      <div class="core-value-image-wrap">
-        <img src="assets/core-value.jpg" alt="핵심 가치 비주얼" class="core-value-image">
-        <div class="core-value-image-overlay"></div>
-        <div class="core-value-center-text">핵심 가치</div>
+  <div class="core-ring-stage">
+    <div class="core-ring-system">
+      <!-- 중앙 코어 -->
+      <div class="core-ring-center">
+        <div class="core-ring-glow"></div>
+        <div class="core-ring-image-wrap">
+          <img src="assets/core-value.jpg" alt="핵심 가치 코어 비주얼" class="core-ring-image">
+          <div class="core-ring-center-text">핵심 가치</div>
+        </div>
       </div>
 
-      <!-- 항목 배치 -->
-      <button class="core-value-node node-top is-active" data-index="0" type="button">
+      <!-- 5개 항목: 원 바깥 / 동일 반경 배치 -->
+      <button class="core-ring-node node-1 is-active" data-index="0" type="button">
         <span class="node-dot gold"></span>
         <span class="node-ko">창의성</span>
         <span class="node-en">Creativity</span>
       </button>
 
-      <button class="core-value-node node-right-top" data-index="1" type="button">
+      <button class="core-ring-node node-2" data-index="1" type="button">
         <span class="node-dot blue"></span>
         <span class="node-ko">고객 중심</span>
         <span class="node-en">Customer-Centric</span>
       </button>
 
-      <button class="core-value-node node-right-bottom" data-index="2" type="button">
+      <button class="core-ring-node node-3" data-index="2" type="button">
         <span class="node-dot green"></span>
         <span class="node-ko">성과 지향</span>
         <span class="node-en">Results-Oriented</span>
       </button>
 
-      <button class="core-value-node node-left-bottom" data-index="3" type="button">
+      <button class="core-ring-node node-4" data-index="3" type="button">
         <span class="node-dot indigo"></span>
         <span class="node-ko">협력/소통</span>
         <span class="node-en">Collaboration</span>
       </button>
 
-      <button class="core-value-node node-left-top" data-index="4" type="button">
+      <button class="core-ring-node node-5" data-index="4" type="button">
         <span class="node-dot rose"></span>
         <span class="node-ko">지속 가능성</span>
         <span class="node-en">Sustainability</span>
       </button>
 
-      <!-- 설명 카드 -->
-      <div class="core-value-popup is-active popup-top" data-card="0">
-        <div class="core-value-badge tag-gold">01</div>
+      <!-- 설명 카드: 가장 외부 -->
+      <div class="core-ring-card is-active card-1" data-card="0">
+        <div class="core-ring-badge tag-gold">01</div>
         <h3>창의성</h3>
         <h4>Creativity</h4>
         <p>
@@ -669,8 +672,8 @@
         </p>
       </div>
 
-      <div class="core-value-popup popup-right-top" data-card="1">
-        <div class="core-value-badge tag-blue">02</div>
+      <div class="core-ring-card card-2" data-card="1">
+        <div class="core-ring-badge tag-blue">02</div>
         <h3>고객 중심</h3>
         <h4>Customer-Centric</h4>
         <p>
@@ -679,8 +682,8 @@
         </p>
       </div>
 
-      <div class="core-value-popup popup-right-bottom" data-card="2">
-        <div class="core-value-badge tag-green">03</div>
+      <div class="core-ring-card card-3" data-card="2">
+        <div class="core-ring-badge tag-green">03</div>
         <h3>성과 지향</h3>
         <h4>Results-Oriented</h4>
         <p>
@@ -689,8 +692,8 @@
         </p>
       </div>
 
-      <div class="core-value-popup popup-left-bottom" data-card="3">
-        <div class="core-value-badge tag-indigo">04</div>
+      <div class="core-ring-card card-4" data-card="3">
+        <div class="core-ring-badge tag-indigo">04</div>
         <h3>협력/소통</h3>
         <h4>Collaboration</h4>
         <p>
@@ -699,8 +702,8 @@
         </p>
       </div>
 
-      <div class="core-value-popup popup-left-top" data-card="4">
-        <div class="core-value-badge tag-rose">05</div>
+      <div class="core-ring-card card-5" data-card="4">
+        <div class="core-ring-badge tag-rose">05</div>
         <h3>지속 가능성</h3>
         <h4>Sustainability</h4>
         <p>
@@ -734,64 +737,64 @@
     document.querySelectorAll('.fade-up').forEach((el) => observer.observe(el));
   </script>
 
-  <script>
+<script>
   document.addEventListener('DOMContentLoaded', function () {
-    const valueNodes = document.querySelectorAll('.core-value-node');
-    const valueCards = document.querySelectorAll('.core-value-popup');
+    const nodes = document.querySelectorAll('.core-ring-node');
+    const cards = document.querySelectorAll('.core-ring-card');
 
-    if (!valueNodes.length || !valueCards.length) return;
+    if (!nodes.length || !cards.length) return;
 
     let currentIndex = 0;
     let rotateTimer = null;
     const ROTATE_DELAY = 2000;
 
-    function activateCoreValue(index) {
-      valueNodes.forEach((node, i) => {
+    function activateCoreItem(index) {
+      nodes.forEach((node, i) => {
         node.classList.toggle('is-active', i === index);
       });
 
-      valueCards.forEach((card, i) => {
+      cards.forEach((card, i) => {
         card.classList.toggle('is-active', i === index);
       });
 
       currentIndex = index;
     }
 
-    function showNextCoreValue() {
-      const nextIndex = (currentIndex + 1) % valueNodes.length;
-      activateCoreValue(nextIndex);
+    function showNextCoreItem() {
+      const nextIndex = (currentIndex + 1) % nodes.length;
+      activateCoreItem(nextIndex);
     }
 
-    function startCoreRotation() {
-      stopCoreRotation();
-      rotateTimer = setInterval(showNextCoreValue, ROTATE_DELAY);
+    function startCoreAutoRotate() {
+      stopCoreAutoRotate();
+      rotateTimer = setInterval(showNextCoreItem, ROTATE_DELAY);
     }
 
-    function stopCoreRotation() {
+    function stopCoreAutoRotate() {
       if (rotateTimer) {
         clearInterval(rotateTimer);
         rotateTimer = null;
       }
     }
 
-    valueNodes.forEach((node, index) => {
+    nodes.forEach((node, index) => {
       node.addEventListener('mouseenter', function () {
-        activateCoreValue(index);
-        stopCoreRotation();
+        activateCoreItem(index);
+        stopCoreAutoRotate();
       });
 
       node.addEventListener('mouseleave', function () {
-        startCoreRotation();
+        startCoreAutoRotate();
       });
 
       node.addEventListener('click', function () {
-        activateCoreValue(index);
-        startCoreRotation();
+        activateCoreItem(index);
+        startCoreAutoRotate();
       });
     });
 
-    activateCoreValue(0);
-    startCoreRotation();
+    activateCoreItem(0);
+    startCoreAutoRotate();
   });
 </script>
 </body>

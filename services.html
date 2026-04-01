@@ -9,9 +9,22 @@
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap" rel="stylesheet">
 
   <style>
-    body {
+    body.services-page {
       background:
-        linear-gradient(180deg, #071634 0%, #081b44 24%, #f5f9ff 24%, #eef4ff 100%);
+        linear-gradient(180deg, #071634 0%, #081b44 18%, #f5f9ff 18%, #eef4ff 100%);
+    }
+
+    .services-page-main {
+      position: relative;
+      z-index: 1;
+      background: transparent;
+    }
+
+    .services-overview-section {
+      position: relative;
+      padding: 56px 0 34px;
+      background:
+        linear-gradient(180deg, #f7faff 0%, #eef4ff 100%);
     }
 
     .services-page-main {
@@ -365,7 +378,7 @@
   </style>
 </head>
 
-<body>
+<body class="services-page">
   <!-- Header -->
   <header class="header-shell">
     <div class="header-inner">

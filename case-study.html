@@ -9,9 +9,23 @@
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap" rel="stylesheet">
 
 <style>
-  body {
-    background-color: #F3F4F6;
-  }
+  body.case-page {
+  background:
+    linear-gradient(180deg, #071634 0%, #081b44 18%, #f5f9ff 18%, #eef4ff 100%);
+}
+
+.case-page-main {
+  position: relative;
+  z-index: 1;
+  background: transparent;
+}
+
+.case-overview-section {
+  position: relative;
+  padding: 56px 0 34px;
+  background:
+    linear-gradient(180deg, #f7faff 0%, #eef4ff 100%);
+}
 </style>
 
 <script>
@@ -31,7 +45,7 @@ tailwind.config = {
 </script>
 </head>
 
-<body class="text-gray-800">
+<body class="case-page">
 
 <!-- 헤더 -->
 <header class="bg-white shadow-sm border-b sticky top-0 z-50">

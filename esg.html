@@ -9,20 +9,22 @@
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap" rel="stylesheet">
 
   <style>
-    body {
+    body.esg-page {
       background:
-        linear-gradient(180deg, #071634 0%, #081b44 34%, #f4f8ff 34%, #eef4ff 100%);
+        linear-gradient(180deg, #071634 0%, #081b44 18%, #f5f9ff 18%, #eef4ff 100%);
     }
 
     .esg-page-main {
       position: relative;
       z-index: 1;
+      background: transparent;
     }
 
     .esg-overview-section {
       position: relative;
-      padding: 84px 0 40px;
-      background: transparent;
+      padding: 56px 0 34px;
+      background:
+        linear-gradient(180deg, #f7faff 0%, #eef4ff 100%);
     }
 
     .esg-block {
@@ -202,7 +204,7 @@
   </style>
 </head>
 
-<body>
+<body class="esg-page">
   <!-- Header -->
   <header class="header-shell">
     <div class="header-inner">
