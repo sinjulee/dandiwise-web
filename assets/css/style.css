@@ -2727,13 +2727,13 @@ button {
 
 .node-3 {
   left: 69.98%;
-  top: 700.74px;
+  top: 760px;
   transform: translate(-50%, -50%);
 }
 
 .node-4 {
   left: 30.02%;
-  top: 700.74px;
+  top: 760px;
   transform: translate(-50%, -50%);
 }
 
@@ -2829,21 +2829,21 @@ button {
 }
 
 .card-3 {
-  left: 74.05%;
-  top: 765px;
-  transform: translate(0, 8px) scale(0.96);
+  left: 69.98%;
+  top: 590px;
+  transform: translate(-50%, 8px) scale(0.96);
 }
 .card-3.is-active {
-  transform: translate(0, 0) scale(1);
+  transform: translate(-50%, 0) scale(1);
 }
 
 .card-4 {
-  right: 74.05%;
-  top: 765px;
-  transform: translate(0, 8px) scale(0.96);
+  left: 30.02%;
+  top: 590px;
+  transform: translate(-50%, 8px) scale(0.96);
 }
 .card-4.is-active {
-  transform: translate(0, 0) scale(1);
+  transform: translate(-50%, 0) scale(1);
 }
 
 .card-5 {
