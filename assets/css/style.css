@@ -2820,12 +2820,12 @@ button {
 }
 
 .card-2 {
-  left: 88.94%;
-  top: 286px;
-  transform: translate(0, 8px) scale(0.96);
+  left: 82.34%;
+  top: 145px;
+  transform: translate(-50%, 8px) scale(0.96);
 }
 .card-2.is-active {
-  transform: translate(0, 0) scale(1);
+  transform: translate(-50%, 0) scale(1);
 }
 
 .card-3 {
@@ -2847,12 +2847,12 @@ button {
 }
 
 .card-5 {
-  right: 88.94%;
-  top: 286px;
-  transform: translate(0, 8px) scale(0.96);
+  left: 17.66%;
+  top: 145px;
+  transform: translate(-50%, 8px) scale(0.96);
 }
 .card-5.is-active {
-  transform: translate(0, 0) scale(1);
+  transform: translate(-50%, 0) scale(1);
 }
 
 .tag-gold   { background: linear-gradient(180deg, #f59e0b 0%, #d97706 100%); }
