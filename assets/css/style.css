@@ -2820,8 +2820,8 @@ button {
 }
 
 .card-2 {
-  left: 73.5%;
-  top: 145px;
+  left: 78.5%;
+  top: 190px;
   transform: translate(-50%, 8px) scale(0.96);
 }
 .card-2.is-active {
@@ -2847,8 +2847,8 @@ button {
 }
 
 .card-5 {
-  left: 26.5%;
-  top: 145px;
+  left: 21.5%;
+  top: 190px;
   transform: translate(-50%, 8px) scale(0.96);
 }
 .card-5.is-active {
