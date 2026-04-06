@@ -1560,6 +1560,12 @@ button {
   resize: vertical;
 }
 
+.form-group label {
+  display: block;
+  margin-bottom: 10px;
+  line-height: 1.4;
+}
+
 .form-group input:focus,
 .form-group select:focus,
 .form-group textarea:focus {
