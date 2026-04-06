@@ -1454,6 +1454,7 @@ button {
   background: rgba(255, 255, 255, 0.94);
   border: 1px solid rgba(165, 190, 245, 0.24);
   box-shadow: 0 26px 60px rgba(0, 0, 0, 0.16);
+  font-family: 'Pretendard', sans-serif;
 }
 
 .contact-estimate-form-card::before {
@@ -1522,6 +1523,8 @@ button {
   background: #f7f8fb;
   color: #1e2f5d;
   font-size: 16px;
+  font-family: inherit;
+  font-weight: 500;
   box-sizing: border-box;
   outline: none;
   transition: border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
@@ -1545,12 +1548,16 @@ button {
 
 /* placeholder */
 .form-group input::placeholder,
-.form-group textarea::placeholder {
+.form-group textarea::placeholder,
+.form-group select {
+  font-family: inherit;
+  font-size: 16px;
+  font-weight: 500;
   color: #8b8f97;
   opacity: 1;
 }
 
-/* select 화살표 정리 */
+/* select 화살표 */
 .form-group select {
   appearance: none;
   -webkit-appearance: none;
@@ -1585,6 +1592,7 @@ button {
   color: #fff;
   font-size: 1rem;
   font-weight: 700;
+  font-family: inherit;
   cursor: pointer;
   box-shadow: 0 18px 34px rgba(37, 99, 235, 0.24);
   transition: transform 0.25s ease, box-shadow 0.25s ease;
