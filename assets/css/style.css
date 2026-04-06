@@ -1390,8 +1390,8 @@ button {
 }
 
 .contact-kicker {
-  background: rgba(255,255,255,0.08);
-  border: 1px solid rgba(255,255,255,0.12);
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.12);
   color: #93C5FD;
   box-shadow: none;
 }
@@ -1407,7 +1407,7 @@ button {
 
 .contact-estimate-desc {
   margin: 0 0 28px;
-  color: rgba(234,242,255,0.82);
+  color: rgba(234, 242, 255, 0.82);
   font-size: 1.05rem;
   line-height: 1.9;
   word-break: keep-all;
@@ -1428,15 +1428,15 @@ button {
   place-items: center;
   font-size: 1.25rem;
   color: #fff;
-  background: linear-gradient(135deg, rgba(59,130,246,0.95), rgba(37,99,235,0.82));
-  box-shadow: 0 16px 30px rgba(37,99,235,.22);
+  background: linear-gradient(135deg, rgba(59, 130, 246, 0.95), rgba(37, 99, 235, 0.82));
+  box-shadow: 0 16px 30px rgba(37, 99, 235, 0.22);
   flex-shrink: 0;
 }
 
 .contact-info-text span {
   display: block;
-  color: rgba(234,242,255,.68);
-  font-size: .92rem;
+  color: rgba(234, 242, 255, 0.68);
+  font-size: 0.92rem;
   margin-bottom: 4px;
 }
 
@@ -1451,9 +1451,9 @@ button {
   overflow: hidden;
   border-radius: 32px;
   padding: 34px;
-  background: rgba(255,255,255,0.94);
-  border: 1px solid rgba(165,190,245,0.24);
-  box-shadow: 0 26px 60px rgba(0,0,0,.16);
+  background: rgba(255, 255, 255, 0.94);
+  border: 1px solid rgba(165, 190, 245, 0.24);
+  box-shadow: 0 26px 60px rgba(0, 0, 0, 0.16);
 }
 
 .contact-estimate-form-card::before {
@@ -1464,7 +1464,7 @@ button {
   border-radius: 50%;
   top: -70px;
   right: -60px;
-  background: radial-gradient(circle, rgba(96,165,250,.16), transparent 68%);
+  background: radial-gradient(circle, rgba(96, 165, 250, 0.16), transparent 68%);
   pointer-events: none;
 }
 
@@ -1481,16 +1481,31 @@ button {
   z-index: 1;
 }
 
+.estimate-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 18px;
+  margin-bottom: 18px;
+}
+
+.estimate-grid.two-col {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 22px;
+}
+
 .form-group {
   display: flex;
   flex-direction: column;
-  gap: 10px;
 }
 
 .form-group label {
+  display: block;
+  margin: 0 0 12px;
+  padding: 0;
   color: #17336D;
-  font-size: .95rem;
+  font-size: 0.95rem;
   font-weight: 700;
+  line-height: 1.45;
 }
 
 .form-group label em {
@@ -1509,6 +1524,7 @@ button {
   font-size: 16px;
   box-sizing: border-box;
   outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
 }
 
 /* 한 줄 입력칸 */
@@ -1516,21 +1532,38 @@ button {
 .form-group select {
   height: 56px;
   padding: 0 18px;
+  line-height: 56px;
 }
 
 /* 여러 줄 입력칸 */
 .form-group textarea {
   min-height: 170px;
-  padding: 20px 18px;
-  line-height: 1.8;
+  padding: 18px;
+  line-height: 1.7;
   resize: vertical;
 }
 
-/* placeholder 위치/여백 체감 개선 */
+/* placeholder */
 .form-group input::placeholder,
 .form-group textarea::placeholder {
   color: #8b8f97;
-  line-height: 1.6;
+  opacity: 1;
+}
+
+/* select 화살표 정리 */
+.form-group select {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  padding-right: 44px;
+  background-image:
+    linear-gradient(45deg, transparent 50%, #0E224B 50%),
+    linear-gradient(135deg, #0E224B 50%, transparent 50%);
+  background-position:
+    calc(100% - 22px) calc(50% - 3px),
+    calc(100% - 16px) calc(50% - 3px);
+  background-size: 6px 6px, 6px 6px;
+  background-repeat: no-repeat;
 }
 
 /* 포커스 */
@@ -1538,39 +1571,7 @@ button {
 .form-group select:focus,
 .form-group textarea:focus {
   border-color: #60A5FA;
-  box-shadow: 0 0 0 4px rgba(96,165,250,.16);
-  background: #fff;
-}
-
-.form-group input,
-.form-group select {
-  width: 100%;
-  height: 56px;
-  padding: 0 18px;
-  line-height: 1.5;
-  box-sizing: border-box;
-}
-
-.form-group textarea {
-  width: 100%;
-  min-height: 140px;
-  padding: 18px;
-  line-height: 1.7;
-  box-sizing: border-box;
-  resize: vertical;
-}
-
-.form-group label {
-  display: block;
-  margin-bottom: 10px;
-  line-height: 1.4;
-}
-
-.form-group input:focus,
-.form-group select:focus,
-.form-group textarea:focus {
-  border-color: #60A5FA;
-  box-shadow: 0 0 0 4px rgba(96,165,250,.16);
+  box-shadow: 0 0 0 4px rgba(96, 165, 250, 0.16);
   background: #fff;
 }
 
@@ -1585,20 +1586,53 @@ button {
   font-size: 1rem;
   font-weight: 700;
   cursor: pointer;
-  box-shadow: 0 18px 34px rgba(37,99,235,.24);
-  transition: transform .25s ease, box-shadow .25s ease;
+  box-shadow: 0 18px 34px rgba(37, 99, 235, 0.24);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
 .estimate-submit-btn:hover {
   transform: translateY(-2px);
-  box-shadow: 0 22px 40px rgba(37,99,235,.32);
+  box-shadow: 0 22px 40px rgba(37, 99, 235, 0.32);
 }
 
 .estimate-form-note {
   margin: 14px 4px 0;
   color: #6B7FA8;
-  font-size: .88rem;
+  font-size: 0.88rem;
   line-height: 1.6;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .contact-estimate-wrap {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .contact-estimate-form-card {
+    padding: 26px 20px;
+    border-radius: 24px;
+  }
+
+  .estimate-grid.two-col {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  .form-group label {
+    margin-bottom: 10px;
+  }
+
+  .form-group input,
+  .form-group select {
+    height: 54px;
+    line-height: 54px;
+  }
+
+  .form-group textarea {
+    min-height: 150px;
+  }
 }
 
 /* =========================
