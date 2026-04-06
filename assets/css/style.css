@@ -113,7 +113,7 @@ button {
 .header-shell {
   position: sticky;
   top: 0;
-  z-index: 100;
+  z-index: 1000;
   background: rgba(255,255,255,0.94);
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
@@ -129,20 +129,35 @@ button {
   justify-content: space-between;
 }
 
+.header-logo {
+  display: inline-flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
 .header-logo img {
   height: 66px;
   width: auto;
   object-fit: contain;
+  display: block;
 }
 
 .nav-desktop {
   display: flex;
   align-items: center;
-  gap: 10px;
 }
 
-.nav-item {
-  position: relative;
+.nav-main {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nav-main li {
+  list-style: none;
 }
 
 .nav-link {
@@ -155,6 +170,7 @@ button {
   font-weight: 700;
   transition: color .25s ease;
   position: relative;
+  text-decoration: none;
 }
 
 .nav-link:hover {
@@ -175,57 +191,122 @@ button {
   transition: transform .25s ease;
 }
 
-.nav-item:hover .nav-link::after {
+.header-shell:hover .nav-link::after,
+.header-shell.is-open .nav-link::after {
   transform: scaleX(1);
 }
 
-.nav-dropdown {
-  position: absolute;
-  top: calc(100% + 8px);
-  left: 50%;
-  transform: translateX(-50%) translateY(10px);
-  min-width: 190px;
-  padding: 10px;
-  border-radius: 18px;
-  background: rgba(255,255,255,0.96);
-  border: 1px solid rgba(148,173,220,0.18);
-  box-shadow:
-    0 18px 36px rgba(8,27,68,0.10),
-    0 6px 16px rgba(8,27,68,0.05);
+/* 전체 서브메뉴 */
+.header-mega-menu {
+  max-height: 0;
+  overflow: hidden;
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
+  background: rgba(255,255,255,0.97);
+  border-top: 1px solid rgba(148,173,220,0.14);
+  box-shadow:
+    0 18px 36px rgba(8,27,68,0.10),
+    0 6px 16px rgba(8,27,68,0.05);
   transition:
+    max-height .35s ease,
     opacity .25s ease,
-    transform .25s ease,
     visibility .25s ease;
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
 }
 
-.nav-item:hover .nav-dropdown {
+.header-shell:hover .header-mega-menu,
+.header-shell.is-open .header-mega-menu {
+  max-height: 420px;
   opacity: 1;
   visibility: visible;
   pointer-events: auto;
-  transform: translateX(-50%) translateY(0);
 }
 
-.nav-dropdown a {
+.header-mega-inner {
+  width: var(--container);
+  margin: 0 auto;
+  padding: 28px 0 32px;
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 28px;
+}
+
+.mega-col h4 {
+  margin: 0 0 14px;
+  color: #0f2858;
+  font-size: 1rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+.mega-col a {
   display: block;
-  padding: 11px 14px;
-  border-radius: 12px;
+  padding: 10px 0;
   color: #17336d;
   font-size: 0.95rem;
   font-weight: 600;
-  transition: background .2s ease, color .2s ease;
+  text-decoration: none;
+  transition: color .2s ease, transform .2s ease;
   white-space: nowrap;
 }
 
-.nav-dropdown a:hover {
-  background: #eef4ff;
+.mega-col a:hover {
   color: #1d4ed8;
+  transform: translateX(2px);
 }
 
+/* 반응형 */
+@media (max-width: 1180px) {
+  .header-inner,
+  .header-mega-inner {
+    width: calc(100% - 40px);
+  }
+
+  .header-mega-inner {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 24px;
+  }
+}
+
+@media (max-width: 768px) {
+  .header-inner {
+    width: calc(100% - 32px);
+    height: auto;
+    padding: 14px 0;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .header-logo img {
+    height: 58px;
+  }
+
+  .nav-desktop {
+    width: 100%;
+    overflow-x: auto;
+  }
+
+  .nav-main {
+    gap: 2px;
+    min-width: max-content;
+  }
+
+  .nav-link {
+    min-height: 44px;
+    padding: 0 12px;
+    font-size: 0.96rem;
+  }
+
+  .header-mega-inner {
+    width: calc(100% - 32px);
+    grid-template-columns: 1fr;
+    gap: 18px;
+    padding: 20px 0 24px;
+  }
+}
 
 /* =========================
    Hero Common
