@@ -154,33 +154,33 @@
     }
 
     .service-structure-connector {
-      position: relative;
-      height: 74px;
-      margin-bottom: 10px;
-    }
+  position: relative;
+  height: 74px;
+  margin-bottom: 10px;
+}
 
-    .service-structure-connector::before {
-      content: "";
-      position: absolute;
-      left: 50%;
-      top: 0;
-      transform: translateX(-50%);
-      width: 2px;
-      height: 34px;
-      background: linear-gradient(180deg, rgba(96,165,250,0.65), rgba(148,173,220,0.42));
-      border-radius: 999px;
-    }
+.service-structure-connector::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 0;
+  transform: translateX(-50%);
+  width: 2px;
+  height: 34px;
+  background: linear-gradient(180deg, rgba(96,165,250,0.65), rgba(148,173,220,0.42));
+  border-radius: 999px;
+}
 
-    .service-structure-connector::after {
-      content: "";
-      position: absolute;
-      left: 13%;
-      right: 13%;
-      top: 34px;
-      height: 2px;
-      background: linear-gradient(90deg, rgba(148,173,220,0.6), rgba(96,165,250,0.55), rgba(148,173,220,0.6));
-      border-radius: 999px;
-    }
+.service-structure-connector::after {
+  content: "";
+  position: absolute;
+  top: 34px;
+  left: 16.66%;
+  width: 66.68%;
+  height: 2px;
+  background: linear-gradient(90deg, rgba(148,173,220,0.6), rgba(96,165,250,0.55), rgba(148,173,220,0.6));
+  border-radius: 999px;
+}
 
     .service-structure-grid {
       position: relative;
@@ -204,6 +204,11 @@
         transform 0.28s ease,
         box-shadow 0.28s ease,
         border-color 0.28s ease;
+
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          text-align: center;
     }
 
     .service-structure-card:hover {
@@ -242,7 +247,7 @@
       min-width: 54px;
       height: 32px;
       padding: 0 14px;
-      margin-bottom: 18px;
+      margin: 0 auto 18px;
       border-radius: 999px;
       background: linear-gradient(180deg, #eaf2ff 0%, #dbeafe 100%);
       color: #1d4ed8;
@@ -262,6 +267,7 @@
       font-weight: 800;
       letter-spacing: -0.03em;
       word-break: keep-all;
+      text-align: center;
     }
 
     .service-structure-card p {
@@ -270,62 +276,67 @@
       font-size: 0.98rem;
       line-height: 1.85;
       word-break: keep-all;
+      text-align: center;
     }
 
     .service-structure-bottom {
-      position: relative;
-      padding-top: 58px;
-      display: flex;
-      justify-content: center;
-    }
+  position: relative;
+  padding-top: 58px;
+  display: flex;
+  justify-content: center;
+}
 
-    .service-structure-bottom::before {
-      content: "";
-      position: absolute;
-      left: 16%;
-      right: 16%;
-      top: 0;
-      height: 2px;
-      background: linear-gradient(90deg, rgba(148,173,220,0.58), rgba(96,165,250,0.56), rgba(148,173,220,0.58));
-      border-radius: 999px;
-    }
+.service-structure-bottom::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 16.66%;
+  width: 66.68%;
+  height: 2px;
+  background: linear-gradient(90deg, rgba(148,173,220,0.58), rgba(96,165,250,0.56), rgba(148,173,220,0.58));
+  border-radius: 999px;
+}
 
-    .service-structure-bottom::after {
-      content: "";
-      position: absolute;
-      left: 50%;
-      top: 0;
-      transform: translateX(-50%);
-      width: 2px;
-      height: 58px;
-      background: linear-gradient(180deg, rgba(148,173,220,0.52), rgba(96,165,250,0.44));
-      border-radius: 999px;
-    }
+.service-structure-bottom::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 0;
+  transform: translateX(-50%);
+  width: 2px;
+  height: 58px;
+  background: linear-gradient(180deg, rgba(148,173,220,0.52), rgba(96,165,250,0.44));
+  border-radius: 999px;
+}
 
-    .service-structure-cowork {
-      position: relative;
-      max-width: 780px;
-      width: 100%;
-      padding: 24px 34px;
-      text-align: center;
-      border-radius: 999px;
-      background:
-        linear-gradient(180deg, rgba(255,255,255,0.96) 0%, rgba(243,248,255,0.98) 100%);
-      border: 1.5px solid rgba(37,99,235,0.24);
-      box-shadow:
-        0 18px 36px rgba(8,27,68,0.08),
-        inset 0 0 0 1px rgba(255,255,255,0.48);
-    }
+.service-structure-cowork {
+  position: relative;
+  max-width: 780px;
+  width: 100%;
+  padding: 28px 34px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  background:
+    linear-gradient(180deg, rgba(255,255,255,0.96) 0%, rgba(243,248,255,0.98) 100%);
+  border: 1.5px solid rgba(37,99,235,0.24);
+  box-shadow:
+    0 18px 36px rgba(8,27,68,0.08),
+    inset 0 0 0 1px rgba(255,255,255,0.48);
+}
 
-    .service-structure-cowork strong {
-      display: block;
-      margin-bottom: 6px;
-      color: #0f2858;
-      font-size: 1.16rem;
-      font-weight: 800;
-      letter-spacing: -0.02em;
-      word-break: keep-all;
-    }
+.service-structure-cowork strong {
+  display: block;
+  margin: 0;
+  color: #0f2858;
+  font-size: 1.5rem;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.45;
+  word-break: keep-all;
+}
 
     .service-structure-cowork span {
       display: block;
@@ -904,10 +915,6 @@
               <div class="service-structure-bottom">
                 <div class="service-structure-cowork">
                   <strong>물류 전문가 집단과 함께 Co-Work 협력 체계 구축</strong>
-                  <span>
-                    전략 수립부터 운영 실행, 인력과 차량 수급, 고객사 대응까지
-                    분리되지 않는 통합형 협업 구조를 구현합니다.
-                  </span>
                 </div>
               </div>
             </div>
@@ -1006,7 +1013,7 @@
         <section class="services-section fade-up">
           <div class="services-section-header">
             <span class="services-section-kicker">OPERATIONAL CAPABILITY</span>
-            <h2 class="services-section-title">세부 운영 역량</h2>
+            <h2 class="services-section-title">세부 운영 서비스</h2>
             <p class="services-section-desc">
               인력, 차량, 현장 소통, KPI 분석까지
               각각의 운영 요소를 분리하지 않고 하나의 실행 구조로 묶습니다.
