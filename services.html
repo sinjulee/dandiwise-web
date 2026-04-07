@@ -153,34 +153,6 @@
       word-break: keep-all;
     }
 
-    .service-structure-connector {
-  position: relative;
-  height: 74px;
-  margin-bottom: 10px;
-}
-
-.service-structure-connector::before {
-  content: "";
-  position: absolute;
-  left: 50%;
-  top: 0;
-  transform: translateX(-50%);
-  width: 2px;
-  height: 34px;
-  background: linear-gradient(180deg, rgba(96,165,250,0.65), rgba(148,173,220,0.42));
-  border-radius: 999px;
-}
-
-.service-structure-connector::after {
-  content: "";
-  position: absolute;
-  top: 34px;
-  left: 16.66%;
-  width: 66.68%;
-  height: 2px;
-  background: linear-gradient(90deg, rgba(148,173,220,0.6), rgba(96,165,250,0.55), rgba(148,173,220,0.6));
-  border-radius: 999px;
-}
 
     .service-structure-grid {
       position: relative;
@@ -217,18 +189,6 @@
       box-shadow:
         0 24px 48px rgba(8,27,68,0.11),
         0 10px 18px rgba(37,99,235,0.08);
-    }
-
-    .service-structure-card::before {
-      content: "";
-      position: absolute;
-      left: 50%;
-      top: -44px;
-      transform: translateX(-50%);
-      width: 2px;
-      height: 44px;
-      background: linear-gradient(180deg, rgba(148,173,220,0.55), rgba(96,165,250,0.4));
-      border-radius: 999px;
     }
 
     .service-structure-card::after {
@@ -286,29 +246,6 @@
   justify-content: center;
 }
 
-.service-structure-bottom::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 16.66%;
-  width: 66.68%;
-  height: 2px;
-  background: linear-gradient(90deg, rgba(148,173,220,0.58), rgba(96,165,250,0.56), rgba(148,173,220,0.58));
-  border-radius: 999px;
-}
-
-.service-structure-bottom::after {
-  content: "";
-  position: absolute;
-  left: 50%;
-  top: 0;
-  transform: translateX(-50%);
-  width: 2px;
-  height: 58px;
-  background: linear-gradient(180deg, rgba(148,173,220,0.52), rgba(96,165,250,0.44));
-  border-radius: 999px;
-}
-
 .service-structure-cowork {
   position: relative;
   max-width: 780px;
@@ -336,6 +273,111 @@
   letter-spacing: -0.03em;
   line-height: 1.45;
   word-break: keep-all;
+}
+
+.service-structure-diagram {
+  position: relative;
+  max-width: 1080px;
+  margin: 0 auto;
+  padding-top: 8px;
+}
+
+/* 위쪽 선 */
+.structure-lines-top {
+  position: relative;
+  height: 86px;
+  margin-bottom: 6px;
+}
+
+.line-v-main,
+.line-h-left,
+.line-h-right,
+.line-v-card {
+  position: absolute;
+  display: block;
+  background: #b8cdf7;
+  border-radius: 999px;
+}
+
+.line-v-main {
+  width: 2px;
+  height: 34px;
+  left: 50%;
+  top: 0;
+  transform: translateX(-50%);
+}
+
+.line-h-left {
+  height: 2px;
+  width: 34%;
+  left: 16.66%;
+  top: 34px;
+}
+
+.line-h-right {
+  height: 2px;
+  width: 34%;
+  right: 16.66%;
+  top: 34px;
+}
+
+.line-v-card {
+  width: 2px;
+  height: 44px;
+  top: 42px;
+}
+
+.line-v-card-1 {
+  left: 16.66%;
+  transform: translateX(-50%);
+}
+
+.line-v-card-2 {
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.line-v-card-3 {
+  left: 83.33%;
+  transform: translateX(-50%);
+}
+
+/* 아래쪽 선 */
+.structure-lines-bottom {
+  position: relative;
+  height: 58px;
+  margin-top: 12px;
+}
+
+.line-h-bottom-left,
+.line-h-bottom-right,
+.line-v-bottom-center {
+  position: absolute;
+  display: block;
+  background: #b8cdf7;
+  border-radius: 999px;
+}
+
+.line-h-bottom-left {
+  height: 2px;
+  width: 33.5%;
+  left: 16.66%;
+  top: 0;
+}
+
+.line-h-bottom-right {
+  height: 2px;
+  width: 33.5%;
+  right: 16.66%;
+  top: 0;
+}
+
+.line-v-bottom-center {
+  width: 2px;
+  height: 58px;
+  left: 50%;
+  top: 0;
+  transform: translateX(-50%);
 }
 
     .service-structure-cowork span {
@@ -869,7 +911,7 @@
             <h2 class="services-section-title">전문성과 실행력을 연결하는 서비스 구조</h2>
             <p class="services-section-desc">
               D&amp;I WISE는 물류 전문가 집단을 중심으로 컨설팅, 인력 운영, 운송 네트워크를
-              하나의 구조로 연결하여 보다 안정적이고 실행력 있는 물류 운영 체계를 제공합니다.
+              하나의 구조로 연결하여 <br> 보다 안정적이고 실행력 있는 물류 운영 체계를 제공합니다.
             </p>
           </div>
 
@@ -881,15 +923,22 @@
                 </div>
               </div>
 
-              <div class="service-structure-connector"></div>
+              <div class="structure-lines-top">
+                <span class="line-v-main"></span>
+                <span class="line-h-left"></span>
+                <span class="line-h-right"></span>
+                <span class="line-v-card line-v-card-1"></span>
+                <span class="line-v-card line-v-card-2"></span>
+                <span class="line-v-card line-v-card-3"></span>
+              </div>
 
               <div class="service-structure-grid">
                 <article class="service-structure-card">
                   <div class="service-structure-badge">CONSULTING</div>
                   <h4>물류 전문 컨설팅 기업</h4>
                   <p>
-                    SCM 전략 수립, 운영 진단, 구조 개선 등
-                    현장 중심의 실행형 물류 컨설팅을 제공합니다.
+                    SCM 전략 수립, 운영 진단, 구조 개선 등 현장
+                    중심의 실행형 물류 컨설팅을 제공합니다.
                   </p>
                 </article>
 
@@ -897,8 +946,8 @@
                   <div class="service-structure-badge">MANPOWER</div>
                   <h4>인력도급 및 파견기업</h4>
                   <p>
-                    물류센터 운영 이해도를 바탕으로
-                    안정적인 인력 수급과 현장 운영 대응력을 확보합니다.
+                    물류센터 운영 이해도를 바탕으로 안정적인
+                    인력 수급과 현장 운영 대응력을 확보합니다.
                   </p>
                 </article>
 
@@ -910,6 +959,12 @@
                     안정적 운송 운영과 납품 품질 향상을 지원합니다.
                   </p>
                 </article>
+              </div>
+
+              <div class="structure-lines-bottom">
+                <span class="line-h-bottom-left"></span>
+                <span class="line-h-bottom-right"></span>
+                <span class="line-v-bottom-center"></span>
               </div>
 
               <div class="service-structure-bottom">
