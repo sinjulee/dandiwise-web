@@ -11,7 +11,9 @@
   <style>
     body.services-page {
       background:
-        linear-gradient(180deg, #071634 0%, #081b44 18%, #f5f9ff 18%, #eef4ff 100%);
+        radial-gradient(circle at 12% 10%, rgba(49, 87, 162, 0.22), transparent 22%),
+        radial-gradient(circle at 92% 8%, rgba(79, 121, 214, 0.18), transparent 18%),
+        linear-gradient(180deg, #021844 0%, #02133a 42%, #011233 100%);
     }
 
     .services-page-main {
@@ -23,7 +25,10 @@
     .services-overview-section {
       position: relative;
       padding: 56px 0 34px;
-      background: linear-gradient(180deg, #f7faff 0%, #eef4ff 100%);
+      background:
+        radial-gradient(circle at 15% 14%, rgba(72, 112, 198, 0.12), transparent 20%),
+        radial-gradient(circle at 86% 10%, rgba(84, 128, 224, 0.10), transparent 18%),
+        linear-gradient(180deg, #021844 0%, #01173f 100%);
     }
 
     .services-section {
@@ -38,7 +43,7 @@
     .services-section-kicker {
       display: inline-block;
       margin-bottom: 14px;
-      color: #3b82f6;
+      color: #2f6fff;
       font-size: 0.82rem;
       font-weight: 800;
       letter-spacing: 0.18em;
@@ -51,14 +56,14 @@
       line-height: 1.2;
       font-weight: 800;
       letter-spacing: -0.04em;
-      color: #102a5c;
+      color: #ffffff;
       word-break: keep-all;
     }
 
     .services-section-desc {
       margin: 0 auto;
       max-width: 920px;
-      color: #5d749d;
+      color: rgba(228, 236, 255, 0.82);
       font-size: 1.04rem;
       line-height: 1.9;
       word-break: keep-all;
@@ -79,13 +84,13 @@
       padding: 54px 44px 48px;
       border-radius: 36px;
       background:
-        radial-gradient(circle at 15% 14%, rgba(96,165,250,0.14), transparent 18%),
-        radial-gradient(circle at 84% 18%, rgba(147,197,253,0.16), transparent 18%),
-        linear-gradient(180deg, rgba(255,255,255,0.98) 0%, rgba(245,249,255,0.98) 100%);
-      border: 1px solid rgba(148,173,220,0.22);
+        radial-gradient(circle at 15% 14%, rgba(96, 165, 250, 0.08), transparent 18%),
+        radial-gradient(circle at 84% 18%, rgba(147, 197, 253, 0.08), transparent 18%),
+        linear-gradient(180deg, rgba(14, 34, 82, 0.72) 0%, rgba(10, 27, 67, 0.76) 100%);
+      border: 1px solid rgba(132, 158, 214, 0.18);
       box-shadow:
-        0 24px 54px rgba(8,27,68,0.08),
-        0 8px 18px rgba(8,27,68,0.04);
+        0 24px 54px rgba(0, 0, 0, 0.22),
+        inset 0 1px 0 rgba(255, 255, 255, 0.04);
     }
 
     .service-structure-panel::before {
@@ -96,7 +101,7 @@
       right: 38px;
       height: 4px;
       border-radius: 999px;
-      background: linear-gradient(90deg, #2563eb, #93c5fd);
+      background: linear-gradient(90deg, rgba(58, 109, 255, 0.95), rgba(157, 190, 255, 0.75));
     }
 
     .service-structure-diagram {
@@ -126,12 +131,12 @@
       text-align: center;
       padding: 24px;
       background:
-        radial-gradient(circle at 32% 28%, rgba(147,197,253,0.28), rgba(147,197,253,0) 34%),
-        linear-gradient(145deg, #173e8f 0%, #0b2a66 58%, #081b44 100%);
+        radial-gradient(circle at 32% 28%, rgba(115, 159, 255, 0.22), rgba(115, 159, 255, 0) 34%),
+        linear-gradient(145deg, #1a3f94 0%, #0d2d72 55%, #07235c 100%);
       color: #ffffff;
       box-shadow:
-        0 26px 60px rgba(8,27,68,0.22),
-        inset 0 0 0 1px rgba(255,255,255,0.08);
+        0 26px 60px rgba(0, 0, 0, 0.24),
+        inset 0 0 0 1px rgba(255, 255, 255, 0.06);
     }
 
     .service-structure-core::before {
@@ -139,7 +144,7 @@
       position: absolute;
       inset: -14px;
       border-radius: 50%;
-      background: radial-gradient(circle, rgba(96,165,250,0.18), rgba(96,165,250,0) 72%);
+      background: radial-gradient(circle, rgba(80, 132, 255, 0.18), rgba(80, 132, 255, 0) 72%);
       z-index: -1;
       filter: blur(8px);
     }
@@ -155,7 +160,6 @@
 
     /* =========================
        Structure Line System
-       가로선: 점선 / 세로선: 실선
        ========================= */
     .structure-lines-top {
       position: relative;
@@ -178,12 +182,11 @@
       box-sizing: border-box;
     }
 
-    /* 세로선 */
     .line-v-main,
     .line-v-card,
     .line-v-bottom-center {
       width: 2px;
-      background: rgba(184, 205, 247, 0.9);
+      background: rgba(165, 194, 255, 0.72);
     }
 
     .line-v-main {
@@ -220,14 +223,13 @@
       transform: translateX(-50%);
     }
 
-    /* 가로선 */
     .line-h-left,
     .line-h-right,
     .line-h-bottom-left,
     .line-h-bottom-right {
       height: 0;
       background: transparent;
-      border-top: 1.5px dashed rgba(184, 205, 247, 0.58);
+      border-top: 2px dashed rgba(165, 194, 255, 0.48);
     }
 
     .line-h-left {
@@ -258,20 +260,21 @@
       position: relative;
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 28px;
+      gap: 24px;
       margin-bottom: 30px;
     }
 
     .service-structure-card {
       position: relative;
-      min-height: 178px;
-      padding: 34px 28px 28px;
-      border-radius: 28px;
-      background: rgba(255,255,255,0.98);
-      border: 1px solid rgba(148,173,220,0.22);
+      min-height: 400px;
+      padding: 28px 28px 32px;
+      border-radius: 32px;
+      background:
+        linear-gradient(180deg, rgba(33, 53, 104, 0.95) 0%, rgba(24, 44, 89, 0.98) 100%);
+      border: 1px solid rgba(129, 156, 214, 0.18);
       box-shadow:
-        0 18px 38px rgba(8,27,68,0.07),
-        0 6px 14px rgba(8,27,68,0.04);
+        0 20px 42px rgba(0, 0, 0, 0.22),
+        inset 0 1px 0 rgba(255, 255, 255, 0.04);
       transition:
         transform 0.28s ease,
         box-shadow 0.28s ease,
@@ -279,63 +282,110 @@
       display: flex;
       flex-direction: column;
       align-items: center;
+      justify-content: flex-start;
       text-align: center;
     }
 
     .service-structure-card:hover {
       transform: translateY(-8px);
-      border-color: rgba(96,165,250,0.34);
+      border-color: rgba(116, 155, 255, 0.34);
       box-shadow:
-        0 24px 48px rgba(8,27,68,0.11),
-        0 10px 18px rgba(37,99,235,0.08);
+        0 24px 48px rgba(0, 0, 0, 0.26),
+        0 0 0 1px rgba(116, 155, 255, 0.08);
     }
 
     .service-structure-card::after {
       content: "";
       position: absolute;
       inset: 0;
-      border-radius: 28px;
-      background: radial-gradient(circle at 85% 18%, rgba(96,165,250,0.08), transparent 24%);
+      border-radius: 32px;
+      background: radial-gradient(circle at 85% 18%, rgba(111, 153, 255, 0.10), transparent 24%);
       pointer-events: none;
+    }
+
+    .service-structure-grid .service-structure-card:nth-child(2) {
+      background:
+        linear-gradient(180deg, #dfe5ef 0%, #cfd6e3 100%);
+      border: 1px solid rgba(186, 197, 220, 0.85);
+      box-shadow:
+        0 20px 42px rgba(0, 0, 0, 0.18),
+        inset 0 1px 0 rgba(255, 255, 255, 0.7);
     }
 
     .service-structure-badge {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      min-width: 54px;
+      min-width: 56px;
       height: 32px;
-      padding: 0 14px;
-      margin: 0 auto 18px;
+      padding: 0 16px;
+      margin: 0 auto 42px;
       border-radius: 999px;
-      background: linear-gradient(180deg, #eaf2ff 0%, #dbeafe 100%);
-      color: #1d4ed8;
+      background: linear-gradient(180deg, #dfe7f5 0%, #cad5ea 100%);
+      color: #1750df;
       font-size: 0.82rem;
       font-weight: 800;
       letter-spacing: 0.08em;
       box-shadow:
-        inset 0 0 0 1px rgba(96,165,250,0.18),
-        0 8px 18px rgba(37,99,235,0.07);
+        inset 0 0 0 1px rgba(130, 154, 211, 0.22),
+        0 8px 18px rgba(13, 30, 69, 0.14);
+      position: relative;
+      z-index: 1;
+      align-self: flex-start;
+    }
+
+    .service-structure-grid .service-structure-card:nth-child(2) .service-structure-badge {
+      background: linear-gradient(180deg, #cfd5e1 0%, #c1c8d6 100%);
+      color: #0f3aa0;
+      box-shadow:
+        inset 0 0 0 1px rgba(123, 142, 184, 0.24),
+        0 8px 18px rgba(19, 40, 84, 0.08);
     }
 
     .service-structure-card h4 {
-      margin: 0 0 12px;
-      color: #0f2858;
-      font-size: 1.34rem;
-      line-height: 1.35;
-      font-weight: 800;
-      letter-spacing: -0.03em;
+      margin: 0 0 28px;
+      color: #ffffff;
+      font-size: clamp(2.2rem, 2.9vw, 3rem);
+      line-height: 1.18;
+      font-weight: 900;
+      letter-spacing: -0.05em;
       word-break: keep-all;
       text-align: center;
+      text-shadow: 3px 0 0 rgba(255, 115, 85, 0.18);
+      position: relative;
+      z-index: 1;
+    }
+
+    .service-structure-grid .service-structure-card:nth-child(2) h4 {
+      color: #092966;
+      text-shadow: none;
     }
 
     .service-structure-card p {
-      margin: 0;
-      color: #62779f;
+      margin: 8px 0 0;
+      color: rgba(227, 235, 251, 0.82);
       font-size: 0.98rem;
-      line-height: 1.85;
+      line-height: 1.95;
       word-break: keep-all;
       text-align: center;
+      position: relative;
+      z-index: 1;
+      max-width: 90%;
+    }
+
+    .service-structure-grid .service-structure-card:nth-child(2) p {
+      color: #092966;
+    }
+
+    .service-structure-grid .service-structure-card:nth-child(3) p {
+      background: linear-gradient(180deg, rgba(247, 249, 253, 0.98) 0%, rgba(232, 237, 245, 0.98) 100%);
+      color: #092966;
+      border-radius: 24px;
+      padding: 28px 24px;
+      max-width: 88%;
+      box-shadow:
+        0 14px 28px rgba(0, 0, 0, 0.12),
+        inset 0 1px 0 rgba(255, 255, 255, 0.8);
     }
 
     .service-structure-bottom {
@@ -355,17 +405,17 @@
       justify-content: center;
       border-radius: 999px;
       background:
-        linear-gradient(180deg, rgba(255,255,255,0.96) 0%, rgba(243,248,255,0.98) 100%);
-      border: 1.5px solid rgba(37,99,235,0.24);
+        linear-gradient(180deg, rgba(245, 248, 253, 0.96) 0%, rgba(227, 233, 243, 0.98) 100%);
+      border: 1.5px solid rgba(147, 173, 228, 0.42);
       box-shadow:
-        0 18px 36px rgba(8,27,68,0.08),
-        inset 0 0 0 1px rgba(255,255,255,0.48);
+        0 18px 36px rgba(0, 0, 0, 0.16),
+        inset 0 1px 0 rgba(255, 255, 255, 0.72);
     }
 
     .service-structure-cowork strong {
       display: block;
       margin: 0;
-      color: #0f2858;
+      color: #082a67;
       font-size: 1.5rem;
       font-weight: 800;
       letter-spacing: -0.03em;
@@ -383,31 +433,51 @@
       margin-top: 34px;
     }
 
+    .service-highlight-card,
+    .service-detail-card,
+    .service-flow-step {
+      background:
+        linear-gradient(180deg, rgba(30, 48, 94, 0.96) 0%, rgba(20, 38, 80, 0.98) 100%);
+      border: 1px solid rgba(129, 156, 214, 0.18);
+      box-shadow:
+        0 18px 40px rgba(0, 0, 0, 0.22),
+        inset 0 1px 0 rgba(255, 255, 255, 0.04);
+    }
+
     .service-highlight-card {
       position: relative;
       overflow: hidden;
       padding: 34px 30px 30px;
       border-radius: 30px;
-      background: rgba(255,255,255,0.97);
-      border: 1px solid rgba(148,173,220,0.22);
-      box-shadow:
-        0 18px 40px rgba(8,27,68,0.08),
-        0 6px 14px rgba(8,27,68,0.04);
       transition:
         transform 0.28s ease,
         border-color 0.28s ease,
         box-shadow 0.28s ease;
     }
 
-    .service-highlight-card:hover {
-      transform: translateY(-8px);
-      border-color: rgba(96,165,250,0.30);
-      box-shadow:
-        0 24px 50px rgba(8,27,68,0.12),
-        0 10px 18px rgba(37,99,235,0.06);
+    .service-detail-card {
+      position: relative;
+      overflow: hidden;
+      min-height: 250px;
+      padding: 34px 30px 30px;
+      border-radius: 30px;
+      transition:
+        transform 0.28s ease,
+        border-color 0.28s ease,
+        box-shadow 0.28s ease;
     }
 
-    .service-highlight-card::before {
+    .service-highlight-card:hover,
+    .service-detail-card:hover {
+      transform: translateY(-8px);
+      border-color: rgba(116, 155, 255, 0.34);
+      box-shadow:
+        0 24px 50px rgba(0, 0, 0, 0.26),
+        0 0 0 1px rgba(116, 155, 255, 0.08);
+    }
+
+    .service-highlight-card::before,
+    .service-detail-card::before {
       content: "";
       position: absolute;
       width: 170px;
@@ -415,11 +485,16 @@
       right: -30px;
       top: -32px;
       border-radius: 50%;
-      background: radial-gradient(circle, rgba(96,165,250,0.10), transparent 68%);
+      background: radial-gradient(circle, rgba(96, 165, 250, 0.10), transparent 68%);
       pointer-events: none;
     }
 
-    .service-highlight-card::after {
+    .service-detail-card::before {
+      top: -30px;
+    }
+
+    .service-highlight-card::after,
+    .service-flow-panel::after {
       content: "";
       position: absolute;
       top: 0;
@@ -427,8 +502,17 @@
       right: 30px;
       height: 4px;
       border-radius: 999px;
-      background: linear-gradient(90deg, #2563eb, #93c5fd);
+      background: linear-gradient(90deg, rgba(58, 109, 255, 0.96), rgba(157, 190, 255, 0.72));
       pointer-events: none;
+    }
+
+    .service-badge,
+    .service-flow-step .step-num {
+      background: linear-gradient(180deg, #dfe7f5 0%, #cad5ea 100%);
+      color: #1750df;
+      box-shadow:
+        inset 0 0 0 1px rgba(130, 154, 211, 0.22),
+        0 8px 18px rgba(13, 30, 69, 0.14);
     }
 
     .service-badge {
@@ -439,18 +523,25 @@
       height: 50px;
       margin-bottom: 22px;
       border-radius: 16px;
-      background: linear-gradient(180deg, #eaf2ff 0%, #dbeafe 100%);
-      color: #1d4ed8;
       font-size: 1rem;
       font-weight: 800;
-      box-shadow:
-        inset 0 0 0 1px rgba(96,165,250,0.20),
-        0 8px 18px rgba(37,99,235,0.10);
+    }
+
+    .service-highlight-card h3,
+    .service-detail-card h3,
+    .service-flow-step h4 {
+      color: #ffffff;
+    }
+
+    .service-highlight-card p,
+    .service-detail-card p,
+    .service-flow-step p,
+    .service-detail-list li {
+      color: rgba(227, 235, 251, 0.82);
     }
 
     .service-highlight-card h3 {
       margin: 0 0 14px;
-      color: #0f2858;
       font-size: 1.5rem;
       line-height: 1.3;
       font-weight: 800;
@@ -458,9 +549,9 @@
       word-break: keep-all;
     }
 
-    .service-highlight-card p {
+    .service-highlight-card p,
+    .service-detail-card p {
       margin: 0;
-      color: #62779f;
       line-height: 1.9;
       word-break: keep-all;
     }
@@ -472,24 +563,13 @@
       padding: 48px 36px;
       border-radius: 34px;
       background:
-        radial-gradient(circle at 16% 18%, rgba(96,165,250,0.10), transparent 18%),
-        radial-gradient(circle at 86% 20%, rgba(147,197,253,0.12), transparent 18%),
-        linear-gradient(180deg, rgba(255,255,255,0.98) 0%, rgba(248,251,255,0.98) 100%);
-      border: 1px solid rgba(148,173,220,0.20);
+        radial-gradient(circle at 16% 18%, rgba(96, 165, 250, 0.08), transparent 18%),
+        radial-gradient(circle at 86% 20%, rgba(147, 197, 253, 0.08), transparent 18%),
+        linear-gradient(180deg, rgba(16, 33, 77, 0.82) 0%, rgba(10, 26, 64, 0.86) 100%);
+      border: 1px solid rgba(132, 158, 214, 0.18);
       box-shadow:
-        0 20px 46px rgba(8,27,68,0.08),
-        0 6px 16px rgba(8,27,68,0.04);
-    }
-
-    .service-flow-panel::after {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 36px;
-      right: 36px;
-      height: 4px;
-      border-radius: 999px;
-      background: linear-gradient(90deg, #2563eb, #93c5fd);
+        0 20px 46px rgba(0, 0, 0, 0.22),
+        inset 0 1px 0 rgba(255, 255, 255, 0.04);
     }
 
     .service-flow-grid {
@@ -504,11 +584,6 @@
       text-align: center;
       border-radius: 24px;
       padding: 26px 16px 22px;
-      background: rgba(255,255,255,0.98);
-      border: 1px solid rgba(148,173,220,0.18);
-      box-shadow:
-        0 14px 30px rgba(8,27,68,0.06),
-        0 4px 10px rgba(8,27,68,0.03);
     }
 
     .service-flow-step .step-num {
@@ -518,18 +593,12 @@
       margin: 0 auto 14px;
       display: grid;
       place-items: center;
-      background: linear-gradient(180deg, #eaf2ff 0%, #dbeafe 100%);
-      color: #1d4ed8;
       font-size: 0.98rem;
       font-weight: 800;
-      box-shadow:
-        inset 0 0 0 1px rgba(96,165,250,0.20),
-        0 8px 18px rgba(37,99,235,0.08);
     }
 
     .service-flow-step h4 {
       margin: 0 0 8px;
-      color: #102a5c;
       font-size: 1.02rem;
       font-weight: 800;
       letter-spacing: -0.02em;
@@ -538,7 +607,6 @@
 
     .service-flow-step p {
       margin: 0;
-      color: #62779f;
       font-size: 0.92rem;
       line-height: 1.7;
       word-break: keep-all;
@@ -551,45 +619,12 @@
       margin-top: 30px;
     }
 
-    .service-detail-card {
-      position: relative;
-      overflow: hidden;
-      min-height: 250px;
-      padding: 34px 30px 30px;
-      border-radius: 30px;
-      background: rgba(255,255,255,0.97);
-      border: 1px solid rgba(148,173,220,0.22);
-      box-shadow:
-        0 18px 40px rgba(8,27,68,0.08),
-        0 6px 14px rgba(8,27,68,0.04);
-    }
-
-    .service-detail-card::before {
-      content: "";
-      position: absolute;
-      width: 170px;
-      height: 170px;
-      right: -30px;
-      top: -30px;
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(96,165,250,0.10), transparent 68%);
-      pointer-events: none;
-    }
-
     .service-detail-card h3 {
       margin: 0 0 16px;
-      color: #0f2858;
       font-size: 1.4rem;
       line-height: 1.3;
       font-weight: 800;
       letter-spacing: -0.03em;
-      word-break: keep-all;
-    }
-
-    .service-detail-card p {
-      margin: 0;
-      color: #62779f;
-      line-height: 1.9;
       word-break: keep-all;
     }
 
@@ -604,7 +639,6 @@
     .service-detail-list li {
       position: relative;
       padding-left: 18px;
-      color: #5e769f;
       font-size: 0.96rem;
       line-height: 1.8;
       word-break: keep-all;
@@ -618,7 +652,7 @@
       width: 8px;
       height: 8px;
       border-radius: 50%;
-      background: linear-gradient(180deg, #3b82f6 0%, #93c5fd 100%);
+      background: linear-gradient(180deg, #4f8dff 0%, #a8c7ff 100%);
     }
 
     .fade-up {
@@ -635,10 +669,13 @@
     @media (max-width: 991px) {
       body.services-page {
         background:
-          linear-gradient(180deg, #071634 0%, #081b44 20%, #f5f9ff 20%, #eef4ff 100%);
+          radial-gradient(circle at 12% 10%, rgba(49, 87, 162, 0.20), transparent 22%),
+          radial-gradient(circle at 92% 8%, rgba(79, 121, 214, 0.16), transparent 18%),
+          linear-gradient(180deg, #021844 0%, #02133a 42%, #011233 100%);
       }
 
       .services-overview-section {
+        background: linear-gradient(180deg, #021844 0%, #01173f 100%);
         padding: 68px 0 24px;
       }
 
@@ -685,13 +722,32 @@
       .service-structure-card,
       .service-highlight-card,
       .service-detail-card {
+        min-height: auto;
         padding: 28px 24px;
         border-radius: 24px;
       }
 
-      .service-highlight-card::after {
+      .service-structure-card::after {
+        border-radius: 24px;
+      }
+
+      .service-highlight-card::after,
+      .service-flow-panel::after {
         left: 24px;
         right: 24px;
+      }
+
+      .service-structure-card h4 {
+        font-size: clamp(1.8rem, 7vw, 2.4rem);
+        margin-bottom: 22px;
+      }
+
+      .service-structure-badge {
+        margin-bottom: 24px;
+      }
+
+      .service-structure-grid .service-structure-card:nth-child(3) p {
+        max-width: 100%;
       }
 
       .service-structure-cowork {
@@ -738,7 +794,7 @@
       }
 
       .service-structure-card h4 {
-        font-size: 1.18rem;
+        font-size: 1.9rem;
       }
 
       .service-structure-cowork strong {
@@ -880,12 +936,12 @@
         <!-- 서비스 구조도 -->
         <section id="structure" class="services-section service-structure-section fade-up">
           <div class="services-section-header">
-            <span class="services-section-kicker">SERVICE STRUCTURE</span>
-            <h2 class="services-section-title">전문성과 실행력을 연결하는 서비스 구조</h2>
+            <span class="services-section-kicker">INTRODUCTION</span>
+            <h2 class="services-section-title">물류를 운영하는 회사를 넘어,<br />물류를 설계하는 파트너</h2>
             <p class="services-section-desc">
-              D&amp;I WISE는 물류 전문가 집단을 중심으로 컨설팅, 인력 운영, 운송 네트워크를
-              하나의 구조로 연결하여 <br />
-              보다 안정적이고 실행력 있는 물류 운영 체계를 제공합니다.
+              D&amp;I WISE는 단순한 물류대행을 넘어,<br />
+              물류 전략 수립, 운영 최적화, 공급망 연결, 데이터 기반 관리까지<br />
+              아우르는 종합 물류 솔루션을 제공합니다.
             </p>
           </div>
 
@@ -908,30 +964,21 @@
 
               <div class="service-structure-grid">
                 <article class="service-structure-card">
-                  <div class="service-structure-badge">CONSULTING</div>
-                  <h4>물류 전문 컨설팅 기업</h4>
-                  <p>
-                    SCM 전략 수립, 운영 진단, 구조 개선 등 현장
-                    중심의 실행형 물류 컨설팅을 제공합니다.
-                  </p>
+                  <div class="service-structure-badge">01</div>
+                  <h4>물류 컨설팅</h4>
+                  <p>SCM 전략 수립, 운영 진단, 구조 개선 등 현장 중심의 실행형 물류 컨설팅을 제공합니다.</p>
                 </article>
 
                 <article class="service-structure-card">
-                  <div class="service-structure-badge">MANPOWER</div>
-                  <h4>인력도급 및 파견기업</h4>
-                  <p>
-                    물류센터 운영 이해도를 바탕으로 안정적인
-                    인력 수급과 현장 운영 대응력을 확보합니다.
-                  </p>
+                  <div class="service-structure-badge">02</div>
+                  <h4>3PL 운영</h4>
+                  <p>창고, 피킹, 출고, 배송, 납품까지 이어지는 전 과정을 안정적으로 설계하고 운영 체계에 맞춰 실행합니다.</p>
                 </article>
 
                 <article class="service-structure-card">
-                  <div class="service-structure-badge">TRANSPORT</div>
-                  <h4>운송사 및 주선기업</h4>
-                  <p>
-                    배송 차량 네트워크와 주선 역량을 기반으로
-                    안정적 운송 운영과 납품 품질 향상을 지원합니다.
-                  </p>
+                  <div class="service-structure-badge">03</div>
+                  <h4>데이터 기반 관리</h4>
+                  <p>실시간 운영 데이터와 KPI를 기반으로 성과와 개선 포인트를 함께 점검하는 체계를 만듭니다.</p>
                 </article>
               </div>
 
