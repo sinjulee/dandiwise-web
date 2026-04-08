@@ -112,7 +112,7 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      margin-bottom: 36px;
+      margin-bottom: 26px;
       position: relative;
       z-index: 2;
     }
@@ -155,23 +155,44 @@
       word-break: keep-all;
     }
 
+        /* 상단 연결선 */
+    .structure-connector {
+      position: relative;
+      width: 100%;
+      max-width: 1000px;
+      height: 120px;
+      margin: -6px auto 20px;
+      z-index: 1;
+      pointer-events: none;
+      display: none;
+    }
+
+    .structure-connector svg {
+      display: block;
+      width: 100%;
+      height: 100%;
+      overflow: visible;
+    }
+
+    .structure-connector line {
+      stroke: #e02020;
+      stroke-width: 4.5;
+      stroke-linecap: round;
+      opacity: 1;
+    }
+
     /* =========================
        Structure Line System
        ========================= */
-    .structure-lines-top {
-      position: relative;
-      height: 86px;
-      margin-bottom: 10px;
-    }
-
+    /* 하단 연결선 */
     .structure-lines-bottom {
       position: relative;
       height: 58px;
       margin-top: 14px;
       margin-bottom: 18px;
+      display: none;
     }
 
-    .structure-lines-top span,
     .structure-lines-bottom span {
       position: absolute;
       display: block;
@@ -183,6 +204,10 @@
     .line-v-card,
     .line-v-bottom-center {
       width: 2px;
+      height: 58px;
+      left: 50%;
+      top: 0;
+      transform: translateX(-50%);
       background: rgba(165, 194, 255, 0.72);
     }
 
@@ -222,11 +247,15 @@
 
     .line-h-left,
     .line-h-right,
-    .line-h-bottom-left,
+    .line-h-bottom-left {
+      width: 33.5%;
+      left: 16.66%;
+      top: 0;
+    }
     .line-h-bottom-right {
       height: 0;
       background: transparent;
-      border-top: 2px dashed rgba(165, 194, 255, 0.48);
+      border-top: 2px solid rgba(165, 194, 255, 0.60);
     }
 
     .line-h-left {
@@ -256,16 +285,16 @@
     .service-structure-grid {
       position: relative;
       display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 24px;
-      margin-bottom: 30px;
+      grid-template-columns: 1fr;
+      gap: 18px;
+      margin-bottom: 26px;
     }
 
     .service-structure-card {
       position: relative;
-      min-height: 400px;
-      padding: 28px 28px 32px;
-      border-radius: 32px;
+      min-height: auto;
+      padding: 28px 24px;
+      border-radius: 24px;
       background:
         linear-gradient(180deg, rgba(33, 53, 104, 0.95) 0%, rgba(24, 44, 89, 0.98) 100%);
       border: 1px solid rgba(129, 156, 214, 0.18);
@@ -295,14 +324,13 @@
       content: "";
       position: absolute;
       inset: 0;
-      border-radius: 32px;
+      border-radius: 24px;
       background: radial-gradient(circle at 85% 18%, rgba(111, 153, 255, 0.10), transparent 24%);
       pointer-events: none;
     }
 
     .service-structure-grid .service-structure-card:nth-child(2) {
-      background:
-        linear-gradient(180deg, #dfe5ef 0%, #cfd6e3 100%);
+      background: linear-gradient(180deg, #dfe5ef 0%, #cfd6e3 100%);
       border: 1px solid rgba(186, 197, 220, 0.85);
       box-shadow:
         0 20px 42px rgba(0, 0, 0, 0.18),
@@ -342,47 +370,53 @@
     .service-structure-card h4 {
       margin: 0 0 28px;
       color: #ffffff;
-      font-size: 1.24rem;
+      font-size: clamp(1.8rem, 7vw, 2.4rem);
+      margin-bottom: 22px;
       line-height: 1.18;
       font-weight: 900;
       letter-spacing: -0.05em;
       word-break: keep-all;
       text-align: center;
-      text-shadow: 3px 0 0 rgba(255, 115, 85, 0.18);
       position: relative;
       z-index: 1;
     }
 
     .service-structure-grid .service-structure-card:nth-child(2) h4 {
       color: #092966;
-      text-shadow: none;
     }
 
     .service-structure-card p {
-      margin: 8px 0 0;
-      color: rgba(227, 235, 251, 0.82);
-      font-size: 0.98rem;
+      width: 100%;
+      margin: 0;
+      padding-top: 26px;
+      border-top: 4px solid rgba(180, 204, 255, 0.55);
+      color: rgba(227, 235, 251, 0.92);
+      font-size: 1.08rem;
+      font-weight: 500;
       line-height: 1.95;
       word-break: keep-all;
       text-align: center;
       position: relative;
       z-index: 1;
-      max-width: 90%;
+      max-width: 100%;
+      background: transparent;
+      box-shadow: none;
+      border-radius: 0;
     }
 
     .service-structure-grid .service-structure-card:nth-child(2) p {
       color: #092966;
+      border-top-color: rgba(9, 41, 102, 0.18);
     }
 
     .service-structure-grid .service-structure-card:nth-child(3) p {
-      background: linear-gradient(180deg, rgba(247, 249, 253, 0.98) 0%, rgba(232, 237, 245, 0.98) 100%);
-      color: #092966;
-      border-radius: 24px;
-      padding: 28px 24px;
-      max-width: 88%;
-      box-shadow:
-        0 14px 28px rgba(0, 0, 0, 0.12),
-        inset 0 1px 0 rgba(255, 255, 255, 0.8);
+      color: rgba(227, 235, 251, 0.92);
+      border-top-color: rgba(180, 204, 255, 0.55);
+      padding: 26px 0 0;
+      background: transparent;
+      box-shadow: none;
+      border-radius: 0;
+      max-width: 100%;
     }
 
     .service-structure-bottom {
@@ -395,12 +429,12 @@
       position: relative;
       max-width: 780px;
       width: 100%;
-      padding: 28px 34px;
+      padding: 24px 20px;
       text-align: center;
       display: flex;
       align-items: center;
       justify-content: center;
-      border-radius: 999px;
+      border-radius: 28px;
       background:
         linear-gradient(180deg, rgba(245, 248, 253, 0.96) 0%, rgba(227, 233, 243, 0.98) 100%);
       border: 1.5px solid rgba(147, 173, 228, 0.42);
@@ -413,10 +447,10 @@
       display: block;
       margin: 0;
       color: #082a67;
-      font-size: 1.04rem;
-      font-weight: 800;
+      font-size: 1.2rem;
+      font-weight: 900;
       letter-spacing: -0.03em;
-      line-height: 1.45;
+      line-height: 1.5;
       word-break: keep-all;
     }
 
@@ -677,17 +711,34 @@
       }
 
       .service-structure-section {
-        padding-top: 68px;
+          padding-top: 84px;
       }
 
       .service-structure-panel {
-        padding: 38px 22px 34px;
-        border-radius: 28px;
+          position: relative;
+          overflow: hidden;
+          margin-top: 34px;
+          padding: 38px 22px 34px;
+          border-radius: 28px;
+          background:
+            radial-gradient(circle at 15% 14%, rgba(96,165,250,0.10), transparent 18%),
+            radial-gradient(circle at 84% 18%, rgba(147,197,253,0.10), transparent 18%),
+            linear-gradient(180deg, rgba(255,255,255,0.98) 0%, rgba(245,249,255,0.98) 100%);
+          border: 1px solid rgba(148,173,220,0.22);
+          box-shadow:
+            0 24px 54px rgba(8,27,68,0.08),
+            0 8px 18px rgba(8,27,68,0.04);
       }
 
       .service-structure-panel::before {
-        left: 22px;
-        right: 22px;
+          content: "";
+          position: absolute;
+          top: 0;
+          left: 22px;
+          right: 22px;
+          height: 4px;
+          border-radius: 999px;
+          background: linear-gradient(90deg, rgba(58, 109, 255, 0.95), rgba(157, 190, 255, 0.75));
       }
 
       .service-structure-core {
@@ -696,7 +747,7 @@
       }
 
       .service-structure-core h3 {
-        font-size: 1.62rem;
+        font-size: 1.4rem;
       }
 
       .structure-lines-top,
@@ -735,8 +786,7 @@
       }
 
       .service-structure-card h4 {
-        font-size: clamp(1.8rem, 7vw, 2.4rem);
-        margin-bottom: 22px;
+        font-size: 1.9rem;
       }
 
       .service-structure-badge {
@@ -772,7 +822,7 @@
       .service-highlight-card p,
       .service-detail-card p,
       .service-structure-card p {
-        font-size: 0.96rem;
+        font-size: 1rem;
         line-height: 1.8;
       }
 
@@ -795,7 +845,7 @@
       }
 
       .service-structure-cowork strong {
-        font-size: 1.04rem;
+        font-size: 1.08rem;
       }
     }
   </style>
@@ -943,63 +993,63 @@
   </div>
 
   <div class="service-structure-panel">
-    <div class="service-structure-diagram">
-      <div class="service-structure-top">
-        <div class="service-structure-core">
-          <h3>물류<br />전문가 집단</h3>
-        </div>
+  <div class="service-structure-diagram">
+    <div class="service-structure-top">
+      <div class="service-structure-core">
+        <h3>물류<br />전문가 집단</h3>
       </div>
+    </div>
 
-      <div class="structure-connector" aria-hidden="true">
-        <svg viewBox="0 0 1000 120" preserveAspectRatio="none">
-          <line x1="500" y1="8" x2="275" y2="118"></line>
-          <line x1="500" y1="8" x2="500" y2="118"></line>
-          <line x1="500" y1="8" x2="725" y2="118"></line>
-        </svg>
-      </div>
+    <div class="structure-connector" aria-hidden="true">
+      <svg viewBox="0 0 1000 120" preserveAspectRatio="none">
+        <line x1="500" y1="8" x2="275" y2="118"></line>
+        <line x1="500" y1="8" x2="500" y2="118"></line>
+        <line x1="500" y1="8" x2="725" y2="118"></line>
+      </svg>
+    </div>
 
-      <div class="service-structure-grid">
-        <article class="service-structure-card">
-          <div class="service-structure-badge">01</div>
-          <h4>물류 전문 컨설팅 기업</h4>
-          <p>
-            SCM 전략 수립, 운영 진단, 구조 개선 등 현장 중심의
-            실행형 물류 컨설팅을 제공합니다.
-          </p>
-        </article>
+    <div class="service-structure-grid">
+      <article class="service-structure-card">
+        <div class="service-structure-badge">01</div>
+        <h4>물류 전문 컨설팅 기업</h4>
+        <p>
+          SCM 전략 수립, 운영 진단, 구조 개선 등<br />
+          현장 중심의 실행형 물류 컨설팅을 제공합니다.
+        </p>
+      </article>
 
-        <article class="service-structure-card">
-          <div class="service-structure-badge">02</div>
-          <h4>인력도급 및 파견기업</h4>
-          <p>
-            물류센터 운영 이해도를 바탕으로 안정적인 인력 수급과
-            현장 운영 대응력을 확보합니다.
-          </p>
-        </article>
+      <article class="service-structure-card">
+        <div class="service-structure-badge">02</div>
+        <h4>인력도급 및 파견기업</h4>
+        <p>
+          물류센터 운영 이해도를 바탕으로<br />
+          안정적인 인력 수급과 현장 운영 대응력을 확보합니다.
+        </p>
+      </article>
 
-        <article class="service-structure-card">
-          <div class="service-structure-badge">03</div>
-          <h4>운송사 및 주선기업</h4>
-          <p>
-            배송 차량 네트워크와 주선 역량을 기반으로 안정적 운송 운영과
-            납품 품질 향상을 지원합니다.
-          </p>
-        </article>
-      </div>
+      <article class="service-structure-card">
+        <div class="service-structure-badge">03</div>
+        <h4>운송사 및 주선기업</h4>
+        <p>
+          배송 차량 네트워크와 주선 역량을 기반으로<br />
+          안정적 운송 운영과 납품 품질 향상을 지원합니다.
+        </p>
+      </article>
+    </div>
 
-      <div class="structure-lines-bottom">
-        <span class="line-h-bottom-left"></span>
-        <span class="line-h-bottom-right"></span>
-        <span class="line-v-bottom-center"></span>
-      </div>
+    <div class="structure-lines-bottom">
+      <span class="line-h-bottom-left"></span>
+      <span class="line-h-bottom-right"></span>
+      <span class="line-v-bottom-center"></span>
+    </div>
 
-      <div class="service-structure-bottom">
-        <div class="service-structure-cowork">
-          <strong>물류 전문가 집단과 함께 Co-Work 협력 체계 구축</strong>
-        </div>
+    <div class="service-structure-bottom">
+      <div class="service-structure-cowork">
+        <strong>물류 전문가 집단과 함께 Co-Work 협력 체계 구축</strong>
       </div>
     </div>
   </div>
+</div>
 </section>
 
         <!-- 핵심 서비스 -->
