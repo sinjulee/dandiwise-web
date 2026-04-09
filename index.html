@@ -330,7 +330,7 @@
     </section>
 
 <!-- Process -->
-<section id="process" class="section section-light" style="padding-top: 80px;">
+<section id="process" class="section section-light process-section">
   <div class="container-wide">
     <div class="section-heading fade-up">
       <span class="section-kicker">PROCESS FLOW</span>
@@ -344,7 +344,8 @@
       </p>
     </div>
 
-    <div class="flow-wrap flow-animated fade-up">
+    <div class="flow-wrap flow-animated fade-up" id="flowAnimatedWrap">
+      <div class="flow-track-glow"></div>
       <div class="flow-track-line"></div>
 
       <div class="flow-status-row" id="flowStatusRow">
@@ -356,8 +357,10 @@
         <div class="flow-status-item" data-step="5">납품</div>
       </div>
 
+      <div class="flow-progress" id="flowProgress"></div>
+
       <div class="flow-truck" id="flowTruck" aria-hidden="true">
-        <img src="assets/flow-truck.jpg" alt="물류 트럭 아이콘" />
+        <img src="assets/flow_truck.jpg" alt="물류 트럭 아이콘" />
       </div>
     </div>
   </div>
@@ -997,44 +1000,113 @@
     });
   });
 </script>
+
 <script>
   (function () {
     const truck = document.getElementById("flowTruck");
+    const progress = document.getElementById("flowProgress");
     const statusItems = Array.from(document.querySelectorAll(".flow-status-item"));
-    const flowWrap = document.querySelector(".flow-wrap.flow-animated");
+    const flowWrap = document.getElementById("flowAnimatedWrap");
 
-    if (!truck || !statusItems.length || !flowWrap) return;
+    if (!truck || !progress || !statusItems.length || !flowWrap) return;
 
     let currentStep = 0;
     const totalSteps = statusItems.length;
+    const stepDuration = 1350;
+    const restartDelay = 420;
+    let timer = null;
 
-    function setActiveStep(index) {
+    function activateStep(index) {
       statusItems.forEach((item, i) => {
         item.classList.toggle("active", i === index);
       });
+    }
 
+    function getTruckX(index) {
       const wrapRect = flowWrap.getBoundingClientRect();
       const targetRect = statusItems[index].getBoundingClientRect();
       const truckWidth = truck.offsetWidth;
 
-      const x =
-        targetRect.left - wrapRect.left + (targetRect.width / 2) - (truckWidth / 2);
+      return targetRect.left - wrapRect.left + (targetRect.width / 2) - (truckWidth / 2);
+    }
 
+    function getProgressWidth(index) {
+      const wrapRect = flowWrap.getBoundingClientRect();
+      const targetRect = statusItems[index].getBoundingClientRect();
+
+      return targetRect.left - wrapRect.left + (targetRect.width / 2) - 42;
+    }
+
+    function moveToStep(index) {
+      activateStep(index);
+
+      const x = getTruckX(index);
+      const progressWidth = getProgressWidth(index);
+
+      truck.classList.remove("is-hidden");
       truck.style.transform = `translateX(${x}px)`;
+      progress.style.width = `${progressWidth}px`;
     }
 
-    function runFlow() {
-      setActiveStep(currentStep);
-      currentStep = (currentStep + 1) % totalSteps;
+    function resetToStartHidden() {
+      truck.classList.add("is-hidden");
+      progress.style.width = "0px";
+
+      const startX = getTruckX(0);
+      truck.style.transform = `translateX(${startX}px)`;
+
+      statusItems.forEach((item) => item.classList.remove("active"));
     }
 
-    setActiveStep(0);
-    setInterval(runFlow, 1400);
+    function runStep() {
+      moveToStep(currentStep);
 
-    window.addEventListener("resize", () => {
-      const activeIndex = statusItems.findIndex(item => item.classList.contains("active"));
-      setActiveStep(activeIndex >= 0 ? activeIndex : 0);
-    });
+      if (currentStep === totalSteps - 1) {
+        setTimeout(() => {
+          resetToStartHidden();
+
+          setTimeout(() => {
+            currentStep = 0;
+            moveToStep(currentStep);
+            currentStep += 1;
+          }, restartDelay);
+        }, stepDuration - 140);
+      } else {
+        currentStep += 1;
+      }
+
+      if (currentStep >= totalSteps) {
+        currentStep = 0;
+      }
+    }
+
+    function startLoop() {
+      const startX = getTruckX(0);
+      truck.style.transform = `translateX(${startX}px)`;
+      truck.classList.remove("is-hidden");
+      activateStep(0);
+      progress.style.width = `${getProgressWidth(0)}px`;
+
+      currentStep = 1;
+
+      timer = setInterval(() => {
+        runStep();
+      }, stepDuration);
+    }
+
+    function restartLoop() {
+      if (timer) clearInterval(timer);
+      truck.classList.add("is-hidden");
+      progress.style.width = "0px";
+
+      setTimeout(() => {
+        startLoop();
+      }, 120);
+    }
+
+    window.addEventListener("resize", restartLoop);
+
+    startLoop();
   })();
 </script>
 
