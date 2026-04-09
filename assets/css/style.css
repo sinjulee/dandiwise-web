@@ -3712,7 +3712,7 @@ section[id] {
 .flow-wrap.flow-animated {
   position: relative;
   margin-top: 36px;
-  padding: 56px 42px 88px;
+  padding: 56px 42px 130px;
   border-radius: 36px;
   background:
     radial-gradient(circle at 18% 18%, rgba(96,165,250,0.08), transparent 18%),
@@ -3799,7 +3799,7 @@ section[id] {
 .flow-truck {
   position: absolute;
   left: 42px;
-  top: 150px;
+  top: 136px;
   z-index: 4;
   transform: translateX(0);
   opacity: 1;
@@ -3815,7 +3815,7 @@ section[id] {
 
 .flow-truck img {
   display: block;
-  width: 82px;
+  width: 68px;
   height: auto;
   object-fit: contain;
   filter: drop-shadow(0 14px 18px rgba(46, 86, 160, 0.20));
