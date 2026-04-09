@@ -329,64 +329,39 @@
       </div>
     </section>
 
-    <!-- Process -->
-    <section id="process" class="section section-light" style="padding-top: 80px;">
-      <div class="container-wide">
-        <div class="section-heading fade-up">
-          <span class="section-kicker">PROCESS FLOW</span>
-          <h2 class="section-title">
-            물류 흐름을 더 단순하게,<br>
-            운영은 더 정밀하게
-          </h2>
-          <p class="section-desc">
-            입고부터 납품까지 끊기지 않는 흐름 설계가
-            결국 비용 절감, 운영 안정성, 납기 품질로 이어집니다.
-          </p>
-        </div>
+<!-- Process -->
+<section id="process" class="section section-light" style="padding-top: 80px;">
+  <div class="container-wide">
+    <div class="section-heading fade-up">
+      <span class="section-kicker">PROCESS FLOW</span>
+      <h2 class="section-title">
+        물류 흐름을 더 단순하게,<br>
+        운영은 더 정밀하게
+      </h2>
+      <p class="section-desc">
+        입고부터 납품까지 끊기지 않는 흐름 설계가
+        결국 비용 절감, 운영 안정성, 납기 품질로 이어집니다.
+      </p>
+    </div>
 
-        <div class="flow-wrap fade-up">
-          <div class="flow-line"></div>
+    <div class="flow-wrap flow-animated fade-up">
+      <div class="flow-track-line"></div>
 
-          <div class="flow-grid">
-            <div class="flow-card">
-              <div class="flow-icon">01</div>
-              <h3 class="flow-title">입고</h3>
-              <p class="flow-text">상품 특성에 맞는 입고 기준과 초기 프로세스를 정리합니다.</p>
-            </div>
-
-            <div class="flow-card">
-              <div class="flow-icon">02</div>
-              <h3 class="flow-title">보관</h3>
-              <p class="flow-text">온도와 제품 특성을 고려한 창고 운영 기준을 세웁니다.</p>
-            </div>
-
-            <div class="flow-card">
-              <div class="flow-icon">03</div>
-              <h3 class="flow-title">피킹</h3>
-              <p class="flow-text">속도와 정확도를 높이는 피킹 체계를 운영합니다.</p>
-            </div>
-
-            <div class="flow-card">
-              <div class="flow-icon">04</div>
-              <h3 class="flow-title">출고</h3>
-              <p class="flow-text">납기와 정확도를 고려한 출고 프로세스를 설계합니다.</p>
-            </div>
-
-            <div class="flow-card">
-              <div class="flow-icon">05</div>
-              <h3 class="flow-title">배송</h3>
-              <p class="flow-text">차량 수급과 운송 네트워크를 통해 안정적인 배송을 지원합니다.</p>
-            </div>
-
-            <div class="flow-card">
-              <div class="flow-icon">06</div>
-              <h3 class="flow-title">납품</h3>
-              <p class="flow-text">최종 납품 이후 이슈 대응까지 포함한 관리 구조를 제공합니다.</p>
-            </div>
-          </div>
-        </div>
+      <div class="flow-status-row" id="flowStatusRow">
+        <div class="flow-status-item active" data-step="0">입고</div>
+        <div class="flow-status-item" data-step="1">보관</div>
+        <div class="flow-status-item" data-step="2">피킹</div>
+        <div class="flow-status-item" data-step="3">출고</div>
+        <div class="flow-status-item" data-step="4">배송</div>
+        <div class="flow-status-item" data-step="5">납품</div>
       </div>
-    </section>
+
+      <div class="flow-truck" id="flowTruck" aria-hidden="true">
+        <img src="assets/flow-truck.jpg" alt="물류 트럭 아이콘" />
+      </div>
+    </div>
+  </div>
+</section>
 
     <!-- Differentiation -->
 <section id="why-dni" class="section section-dark why-section">
@@ -1021,6 +996,46 @@
       headerShell.classList.remove('mobile-open');
     });
   });
+</script>
+<script>
+  (function () {
+    const truck = document.getElementById("flowTruck");
+    const statusItems = Array.from(document.querySelectorAll(".flow-status-item"));
+    const flowWrap = document.querySelector(".flow-wrap.flow-animated");
+
+    if (!truck || !statusItems.length || !flowWrap) return;
+
+    let currentStep = 0;
+    const totalSteps = statusItems.length;
+
+    function setActiveStep(index) {
+      statusItems.forEach((item, i) => {
+        item.classList.toggle("active", i === index);
+      });
+
+      const wrapRect = flowWrap.getBoundingClientRect();
+      const targetRect = statusItems[index].getBoundingClientRect();
+      const truckWidth = truck.offsetWidth;
+
+      const x =
+        targetRect.left - wrapRect.left + (targetRect.width / 2) - (truckWidth / 2);
+
+      truck.style.transform = `translateX(${x}px)`;
+    }
+
+    function runFlow() {
+      setActiveStep(currentStep);
+      currentStep = (currentStep + 1) % totalSteps;
+    }
+
+    setActiveStep(0);
+    setInterval(runFlow, 1400);
+
+    window.addEventListener("resize", () => {
+      const activeIndex = statusItems.findIndex(item => item.classList.contains("active"));
+      setActiveStep(activeIndex >= 0 ? activeIndex : 0);
+    });
+  })();
 </script>
 
 </body>
