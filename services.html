@@ -35,66 +35,147 @@
   padding: 42px 0 48px;
 }
 
-/* 구조도와 핵심 서비스 사이 전용 브릿지 영역 */
+/* =========================
+   구조도 ↔ 핵심서비스 브릿지
+   고급형 버전
+   ========================= */
 .services-bridge-band {
   position: relative;
-  height: 260px;
+  height: 280px;
   margin: 0;
-  background: linear-gradient(180deg, #eef4ff 0%, #edf3ff 100%);
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 50% 18%, rgba(255,255,255,0.72) 0%, rgba(255,255,255,0.16) 22%, rgba(255,255,255,0) 42%),
+    radial-gradient(circle at 20% 42%, rgba(152,182,245,0.10) 0%, rgba(152,182,245,0) 34%),
+    radial-gradient(circle at 80% 40%, rgba(152,182,245,0.10) 0%, rgba(152,182,245,0) 32%),
+    linear-gradient(180deg, #eef3fb 0%, #e8eef8 52%, #edf3ff 100%);
 }
 
+/* 위쪽 Co-Work 영역에서 내려오는 빛 번짐 */
 .services-bridge-band::before {
   content: "";
   position: absolute;
-  inset: 0;
-  background:
-    radial-gradient(circle at 18% 30%, rgba(96,165,250,0.08), transparent 22%),
-    radial-gradient(circle at 82% 26%, rgba(147,197,253,0.08), transparent 20%);
+  left: 50%;
+  top: -90px;
+  width: min(900px, 82vw);
+  height: 220px;
+  transform: translateX(-50%);
+  background: radial-gradient(
+    ellipse at center,
+    rgba(255,255,255,0.95) 0%,
+    rgba(255,255,255,0.42) 26%,
+    rgba(255,255,255,0.08) 48%,
+    rgba(255,255,255,0) 74%
+  );
+  filter: blur(16px);
   pointer-events: none;
 }
 
-/* 핵심 서비스는 브릿지 뒤에 바로 자연스럽게 이어지게 */
+/* 가운데 흐름을 만들어주는 세로 라인 */
+.services-bridge-band::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 34px;
+  bottom: 26px;
+  width: 1px;
+  transform: translateX(-50%);
+  background: linear-gradient(
+    180deg,
+    rgba(123,156,226,0) 0%,
+    rgba(123,156,226,0.48) 18%,
+    rgba(170,196,255,0.82) 50%,
+    rgba(123,156,226,0.34) 82%,
+    rgba(123,156,226,0) 100%
+  );
+  box-shadow:
+    0 0 10px rgba(163,192,255,0.28),
+    0 0 22px rgba(163,192,255,0.18);
+  pointer-events: none;
+}
+
+/* 가운데 라인 끝의 작은 포인트 */
+.services-bridge-orb {
+  position: absolute;
+  left: 50%;
+  bottom: 28px;
+  width: 12px;
+  height: 12px;
+  transform: translateX(-50%);
+  border-radius: 50%;
+  background: radial-gradient(circle, #ffffff 0%, #dbe8ff 42%, #7ea6ff 78%, rgba(126,166,255,0) 100%);
+  box-shadow:
+    0 0 12px rgba(126,166,255,0.42),
+    0 0 24px rgba(126,166,255,0.24);
+  opacity: 0.95;
+}
+
+/* 브릿지 안의 은은한 하단 페이드 */
+.services-bridge-fade {
+  position: absolute;
+  inset: auto 0 0 0;
+  height: 92px;
+  background: linear-gradient(180deg, rgba(237,243,255,0) 0%, rgba(237,243,255,0.88) 72%, #edf3ff 100%);
+  pointer-events: none;
+}
+
+/* 핵심 서비스 섹션을 브릿지와 자연스럽게 연결 */
 .services-core-section {
-  padding-top: 8px;
+  position: relative;
+  padding-top: 6px;
 }
 
 .services-core-section .services-section-header {
   margin-top: 0;
+  margin-bottom: 26px;
 }
 
-    .services-section-header {
-      text-align: center;
-      margin-bottom: 22px;
-    }
+/* 데스크톱에서 카드가 너무 빨리 붙지 않게 */
+.services-core-section .services-highlight-grid {
+  margin-top: 40px;
+}
 
-    .services-section-kicker {
-      display: inline-block;
-      margin-bottom: 14px;
-      color: #2563eb;
-      font-size: 0.82rem;
-      font-weight: 800;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-    }
+@media (max-width: 991px) {
+  .services-bridge-band {
+    height: 180px;
+  }
 
-    .services-section-title {
-      margin: 0 0 14px;
-      font-size: clamp(2rem, 3vw, 2.8rem);
-      line-height: 1.2;
-      font-weight: 800;
-      letter-spacing: -0.04em;
-      color: #102a5c;
-      word-break: keep-all;
-    }
+  .services-bridge-band::before {
+    top: -70px;
+    width: 92vw;
+    height: 160px;
+    filter: blur(12px);
+  }
 
-    .services-section-desc {
-      margin: 0 auto;
-      max-width: 920px;
-      color: #5d749d;
-      font-size: 1.04rem;
-      line-height: 1.9;
-      word-break: keep-all;
-    }
+  .services-bridge-band::after {
+    top: 22px;
+    bottom: 18px;
+  }
+
+  .services-bridge-orb {
+    bottom: 18px;
+    width: 10px;
+    height: 10px;
+  }
+
+  .services-bridge-fade {
+    height: 64px;
+  }
+
+  .services-core-section {
+    padding-top: 4px;
+  }
+
+  .services-core-section .services-highlight-grid {
+    margin-top: 28px;
+  }
+}
+
+@media (max-width: 640px) {
+  .services-bridge-band {
+    height: 150px;
+  }
+}
 /* =========================
    서비스 구조도 v2 최종
    ========================= */
