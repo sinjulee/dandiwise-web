@@ -6,1188 +6,8 @@
   <title>서비스소개 | D&I WISE</title>
 
   <link rel="stylesheet" href="assets/css/style.css" />
+  <link rel="stylesheet" href="assets/css/services.css" />
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;800;900&display=swap" rel="stylesheet" />
-
-  <style>
-    body.services-page {
-      background:
-        linear-gradient(180deg, #071634 0%, #081b44 18%, #f5f9ff 18%, #eef4ff 100%);
-    }
-
-    .services-page-main {
-      position: relative;
-      z-index: 1;
-      background: transparent;
-    }
-
-    .services-overview-section {
-      position: relative;
-      padding: 56px 0 34px;
-      background:
-        linear-gradient(180deg, #f7faff 0%, #eef4ff 100%);
-    }
-
-    .services-section {
-      padding: 42px 0 48px;
-    }
-
-    .services-section {
-  padding: 42px 0 48px;
-}
-
-/* =========================
-   구조도 ↔ 핵심 서비스 브릿지
-   박스 티 안 나게 자연스럽게
-   ========================= */
-
-/* 브릿지 자체는 투명. 배경색을 따로 만들지 않음 */
-.services-bridge-band {
-  position: relative;
-  height: 240px;
-  margin: 0;
-  background: transparent;
-  overflow: visible;
-}
-
-/* 중앙에 아주 은은한 세로 흐름만 */
-.services-bridge-band::before {
-  content: "";
-  position: absolute;
-  left: 50%;
-  top: 18px;
-  bottom: 18px;
-  width: 1px;
-  transform: translateX(-50%);
-  background: linear-gradient(
-    180deg,
-    rgba(159, 184, 236, 0) 0%,
-    rgba(159, 184, 236, 0.22) 18%,
-    rgba(159, 184, 236, 0.42) 50%,
-    rgba(159, 184, 236, 0.18) 82%,
-    rgba(159, 184, 236, 0) 100%
-  );
-  box-shadow: 0 0 14px rgba(159, 184, 236, 0.12);
-  pointer-events: none;
-}
-
-/* 위 Co-Work 아래에서 살짝 내려오는 빛만 추가 */
-.services-bridge-band::after {
-  content: "";
-  position: absolute;
-  left: 50%;
-  top: -34px;
-  width: min(760px, 72vw);
-  height: 180px;
-  transform: translateX(-50%);
-  background: radial-gradient(
-    ellipse at center,
-    rgba(255,255,255,0.42) 0%,
-    rgba(255,255,255,0.18) 28%,
-    rgba(255,255,255,0.05) 52%,
-    rgba(255,255,255,0) 72%
-  );
-  filter: blur(18px);
-  pointer-events: none;
-}
-
-/* 하단 포인트 오브 */
-.services-bridge-orb {
-  position: absolute;
-  left: 50%;
-  bottom: 14px;
-  width: 10px;
-  height: 10px;
-  transform: translateX(-50%);
-  border-radius: 50%;
-  background: radial-gradient(circle, #ffffff 0%, #dce8ff 45%, #9dbdff 78%, rgba(157,189,255,0) 100%);
-  box-shadow:
-    0 0 10px rgba(157,189,255,0.22),
-    0 0 18px rgba(157,189,255,0.12);
-  pointer-events: none;
-}
-
-/* 기존 핵심 서비스 느낌 복구 */
-.services-core-section {
-  padding-top: 42px;
-  padding-bottom: 48px;
-}
-
-.services-core-section .services-section-header {
-  text-align: center;
-  margin-bottom: 22px;
-}
-
-.services-core-section .services-section-kicker {
-  display: inline-block;
-  margin-bottom: 14px;
-  color: #2563eb;
-  font-size: 0.82rem;
-  font-weight: 800;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-}
-
-.services-core-section .services-section-title {
-  margin: 0 0 14px;
-  font-size: clamp(2rem, 3vw, 2.8rem);
-  line-height: 1.2;
-  font-weight: 800;
-  letter-spacing: -0.04em;
-  color: #102a5c;
-  word-break: keep-all;
-}
-
-.services-core-section .services-section-desc {
-  margin: 0 auto;
-  max-width: 920px;
-  color: #5d749d;
-  font-size: 1.04rem;
-  line-height: 1.9;
-  word-break: keep-all;
-}
-
-.services-core-section .services-highlight-grid {
-  margin-top: 34px;
-}
-
-@media (max-width: 991px) {
-.services-bridge-band {
-    height: 150px;
-  }
-
-  .services-bridge-band::after {
-    width: 86vw;
-    height: 120px;
-    top: -20px;
-    filter: blur(14px);
-  }
-
-  .services-core-section {
-    padding-top: 42px;
-    padding-bottom: 48px;
-  }
-
-  .services-core-section {
-    padding-top: 4px;
-  }
-
-  .services-core-section .services-highlight-grid {
-    margin-top: 28px;
-  }
-}
-
-@media (max-width: 640px) {
-  .services-bridge-band {
-    height: 110px;
-  }
-
-  .services-core-section .services-section-title {
-    font-size: 1.8rem;
-  }
-
-  .services-core-section .services-section-desc {
-    font-size: 0.96rem;
-    line-height: 1.8;
-  }
-
-}
-/* =========================
-   서비스 구조도 v2 최종
-   ========================= */
-.service-structure-panel-v2 {
-  padding: 42px 38px 34px;
-}
-
-.service-structure-diagram-v2 {
-  max-width: 1080px;
-}
-
-.service-structure-brand {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 4px;
-  text-align: center;
-}
-
-.service-structure-brand-title {
-  margin: 0 0 0px;
-  color: #2b427a;
-  font-size: clamp(1.4rem, 2.2vw, 1.9rem);
-  line-height: 1.18;
-  font-weight: 500;
-  letter-spacing: -0.05em;
-  word-break: keep-all;
-}
-
-.service-structure-brand-logo {
-  display: block;
-  width: clamp(240px, 30vw, 360px);
-  height: auto;
-  object-fit: contain;
-}
-
-.service-structure-top,
-.service-structure-core,
-.service-structure-badge {
-  display: none !important;
-}
-
-/* 연결선 공통 컬러: 하단 Co-Work 위 얇은선과 동일 톤 */
-.structure-connector.structure-connector-v2 {
-  width: 100%;
-  max-width: 940px;
-  height: 108px;
-  margin: 8px auto 18px;
-  display: block;
-}
-
-.structure-connector.structure-connector-v2 svg {
-  width: 100%;
-  height: 100%;
-  display: block;
-  overflow: visible;
-}
-
-.structure-connector.structure-connector-v2 line {
-  stroke: rgba(165, 194, 255, 0.60) !important;
-  stroke-width: 2px !important;
-  stroke-linecap: round;
-  opacity: 1;
-}
-
-.service-structure-grid.service-structure-grid-v2 {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 22px;
-  margin-bottom: 22px;
-  align-items: stretch;
-}
-
-.service-structure-grid-v2 .service-structure-card {
-  min-height: 0;
-  padding: 22px 24px 20px;
-  border-radius: 26px;
-  box-shadow:
-    0 18px 34px rgba(0, 0, 0, 0.16),
-    inset 0 1px 0 rgba(255, 255, 255, 0.04);
-}
-
-.service-structure-grid-v2 .service-structure-card:nth-child(2) {
-  background: linear-gradient(180deg, #dfe5ef 0%, #cfd6e3 100%);
-  border: 1px solid rgba(186, 197, 220, 0.85);
-  box-shadow:
-    0 18px 34px rgba(0, 0, 0, 0.12),
-    inset 0 1px 0 rgba(255, 255, 255, 0.72);
-}
-
-.service-structure-grid-v2 .service-structure-card h4 {
-  margin: 0 0 14px;
-  padding-bottom: 14px;
-  font-size: 1.22rem;
-  line-height: 1.24;
-  border-bottom: 3px solid rgba(165, 194, 255, 0.60);
-}
-
-.service-structure-grid-v2 .service-structure-card:nth-child(2) h4 {
-  color: #173b84;
-  border-bottom-color: rgba(165, 194, 255, 0.60);
-}
-
-.service-structure-grid-v2 .service-structure-card p {
-  margin: 0;
-  font-size: 0.95rem;
-  line-height: 1.85;
-}
-
-/* 하단 연결선도 동일 컬러로 통일 */
-.structure-lines-bottom.structure-lines-bottom-v2 {
-  position: relative;
-  height: 38px;
-  margin-top: 12px;
-  margin-bottom: 16px;
-  display: block;
-}
-
-.structure-lines-bottom.structure-lines-bottom-v2 .line-v-bottom-center {
-  width: 2px;
-  height: 30px;
-  left: 50%;
-  top: 0;
-  transform: translateX(-50%);
-  background: rgba(165, 194, 255, 0.60);
-}
-
-.structure-lines-bottom.structure-lines-bottom-v2 .line-h-bottom-left,
-.structure-lines-bottom.structure-lines-bottom-v2 .line-h-bottom-right {
-  height: 0;
-  border-top: 2px solid rgba(165, 194, 255, 0.60);
-  background: transparent;
-}
-
-.structure-lines-bottom.structure-lines-bottom-v2 .line-h-bottom-left {
-  width: 33.5%;
-  left: 16.66%;
-  top: 0;
-}
-
-.structure-lines-bottom.structure-lines-bottom-v2 .line-h-bottom-right {
-  width: 33.5%;
-  right: 16.66%;
-  top: 0;
-}
-
-.service-structure-cowork {
-  max-width: 820px;
-  padding: 20px 28px;
-}
-
-.service-structure-cowork strong {
-  font-size: 1.08rem;
-  line-height: 1.42;
-}
-
-@media (max-width: 991px) {
-
-    .services-bridge-band {
-    height: 170px;
-  }
-
-  .services-core-section {
-    padding-top: 8px !important;
-    outline: none;
-  }
-
-  .service-structure-panel-v2 {
-    padding: 34px 20px 28px;
-  }
-
-  .service-structure-brand-title {
-    font-size: 1.9rem;
-  }
-
-  .service-structure-brand-logo {
-    width: 250px;
-  }
-
-  .structure-connector.structure-connector-v2,
-  .structure-lines-bottom.structure-lines-bottom-v2 {
-    display: none;
-  }
-
-  .service-structure-grid.service-structure-grid-v2 {
-    grid-template-columns: 1fr;
-    gap: 14px;
-    margin-bottom: 16px;
-  }
-
-  .service-structure-grid-v2 .service-structure-card {
-    border-radius: 20px;
-    padding: 18px 20px;
-  }
-
-  .service-structure-grid-v2 .service-structure-card h4 {
-    font-size: 1.08rem;
-  }
-
-  .service-structure-grid-v2 .service-structure-card p {
-    font-size: 0.9rem;
-  }
-
-  .service-structure-cowork {
-    border-radius: 24px;
-    padding: 18px 16px;
-  }
-
-  .service-structure-cowork strong {
-    font-size: 1rem;
-  }
-}
-
-@media (max-width: 640px) {
-  .service-structure-brand-title {
-    font-size: 1.6rem;
-  }
-
-  .service-structure-brand-logo {
-    width: 210px;
-  }
-
-  .service-structure-grid-v2 .service-structure-card h4 {
-    font-size: 1rem;
-  }
-
-  .service-structure-grid-v2 .service-structure-card p {
-    font-size: 0.84rem;
-    line-height: 1.75;
-  }
-
-  .service-structure-cowork strong {
-    font-size: 0.92rem;
-  }
-}
-    /* =========================
-       서비스 구조도
-       ========================= */
-    .service-structure-section {
-      padding-top: 84px;
-      padding-bottom: 22px;
-    }
-
-    .service-structure-panel {
-      position: relative;
-      overflow: hidden;
-      margin-top: 34px;
-      padding: 54px 44px 48px;
-      border-radius: 36px;
-      background:
-        radial-gradient(circle at 15% 14%, rgba(96,165,250,0.10), transparent 18%),
-        radial-gradient(circle at 84% 18%, rgba(147,197,253,0.10), transparent 18%),
-        linear-gradient(180deg, rgba(255,255,255,0.98) 0%, rgba(245,249,255,0.98) 100%);
-      border: 1px solid rgba(148,173,220,0.22);
-      box-shadow:
-        0 24px 54px rgba(8,27,68,0.08),
-        0 8px 18px rgba(8,27,68,0.04);
-    }
-
-    .service-structure-panel::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 38px;
-      right: 38px;
-      height: 4px;
-      border-radius: 999px;
-      background: linear-gradient(90deg, rgba(58,109,255,0.95), rgba(157,190,255,0.75));
-    }
-
-    .service-structure-diagram {
-      position: relative;
-      max-width: 1080px;
-      margin: 0 auto;
-      padding-top: 8px;
-    }
-
-    .service-structure-top {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      margin-bottom: 26px;
-      position: relative;
-      z-index: 2;
-    }
-
-    .service-structure-core {
-      position: relative;
-      width: 168px;
-      height: 168px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 24px;
-      background:
-        radial-gradient(circle at 32% 28%, rgba(115,159,255,0.22), rgba(115,159,255,0) 34%),
-        linear-gradient(145deg, #1a3f94 0%, #0d2d72 55%, #07235c 100%);
-      color: #ffffff;
-      box-shadow:
-        0 26px 60px rgba(0,0,0,0.24),
-        inset 0 0 0 1px rgba(255,255,255,0.06);
-    }
-
-    .service-structure-core::before {
-      content: "";
-      position: absolute;
-      inset: -14px;
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(80,132,255,0.18), rgba(80,132,255,0) 72%);
-      z-index: -1;
-      filter: blur(8px);
-    }
-
-    .service-structure-core h3 {
-      margin: 0;
-      font-size: 1.4rem;
-      line-height: 1.34;
-      font-weight: 800;
-      letter-spacing: -0.04em;
-      word-break: keep-all;
-    }
-
-    /* 상단 연결선 */
-    .structure-connector {
-      position: relative;
-      width: 100%;
-      max-width: 1000px;
-      height: 120px;
-      margin: -6px auto 26px;
-      z-index: 1;
-      pointer-events: none;
-      display: block;
-    }
-
-    .structure-connector svg {
-      display: block;
-      width: 100%;
-      height: 100%;
-      overflow: visible;
-    }
-
-    .structure-connector line {
-      stroke: #1a3f94;
-      stroke-width: 4.5;
-      stroke-linecap: round;
-      opacity: 1;
-    }
-
-    /* 카드 3열 */
-    .service-structure-grid {
-      position: relative;
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 24px;
-      margin-bottom: 30px;
-      align-items: stretch;
-    }
-
-    .service-structure-card {
-      position: relative;
-      min-height: 0;
-      padding: 28px 28px 26px;
-      border-radius: 32px;
-      background:
-        linear-gradient(180deg, rgba(33,53,104,0.95) 0%, rgba(24,44,89,0.98) 100%);
-      border: 1px solid rgba(129,156,214,0.18);
-      box-shadow:
-        0 20px 42px rgba(0,0,0,0.22),
-        inset 0 1px 0 rgba(255,255,255,0.04);
-      transition:
-        transform 0.28s ease,
-        box-shadow 0.28s ease,
-        border-color 0.28s ease;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: flex-start;
-      text-align: center;
-    }
-
-    .service-structure-card:hover {
-      transform: translateY(-8px);
-      border-color: rgba(116,155,255,0.34);
-      box-shadow:
-        0 24px 48px rgba(0,0,0,0.26),
-        0 0 0 1px rgba(116,155,255,0.08);
-    }
-
-    .service-structure-card::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      border-radius: 32px;
-      background: radial-gradient(circle at 85% 18%, rgba(111,153,255,0.10), transparent 24%);
-      pointer-events: none;
-    }
-
-    .service-structure-grid .service-structure-card:nth-child(2) {
-      background: linear-gradient(180deg, #dfe5ef 0%, #cfd6e3 100%);
-      border: 1px solid rgba(186, 197, 220, 0.85);
-      box-shadow:
-        0 18px 40px rgba(0, 0, 0, 0.18),
-        inset 0 1px 0 rgba(255, 255, 255, 0.7);
-    }
-
-    .service-structure-badge {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      min-width: 56px;
-      height: 32px;
-      padding: 0 16px;
-      margin: 0 auto 42px;
-      border-radius: 999px;
-      background: linear-gradient(180deg, #dfe7f5 0%, #cad5ea 100%);
-      color: #1750df;
-      font-size: 0.82rem;
-      font-weight: 800;
-      letter-spacing: 0.08em;
-      box-shadow:
-        inset 0 0 0 1px rgba(130,154,211,0.22),
-        0 8px 18px rgba(13,30,69,0.14);
-      position: relative;
-      z-index: 1;
-      align-self: flex-start;
-      display: none;
-    }
-
-    .service-structure-grid .service-structure-card:nth-child(2) .service-structure-badge {
-      background: linear-gradient(180deg, #cfd5e1 0%, #c1c8d6 100%);
-      color: #0f3aa0;
-      box-shadow:
-        inset 0 0 0 1px rgba(123,142,184,0.24),
-        0 8px 18px rgba(19,40,84,0.08);
-    }
-
-    .service-structure-card h4 {
-        width: 100%;
-        margin: 0 0 22px;
-        padding-bottom: 20px;
-        border-bottom: 4px solid rgba(180,204,255,0.55);
-        color: #ffffff;
-        font-size: 1.7rem;
-        line-height: 1.22;
-        font-weight: 900;
-        letter-spacing: -0.05em;
-        word-break: keep-all;
-        text-align: center;
-        position: relative;
-        z-index: 1;
-    }
-
-    .service-structure-grid .service-structure-card:nth-child(2) h4 {
-      color: #092966;
-      border-bottom-color: rgba(9,41,102,0.18);
-    }
-
-    .service-structure-card p {
-      width: 100%;
-      margin: 0;
-      color: rgba(227,235,251,0.92);
-      font-size: 1.04rem;
-      font-weight: 500;
-      line-height: 1.9;
-      word-break: keep-all;
-      text-align: center;
-      position: relative;
-      z-index: 1;
-      background: transparent;
-      box-shadow: none;
-      border-radius: 0;
-    }
-
-    .service-structure-grid .service-structure-card:nth-child(2) p {
-      color: #092966;
-    }
-
-    .service-structure-grid .service-structure-card:nth-child(3) p {
-      color: rgba(227,235,251,0.92);
-      background: transparent;
-      box-shadow: none;
-      border-radius: 0;
-      max-width: 100%;
-    }
-
-    /* 하단 연결선 */
-    .structure-lines-bottom {
-      position: relative;
-      height: 58px;
-      margin-top: 14px;
-      margin-bottom: 18px;
-      display: block;
-    }
-
-    .structure-lines-bottom span {
-      position: absolute;
-      display: block;
-      border-radius: 999px;
-      box-sizing: border-box;
-    }
-
-    .line-v-bottom-center {
-      width: 2px;
-      height: 58px;
-      left: 50%;
-      top: 0;
-      transform: translateX(-50%);
-      background: rgba(165,194,255,0.72);
-    }
-
-    .line-h-bottom-left,
-    .line-h-bottom-right {
-      height: 0;
-      background: transparent;
-      border-top: 2px solid rgba(165,194,255,0.60);
-    }
-
-    .line-h-bottom-left {
-      width: 33.5%;
-      left: 16.66%;
-      top: 0;
-    }
-
-    .line-h-bottom-right {
-      width: 33.5%;
-      right: 16.66%;
-      top: 0;
-    }
-
-    .service-structure-bottom {
-      position: relative;
-      display: flex;
-      justify-content: center;
-      margin-bottom: 0;
-    }
-
-    .service-structure-cowork {
-      position: relative;
-      max-width: 780px;
-      width: 100%;
-      padding: 28px 34px;
-      text-align: center;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border-radius: 999px;
-      background:
-        linear-gradient(180deg, rgba(245,248,253,0.96) 0%, rgba(227,233,243,0.98) 100%);
-      border: 1.5px solid rgba(147,173,228,0.42);
-      box-shadow:
-        0 18px 36px rgba(0,0,0,0.16),
-        inset 0 1px 0 rgba(255,255,255,0.72);
-    }
-
-    .service-structure-cowork strong {
-      display: block;
-      margin: 0;
-      color: #082a67;
-      font-size: 1.42rem;
-      font-weight: 900;
-      letter-spacing: -0.03em;
-      line-height: 1.45;
-      word-break: keep-all;
-    }
-
-    /* =========================
-       기존 서비스 섹션
-       ========================= */
-    .services-highlight-grid {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 24px;
-      margin-top: 34px;
-    }
-
-    .service-highlight-card,
-    .service-detail-card,
-    .service-flow-step {
-      background:
-        linear-gradient(180deg, rgba(30,48,94,0.96) 0%, rgba(20,38,80,0.98) 100%);
-      border: 1px solid rgba(129,156,214,0.18);
-      box-shadow:
-        0 18px 40px rgba(0,0,0,0.22),
-        inset 0 1px 0 rgba(255,255,255,0.04);
-    }
-
-    .service-highlight-card {
-      position: relative;
-      overflow: hidden;
-      padding: 34px 30px 30px;
-      border-radius: 30px;
-      transition:
-        transform 0.28s ease,
-        border-color 0.28s ease,
-        box-shadow 0.28s ease;
-    }
-
-    .service-detail-card {
-      position: relative;
-      overflow: hidden;
-      min-height: 250px;
-      padding: 34px 30px 30px;
-      border-radius: 30px;
-      transition:
-        transform 0.28s ease,
-        border-color 0.28s ease,
-        box-shadow 0.28s ease;
-    }
-
-    .service-highlight-card:hover,
-    .service-detail-card:hover {
-      transform: translateY(-8px);
-      border-color: rgba(116,155,255,0.34);
-      box-shadow:
-        0 24px 50px rgba(0,0,0,0.26),
-        0 0 0 1px rgba(116,155,255,0.08);
-    }
-
-    .service-highlight-card::before,
-    .service-detail-card::before {
-      content: "";
-      position: absolute;
-      width: 170px;
-      height: 170px;
-      right: -30px;
-      top: -32px;
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(96,165,250,0.10), transparent 68%);
-      pointer-events: none;
-    }
-
-    .service-detail-card::before {
-      top: -30px;
-    }
-
-    .service-highlight-card::after,
-    .service-flow-panel::after {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 30px;
-      right: 30px;
-      height: 4px;
-      border-radius: 999px;
-      background: linear-gradient(90deg, rgba(58,109,255,0.96), rgba(157,190,255,0.72));
-      pointer-events: none;
-    }
-
-    .service-badge,
-    .service-flow-step .step-num {
-      background: linear-gradient(180deg, #dfe7f5 0%, #cad5ea 100%);
-      color: #1750df;
-      box-shadow:
-        inset 0 0 0 1px rgba(130,154,211,0.22),
-        0 8px 18px rgba(13,30,69,0.14);
-    }
-
-    .service-badge {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 50px;
-      height: 50px;
-      margin-bottom: 22px;
-      border-radius: 16px;
-      font-size: 1rem;
-      font-weight: 800;
-    }
-
-    .service-highlight-card h3,
-    .service-detail-card h3,
-    .service-flow-step h4 {
-      color: #ffffff;
-    }
-
-    .service-highlight-card p,
-    .service-detail-card p,
-    .service-flow-step p,
-    .service-detail-list li {
-      color: rgba(227,235,251,0.82);
-    }
-
-    .service-highlight-card h3 {
-      margin: 0 0 14px;
-      font-size: 1.5rem;
-      line-height: 1.3;
-      font-weight: 800;
-      letter-spacing: -0.03em;
-      word-break: keep-all;
-    }
-
-    .service-highlight-card p,
-    .service-detail-card p {
-      margin: 0;
-      line-height: 1.9;
-      word-break: keep-all;
-    }
-
-    .services-highlight-grid .service-highlight-card:nth-child(2) {
-      background: linear-gradient(180deg, #dfe5ef 0%, #cfd6e3 100%);
-      border: 1px solid rgba(186, 197, 220, 0.85);
-      box-shadow:
-        0 18px 40px rgba(0, 0, 0, 0.18),
-        inset 0 1px 0 rgba(255, 255, 255, 0.7);
-    }
-
-    .services-highlight-grid .service-highlight-card:nth-child(2) h3,
-    .services-highlight-grid .service-highlight-card:nth-child(2) p {
-      color: #092966;
-    }
-
-    .service-badge {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 50px;
-      height: 50px;
-      margin: 0 auto 22px;
-      border-radius: 16px;
-      font-size: 1rem;
-      font-weight: 800;
-    }
-
-    .service-highlight-card h3 {
-      margin: 0 0 14px;
-      font-size: 1.5rem;
-      line-height: 1.3;
-      font-weight: 800;
-      letter-spacing: -0.03em;
-      word-break: keep-all;
-      text-align: center;
-    }
-
-    .service-highlight-card p {
-      margin: 0;
-      line-height: 1.9;
-      word-break: keep-all;
-      text-align: center;
-    }
-
-    .service-flow-panel {
-      position: relative;
-      overflow: hidden;
-      margin-top: 12px;
-      padding: 48px 36px;
-      border-radius: 34px;
-      background:
-        radial-gradient(circle at 16% 18%, rgba(96,165,250,0.08), transparent 18%),
-        radial-gradient(circle at 86% 20%, rgba(147,197,253,0.08), transparent 18%),
-        linear-gradient(180deg, rgba(16,33,77,0.82) 0%, rgba(10,26,64,0.86) 100%);
-      border: 1px solid rgba(132,158,214,0.18);
-      box-shadow:
-        0 20px 46px rgba(0,0,0,0.22),
-        inset 0 1px 0 rgba(255,255,255,0.04);
-    }
-
-    .service-flow-grid {
-      display: grid;
-      grid-template-columns: repeat(5, minmax(0, 1fr));
-      gap: 18px;
-      align-items: stretch;
-    }
-
-    .service-flow-step {
-      position: relative;
-      text-align: center;
-      border-radius: 24px;
-      padding: 26px 16px 22px;
-    }
-
-    .service-flow-step .step-num {
-      width: 56px;
-      height: 56px;
-      border-radius: 18px;
-      margin: 0 auto 14px;
-      display: grid;
-      place-items: center;
-      font-size: 0.98rem;
-      font-weight: 800;
-    }
-
-    .service-flow-step h4 {
-      margin: 0 0 8px;
-      font-size: 1.02rem;
-      font-weight: 800;
-      letter-spacing: -0.02em;
-      word-break: keep-all;
-    }
-
-    .service-flow-step p {
-      margin: 0;
-      font-size: 0.92rem;
-      line-height: 1.7;
-      word-break: keep-all;
-    }
-
-    .service-detail-grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 24px;
-      margin-top: 30px;
-    }
-
-    .service-detail-card h3 {
-      margin: 0 0 16px;
-      font-size: 1.4rem;
-      line-height: 1.3;
-      font-weight: 800;
-      letter-spacing: -0.03em;
-      word-break: keep-all;
-    }
-
-    .service-detail-list {
-      margin: 18px 0 0;
-      padding: 0;
-      list-style: none;
-      display: grid;
-      gap: 10px;
-    }
-
-    .service-detail-list li {
-      position: relative;
-      padding-left: 18px;
-      font-size: 0.96rem;
-      line-height: 1.8;
-      word-break: keep-all;
-    }
-
-    .service-detail-list li::before {
-      content: "";
-      position: absolute;
-      left: 0;
-      top: 12px;
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      background: linear-gradient(180deg, #4f8dff 0%, #a8c7ff 100%);
-    }
-
-    .fade-up {
-      opacity: 0;
-      transform: translateY(36px);
-      transition: opacity 0.8s ease, transform 0.8s ease;
-    }
-
-    .fade-up.show {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    @media (max-width: 991px) {
-      body.services-page {
-        background:
-          radial-gradient(circle at 12% 10%, rgba(49,87,162,0.20), transparent 22%),
-          radial-gradient(circle at 92% 8%, rgba(79,121,214,0.16), transparent 18%),
-          linear-gradient(180deg, #021844 0%, #02133a 42%, #011233 100%);
-      }
-
-      .services-overview-section {
-        background: linear-gradient(180deg, #021844 0%, #01173f 100%);
-        padding: 68px 0 24px;
-      }
-
-      .service-structure-section {
-        padding-top: 68px;
-      }
-
-      .service-structure-panel {
-        padding: 38px 22px 34px;
-        border-radius: 28px;
-      }
-
-      .service-structure-panel::before {
-        left: 22px;
-        right: 22px;
-      }
-
-      .service-structure-core {
-        width: 192px;
-        height: 192px;
-      }
-
-      .service-structure-core h3 {
-        font-size: 1.62rem;
-      }
-
-      .structure-connector,
-      .structure-lines-bottom {
-        display: none;
-      }
-
-      .service-structure-grid,
-      .services-highlight-grid,
-      .service-detail-grid,
-      .service-flow-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .service-structure-grid {
-        gap: 18px;
-        margin-bottom: 26px;
-      }
-
-      .service-structure-section {
-        padding-bottom: 72px;
-      }
-
-      .services-core-section {
-        padding-top: 20px;
-      }
-
-      .service-structure-card,
-      .service-highlight-card,
-      .service-detail-card {
-        min-height: auto;
-        padding: 28px 24px;
-        border-radius: 24px;
-        margin-bottom: 18px;
-      }
-
-      .service-structure-card::after {
-        border-radius: 24px;
-      }
-
-      .service-highlight-card::after,
-      .service-flow-panel::after {
-        left: 24px;
-        right: 24px;
-      }
-
-      .service-structure-card h4 {
-        font-size: 1.5rem;
-      }
-
-      .service-structure-badge {
-        margin-bottom: 24px;
-      }
-
-      .service-structure-cowork {
-        border-radius: 28px;
-        padding: 22px 20px;
-      }
-
-      .service-structure-cowork strong {
-        font-size: 1.16rem;
-      }
-
-      .service-flow-panel {
-        padding: 34px 22px;
-        border-radius: 26px;
-      }
-
-      .service-flow-panel::after {
-        left: 22px;
-        right: 22px;
-      }
-    }
-
-    @media (max-width: 640px) {
-      .services-section-title {
-        font-size: 1.8rem;
-      }
-
-      .services-section-desc,
-      .service-highlight-card p,
-      .service-detail-card p,
-      .service-structure-card p {
-        font-size: 0.96rem;
-        line-height: 1.8;
-      }
-
-      .service-highlight-card h3,
-      .service-detail-card h3 {
-        font-size: 1.24rem;
-      }
-
-      .service-structure-core {
-        width: 168px;
-        height: 168px;
-      }
-
-      .service-structure-core h3 {
-        font-size: 1.4rem;
-      }
-
-      .service-structure-card h4 {
-        font-size: 1.32rem;
-      }
-
-      .service-structure-cowork strong {
-        font-size: 1.04rem;
-      }
-    }
-  </style>
 </head>
 
 <body class="services-page">
@@ -1320,231 +140,237 @@
       <div class="container-wide">
 
         <!-- 서비스 구조도 -->
-        <section id="structure" class="services-section service-structure-section fade-up">
-          <div class="services-section-header">
-            <span class="services-section-kicker">INTRODUCTION</span>
-            <h2 class="services-section-title">물류를 운영하는 회사를 넘어,<br />물류를 설계하는 파트너</h2>
-            <p class="services-section-desc">
-              D&amp;I WISE는 단순한 물류대행을 넘어,<br />
-              물류 전략 수립, 운영 최적화, 공급망 연결, 데이터 기반 관리까지<br />
-              아우르는 종합 물류 솔루션을 제공합니다.
-            </p>
-          </div>
+      <section id="structure" class="services-section service-structure-section fade-up">
+        <div class="services-section-header">
+          <span class="services-section-kicker">INTRODUCTION</span>
+          <h2 class="services-section-title">물류를 운영하는 회사를 넘어,<br />물류를 설계하는 파트너</h2>
+          <p class="services-section-desc">
+            D&amp;I WISE는 단순한 물류대행을 넘어,<br />
+            물류 전략 수립, 운영 최적화, 공급망 연결, 데이터 기반 관리까지<br />
+            아우르는 종합 물류 솔루션을 제공합니다.
+          </p>
+        </div>
 
-          <div class="service-structure-panel service-structure-panel-v2">
-            <div class="service-structure-diagram service-structure-diagram-v2">
-              <div class="service-structure-brand">
-                <h3 class="service-structure-brand-title">물류 전문가 집단</h3>
-                <img src="assets/logo.png" alt="D&I WISE 로고" class="service-structure-brand-logo" />
-              </div>
+        <div class="service-structure-panel service-structure-panel-v2">
+          <div class="service-structure-diagram service-structure-diagram-v2">
+            <div class="service-structure-brand">
+              <h3 class="service-structure-brand-title">물류 전문가 집단</h3>
+              <img src="assets/logo.png" alt="D&I WISE 로고" class="service-structure-brand-logo" />
+            </div>
 
-              <div class="structure-connector structure-connector-v2" aria-hidden="true">
-                <svg viewBox="0 0 1000 120" preserveAspectRatio="none">
-                  <line x1="500" y1="10" x2="180" y2="108"></line>
-                  <line x1="500" y1="10" x2="500" y2="108"></line>
-                  <line x1="500" y1="10" x2="820" y2="108"></line>
-                </svg>
-              </div>
+            <div class="structure-connector structure-connector-v2" aria-hidden="true">
+              <svg viewBox="0 0 1000 120" preserveAspectRatio="none">
+                <line x1="500" y1="10" x2="180" y2="108"></line>
+                <line x1="500" y1="10" x2="500" y2="108"></line>
+                <line x1="500" y1="10" x2="820" y2="108"></line>
+              </svg>
+            </div>
 
-              <div class="service-structure-grid service-structure-grid-v2">
-                <article class="service-structure-card">
-                  <h4>물류 전문 컨설팅 기업</h4>
-                  <p>
-                    SCM 전략 수립, 운영 진단, 구조 개선 등<br />
-                    현장 중심의 실행형 물류 컨설팅을 제공합니다.
-                  </p>
-                </article>
+            <div class="service-structure-grid service-structure-grid-v2">
+              <article class="service-structure-card">
+                <h4>물류 전문 컨설팅 기업</h4>
+                <p>
+                  SCM 전략 수립, 운영 진단, 구조 개선 등<br />
+                  현장 중심의 실행형 물류 컨설팅을 제공합니다.
+                </p>
+              </article>
 
-                <article class="service-structure-card">
-                  <h4>인력도급 및 파견기업</h4>
-                  <p>
-                    물류센터 운영 이해도를 바탕으로<br />
-                    안정적인 인력 수급과 현장 운영 대응력을 확보합니다.
-                  </p>
-                </article>
+              <article class="service-structure-card">
+                <h4>인력도급 및 파견기업</h4>
+                <p>
+                  물류센터 운영 이해도를 바탕으로<br />
+                  안정적인 인력 수급과 현장 운영 대응력을 확보합니다.
+                </p>
+              </article>
 
-                <article class="service-structure-card">
-                  <h4>운송사 및 주선기업</h4>
-                  <p>
-                    배송 차량 네트워크와 주선 역량을 기반으로<br />
-                    안정적 운송 운영과 납품 품질 향상을 지원합니다.
-                  </p>
-                </article>
-              </div>
+              <article class="service-structure-card">
+                <h4>운송사 및 주선기업</h4>
+                <p>
+                  배송 차량 네트워크와 주선 역량을 기반으로<br />
+                  안정적 운송 운영과 납품 품질 향상을 지원합니다.
+                </p>
+              </article>
+            </div>
 
-              <div class="structure-lines-bottom structure-lines-bottom-v2">
-                <span class="line-h-bottom-left"></span>
-                <span class="line-h-bottom-right"></span>
-                <span class="line-v-bottom-center"></span>
-              </div>
+            <div class="structure-lines-bottom structure-lines-bottom-v2">
+              <span class="line-h-bottom-left"></span>
+              <span class="line-h-bottom-right"></span>
+              <span class="line-v-bottom-center"></span>
+            </div>
 
-              <div class="service-structure-bottom">
-                <div class="service-structure-cowork">
-                  <strong>물류 전문가 집단과 함께 Co-Work 협력 체계 구축</strong>
-                </div>
+            <div class="service-structure-bottom">
+              <div class="service-structure-cowork">
+                <strong>물류 전문가 집단과 함께 Co-Work 협력 체계 구축</strong>
               </div>
             </div>
           </div>
-        </section>
+        </div>
+      </section>
 
-        <!-- 구조도와 핵심 서비스 사이 브릿지 영역 -->
-        <section class="services-bridge-band" aria-hidden="true">
-          <span class="services-bridge-orb"></span>
-        </section>
+       <!-- 브릿지 1 -->
+      <section class="services-bridge-band" aria-hidden="true">
+        <span class="services-bridge-orb"></span>
+      </section>
 
         <!-- 핵심 서비스 -->
-        <section class="services-section services-core-section fade-up">
-          <div class="services-section-header">
-            <span class="services-section-kicker">CORE SERVICES</span>
-            <h2 class="services-section-title">핵심 서비스</h2>
-            <p class="services-section-desc">
-              D&amp;I WISE는 단순한 물류대행을 넘어,<br>
-              전략 수립부터 운영 구조 설계, 현장 실행, 데이터 기반 관리까지<br>
-              전체 물류 흐름을 유기적으로 연결합니다.
+      <section class="services-section services-core-section fade-up">
+        <div class="services-section-header">
+          <span class="services-section-kicker">CORE SERVICES</span>
+          <h2 class="services-section-title">핵심 서비스</h2>
+          <p class="services-section-desc">
+            D&amp;I WISE는 단순한 물류대행을 넘어,<br>
+            전략 수립부터 운영 구조 설계, 현장 실행, 데이터 기반 관리까지<br>
+            전체 물류 흐름을 유기적으로 연결합니다.
+          </p>
+        </div>
+
+        <div class="services-highlight-grid">
+          <article id="consulting" class="service-highlight-card">
+            <div class="service-badge">01</div>
+            <h3>물류 컨설팅</h3>
+            <p>
+              SCM 전략 수립부터 운영 구조 진단, 원가 안정화 방향까지
+              고객 상황에 맞는 실행형 물류 솔루션을 제안합니다.
             </p>
-          </div>
+          </article>
 
-          <div class="services-highlight-grid">
-            <article id="consulting" class="service-highlight-card">
-              <div class="service-badge">01</div>
-              <h3>물류 컨설팅</h3>
-              <p>
-                SCM 전략 수립부터 운영 구조 진단, 원가 안정화 방향까지
-                고객 상황에 맞는 실행형 물류 솔루션을 제안합니다.
-              </p>
-            </article>
+          <article id="operation" class="service-highlight-card">
+            <div class="service-badge">02</div>
+            <h3>3PL 운영</h3>
+            <p>
+              창고, 피킹, 출고, 배송, 납품까지 이어지는 전 과정을
+              안정적으로 설계하고 운영 체계에 맞춰 실행합니다.
+            </p>
+          </article>
 
-            <article id="operation" class="service-highlight-card">
-              <div class="service-badge">02</div>
-              <h3>3PL 운영</h3>
-              <p>
-                창고, 피킹, 출고, 배송, 납품까지 이어지는 전 과정을
-                안정적으로 설계하고 운영 체계에 맞춰 실행합니다.
-              </p>
-            </article>
+          <article id="data" class="service-highlight-card">
+            <div class="service-badge">03</div>
+            <h3>데이터 기반 관리</h3>
+            <p>
+              실시간 운영 데이터와 KPI를 바탕으로
+              성과와 개선 포인트를 함께 점검하는 관리 체계를 제공합니다.
+            </p>
+          </article>
+        </div>
+      </section>
 
-            <article id="data" class="service-highlight-card">
-              <div class="service-badge">03</div>
-              <h3>데이터 기반 관리</h3>
-              <p>
-                실시간 운영 데이터와 KPI를 바탕으로
-                성과와 개선 포인트를 함께 점검하는 관리 체계를 제공합니다.
-              </p>
-            </article>
-          </div>
-        </section>
+      <!-- 브릿지 2 -->
+      <section class="services-bridge-band" aria-hidden="true">
+        <span class="services-bridge-orb"></span>
+      </section>
 
         <!-- 운영 흐름 -->
-        <section class="services-section fade-up">
-          <div class="services-section-header">
-            <span class="services-section-kicker">PROCESS FLOW</span>
-            <h2 class="services-section-title">운영 흐름</h2>
-            <p class="services-section-desc">
-              입고부터 최종 납품까지 끊기지 않는 구조를 설계하여
-              비용 절감, 운영 안정성, 납기 품질 향상으로 연결합니다.
-            </p>
+      <section class="services-section services-flow-section fade-up">
+        <div class="services-section-header">
+          <span class="services-section-kicker">PROCESS FLOW</span>
+          <h2 class="services-section-title">운영 흐름</h2>
+          <p class="services-section-desc">
+            입고부터 최종 납품까지 끊기지 않는 구조를 설계하여
+            비용 절감, 운영 안정성, 납기 품질 향상으로 연결합니다.
+          </p>
+        </div>
+
+        <div class="service-flow-panel">
+          <div class="service-flow-grid">
+            <article class="service-flow-step">
+              <div class="step-num">01</div>
+              <h4>입고</h4>
+              <p>상품 특성에 맞는 입고 기준과 초기 운영 프로세스를 정리합니다.</p>
+            </article>
+
+            <article class="service-flow-step">
+              <div class="step-num">02</div>
+              <h4>보관</h4>
+              <p>온도와 제품 특성을 고려한 보관 기준과 창고 운영 체계를 세웁니다.</p>
+            </article>
+
+            <article class="service-flow-step">
+              <div class="step-num">03</div>
+              <h4>피킹/출고</h4>
+              <p>속도와 정확도를 동시에 높이는 피킹 및 출고 프로세스를 설계합니다.</p>
+            </article>
+
+            <article class="service-flow-step">
+              <div class="step-num">04</div>
+              <h4>배송</h4>
+              <p>차량 수급과 운송 네트워크를 통해 안정적인 배송 구조를 지원합니다.</p>
+            </article>
+
+            <article class="service-flow-step">
+              <div class="step-num">05</div>
+              <h4>납품/사후관리</h4>
+              <p>최종 납품 이후 발생 가능한 이슈까지 포함한 대응 체계를 제공합니다.</p>
+            </article>
           </div>
-
-          <div class="service-flow-panel">
-            <div class="service-flow-grid">
-              <article class="service-flow-step">
-                <div class="step-num">01</div>
-                <h4>입고</h4>
-                <p>상품 특성에 맞는 입고 기준과 초기 운영 프로세스를 정리합니다.</p>
-              </article>
-
-              <article class="service-flow-step">
-                <div class="step-num">02</div>
-                <h4>보관</h4>
-                <p>온도와 제품 특성을 고려한 보관 기준과 창고 운영 체계를 세웁니다.</p>
-              </article>
-
-              <article class="service-flow-step">
-                <div class="step-num">03</div>
-                <h4>피킹/출고</h4>
-                <p>속도와 정확도를 동시에 높이는 피킹 및 출고 프로세스를 설계합니다.</p>
-              </article>
-
-              <article class="service-flow-step">
-                <div class="step-num">04</div>
-                <h4>배송</h4>
-                <p>차량 수급과 운송 네트워크를 통해 안정적인 배송 구조를 지원합니다.</p>
-              </article>
-
-              <article class="service-flow-step">
-                <div class="step-num">05</div>
-                <h4>납품/사후관리</h4>
-                <p>최종 납품 이후 발생 가능한 이슈까지 포함한 대응 체계를 제공합니다.</p>
-              </article>
-            </div>
-          </div>
-        </section>
-
+        </div>
+      </section>
+      
         <!-- 세부 운영 서비스 -->
-        <section class="services-section fade-up">
-          <div class="services-section-header">
-            <span class="services-section-kicker">OPERATIONAL CAPABILITY</span>
-            <h2 class="services-section-title">세부 운영 서비스</h2>
-            <p class="services-section-desc">
-              인력, 차량, 현장 소통, KPI 분석까지
-              각각의 운영 요소를 분리하지 않고 하나의 실행 구조로 묶습니다.
+      <section class="services-section fade-up">
+        <div class="services-section-header">
+          <span class="services-section-kicker">OPERATIONAL CAPABILITY</span>
+          <h2 class="services-section-title">세부 운영 서비스</h2>
+          <p class="services-section-desc">
+            인력, 차량, 현장 소통, KPI 분석까지
+            각각의 운영 요소를 분리하지 않고 하나의 실행 구조로 묶습니다.
+          </p>
+        </div>
+
+        <div class="service-detail-grid">
+          <article class="service-detail-card">
+            <h3>안정적 원가 구조</h3>
+            <p>
+              보유 네트워크와 현장 운영 경험을 바탕으로
+              3PL 운영 원가의 효율성과 공급 안정성을 높입니다.
             </p>
-          </div>
+            <ul class="service-detail-list">
+              <li>인력 운영 네트워크 활용</li>
+              <li>차량 수급 안정화 구조 확보</li>
+              <li>비용 관리 및 원가 절감 방향 제시</li>
+            </ul>
+          </article>
 
-          <div class="service-detail-grid">
-            <article class="service-detail-card">
-              <h3>안정적 원가 구조</h3>
-              <p>
-                보유 네트워크와 현장 운영 경험을 바탕으로
-                3PL 운영 원가의 효율성과 공급 안정성을 높입니다.
-              </p>
-              <ul class="service-detail-list">
-                <li>인력 운영 네트워크 활용</li>
-                <li>차량 수급 안정화 구조 확보</li>
-                <li>비용 관리 및 원가 절감 방향 제시</li>
-              </ul>
-            </article>
+          <article class="service-detail-card">
+            <h3>소통형 고객사 관리</h3>
+            <p>
+              납품 과정에서 발생하는 공급, 클레임, 운영 이슈를 빠르게 조율하며
+              고객사와 화주사의 만족도를 함께 높입니다.
+            </p>
+            <ul class="service-detail-list">
+              <li>현장 이슈 사전 조율</li>
+              <li>납품 및 공급 문제 대응</li>
+              <li>협력사와의 커뮤니케이션 강화</li>
+            </ul>
+          </article>
 
-            <article class="service-detail-card">
-              <h3>소통형 고객사 관리</h3>
-              <p>
-                납품 과정에서 발생하는 공급, 클레임, 운영 이슈를 빠르게 조율하며
-                고객사와 화주사의 만족도를 함께 높입니다.
-              </p>
-              <ul class="service-detail-list">
-                <li>현장 이슈 사전 조율</li>
-                <li>납품 및 공급 문제 대응</li>
-                <li>협력사와의 커뮤니케이션 강화</li>
-              </ul>
-            </article>
+          <article class="service-detail-card">
+            <h3>구매·공급 연계 지원</h3>
+            <p>
+              식자재 기업의 구매 및 매입 구조와 연결된 이해를 바탕으로
+              공급 기회 확대와 안정적 매출 향상을 지원합니다.
+            </p>
+            <ul class="service-detail-list">
+              <li>구매팀과의 연계 포인트 확보</li>
+              <li>공급 구조 확장 지원</li>
+              <li>판로 연계 가능성 검토</li>
+            </ul>
+          </article>
 
-            <article class="service-detail-card">
-              <h3>구매·공급 연계 지원</h3>
-              <p>
-                식자재 기업의 구매 및 매입 구조와 연결된 이해를 바탕으로
-                공급 기회 확대와 안정적 매출 향상을 지원합니다.
-              </p>
-              <ul class="service-detail-list">
-                <li>구매팀과의 연계 포인트 확보</li>
-                <li>공급 구조 확장 지원</li>
-                <li>판로 연계 가능성 검토</li>
-              </ul>
-            </article>
+          <article class="service-detail-card">
+            <h3>KPI 및 데이터 분석</h3>
+            <p>
+              운영 데이터를 정리하고 KPI를 제공하여
+              성과와 개선 포인트를 함께 점검하는 체계를 구축합니다.
+            </p>
+            <ul class="service-detail-list">
+              <li>운영 데이터 기반 성과 분석</li>
+              <li>양사 간 업무 지표 정리</li>
+              <li>개선 포인트 도출 및 보고</li>
+            </ul>
+          </article>
+        </div>
+      </section>
 
-            <article class="service-detail-card">
-              <h3>KPI 및 데이터 분석</h3>
-              <p>
-                운영 데이터를 정리하고 KPI를 제공하여
-                성과와 개선 포인트를 함께 점검하는 체계를 구축합니다.
-              </p>
-              <ul class="service-detail-list">
-                <li>운영 데이터 기반 성과 분석</li>
-                <li>양사 간 업무 지표 정리</li>
-                <li>개선 포인트 도출 및 보고</li>
-              </ul>
-            </article>
-          </div>
-        </section>
 
       </div>
     </section>
