@@ -31,6 +31,37 @@
       padding: 42px 0 48px;
     }
 
+    .services-section {
+  padding: 42px 0 48px;
+}
+
+/* 구조도와 핵심 서비스 사이 전용 브릿지 영역 */
+.services-bridge-band {
+  position: relative;
+  height: 260px;
+  margin: 0;
+  background: linear-gradient(180deg, #eef4ff 0%, #edf3ff 100%);
+}
+
+.services-bridge-band::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 18% 30%, rgba(96,165,250,0.08), transparent 22%),
+    radial-gradient(circle at 82% 26%, rgba(147,197,253,0.08), transparent 20%);
+  pointer-events: none;
+}
+
+/* 핵심 서비스는 브릿지 뒤에 바로 자연스럽게 이어지게 */
+.services-core-section {
+  padding-top: 8px;
+}
+
+.services-core-section .services-section-header {
+  margin-top: 0;
+}
+
     .services-section-header {
       text-align: center;
       margin-bottom: 22px;
@@ -222,6 +253,16 @@
 }
 
 @media (max-width: 991px) {
+
+    .services-bridge-band {
+    height: 170px;
+  }
+
+  .services-core-section {
+    padding-top: 8px !important;
+    outline: none;
+  }
+
   .service-structure-panel-v2 {
     padding: 34px 20px 28px;
   }
@@ -965,7 +1006,7 @@
       }
 
       .services-core-section {
-        padding-top: 220px !important;
+        padding-top: 20px;
       }
 
       .service-structure-card,
@@ -1249,6 +1290,9 @@
             </div>
           </div>
         </section>
+
+        <!-- 구조도와 핵심 서비스 사이 브릿지 영역 -->
+        <section class="services-bridge-band" aria-hidden="true"></section>
 
         <!-- 핵심 서비스 -->
         <section class="services-section services-core-section fade-up">
