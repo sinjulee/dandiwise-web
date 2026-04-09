@@ -122,7 +122,7 @@ button {
 
 .header-inner {
   width: var(--container);
-  height: 88px;
+  height: 104px;
   margin: 0 auto;
   display: flex;
   align-items: center;
@@ -130,13 +130,13 @@ button {
 }
 
 .header-logo {
-  display: inline-flex;
+  display: flex;
   align-items: center;
   flex-shrink: 0;
 }
 
 .header-logo img {
-  height: 100px;
+  height: 88px;
   width: auto;
   object-fit: contain;
   display: block;
