@@ -36,130 +36,135 @@
 }
 
 /* =========================
-   구조도 ↔ 핵심서비스 브릿지
-   고급형 버전
+   구조도 ↔ 핵심 서비스 브릿지
+   박스 티 안 나게 자연스럽게
    ========================= */
+
+/* 브릿지 자체는 투명. 배경색을 따로 만들지 않음 */
 .services-bridge-band {
   position: relative;
-  height: 280px;
+  height: 240px;
   margin: 0;
-  overflow: hidden;
-  background:
-    radial-gradient(circle at 50% 18%, rgba(255,255,255,0.72) 0%, rgba(255,255,255,0.16) 22%, rgba(255,255,255,0) 42%),
-    radial-gradient(circle at 20% 42%, rgba(152,182,245,0.10) 0%, rgba(152,182,245,0) 34%),
-    radial-gradient(circle at 80% 40%, rgba(152,182,245,0.10) 0%, rgba(152,182,245,0) 32%),
-    linear-gradient(180deg, #eef3fb 0%, #e8eef8 52%, #edf3ff 100%);
+  background: transparent;
+  overflow: visible;
 }
 
-/* 위쪽 Co-Work 영역에서 내려오는 빛 번짐 */
+/* 중앙에 아주 은은한 세로 흐름만 */
 .services-bridge-band::before {
   content: "";
   position: absolute;
   left: 50%;
-  top: -90px;
-  width: min(900px, 82vw);
-  height: 220px;
-  transform: translateX(-50%);
-  background: radial-gradient(
-    ellipse at center,
-    rgba(255,255,255,0.95) 0%,
-    rgba(255,255,255,0.42) 26%,
-    rgba(255,255,255,0.08) 48%,
-    rgba(255,255,255,0) 74%
-  );
-  filter: blur(16px);
-  pointer-events: none;
-}
-
-/* 가운데 흐름을 만들어주는 세로 라인 */
-.services-bridge-band::after {
-  content: "";
-  position: absolute;
-  left: 50%;
-  top: 34px;
-  bottom: 26px;
+  top: 18px;
+  bottom: 18px;
   width: 1px;
   transform: translateX(-50%);
   background: linear-gradient(
     180deg,
-    rgba(123,156,226,0) 0%,
-    rgba(123,156,226,0.48) 18%,
-    rgba(170,196,255,0.82) 50%,
-    rgba(123,156,226,0.34) 82%,
-    rgba(123,156,226,0) 100%
+    rgba(159, 184, 236, 0) 0%,
+    rgba(159, 184, 236, 0.22) 18%,
+    rgba(159, 184, 236, 0.42) 50%,
+    rgba(159, 184, 236, 0.18) 82%,
+    rgba(159, 184, 236, 0) 100%
   );
-  box-shadow:
-    0 0 10px rgba(163,192,255,0.28),
-    0 0 22px rgba(163,192,255,0.18);
+  box-shadow: 0 0 14px rgba(159, 184, 236, 0.12);
   pointer-events: none;
 }
 
-/* 가운데 라인 끝의 작은 포인트 */
+/* 위 Co-Work 아래에서 살짝 내려오는 빛만 추가 */
+.services-bridge-band::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: -34px;
+  width: min(760px, 72vw);
+  height: 180px;
+  transform: translateX(-50%);
+  background: radial-gradient(
+    ellipse at center,
+    rgba(255,255,255,0.42) 0%,
+    rgba(255,255,255,0.18) 28%,
+    rgba(255,255,255,0.05) 52%,
+    rgba(255,255,255,0) 72%
+  );
+  filter: blur(18px);
+  pointer-events: none;
+}
+
+/* 하단 포인트 오브 */
 .services-bridge-orb {
   position: absolute;
   left: 50%;
-  bottom: 28px;
-  width: 12px;
-  height: 12px;
+  bottom: 14px;
+  width: 10px;
+  height: 10px;
   transform: translateX(-50%);
   border-radius: 50%;
-  background: radial-gradient(circle, #ffffff 0%, #dbe8ff 42%, #7ea6ff 78%, rgba(126,166,255,0) 100%);
+  background: radial-gradient(circle, #ffffff 0%, #dce8ff 45%, #9dbdff 78%, rgba(157,189,255,0) 100%);
   box-shadow:
-    0 0 12px rgba(126,166,255,0.42),
-    0 0 24px rgba(126,166,255,0.24);
-  opacity: 0.95;
-}
-
-/* 브릿지 안의 은은한 하단 페이드 */
-.services-bridge-fade {
-  position: absolute;
-  inset: auto 0 0 0;
-  height: 92px;
-  background: linear-gradient(180deg, rgba(237,243,255,0) 0%, rgba(237,243,255,0.88) 72%, #edf3ff 100%);
+    0 0 10px rgba(157,189,255,0.22),
+    0 0 18px rgba(157,189,255,0.12);
   pointer-events: none;
 }
 
-/* 핵심 서비스 섹션을 브릿지와 자연스럽게 연결 */
+/* 기존 핵심 서비스 느낌 복구 */
 .services-core-section {
-  position: relative;
-  padding-top: 6px;
+  padding-top: 42px;
+  padding-bottom: 48px;
 }
 
 .services-core-section .services-section-header {
-  margin-top: 0;
-  margin-bottom: 26px;
+  text-align: center;
+  margin-bottom: 22px;
 }
 
-/* 데스크톱에서 카드가 너무 빨리 붙지 않게 */
+.services-core-section .services-section-kicker {
+  display: inline-block;
+  margin-bottom: 14px;
+  color: #2563eb;
+  font-size: 0.82rem;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.services-core-section .services-section-title {
+  margin: 0 0 14px;
+  font-size: clamp(2rem, 3vw, 2.8rem);
+  line-height: 1.2;
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  color: #102a5c;
+  word-break: keep-all;
+}
+
+.services-core-section .services-section-desc {
+  margin: 0 auto;
+  max-width: 920px;
+  color: #5d749d;
+  font-size: 1.04rem;
+  line-height: 1.9;
+  word-break: keep-all;
+}
+
 .services-core-section .services-highlight-grid {
-  margin-top: 40px;
+  margin-top: 34px;
 }
 
 @media (max-width: 991px) {
-  .services-bridge-band {
-    height: 180px;
-  }
-
-  .services-bridge-band::before {
-    top: -70px;
-    width: 92vw;
-    height: 160px;
-    filter: blur(12px);
+.services-bridge-band {
+    height: 150px;
   }
 
   .services-bridge-band::after {
-    top: 22px;
-    bottom: 18px;
+    width: 86vw;
+    height: 120px;
+    top: -20px;
+    filter: blur(14px);
   }
 
-  .services-bridge-orb {
-    bottom: 18px;
-    width: 10px;
-    height: 10px;
-  }
-
-  .services-bridge-fade {
-    height: 64px;
+  .services-core-section {
+    padding-top: 42px;
+    padding-bottom: 48px;
   }
 
   .services-core-section {
@@ -173,8 +178,18 @@
 
 @media (max-width: 640px) {
   .services-bridge-band {
-    height: 150px;
+    height: 110px;
   }
+
+  .services-core-section .services-section-title {
+    font-size: 1.8rem;
+  }
+
+  .services-core-section .services-section-desc {
+    font-size: 0.96rem;
+    line-height: 1.8;
+  }
+
 }
 /* =========================
    서비스 구조도 v2 최종
@@ -1373,7 +1388,9 @@
         </section>
 
         <!-- 구조도와 핵심 서비스 사이 브릿지 영역 -->
-        <section class="services-bridge-band" aria-hidden="true"></section>
+        <section class="services-bridge-band" aria-hidden="true">
+          <span class="services-bridge-orb"></span>
+        </section>
 
         <!-- 핵심 서비스 -->
         <section class="services-section services-core-section fade-up">
