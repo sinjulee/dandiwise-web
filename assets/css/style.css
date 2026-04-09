@@ -3722,7 +3722,7 @@ section[id] {
   box-shadow:
     0 22px 52px rgba(7, 22, 52, 0.08),
     inset 0 1px 0 rgba(255,255,255,0.45);
-  overflow: hidden;
+  overflow: visible;
 }
 
 .flow-track-glow {
@@ -3799,7 +3799,7 @@ section[id] {
 .flow-truck {
   position: absolute;
   left: 42px;
-  top: 136px;
+  top: 150px;
   z-index: 4;
   transform: translateX(0);
   opacity: 1;

@@ -1007,74 +1007,19 @@
     const progress = document.getElementById("flowProgress");
     const statusItems = Array.from(document.querySelectorAll(".flow-status-item"));
     const flowWrap = document.getElementById("flowAnimatedWrap");
+    const trackLine = document.querySelector(".flow-track-line");
 
-    if (!truck || !progress || !statusItems.length || !flowWrap) return;
+    if (!truck || !progress || !statusItems.length || !flowWrap || !trackLine) return;
 
-    const STEP_DURATION = 1400;   // 각 단계 이동 시간
-    const HIDE_DURATION = 260;    // 납품 후 사라지는 시간
-    const RESTART_DELAY = 420;    // 처음 위치에서 다시 나타나기 전 대기
+    const STEP_DURATION = 1400;
+    const HIDE_DURATION = 260;
+    const RESTART_DELAY = 420;
+    const START_OFFSET = 18; // 직선 시작점에서 살짝 안쪽
 
     let currentStep = 0;
     let loopTimer = null;
+    let resizeTimer = null;
     let isRunning = false;
-
-    function getWrapMetrics() {
-      const wrapRect = flowWrap.getBoundingClientRect();
-      const truckWidth = truck.offsetWidth;
-
-      return { wrapRect, truckWidth };
-    }
-
-    function getTruckX(index) {
-      const { wrapRect, truckWidth } = getWrapMetrics();
-      const stepRect = statusItems[index].getBoundingClientRect();
-
-      return stepRect.left - wrapRect.left + (stepRect.width / 2) - (truckWidth / 2);
-    }
-
-    function getProgressWidth(index) {
-      const wrapRect = flowWrap.getBoundingClientRect();
-      const stepRect = statusItems[index].getBoundingClientRect();
-      const lineLeft = 42; // CSS의 .flow-progress left 값과 맞춤
-
-      return stepRect.left - wrapRect.left + (stepRect.width / 2) - lineLeft;
-    }
-
-    function setActiveStep(index) {
-      statusItems.forEach((item, i) => {
-        item.classList.toggle("active", i === index);
-      });
-    }
-
-    function moveTruckTo(index, hide = false) {
-      const x = getTruckX(index);
-      const progressWidth = getProgressWidth(index);
-
-      truck.style.transform = `translateX(${x}px)`;
-      progress.style.width = `${Math.max(progressWidth, 0)}px`;
-
-      if (hide) {
-        truck.classList.add("is-hidden");
-      } else {
-        truck.classList.remove("is-hidden");
-      }
-    }
-
-    function resetToStartHidden() {
-      const startX = getTruckX(0);
-
-      truck.classList.add("is-hidden");
-      truck.style.transform = `translateX(${startX}px)`;
-      progress.style.width = "0px";
-
-      statusItems.forEach((item) => item.classList.remove("active"));
-    }
-
-    function showStartStep() {
-      currentStep = 0;
-      setActiveStep(0);
-      moveTruckTo(0, false);
-    }
 
     function clearLoopTimer() {
       if (loopTimer) {
@@ -1083,62 +1028,130 @@
       }
     }
 
-    function runLoop() {
+    function getWrapRect() {
+      return flowWrap.getBoundingClientRect();
+    }
+
+    function getTruckWidth() {
+      return truck.offsetWidth;
+    }
+
+    function getTrackStartX() {
+      const wrapRect = getWrapRect();
+      const lineRect = trackLine.getBoundingClientRect();
+      return lineRect.left - wrapRect.left - (getTruckWidth() / 2) + START_OFFSET;
+    }
+
+    function getStepCenterX(index) {
+      const wrapRect = getWrapRect();
+      const stepRect = statusItems[index].getBoundingClientRect();
+      return stepRect.left - wrapRect.left + (stepRect.width / 2) - (getTruckWidth() / 2);
+    }
+
+    function getProgressWidth(index) {
+      const wrapRect = getWrapRect();
+      const stepRect = statusItems[index].getBoundingClientRect();
+      const lineRect = trackLine.getBoundingClientRect();
+      const lineStart = lineRect.left - wrapRect.left;
+
+      return stepRect.left - wrapRect.left + (stepRect.width / 2) - lineStart;
+    }
+
+    function setActiveStep(index) {
+      statusItems.forEach((item, i) => {
+        item.classList.toggle("active", i === index);
+      });
+    }
+
+    function setTruckX(x) {
+      truck.style.transform = `translateX(${x}px)`;
+    }
+
+    function moveTruckToStep(index) {
+      const x = getStepCenterX(index);
+      const progressWidth = getProgressWidth(index);
+
+      truck.classList.remove("is-hidden");
+      setTruckX(x);
+      progress.style.width = `${Math.max(progressWidth, 0)}px`;
+      setActiveStep(index);
+    }
+
+    function resetTruckToLineStartHidden() {
+      truck.classList.add("is-hidden");
+      setTruckX(getTrackStartX());
+      progress.style.width = "0px";
+      statusItems.forEach((item) => item.classList.remove("active"));
+    }
+
+    function showTruckAtLineStart() {
+      truck.classList.remove("is-hidden");
+      setTruckX(getTrackStartX());
+      progress.style.width = "0px";
+      statusItems.forEach((item) => item.classList.remove("active"));
+    }
+
+    function runSequence() {
       if (!isRunning) return;
 
-      setActiveStep(currentStep);
-      moveTruckTo(currentStep, false);
+      if (currentStep < statusItems.length) {
+        moveTruckToStep(currentStep);
+        currentStep += 1;
 
-      if (currentStep === statusItems.length - 1) {
-        // 마지막(납품) 도착 → 잠깐 보여준 후 사라짐 → 처음으로 리셋 → 다시 등장
+        loopTimer = setTimeout(runSequence, STEP_DURATION);
+        return;
+      }
+
+      // 납품 끝난 후 숨김
+      truck.classList.add("is-hidden");
+
+      loopTimer = setTimeout(() => {
+        // 다시 직선 시작점으로 리셋
+        resetTruckToLineStartHidden();
+
         loopTimer = setTimeout(() => {
-          truck.classList.add("is-hidden");
+          // 시작점에서 다시 등장
+          showTruckAtLineStart();
 
           loopTimer = setTimeout(() => {
-            resetToStartHidden();
-
-            loopTimer = setTimeout(() => {
-              showStartStep();
-              currentStep = 1;
-              runLoop();
-            }, RESTART_DELAY);
-          }, HIDE_DURATION);
-        }, STEP_DURATION);
-      } else {
-        currentStep += 1;
-        loopTimer = setTimeout(runLoop, STEP_DURATION);
-      }
+            currentStep = 0;
+            runSequence();
+          }, 260);
+        }, RESTART_DELAY);
+      }, HIDE_DURATION);
     }
 
     function startFlow() {
       clearLoopTimer();
       isRunning = true;
-      resetToStartHidden();
+      currentStep = 0;
+
+      resetTruckToLineStartHidden();
 
       requestAnimationFrame(() => {
-        showStartStep();
-        currentStep = 1;
-        loopTimer = setTimeout(runLoop, STEP_DURATION);
+        showTruckAtLineStart();
+
+        loopTimer = setTimeout(() => {
+          runSequence();
+        }, 320);
       });
     }
 
     function restartFlow() {
       clearLoopTimer();
       isRunning = false;
-
-      resetToStartHidden();
+      resetTruckToLineStartHidden();
 
       setTimeout(() => {
         startFlow();
       }, 120);
     }
 
-    let resizeTimer = null;
     window.addEventListener("resize", () => {
       clearTimeout(resizeTimer);
       resizeTimer = setTimeout(() => {
         restartFlow();
-      }, 150);
+      }, 160);
     });
 
     startFlow();
