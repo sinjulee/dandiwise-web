@@ -254,9 +254,9 @@ body.services-page {
 
 .structure-lines-bottom {
   position: relative;
-  height: 38px;
-  margin-top: 18px;
-  margin-bottom: 52px;
+  height: 20px;
+  margin-top: 10px;
+  margin-bottom: 26px;
   display: block;
 }
 
@@ -269,7 +269,7 @@ body.services-page {
 
 .line-v-bottom-center {
   width: 2px;
-  height: 30px;
+  height: 50px;
   left: 50%;
   top: 0;
   transform: translateX(-50%);
