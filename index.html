@@ -1010,103 +1010,138 @@
 
     if (!truck || !progress || !statusItems.length || !flowWrap) return;
 
-    let currentStep = 0;
-    const totalSteps = statusItems.length;
-    const stepDuration = 1350;
-    const restartDelay = 420;
-    let timer = null;
+    const STEP_DURATION = 1400;   // 각 단계 이동 시간
+    const HIDE_DURATION = 260;    // 납품 후 사라지는 시간
+    const RESTART_DELAY = 420;    // 처음 위치에서 다시 나타나기 전 대기
 
-    function activateStep(index) {
+    let currentStep = 0;
+    let loopTimer = null;
+    let isRunning = false;
+
+    function getWrapMetrics() {
+      const wrapRect = flowWrap.getBoundingClientRect();
+      const truckWidth = truck.offsetWidth;
+
+      return { wrapRect, truckWidth };
+    }
+
+    function getTruckX(index) {
+      const { wrapRect, truckWidth } = getWrapMetrics();
+      const stepRect = statusItems[index].getBoundingClientRect();
+
+      return stepRect.left - wrapRect.left + (stepRect.width / 2) - (truckWidth / 2);
+    }
+
+    function getProgressWidth(index) {
+      const wrapRect = flowWrap.getBoundingClientRect();
+      const stepRect = statusItems[index].getBoundingClientRect();
+      const lineLeft = 42; // CSS의 .flow-progress left 값과 맞춤
+
+      return stepRect.left - wrapRect.left + (stepRect.width / 2) - lineLeft;
+    }
+
+    function setActiveStep(index) {
       statusItems.forEach((item, i) => {
         item.classList.toggle("active", i === index);
       });
     }
 
-    function getTruckX(index) {
-      const wrapRect = flowWrap.getBoundingClientRect();
-      const targetRect = statusItems[index].getBoundingClientRect();
-      const truckWidth = truck.offsetWidth;
-
-      return targetRect.left - wrapRect.left + (targetRect.width / 2) - (truckWidth / 2);
-    }
-
-    function getProgressWidth(index) {
-      const wrapRect = flowWrap.getBoundingClientRect();
-      const targetRect = statusItems[index].getBoundingClientRect();
-
-      return targetRect.left - wrapRect.left + (targetRect.width / 2) - 42;
-    }
-
-    function moveToStep(index) {
-      activateStep(index);
-
+    function moveTruckTo(index, hide = false) {
       const x = getTruckX(index);
       const progressWidth = getProgressWidth(index);
 
-      truck.classList.remove("is-hidden");
       truck.style.transform = `translateX(${x}px)`;
-      progress.style.width = `${progressWidth}px`;
+      progress.style.width = `${Math.max(progressWidth, 0)}px`;
+
+      if (hide) {
+        truck.classList.add("is-hidden");
+      } else {
+        truck.classList.remove("is-hidden");
+      }
     }
 
     function resetToStartHidden() {
-      truck.classList.add("is-hidden");
-      progress.style.width = "0px";
-
       const startX = getTruckX(0);
+
+      truck.classList.add("is-hidden");
       truck.style.transform = `translateX(${startX}px)`;
+      progress.style.width = "0px";
 
       statusItems.forEach((item) => item.classList.remove("active"));
     }
 
-    function runStep() {
-      moveToStep(currentStep);
+    function showStartStep() {
+      currentStep = 0;
+      setActiveStep(0);
+      moveTruckTo(0, false);
+    }
 
-      if (currentStep === totalSteps - 1) {
-        setTimeout(() => {
-          resetToStartHidden();
+    function clearLoopTimer() {
+      if (loopTimer) {
+        clearTimeout(loopTimer);
+        loopTimer = null;
+      }
+    }
 
-          setTimeout(() => {
-            currentStep = 0;
-            moveToStep(currentStep);
-            currentStep += 1;
-          }, restartDelay);
-        }, stepDuration - 140);
+    function runLoop() {
+      if (!isRunning) return;
+
+      setActiveStep(currentStep);
+      moveTruckTo(currentStep, false);
+
+      if (currentStep === statusItems.length - 1) {
+        // 마지막(납품) 도착 → 잠깐 보여준 후 사라짐 → 처음으로 리셋 → 다시 등장
+        loopTimer = setTimeout(() => {
+          truck.classList.add("is-hidden");
+
+          loopTimer = setTimeout(() => {
+            resetToStartHidden();
+
+            loopTimer = setTimeout(() => {
+              showStartStep();
+              currentStep = 1;
+              runLoop();
+            }, RESTART_DELAY);
+          }, HIDE_DURATION);
+        }, STEP_DURATION);
       } else {
         currentStep += 1;
-      }
-
-      if (currentStep >= totalSteps) {
-        currentStep = 0;
+        loopTimer = setTimeout(runLoop, STEP_DURATION);
       }
     }
 
-    function startLoop() {
-      const startX = getTruckX(0);
-      truck.style.transform = `translateX(${startX}px)`;
-      truck.classList.remove("is-hidden");
-      activateStep(0);
-      progress.style.width = `${getProgressWidth(0)}px`;
+    function startFlow() {
+      clearLoopTimer();
+      isRunning = true;
+      resetToStartHidden();
 
-      currentStep = 1;
-
-      timer = setInterval(() => {
-        runStep();
-      }, stepDuration);
+      requestAnimationFrame(() => {
+        showStartStep();
+        currentStep = 1;
+        loopTimer = setTimeout(runLoop, STEP_DURATION);
+      });
     }
 
-    function restartLoop() {
-      if (timer) clearInterval(timer);
-      truck.classList.add("is-hidden");
-      progress.style.width = "0px";
+    function restartFlow() {
+      clearLoopTimer();
+      isRunning = false;
+
+      resetToStartHidden();
 
       setTimeout(() => {
-        startLoop();
+        startFlow();
       }, 120);
     }
 
-    window.addEventListener("resize", restartLoop);
+    let resizeTimer = null;
+    window.addEventListener("resize", () => {
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(() => {
+        restartFlow();
+      }, 150);
+    });
 
-    startLoop();
+    startFlow();
   })();
 </script>
 
