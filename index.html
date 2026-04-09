@@ -1039,7 +1039,7 @@
     function getTrackStartX() {
       const wrapRect = getWrapRect();
       const lineRect = trackLine.getBoundingClientRect();
-      return lineRect.left - wrapRect.left - (getTruckWidth() / 2) + START_OFFSET;
+      return lineRect.left - wrapRect.left - (getTruckWidth() / 2) - 6;
     }
 
     function getStepCenterX(index) {
