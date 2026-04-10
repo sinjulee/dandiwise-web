@@ -444,122 +444,90 @@
 <!-- Network -->
 <section class="section section-dark network-diagram-section" style="padding-top: 80px;">
   <div class="container-wide">
-    <div class="section-heading fade-up">
-      <span class="section-kicker">NETWORK STRUCTURE</span>
-      <h2 class="section-title text-white">
-        전문성과 실행력을 연결하는<br>
-        협업 구조
-      </h2>
-      <p class="section-desc text-blue-soft">
-        컨설팅, 인력 운영, 운송 네트워크가 분리되지 않고 하나의 구조로 연결될 때<br>
-        더 안정적인 물류 운영이 가능합니다.
-      </p>
-    </div>
-
     <div class="network-diagram-wrap fade-up">
-      <svg
-        class="network-ring-svg"
-        viewBox="0 0 560 560"
-        aria-label="협업 구조 도식"
-        role="img"
-      >
-        <defs>
-          <!-- 텍스트용 곡선 경로 -->
-          <path
-            id="label-arc-left"
-            d="M 150 190
-              A 150 150 0 0 1 255 110"
-            fill="none"
-          />
-          <path
-            id="label-arc-right"
-            d="M 305 110
-              A 150 150 0 0 1 410 190"
-            fill="none"
-          />
-          <path
-            id="label-arc-bottom"
-            d="M 390 365
-              A 145 145 0 0 1 170 365"
-            fill="none"
-          />
-        </defs>
+  <svg
+    class="network-ring-svg"
+    viewBox="0 0 560 560"
+    aria-label="협업 구조 도식"
+    role="img"
+  >
+    <defs>
+      <!-- 바깥 텍스트용 곡선 -->
+      <path id="arc-left" d="M 168 195 A 155 155 0 0 1 247 121" fill="none" />
+      <path id="arc-right" d="M 313 121 A 155 155 0 0 1 392 195" fill="none" />
+      <path id="arc-bottom" d="M 378 370 A 145 145 0 0 1 182 370" fill="none" />
+    </defs>
 
-        <!-- 바깥 배경 원 -->
-        <circle cx="280" cy="280" r="210" class="network-bg-circle" />
+    <!-- 바깥 배경 -->
+    <circle cx="280" cy="280" r="210" class="network-bg-circle" />
 
-        <!-- 상단 좌측 -->
-        <path
-          class="wing wing-left"
-          d="M 280 190
-            Q 245 150 210 90
-            A 210 210 0 0 1 280 70
-            L 280 190 Z"
-        />
+    <!-- 정식 링 3분할 -->
+    <!-- 좌상 -->
+    <path
+      class="ring-piece ring-piece-left"
+      d="M 280 70
+         A 210 210 0 0 0 205.75 83.57
+         L 244.68 190.49
+         A 96 96 0 0 1 280 184
+         Z"
+    />
 
-        <!-- 상단 우측 -->
-        <path
-          class="wing wing-right"
-          d="M 280 190
-            L 280 70
-            A 210 210 0 0 1 350 90
-            Q 315 150 280 190 Z"
-        />
+    <!-- 우상 -->
+    <path
+      class="ring-piece ring-piece-right"
+      d="M 354.25 83.57
+         A 210 210 0 0 0 280 70
+         L 280 184
+         A 96 96 0 0 1 315.32 190.49
+         Z"
+    />
 
-        <!-- 하단 좌측 -->
-        <path
-          class="wing wing-bottom-left"
-          d="M 240 350
-            Q 195 385 130 445
-            A 210 210 0 0 1 200 360
-            Q 220 355 240 350 Z"
-        />
+    <!-- 하단 -->
+    <path
+      class="ring-piece ring-piece-bottom"
+      d="M 171.88 460.03
+         A 210 210 0 0 0 388.12 460.03
+         L 329.43 362.32
+         A 96 96 0 0 1 230.57 362.32
+         Z"
+    />
 
-        <!-- 하단 우측 -->
-        <path
-          class="wing wing-bottom-right"
-          d="M 320 350
-            Q 365 385 430 445
-            A 210 210 0 0 0 360 360
-            Q 340 355 320 350 Z"
-        />
+    <!-- 중앙 원 -->
+    <circle cx="280" cy="280" r="98" class="network-center-circle" />
 
-        <!-- 중앙 원 -->
-        <circle cx="280" cy="280" r="98" class="network-center-circle" />
+    <!-- 구분선 -->
+    <line x1="280" y1="70" x2="280" y2="184" class="network-divider" />
+    <line x1="171.88" y1="460.03" x2="230.57" y2="362.32" class="network-divider" />
+    <line x1="388.12" y1="460.03" x2="329.43" y2="362.32" class="network-divider" />
 
-        <!-- 구분선 -->
-        <line x1="280" y1="70" x2="280" y2="182" class="network-divider" />
-        <line x1="214" y1="356" x2="240" y2="332" class="network-divider" />
-        <line x1="346" y1="356" x2="320" y2="332" class="network-divider" />
+    <!-- 곡선 텍스트 -->
+    <text class="ring-label ring-label-left">
+      <textPath href="#arc-left" startOffset="50%" text-anchor="middle">
+        물류 전문 컨설팅
+      </textPath>
+    </text>
 
-        <!-- 바깥 텍스트 -->
-        <text class="ring-label ring-label-left">
-          <textPath href="#label-arc-left" startOffset="50%" text-anchor="middle">
-            물류 전문 컨설팅
-          </textPath>
-        </text>
+    <text class="ring-label ring-label-right">
+      <textPath href="#arc-right" startOffset="50%" text-anchor="middle">
+        운송사·주선 네트워크
+      </textPath>
+    </text>
 
-        <text class="ring-label ring-label-right">
-          <textPath href="#label-arc-right" startOffset="50%" text-anchor="middle">
-            운송사·주선 네트워크
-          </textPath>
-        </text>
+    <text class="ring-label ring-label-bottom">
+      <textPath href="#arc-bottom" startOffset="50%" text-anchor="middle">
+        인력 운영 네트워크
+      </textPath>
+    </text>
 
-        <text class="ring-label ring-label-bottom">
-          <textPath href="#label-arc-bottom" startOffset="50%" text-anchor="middle">
-            인력 운영 네트워크
-          </textPath>
-        </text>
-
-        <!-- 중앙 텍스트 -->
-        <text x="280" y="266" text-anchor="middle" class="center-label center-label-top">
-          물류
-        </text>
-        <text x="280" y="312" text-anchor="middle" class="center-label center-label-bottom">
-          전문가 집단
-        </text>
-      </svg>
-    </div>
+    <!-- 중앙 텍스트 -->
+    <text x="280" y="258" text-anchor="middle" class="center-label center-label-top">
+      물류
+    </text>
+    <text x="280" y="304" text-anchor="middle" class="center-label center-label-bottom">
+      전문가 집단
+    </text>
+  </svg>
+</div>
   </div>
 </section>
 
