@@ -3873,7 +3873,7 @@ section[id] {
 }
 
 /* =========================
-   Network Ring Diagram
+   Network Diagram SVG
    ========================= */
 
 .network-diagram-wrap {
@@ -3881,121 +3881,112 @@ section[id] {
   justify-content: center;
   align-items: center;
   margin-top: 44px;
-  padding: 30px 20px 10px;
-  background: linear-gradient(180deg, rgba(7, 28, 74, 0.32), rgba(4, 19, 52, 0.2));
-  border: 1px solid rgba(104, 160, 255, 0.14);
-  box-shadow: inset 0 1px 0 rgba(255,255,255,0.03);
+  padding: 26px 20px 10px;
 }
 
 .network-ring-svg {
-  width: min(74vw, 560px);
+  width: min(76vw, 620px);
   height: auto;
   display: block;
-  filter: drop-shadow(0 22px 40px rgba(0, 0, 0, 0.28));
+  filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.25));
 }
 
 .network-bg-circle {
-  fill: rgba(8, 29, 73, 0.65);
+  fill: rgba(4, 30, 92, 0.45);
 }
 
-/* 3개 외곽 영역 색상 모두 다르게 */
-.ring-segment {
-  stroke: rgba(255,255,255,0.12);
-  stroke-width: 1.2;
-  transition: transform 0.25s ease, opacity 0.25s ease;
-  transform-origin: 260px 260px;
+/* 날개 도형 */
+.wing {
+  stroke: rgba(255, 255, 255, 0.88);
+  stroke-width: 1.8;
+  stroke-linejoin: round;
 }
 
-.segment-consulting {
-  fill: #1a6a8f; /* 좌측 */
+.wing-left {
+  fill: #326bb0;
 }
 
-.segment-people {
-  fill: #2d8a7e; /* 하단 */
+.wing-right {
+  fill: #2d8ab0;
 }
 
-.segment-transport {
-  fill: #2f5f9d; /* 우측 */
+.wing-bottom-left {
+  fill: #3aa08f;
 }
 
-.network-ring-svg:hover .ring-segment {
-  opacity: 0.95;
+.wing-bottom-right {
+  fill: #4a7fcb;
 }
 
-/* 중심은 가장 눈에 띄게 */
+/* 중앙 원 */
 .network-center-circle {
-  fill: #1ea7d7;
-  stroke: rgba(8, 22, 52, 0.75);
+  fill: #29a6d8;
+  stroke: rgba(8, 24, 56, 0.8);
   stroke-width: 2;
-  filter: drop-shadow(0 0 20px rgba(30, 167, 215, 0.24));
+  filter: drop-shadow(0 0 18px rgba(41, 166, 216, 0.25));
 }
 
-/* 구분선 */
+/* 연결선 */
 .network-divider {
-  stroke: rgba(255,255,255,0.9);
-  stroke-width: 1.6;
+  stroke: rgba(255, 255, 255, 0.95);
+  stroke-width: 1.7;
+  stroke-linecap: round;
 }
 
-/* 바깥 텍스트 */
+/* 바깥 라벨 */
 .ring-label {
   fill: #ffffff;
-  font-size: 21px;
+  font-size: 20px;
   font-weight: 800;
-  letter-spacing: -0.03em;
-  dominant-baseline: middle;
-}
-
-.ring-label-consulting {
-  fill: #f4fbff;
-}
-
-.ring-label-people {
-  fill: #f4fffb;
-}
-
-.ring-label-transport {
-  fill: #f3f7ff;
-}
-
-/* 중앙 텍스트 */
-.center-label {
-  fill: #ffffff;
-  font-weight: 900;
   letter-spacing: -0.04em;
 }
 
+.ring-label-bottom {
+  font-size: 19px;
+}
+
+/* 중앙 라벨 */
+.center-label {
+  fill: #ffffff;
+  font-weight: 900;
+  letter-spacing: -0.05em;
+}
+
 .center-label-top {
-  font-size: 30px;
+  font-size: 34px;
 }
 
 .center-label-bottom {
-  font-size: 30px;
+  font-size: 34px;
 }
 
 /* 반응형 */
 @media (max-width: 768px) {
-  .network-diagram-wrap {
-    margin-top: 32px;
-    padding: 22px 10px 4px;
-  }
-
   .network-ring-svg {
-    width: min(90vw, 460px);
+    width: min(92vw, 500px);
   }
 
   .ring-label {
-    font-size: 18px;
+    font-size: 17px;
+  }
+
+  .ring-label-bottom {
+    font-size: 16px;
   }
 
   .center-label-top,
   .center-label-bottom {
-    font-size: 26px;
+    font-size: 28px;
   }
 }
 
 @media (max-width: 480px) {
   .ring-label {
-    font-size: 15px;
+    font-size: 14px;
+  }
+
+  .ring-label-bottom {
+    font-size: 13px;
   }
 
   .center-label-top,
