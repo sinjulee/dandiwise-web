@@ -441,64 +441,110 @@
   </div>
 </section>
 
-    <!-- Network -->
-    <section class="section section-dark" style="padding-top: 80px;">
-      <div class="container-wide">
-        <div class="section-heading fade-up">
-          <span class="section-kicker">NETWORK STRUCTURE</span>
-          <h2 class="section-title text-white">
-            전문성과 실행력을 연결하는<br>
-            협업 구조
-          </h2>
-          <p class="section-desc text-blue-soft">
-            컨설팅, 인력 운영, 운송 네트워크가 분리되지 않고 하나의 구조로 연결될 때
-            더 안정적인 물류 운영이 가능합니다.
-          </p>
-        </div>
+<!-- Network -->
+<section class="section section-dark network-diagram-section" style="padding-top: 80px;">
+  <div class="container-wide">
+    <div class="section-heading fade-up">
+      <span class="section-kicker">NETWORK STRUCTURE</span>
+      <h2 class="section-title text-white">
+        전문성과 실행력을 연결하는<br>
+        협업 구조
+      </h2>
+      <p class="section-desc text-blue-soft">
+        컨설팅, 인력 운영, 운송 네트워크가 분리되지 않고 하나의 구조로 연결될 때<br>
+        더 안정적인 물류 운영이 가능합니다.
+      </p>
+    </div>
 
-        <div class="network-shell fade-up">
-          <div class="network-top">
-            <div class="network-core">
-              <h3>물류 전문가 집단</h3>
-              <p>
-                식자재 대기업 출신 물류 전문가를 중심으로
-                물류전문 컨설팅, 인력 도급 및 파견, 운송사 및 주선 네트워크가 결합된
-                차별화된 솔루션 구조를 제공합니다.
-              </p>
-            </div>
-          </div>
+    <div class="network-diagram-wrap fade-up">
+      <svg
+        class="network-ring-svg"
+        viewBox="0 0 520 520"
+        aria-label="협업 구조 도식"
+        role="img"
+      >
+        <defs>
+          <!-- 바깥 링 3개 구간용 호 -->
+          <path
+            id="arc-top-left"
+            d="M 137.46 189.25
+              A 140 140 0 0 1 260 120"
+            fill="none"
+          />
+          <path
+            id="arc-top-right"
+            d="M 260 120
+              A 140 140 0 0 1 382.54 189.25"
+            fill="none"
+          />
+          <path
+            id="arc-bottom"
+            d="M 369.44 323
+              A 140 140 0 0 1 150.56 323"
+            fill="none"
+          />
+        </defs>
 
-          <div class="network-row">
-            <div class="network-plus plus-a">+</div>
-            <div class="network-plus plus-b">+</div>
+        <!-- 배경 -->
+        <circle cx="260" cy="260" r="210" class="network-bg-circle" />
 
-            <div class="network-item">
-              <h4>물류전문 컨설팅</h4>
-              <p>
-                ㈜디앤아이 중심의 물류 구조 설계와
-                운영 개선, 비용 최적화 방향을 제안합니다.
-              </p>
-            </div>
+        <!-- 바깥 링 3분할 -->
+        <path
+          class="ring-segment segment-consulting"
+          d="M 260 260 L 260 50
+            A 210 210 0 0 1 111.51 408.49
+            Z"
+        />
+        <path
+          class="ring-segment segment-people"
+          d="M 260 260 L 111.51 408.49
+            A 210 210 0 0 1 408.49 408.49
+            Z"
+        />
+        <path
+          class="ring-segment segment-transport"
+          d="M 260 260 L 408.49 408.49
+            A 210 210 0 0 1 260 50
+            Z"
+        />
 
-            <div class="network-item">
-              <h4>인력 운영 네트워크</h4>
-              <p>
-                ㈜로지스앤크루, ㈜두드림 기반의
-                도급 및 파견 운영 체계를 통해 현장 대응력을 높입니다.
-              </p>
-            </div>
+        <!-- 구분선 -->
+        <line x1="260" y1="260" x2="260" y2="50" class="network-divider" />
+        <line x1="260" y1="260" x2="111.51" y2="408.49" class="network-divider" />
+        <line x1="260" y1="260" x2="408.49" y2="408.49" class="network-divider" />
 
-            <div class="network-item">
-              <h4>운송사·주선 네트워크</h4>
-              <p>
-                ㈜콜드온, ㈜A7 등 운송 네트워크와 연계해
-                차량 수급 안정화와 납품 품질 향상을 지원합니다.
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+        <!-- 중앙 원 -->
+        <circle cx="260" cy="260" r="96" class="network-center-circle" />
+
+        <!-- 텍스트 -->
+        <text class="ring-label ring-label-consulting">
+          <textPath href="#arc-top-left" startOffset="50%" text-anchor="middle">
+            물류 전문 컨설팅
+          </textPath>
+        </text>
+
+        <text class="ring-label ring-label-transport">
+          <textPath href="#arc-top-right" startOffset="50%" text-anchor="middle">
+            운송사·주선 네트워크
+          </textPath>
+        </text>
+
+        <text class="ring-label ring-label-people">
+          <textPath href="#arc-bottom" startOffset="50%" text-anchor="middle">
+            인력 운영 네트워크
+          </textPath>
+        </text>
+
+        <text x="260" y="248" text-anchor="middle" class="center-label center-label-top">
+          물류
+        </text>
+        <text x="260" y="282" text-anchor="middle" class="center-label center-label-bottom">
+          전문가 집단
+        </text>
+      </svg>
+    </div>
+  </div>
+</section>
 
     <!-- Capability -->
     <section class="section section-light">
