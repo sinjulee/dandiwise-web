@@ -3873,7 +3873,7 @@ section[id] {
 }
 
 /* =========================
-   Network Structure Diagram
+   Network Structure Diagram & Animation
    ========================= */
 
 .network-structure-section {
@@ -3896,21 +3896,29 @@ section[id] {
   filter: drop-shadow(0 15px 30px rgba(0, 0, 0, 0.3));
 }
 
-/* 바깥쪽 3분할 링 컬러 (서로 다른 3가지 색상) */
-.ring-part {
-  transition: transform 0.3s ease, opacity 0.3s ease;
-}
-.part-bottom {
-  stroke: #2a9d8f; /* 하단: 부드러운 그린 틸 */
-}
-.part-left {
-  stroke: #1d3557; /* 좌측: 깊고 전문적인 네이비 */
-}
-.part-right {
-  stroke: #457b9d; /* 우측: 안정적인 블루 틸 */
+/* 애니메이션을 위한 트랜지션 설정 */
+.ring-container {
+  /* 부드럽지만 끝에서 살짝 감속하는 고급스러운 회전 */
+  transition: transform 1s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
-/* 중앙 원 (가장 눈에 띄는 형광/밝은 시안 톤) */
+.ring-segment {
+  /* 통통 튀는 느낌의 팝업(확대/축소) 트랜지션 */
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* 자바스크립트가 타이밍에 맞춰 이 클래스를 붙였다 뗍니다 */
+.ring-segment.pop {
+  transform: scale(1.05); /* 5% 확대 */
+  filter: drop-shadow(0 0 15px rgba(255, 255, 255, 0.15));
+}
+
+/* 바깥쪽 3분할 링 컬러 */
+.part-bottom { stroke: #2a9d8f; }
+.part-left { stroke: #1d3557; }
+.part-right { stroke: #457b9d; }
+
+/* 중앙 원 */
 .network-center-circle {
   fill: #00b4d8; 
   stroke: #ffffff;
@@ -3918,53 +3926,35 @@ section[id] {
   filter: drop-shadow(0 4px 15px rgba(0, 180, 216, 0.6));
 }
 
-/* 곡선 텍스트 공통 스타일 */
+/* 곡선 텍스트 */
 .ring-text {
   fill: #ffffff;
   font-size: 19px;
   font-weight: 700;
   letter-spacing: -0.03em;
-  dominant-baseline: middle; /* 텍스트 수직 중앙 정렬 */
+  dominant-baseline: middle;
 }
 
-/* 중앙 텍스트 공통 스타일 */
+/* 중앙 텍스트 */
 .center-text {
   fill: #ffffff;
   font-weight: 800;
   letter-spacing: -0.05em;
   text-anchor: middle;
 }
-.center-title {
-  font-size: 32px;
-}
-.center-subtitle {
-  font-size: 30px;
-}
+.center-title { font-size: 32px; }
+.center-subtitle { font-size: 30px; }
 
-/* 반응형 모바일 사이즈 조정 */
+/* 반응형 */
 @media (max-width: 768px) {
-  .network-diagram-wrap {
-    margin-top: 30px;
-  }
-  .ring-text {
-    font-size: 16px;
-  }
-  .center-title {
-    font-size: 26px;
-  }
-  .center-subtitle {
-    font-size: 24px;
-  }
+  .network-diagram-wrap { margin-top: 30px; }
+  .ring-text { font-size: 16px; }
+  .center-title { font-size: 26px; }
+  .center-subtitle { font-size: 24px; }
 }
 
 @media (max-width: 480px) {
-  .ring-text {
-    font-size: 14px;
-  }
-  .center-title {
-    font-size: 22px;
-  }
-  .center-subtitle {
-    font-size: 20px;
-  }
+  .ring-text { font-size: 14px; }
+  .center-title { font-size: 22px; }
+  .center-subtitle { font-size: 20px; }
 }
