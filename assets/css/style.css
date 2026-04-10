@@ -3873,86 +3873,87 @@ section[id] {
 }
 
 /* =========================
-   Network Diagram SVG
+   Network Structure Diagram
    ========================= */
+
+.network-structure-section {
+  position: relative;
+  overflow: hidden;
+}
 
 .network-diagram-wrap {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 44px;
-  padding: 24px 20px 6px;
+  margin-top: 42px;
+  padding: 16px 0 0;
 }
 
 .network-ring-svg {
-  width: min(76vw, 620px);
+  width: min(78vw, 620px);
   height: auto;
   display: block;
-  filter: drop-shadow(0 18px 36px rgba(0, 0, 0, 0.24));
+  overflow: visible;
+  filter: drop-shadow(0 18px 40px rgba(0, 0, 0, 0.22));
 }
 
-.network-bg-circle {
-  fill: rgba(3, 31, 96, 0.45);
+.network-base-circle {
+  fill: rgba(3, 31, 96, 0.52);
 }
 
-/* 정식 링 조각 */
-.ring-piece {
+.network-wedge {
   stroke: rgba(255, 255, 255, 0.88);
-  stroke-width: 2;
+  stroke-width: 2.2;
   stroke-linejoin: round;
 }
 
-.ring-piece-left {
-  fill: #3a73b7;
+.wedge-left {
+  fill: #3d73b8;
 }
 
-.ring-piece-right {
-  fill: #338eb3;
+.wedge-right {
+  fill: #3e93b5;
 }
 
-.ring-piece-bottom {
-  fill: #3fa292;
+.wedge-bottom {
+  fill: #49a79a;
 }
 
-/* 중앙 원 */
-.network-center-circle {
-  fill: #2fa3d5;
-  stroke: rgba(8, 24, 56, 0.82);
-  stroke-width: 2;
-  filter: drop-shadow(0 0 18px rgba(47, 163, 213, 0.24));
-}
-
-/* 구분선 */
 .network-divider {
   stroke: rgba(255, 255, 255, 0.95);
   stroke-width: 1.8;
   stroke-linecap: round;
 }
 
-/* 바깥 텍스트 */
-.ring-label {
+.network-center-circle {
+  fill: #34a5d7;
+  stroke: rgba(8, 24, 56, 0.82);
+  stroke-width: 2.2;
+  filter: drop-shadow(0 0 18px rgba(52, 165, 215, 0.22));
+}
+
+.network-label {
   fill: #ffffff;
-  font-size: 20px;
+  font-size: 18px;
   font-weight: 800;
   letter-spacing: -0.04em;
 }
 
-.ring-label-bottom {
-  font-size: 19px;
+.network-label-bottom {
+  font-size: 17px;
 }
 
-/* 중앙 텍스트 */
-.center-label {
+.network-center-text {
   fill: #ffffff;
   font-weight: 900;
   letter-spacing: -0.05em;
 }
 
-.center-label-top {
+.network-center-text-top {
   font-size: 34px;
 }
 
-.center-label-bottom {
+.network-center-text-bottom {
   font-size: 34px;
 }
 
@@ -3961,31 +3962,31 @@ section[id] {
     width: min(92vw, 500px);
   }
 
-  .ring-label {
-    font-size: 17px;
+  .network-label {
+    font-size: 15px;
   }
 
-  .ring-label-bottom {
-    font-size: 16px;
+  .network-label-bottom {
+    font-size: 14px;
   }
 
-  .center-label-top,
-  .center-label-bottom {
+  .network-center-text-top,
+  .network-center-text-bottom {
     font-size: 28px;
   }
 }
 
 @media (max-width: 480px) {
-  .ring-label {
-    font-size: 14px;
-  }
-
-  .ring-label-bottom {
+  .network-label {
     font-size: 13px;
   }
 
-  .center-label-top,
-  .center-label-bottom {
+  .network-label-bottom {
+    font-size: 12px;
+  }
+
+  .network-center-text-top,
+  .network-center-text-bottom {
     font-size: 22px;
   }
 }
