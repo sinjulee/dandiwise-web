@@ -3873,7 +3873,7 @@ section[id] {
 }
 
 /* =========================
-   Network Structure Diagram
+   Network Structure Diagram (안정감 + 인터랙션)
    ========================= */
 
 .network-structure-section {
@@ -3889,37 +3889,56 @@ section[id] {
   padding: 20px 0;
 }
 
-/* 크기를 20% 키웠습니다 (600px -> 720px) */
 .network-ring-svg {
   width: min(90vw, 720px); 
   height: auto;
   display: block;
-  filter: drop-shadow(0 15px 30px rgba(0, 0, 0, 0.3));
+  /* 기본 그림자 */
+  filter: drop-shadow(0 15px 30px rgba(0, 0, 0, 0.4));
 }
 
-/* 아주 천천히 돌아가는 애니메이션 정의 */
-@keyframes slowSpin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-}
-
-/* 바깥 링 그룹에 회전 애니메이션 적용 (40초에 1바퀴) */
+/* 링 그룹 회전(어지러운 부분) 제거, 기본 상태 유지 */
 .ring-container {
   transform-origin: 300px 300px;
-  animation: slowSpin 40s linear infinite; 
+}
+
+/* 🌟 마우스 오버 효과 추가 */
+.ring-segment {
+  cursor: pointer;
+  transition: opacity 0.4s ease;
+}
+
+/* 링 컨테이너에 마우스를 올리면 전체적으로 살짝 어두워짐 */
+.ring-container:hover .ring-segment {
+  opacity: 0.4;
+}
+
+/* 마우스가 올라간 특정 조각만 다시 밝아지고 빛남 */
+.ring-container .ring-segment:hover {
+  opacity: 1;
+  filter: drop-shadow(0 0 20px rgba(255, 255, 255, 0.3));
 }
 
 /* 바깥쪽 3분할 링 컬러 */
-.part-bottom { stroke: #2a9d8f; }
-.part-left { stroke: #1d3557; }
-.part-right { stroke: #457b9d; }
+.part-bottom { stroke: #2a9d8f; transition: stroke 0.3s; }
+.part-left { stroke: #1d3557; transition: stroke 0.3s; }
+.part-right { stroke: #457b9d; transition: stroke 0.3s; }
+
+/* 🌟 중앙 원 심장박동(Pulse) 애니메이션 */
+@keyframes pulseGlow {
+  0% { filter: drop-shadow(0 0 10px rgba(0, 180, 216, 0.4)); }
+  50% { filter: drop-shadow(0 0 35px rgba(0, 180, 216, 0.9)); }
+  100% { filter: drop-shadow(0 0 10px rgba(0, 180, 216, 0.4)); }
+}
 
 /* 중앙 원 */
 .network-center-circle {
   fill: #00b4d8; 
   stroke: #ffffff;
   stroke-width: 4;
-  filter: drop-shadow(0 4px 15px rgba(0, 180, 216, 0.6));
+  transform-origin: center;
+  /* 회전 대신 은은하게 빛이 퍼지는 효과 */
+  animation: pulseGlow 3s infinite ease-in-out;
 }
 
 /* 곡선 텍스트 */
@@ -3929,6 +3948,7 @@ section[id] {
   font-weight: 700;
   letter-spacing: -0.03em;
   dominant-baseline: middle;
+  pointer-events: none; /* 텍스트 위에 마우스가 올라가도 도형 오버 효과 방해 안 함 */
 }
 
 /* 중앙 텍스트 */
@@ -3937,6 +3957,7 @@ section[id] {
   font-weight: 800;
   letter-spacing: -0.05em;
   text-anchor: middle;
+  pointer-events: none;
 }
 .center-title { font-size: 32px; }
 .center-subtitle { font-size: 30px; }
