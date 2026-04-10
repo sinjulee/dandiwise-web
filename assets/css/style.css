@@ -3885,108 +3885,86 @@ section[id] {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 42px;
-  padding: 16px 0 0;
+  margin-top: 40px;
+  padding: 20px 0;
 }
 
 .network-ring-svg {
-  width: min(78vw, 620px);
+  width: min(85vw, 600px);
   height: auto;
   display: block;
-  overflow: visible;
-  filter: drop-shadow(0 18px 40px rgba(0, 0, 0, 0.22));
+  filter: drop-shadow(0 15px 30px rgba(0, 0, 0, 0.3));
 }
 
-.network-base-circle {
-  fill: rgba(3, 31, 96, 0.52);
+/* 바깥쪽 3분할 링 컬러 (서로 다른 3가지 색상) */
+.ring-part {
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+.part-bottom {
+  stroke: #2a9d8f; /* 하단: 부드러운 그린 틸 */
+}
+.part-left {
+  stroke: #1d3557; /* 좌측: 깊고 전문적인 네이비 */
+}
+.part-right {
+  stroke: #457b9d; /* 우측: 안정적인 블루 틸 */
 }
 
-.network-wedge {
-  stroke: rgba(255, 255, 255, 0.88);
-  stroke-width: 2.2;
-  stroke-linejoin: round;
-}
-
-.wedge-left {
-  fill: #3d73b8;
-}
-
-.wedge-right {
-  fill: #3e93b5;
-}
-
-.wedge-bottom {
-  fill: #49a79a;
-}
-
-.network-divider {
-  stroke: rgba(255, 255, 255, 0.95);
-  stroke-width: 1.8;
-  stroke-linecap: round;
-}
-
+/* 중앙 원 (가장 눈에 띄는 형광/밝은 시안 톤) */
 .network-center-circle {
-  fill: #34a5d7;
-  stroke: rgba(8, 24, 56, 0.82);
-  stroke-width: 2.2;
-  filter: drop-shadow(0 0 18px rgba(52, 165, 215, 0.22));
+  fill: #00b4d8; 
+  stroke: #ffffff;
+  stroke-width: 4;
+  filter: drop-shadow(0 4px 15px rgba(0, 180, 216, 0.6));
 }
 
-.network-label {
+/* 곡선 텍스트 공통 스타일 */
+.ring-text {
   fill: #ffffff;
-  font-size: 18px;
+  font-size: 19px;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  dominant-baseline: middle; /* 텍스트 수직 중앙 정렬 */
+}
+
+/* 중앙 텍스트 공통 스타일 */
+.center-text {
+  fill: #ffffff;
   font-weight: 800;
-  letter-spacing: -0.04em;
-}
-
-.network-label-bottom {
-  font-size: 17px;
-}
-
-.network-center-text {
-  fill: #ffffff;
-  font-weight: 900;
   letter-spacing: -0.05em;
+  text-anchor: middle;
+}
+.center-title {
+  font-size: 32px;
+}
+.center-subtitle {
+  font-size: 30px;
 }
 
-.network-center-text-top {
-  font-size: 34px;
-}
-
-.network-center-text-bottom {
-  font-size: 34px;
-}
-
+/* 반응형 모바일 사이즈 조정 */
 @media (max-width: 768px) {
-  .network-ring-svg {
-    width: min(92vw, 500px);
+  .network-diagram-wrap {
+    margin-top: 30px;
   }
-
-  .network-label {
-    font-size: 15px;
+  .ring-text {
+    font-size: 16px;
   }
-
-  .network-label-bottom {
-    font-size: 14px;
+  .center-title {
+    font-size: 26px;
   }
-
-  .network-center-text-top,
-  .network-center-text-bottom {
-    font-size: 28px;
+  .center-subtitle {
+    font-size: 24px;
   }
 }
 
 @media (max-width: 480px) {
-  .network-label {
-    font-size: 13px;
+  .ring-text {
+    font-size: 14px;
   }
-
-  .network-label-bottom {
-    font-size: 12px;
-  }
-
-  .network-center-text-top,
-  .network-center-text-bottom {
+  .center-title {
     font-size: 22px;
+  }
+  .center-subtitle {
+    font-size: 20px;
   }
 }
