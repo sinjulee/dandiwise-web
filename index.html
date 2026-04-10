@@ -460,25 +460,25 @@
     <div class="network-diagram-wrap fade-up">
       <svg class="network-ring-svg" viewBox="0 0 600 600" aria-label="협업 구조 도식" role="img">
         
-        <!-- 회전하는 바깥 링 그룹 -->
-        <g class="ring-container" style="transform-origin: 300px 300px;">
+        <!-- 아주 천천히 회전하는 바깥 링 그룹 -->
+        <g class="ring-container">
           
           <!-- 좌측 링 (물류 전문 컨설팅) -->
-          <g class="ring-segment" id="seg-left" style="transform-origin: 300px 300px;">
+          <g class="ring-segment">
             <circle cx="300" cy="300" r="175" fill="none" class="ring-part part-left" stroke-width="130" stroke-dasharray="360 740" transform="rotate(150 300 300)" />
             <path id="path-left" d="M 148.5 387.5 A 175 175 0 0 1 300 125" fill="none" stroke="none" />
             <text class="ring-text"><textPath href="#path-left" startOffset="50%" text-anchor="middle">물류 전문 컨설팅</textPath></text>
           </g>
 
           <!-- 하단 링 (인력 운영 네트워크) -->
-          <g class="ring-segment" id="seg-bottom" style="transform-origin: 300px 300px;">
+          <g class="ring-segment">
             <circle cx="300" cy="300" r="175" fill="none" class="ring-part part-bottom" stroke-width="130" stroke-dasharray="360 740" transform="rotate(30 300 300)" />
             <path id="path-bottom" d="M 148.5 387.5 A 175 175 0 0 0 451.5 387.5" fill="none" stroke="none" />
             <text class="ring-text"><textPath href="#path-bottom" startOffset="50%" text-anchor="middle">인력 운영 네트워크</textPath></text>
           </g>
 
           <!-- 우측 링 (운송사·주선 네트워크) -->
-          <g class="ring-segment" id="seg-right" style="transform-origin: 300px 300px;">
+          <g class="ring-segment">
             <circle cx="300" cy="300" r="175" fill="none" class="ring-part part-right" stroke-width="130" stroke-dasharray="360 740" transform="rotate(270 300 300)" />
             <path id="path-right" d="M 300 125 A 175 175 0 0 1 451.5 387.5" fill="none" stroke="none" />
             <text class="ring-text"><textPath href="#path-right" startOffset="50%" text-anchor="middle">운송사·주선 네트워크</textPath></text>
@@ -486,7 +486,7 @@
 
         </g>
 
-        <!-- 중앙 원 (고정 요소 - 링 위에 그려져서 링 확대 시에도 중앙을 깔끔하게 유지) -->
+        <!-- 중앙 원 (고정) -->
         <circle cx="300" cy="300" r="95" class="network-center-circle" />
         <text x="300" y="290" class="center-text center-title">물류</text>
         <text x="300" y="325" class="center-text center-subtitle">전문가 집단</text>
@@ -496,49 +496,6 @@
 
   </div>
 </section>
-
-<!-- 회전 및 팝업 애니메이션 제어 스크립트 -->
-<script>
-  document.addEventListener("DOMContentLoaded", function() {
-    const container = document.querySelector('.ring-container');
-    const segments = [
-      document.getElementById('seg-left'),   // 1단계에서 상단으로 옴
-      document.getElementById('seg-bottom'), // 2단계에서 상단으로 옴
-      document.getElementById('seg-right')   // 3단계에서 상단으로 옴
-    ];
-
-    let step = 0;
-
-    function animateRing() {
-      step++;
-      
-      // 1. 회전 계산 (120도씩 회전하며 순서대로 최상단 중앙에 맞춤)
-      const angle = step * 120 - 60;
-      container.style.transform = `rotate(${angle}deg)`;
-
-      // 2. 혹시 남아있는 기존 확대 효과 제거
-      segments.forEach(seg => seg.classList.remove('pop'));
-
-      // 3. 회전이 끝난 후 (1초 뒤) 최상단에 도착한 조각만 확대
-      setTimeout(() => {
-        const activeIndex = (step - 1) % 3;
-        segments[activeIndex].classList.add('pop');
-
-        // 4. 1.2초 대기 후 다시 축소 (원래 사이즈로 복귀)
-        setTimeout(() => {
-          segments[activeIndex].classList.remove('pop');
-        }, 1200);
-
-      }, 1000); // 회전하는 데 걸리는 시간 1초 대기
-    }
-
-    // 페이지 로드 후 0.5초 뒤에 첫 애니메이션 시작, 이후 3.5초마다 루프 반복
-    setTimeout(() => {
-      animateRing();
-      setInterval(animateRing, 3500);
-    }, 500);
-  });
-</script>
 
     <!-- Capability -->
     <section class="section section-light">
