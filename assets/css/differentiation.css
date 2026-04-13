@@ -15,7 +15,7 @@ body.diff-page {
 
 .diff-overview-section {
   position: relative;
-  padding: 56px 0 40px;
+  padding: 112px 0 40px;
   background: linear-gradient(180deg, #f7faff 0%, #eef4ff 100%);
 }
 
@@ -660,4 +660,38 @@ body.diff-page {
   .diff-bridge-band {
     height: 100px;
   }
+}
+.services-section-kicker {
+  display: inline-block;
+  margin-bottom: 14px;
+  color: #2563eb;
+  font-size: 0.82rem;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+
+.diff-section-heading {
+  text-align: center;
+  margin-bottom: 22px;
+}
+
+.diff-section-title {
+  margin: 0 0 14px;
+  font-size: clamp(2rem, 3vw, 2.8rem);
+  line-height: 1.2;
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  color: #102a5c;
+  word-break: keep-all;
+}
+
+.diff-section-desc {
+  margin: 0 auto;
+  max-width: 920px;
+  color: #5d749d;
+  font-size: 1.04rem;
+  line-height: 1.9;
+  word-break: keep-all;
 }
