@@ -166,7 +166,7 @@ button {
   min-height: 52px;
   padding: 0 18px;
   color: rgba(15,23,42,0.86);
-  font-size: 1.05rem;
+  font-size: 1.12rem;
   font-weight: 700;
   transition: color .25s ease;
   position: relative;
@@ -227,16 +227,16 @@ button {
 .header-mega-inner {
   width: var(--container);
   margin: 0 auto;
-  padding: 28px 0 32px;
+  padding: 34px 0 38px;
   display: grid;
   grid-template-columns: repeat(5, minmax(0, 1fr));
-  gap: 28px;
+  gap: 34px;
 }
 
 .mega-col h4 {
   margin: 0 0 14px;
   color: #0f2858;
-  font-size: 1rem;
+  font-size: 1.08rem;
   font-weight: 800;
   letter-spacing: -0.02em;
 }
@@ -245,7 +245,7 @@ button {
   display: block;
   padding: 10px 0;
   color: #17336d;
-  font-size: 0.95rem;
+  font-size: 1rem;
   font-weight: 600;
   text-decoration: none;
   transition: color .2s ease, transform .2s ease;
@@ -281,7 +281,7 @@ button {
   }
 
   .header-logo img {
-    height: 58px;
+    height: 68px;
   }
 
   .nav-desktop {
@@ -295,9 +295,9 @@ button {
   }
 
   .nav-link {
-    min-height: 44px;
-    padding: 0 12px;
-    font-size: 0.96rem;
+    min-height: 48px;
+    padding: 0 14px;
+    font-size: 1.02rem;
   }
 
   .header-mega-inner {
@@ -3450,7 +3450,8 @@ body.diff-page {
 }
 
 .header-inner {
-  width: min(1280px, calc(100% - 48px));
+  width: calc(100% - 40px);
+  min-height: 96px;
   height: 78px;
   margin: 0 auto;
   display: flex;
