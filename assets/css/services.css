@@ -798,3 +798,31 @@ body.services-page {
     font-size: 0.92rem;
   }
 }
+
+.service-flow-grid .service-flow-step:nth-child(2),
+.service-flow-grid .service-flow-step:nth-child(4) {
+  background: linear-gradient(180deg, #dfe5ef 0%, #cfd6e3 100%);
+  border: 1px solid rgba(186, 197, 220, 0.85);
+  box-shadow:
+    0 18px 34px rgba(0, 0, 0, 0.12),
+    inset 0 1px 0 rgba(255, 255, 255, 0.72);
+}
+
+.service-flow-grid .service-flow-step:nth-child(2) h4,
+.service-flow-grid .service-flow-step:nth-child(4) h4 {
+  color: #173b84;
+}
+
+.service-flow-grid .service-flow-step:nth-child(2) p,
+.service-flow-grid .service-flow-step:nth-child(4) p {
+  color: #092966;
+}
+
+.service-flow-grid .service-flow-step:nth-child(2) .step-num,
+.service-flow-grid .service-flow-step:nth-child(4) .step-num {
+  background: linear-gradient(180deg, #edf2fb 0%, #dbe4f3 100%);
+  color: #1750df;
+  box-shadow:
+    inset 0 0 0 1px rgba(130,154,211,0.22),
+    0 8px 18px rgba(13,30,69,0.10);
+}
