@@ -3975,3 +3975,9 @@ section[id] {
   .center-title { font-size: 22px; }
   .center-subtitle { font-size: 20px; }
 }
+
+/* 애니메이션 오류로 숨겨진 요소 강제 노출 */
+.network-structure-section .fade-up {
+  opacity: 1 !important;
+  transform: none !important;
+}
