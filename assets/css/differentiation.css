@@ -695,3 +695,25 @@ body.diff-page {
   line-height: 1.9;
   word-break: keep-all;
 }
+
+.footer {
+  width: 100%;
+  margin: 0;
+  padding: 34px 0 50px;
+  color: #7487B3;
+  font-size: .96rem;
+  position: relative;
+  z-index: 1;
+  background: #071634;
+  border-top: 1px solid rgba(255,255,255,.08);
+}
+
+.footer-inner {
+  width: min(1280px, calc(100% - 48px));
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  flex-wrap: wrap;
+  align-items: center;
+}
