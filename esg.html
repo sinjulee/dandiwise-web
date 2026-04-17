@@ -229,6 +229,7 @@
       <a href="differentiation.html" class="nav-link">차별화포인트</a>
       <a href="case-study.html" class="nav-link">운영역량</a>
       <a href="esg.html" class="nav-link">ESG경영</a>
+      <a href="index.html" class="nav-link contact-anchor-link">견적문의</a>
     </nav>
 
     <!-- Mobile Toggle -->
@@ -260,11 +261,11 @@
         </div>
 
         <!-- 차별화포인트 -->
-          <div class="mega-menu-group">
-            <a href="differentiation.html" class="mega-menu-title">차별화포인트</a>
-            <a href="differentiation.html#target" class="mega-sub-link">타깃 시장 및 고객</a>
-            <a href="differentiation.html#strength" class="mega-sub-link">차별화 포인트</a>
-          </div>
+        <div class="mega-menu-group">
+          <a href="differentiation.html" class="mega-menu-title">차별화포인트</a>
+          <a href="differentiation.html#target" class="mega-sub-link">타깃 시장 및 고객</a>
+          <a href="differentiation.html#strength" class="mega-sub-link">차별화 포인트</a>
+        </div>
 
         <!-- 운영역량 -->
         <div class="mega-menu-group">
@@ -279,6 +280,11 @@
           <a href="esg.html#environment" class="mega-sub-link">Environment</a>
           <a href="esg.html#social" class="mega-sub-link">Social</a>
           <a href="esg.html#governance" class="mega-sub-link">Governance</a>
+        </div>
+
+        <!-- 견적문의 -->
+        <div class="mega-menu-group">
+          <a href="index.html" class="mega-menu-title contact-anchor-link">견적문의</a>
         </div>
       </div>
     </div>
@@ -308,8 +314,8 @@
       <div class="mobile-menu-group">
         <a href="differentiation.html" class="mobile-main-link">차별화포인트</a>
         <div class="mobile-sub-links">
-          <a href="differentiation.html#target" class="mega-sub-link">타깃 시장 및 고객</a>
-          <a href="differentiation.html#strength" class="mega-sub-link">차별화 포인트</a>
+          <a href="differentiation.html#target">타깃 시장 및 고객</a>
+          <a href="differentiation.html#strength">차별화 포인트</a>
         </div>
       </div>
 
@@ -328,6 +334,10 @@
           <a href="esg.html#social">Social</a>
           <a href="esg.html#governance">Governance</a>
         </div>
+      </div>
+
+      <div class="mobile-menu-group">
+        <a href="index.html" class="mobile-main-link contact-anchor-link">견적문의</a>
       </div>
     </div>
   </div>
@@ -500,5 +510,14 @@
     });
   });
 </script>
+
+<script>
+  document.querySelectorAll('.contact-anchor-link').forEach(link => {
+    link.addEventListener('click', function () {
+      sessionStorage.setItem('scrollToEstimate', '1');
+    });
+  });
+</script>
+
 </body>
 </html>

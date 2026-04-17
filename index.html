@@ -33,6 +33,7 @@
       <a href="differentiation.html" class="nav-link">차별화포인트</a>
       <a href="case-study.html" class="nav-link">운영역량</a>
       <a href="esg.html" class="nav-link">ESG경영</a>
+      <a href="/index.html#contact-estimate" class="nav-link">견적문의</a>
     </nav>
 
     <!-- Mobile Toggle -->
@@ -84,6 +85,11 @@
           <a href="esg.html#social" class="mega-sub-link">Social</a>
           <a href="esg.html#governance" class="mega-sub-link">Governance</a>
         </div>
+
+        <!-- 견적문의 -->
+        <div class="mega-menu-group">
+          <a href="/index.html#contact-estimate" class="mega-menu-title">견적문의</a>
+        </div>
       </div>
     </div>
   </div>
@@ -112,8 +118,8 @@
       <div class="mobile-menu-group">
         <a href="differentiation.html" class="mobile-main-link">차별화포인트</a>
         <div class="mobile-sub-links">
-          <a href="differentiation.html#target" class="mega-sub-link">타깃 시장 및 고객</a>
-          <a href="differentiation.html#strength" class="mega-sub-link">차별화 포인트</a>
+          <a href="differentiation.html#target">타깃 시장 및 고객</a>
+          <a href="differentiation.html#strength">차별화 포인트</a>
         </div>
       </div>
 
@@ -132,6 +138,10 @@
           <a href="esg.html#social">Social</a>
           <a href="esg.html#governance">Governance</a>
         </div>
+      </div>
+
+      <div class="mobile-menu-group">
+        <a href="/index.html#contact-estimate" class="mobile-main-link">견적문의</a>
       </div>
     </div>
   </div>
@@ -1220,6 +1230,33 @@
 
     startFlow();
   })();
+</script>
+
+<script>
+  function moveToEstimateSection() {
+    const target = document.getElementById('contact-estimate');
+    if (!target) return;
+
+    const shouldMove =
+      window.location.hash === '#contact-estimate' ||
+      sessionStorage.getItem('scrollToEstimate') === '1';
+
+    if (!shouldMove) return;
+
+    sessionStorage.removeItem('scrollToEstimate');
+
+    const headerOffset = 140;
+    const targetTop =
+      target.getBoundingClientRect().top + window.pageYOffset - headerOffset;
+
+    window.scrollTo({ top: targetTop, behavior: 'auto' });
+
+    setTimeout(() => {
+      window.scrollTo({ top: targetTop, behavior: 'auto' });
+    }, 250);
+  }
+
+  window.addEventListener('load', moveToEstimateSection);
 </script>
 
 </body>
