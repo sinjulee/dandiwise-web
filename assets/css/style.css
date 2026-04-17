@@ -3283,23 +3283,23 @@ body.diff-page {
 }
 
 .sub-hero-company .sub-hero-bg {
-  background-image: url("../company-hero.jpg");
+  background-image: url("../company-hero.webp");
 }
 
 .sub-hero-services .sub-hero-bg {
-  background-image: url("../services-hero.jpg");
+  background-image: url("../services-hero.webp");
 }
 
 .sub-hero-differentiation .sub-hero-bg {
-  background-image: url("../differentiation-hero.png");
+  background-image: url("../differentiation-hero.webp");
 }
 
 .sub-hero-esg .sub-hero-bg {
-  background-image: url("../esg-hero.jpg");
+  background-image: url("../esg-hero.webp");
 }
 
 .sub-hero-capability .sub-hero-bg {
-  background-image: url("../OC-hero.png");
+  background-image: url("../OC-hero.webp");
 }
 
 .core-ring-stage {
