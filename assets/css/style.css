@@ -491,7 +491,7 @@ button {
   inset: 0;
   z-index: 0;
   overflow: hidden;
-  background-image: url("../hero_back_img.jpg");
+  background-image: url("../hero_back_img.webp");
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
@@ -4421,4 +4421,912 @@ section[id] {
 
 #contact-estimate {
   scroll-margin-top: 140px;
+}
+
+/* =========================
+   Responsive Patch for D&I WISE
+   기존 CSS 맨 아래 추가
+   ========================= */
+
+/* 공통 컨테이너 폭 보정 */
+:root {
+  --responsive-gutter-desktop: 32px;
+  --responsive-gutter-tablet: 24px;
+  --responsive-gutter-mobile: 20px;
+  --responsive-gutter-small: 16px;
+}
+
+.container,
+.container-wide,
+.header-inner {
+  width: min(100% - var(--responsive-gutter-desktop), 1200px);
+  margin-left: auto;
+  margin-right: auto;
+  box-sizing: border-box;
+}
+
+/* 공통 박스 계산 안정화 */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* 이미지가 영역 비율 안에서 자연스럽게 보이도록 */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* hero / sub-hero 텍스트 비율 보정 */
+.hero-title,
+.sub-hero-title,
+.section-title,
+.company-section-title,
+.services-section-title {
+  font-size: clamp(1.9rem, 4vw, 3.6rem);
+  line-height: 1.18;
+  word-break: keep-all;
+}
+
+.hero-desc,
+.sub-hero-desc,
+.section-desc,
+.company-section-desc,
+.services-section-desc {
+  font-size: clamp(0.98rem, 1.5vw, 1.12rem);
+  line-height: 1.7;
+  word-break: keep-all;
+}
+
+/* 주요 섹션 내부 폭이 화면 밖으로 넘치지 않게 */
+.section,
+.section-dark,
+.section-light,
+.sub-hero,
+.company-section,
+.services-section,
+.service-flow-panel,
+.services-bridge-band,
+.case-study-section,
+.esg-section {
+  overflow-x: clip;
+}
+
+/* 카드류가 모바일에서 꽉 끼지 않도록 */
+.service-card,
+.value-card,
+.case-card,
+.esg-card,
+.target-card,
+.diff-card,
+.service-flow-step,
+.service-structure-card,
+.company-value-card {
+  width: 100%;
+  min-width: 0;
+}
+
+/* 그리드/플렉스 내부 텍스트 넘침 방지 */
+.service-flow-step,
+.service-card,
+.value-card,
+.case-card,
+.esg-card,
+.target-card,
+.diff-card,
+.service-structure-card,
+.company-value-card,
+.company-section-desc,
+.section-desc,
+.services-section-desc {
+  min-width: 0;
+  word-break: keep-all;
+  overflow-wrap: break-word;
+}
+
+/* 헤더 로고 과도하게 커지는 것 방지 */
+.header-logo img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* 데스크톱에서는 기존 비율 최대한 유지 */
+.hero,
+.sub-hero {
+  width: 100%;
+}
+
+/* ===== 태블릿 ===== */
+@media (max-width: 1024px) {
+  .container,
+  .container-wide,
+  .header-inner {
+    width: min(100% - var(--responsive-gutter-tablet), 960px);
+  }
+
+  .hero-title,
+  .sub-hero-title,
+  .section-title,
+  .company-section-title,
+  .services-section-title {
+    font-size: clamp(1.8rem, 5vw, 3rem);
+  }
+
+  .hero-desc,
+  .sub-hero-desc,
+  .section-desc,
+  .company-section-desc,
+  .services-section-desc {
+    font-size: 1rem;
+  }
+}
+
+/* ===== 모바일 ===== */
+@media (max-width: 768px) {
+  .container,
+  .container-wide,
+  .header-inner {
+    width: calc(100% - var(--responsive-gutter-mobile));
+  }
+
+  .header-shell {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .header-inner {
+    height: auto;
+    min-height: 76px;
+  }
+
+  .header-logo img {
+    height: 56px;
+    width: auto;
+  }
+
+  .hero,
+  .sub-hero,
+  .section,
+  .section-dark,
+  .section-light,
+  .company-section,
+  .services-section {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .hero-title,
+  .sub-hero-title,
+  .section-title,
+  .company-section-title,
+  .services-section-title {
+    font-size: clamp(1.6rem, 7vw, 2.4rem);
+    line-height: 1.22;
+    letter-spacing: -0.03em;
+  }
+
+  .hero-desc,
+  .sub-hero-desc,
+  .section-desc,
+  .company-section-desc,
+  .services-section-desc {
+    font-size: 0.96rem;
+    line-height: 1.65;
+  }
+
+  /* 회사소개 / 서비스소개 계열 여백 완화 */
+  .company-section,
+  .services-section {
+    padding-top: 56px;
+    padding-bottom: 56px;
+  }
+
+  /* 운영흐름 / 구조 카드 간격 안정화 */
+  .service-flow-panel,
+  .services-bridge-band {
+    border-radius: 20px;
+  }
+
+  .service-flow-grid,
+  .services-grid,
+  .target-market-grid,
+  .case-study-grid,
+  .esg-grid,
+  .service-structure-grid,
+  .company-value-grid {
+    grid-template-columns: 1fr !important;
+    gap: 16px !important;
+  }
+
+  /* 2열/3열짜리 요소들 모바일 1열화 */
+  .service-flow-step,
+  .service-card,
+  .value-card,
+  .case-card,
+  .esg-card,
+  .target-card,
+  .diff-card,
+  .service-structure-card,
+  .company-value-card {
+    padding: 20px;
+  }
+
+  /* 원형/도식형 영역이 너무 넓게 퍼지지 않게 */
+  .network-visual,
+  .value-circle-wrap,
+  .service-structure-visual,
+  .core-value-visual {
+    width: 100%;
+    max-width: 100%;
+    overflow: hidden;
+  }
+
+  /* 차트/지도/비주얼 박스류 */
+  .section-visual,
+  .sub-hero-visual,
+  .hero-visual,
+  .case-study-visual,
+  .map-visual {
+    width: 100%;
+    border-radius: 18px;
+    overflow: hidden;
+  }
+}
+
+/* ===== 아주 작은 모바일 ===== */
+@media (max-width: 480px) {
+  .container,
+  .container-wide,
+  .header-inner {
+    width: calc(100% - var(--responsive-gutter-small));
+  }
+
+  .header-logo img {
+    height: 48px;
+  }
+
+  .hero-title,
+  .sub-hero-title,
+  .section-title,
+  .company-section-title,
+  .services-section-title {
+    font-size: clamp(1.35rem, 8vw, 2rem);
+    line-height: 1.24;
+  }
+
+  .hero-desc,
+  .sub-hero-desc,
+  .section-desc,
+  .company-section-desc,
+  .services-section-desc {
+    font-size: 0.92rem;
+    line-height: 1.6;
+  }
+
+  .service-flow-step,
+  .service-card,
+  .value-card,
+  .case-card,
+  .esg-card,
+  .target-card,
+  .diff-card,
+  .service-structure-card,
+  .company-value-card {
+    padding: 16px;
+    border-radius: 16px;
+  }
+
+  .service-flow-panel,
+  .services-bridge-band,
+  .section-visual,
+  .sub-hero-visual,
+  .hero-visual,
+  .case-study-visual,
+  .map-visual {
+    border-radius: 16px;
+  }
+}
+
+/* =========================================
+   D&I WISE 모바일 실전 보정 패치
+   기존 CSS 맨 아래에 추가
+   ========================================= */
+
+@media (max-width: 768px) {
+  /* -------------------------
+     0. 공통
+     ------------------------- */
+  html, body {
+    overflow-x: hidden;
+  }
+
+  .container,
+  .container-wide,
+  .header-inner {
+    width: calc(100% - 24px) !important;
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* -------------------------
+     1. 헤더
+     ------------------------- */
+  .header-shell {
+    min-height: 88px;
+  }
+
+  .header-inner {
+    min-height: 88px;
+    height: auto;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .header-logo img {
+    height: 52px !important;
+    width: auto;
+    max-width: 220px;
+    object-fit: contain;
+  }
+
+  .mobile-menu-toggle,
+  .menu-toggle,
+  .nav-toggle,
+  .header-menu-btn {
+    transform: scale(0.92);
+    transform-origin: center;
+  }
+
+  /* -------------------------
+     2. 메인 Hero
+     ------------------------- */
+  .hero {
+    min-height: auto !important;
+    padding-top: 36px !important;
+    padding-bottom: 48px !important;
+    background-position: center center !important;
+    background-size: cover !important;
+  }
+
+  .hero-inner,
+  .hero-content {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .hero-kicker {
+    font-size: 0.95rem !important;
+    padding: 10px 18px !important;
+    border-radius: 999px;
+  }
+
+  .hero-title {
+    font-size: clamp(2rem, 9vw, 3rem) !important;
+    line-height: 1.16 !important;
+    letter-spacing: -0.04em !important;
+    margin-bottom: 18px !important;
+  }
+
+  .hero-desc {
+    font-size: 1rem !important;
+    line-height: 1.65 !important;
+    margin-bottom: 28px !important;
+  }
+
+  /* hero 버튼 축소 */
+  .hero-actions,
+  .hero-cta,
+  .hero-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    width: 100%;
+  }
+
+  .hero-actions .btn,
+  .hero-actions a,
+  .hero-cta .btn,
+  .hero-cta a,
+  .hero-buttons .btn,
+  .hero-buttons a,
+  .hero .btn,
+  .hero a.btn,
+  .hero-primary,
+  .hero-secondary {
+    width: 100%;
+    min-height: 58px !important;
+    padding: 16px 20px !important;
+    border-radius: 999px !important;
+    font-size: 1.05rem !important;
+    line-height: 1.2 !important;
+  }
+
+  /* -------------------------
+     3. 서브히어로 / 섹션 타이틀
+     ------------------------- */
+  .sub-hero {
+    padding-top: 56px !important;
+    padding-bottom: 56px !important;
+  }
+
+  .sub-hero-title,
+  .section-title,
+  .company-section-title,
+  .services-section-title {
+    font-size: clamp(1.85rem, 8vw, 2.5rem) !important;
+    line-height: 1.2 !important;
+    letter-spacing: -0.04em !important;
+  }
+
+  .sub-hero-desc,
+  .section-desc,
+  .company-section-desc,
+  .services-section-desc {
+    font-size: 0.98rem !important;
+    line-height: 1.7 !important;
+  }
+
+  /* -------------------------
+     4. PROCESS FLOW 모바일 단순화
+     ------------------------- */
+
+  /* 패널 자체 정리 */
+  .service-flow-panel {
+    padding: 18px !important;
+    border-radius: 28px !important;
+  }
+
+  .service-flow-grid {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 14px !important;
+    align-items: stretch !important;
+  }
+
+  .service-flow-step {
+    min-height: 92px !important;
+    padding: 16px 12px !important;
+    border-radius: 22px !important;
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .service-flow-step h4,
+  .service-flow-step .step-title {
+    font-size: 1.05rem !important;
+    line-height: 1.2 !important;
+    margin: 0 !important;
+  }
+
+  .service-flow-step p,
+  .service-flow-step .step-desc,
+  .service-flow-step .step-num {
+    display: none !important;
+  }
+
+  /* 모바일에서는 연결선/움직이는 요소 제거 */
+  .service-flow-line,
+  .service-flow-lines,
+  .service-flow-arrow,
+  .service-flow-path,
+  .service-flow-connector,
+  .flow-line,
+  .flow-arrow,
+  .flow-connector,
+  .truck-line,
+  .truck-path,
+  .truck-icon-moving,
+  .flow-moving-icon,
+  .service-flow-truck,
+  .service-flow-truck-wrap {
+    display: none !important;
+    animation: none !important;
+  }
+
+  /* 트럭 이미지를 정적 아이콘으로만 사용 */
+  .service-flow-step--truck img,
+  .service-flow-step.truck-step img,
+  .service-flow-step .truck-icon,
+  .service-flow-step .step-icon {
+    max-width: 90px !important;
+    height: auto !important;
+    display: block;
+    margin: 0 auto;
+  }
+
+  /* 혹시 트럭칸 텍스트가 겹치면 더 강하게 숨김 */
+  .service-flow-step img + span,
+  .service-flow-step img + strong {
+    display: none !important;
+  }
+
+  /* -------------------------
+     5. 카드/그리드 1열 정리
+     ------------------------- */
+  .services-grid,
+  .target-market-grid,
+  .case-study-grid,
+  .esg-grid,
+  .service-structure-grid,
+  .company-value-grid,
+  .diff-grid {
+    grid-template-columns: 1fr !important;
+    gap: 16px !important;
+  }
+
+  .service-card,
+  .value-card,
+  .case-card,
+  .esg-card,
+  .target-card,
+  .diff-card,
+  .service-structure-card,
+  .company-value-card {
+    padding: 20px !important;
+    border-radius: 20px !important;
+  }
+
+  /* -------------------------
+     6. 모바일 메뉴 오픈 화면 정리
+     ------------------------- */
+  .mobile-nav,
+  .nav-mobile,
+  .mobile-menu-panel,
+  .nav-drawer {
+    padding: 28px 24px 32px !important;
+  }
+
+  .mobile-nav .nav-link,
+  .nav-mobile .nav-link,
+  .mobile-menu-panel .nav-link,
+  .nav-drawer .nav-link {
+    font-size: 1rem !important;
+  }
+
+  .mobile-nav .nav-dropdown,
+  .nav-mobile .nav-dropdown,
+  .mobile-menu-panel .nav-dropdown,
+  .nav-drawer .nav-dropdown {
+    gap: 10px !important;
+  }
+
+  /* -------------------------
+     7. 푸터 모바일 정리
+     ------------------------- */
+  .footer,
+  .site-footer {
+    padding-top: 28px !important;
+    padding-bottom: 34px !important;
+  }
+
+  .footer-inner,
+  .site-footer-inner {
+    width: calc(100% - 24px) !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 18px !important;
+  }
+
+  .footer-top,
+  .footer-main,
+  .footer-bottom {
+    display: block !important;
+  }
+
+  .footer-logo img,
+  .site-footer-logo img {
+    height: 34px !important;
+    width: auto !important;
+  }
+
+  .footer-company,
+  .footer-info,
+  .footer-address,
+  .footer-copy,
+  .site-footer p,
+  .site-footer li,
+  .footer p,
+  .footer li {
+    font-size: 0.92rem !important;
+    line-height: 1.75 !important;
+    color: #7b8496 !important;
+    word-break: keep-all !important;
+  }
+
+  /* 푸터 항목 한 줄 나열되어 지저분하면 세로 정렬 */
+  .footer-meta,
+  .footer-links,
+  .footer-contact,
+  .site-footer-links,
+  .site-footer-meta {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 8px !important;
+    align-items: flex-start !important;
+  }
+
+  /* 구분자 제거 */
+  .footer-meta .divider,
+  .footer-links .divider,
+  .site-footer-meta .divider,
+  .site-footer-links .divider,
+  .footer .sep,
+  .site-footer .sep {
+    display: none !important;
+  }
+
+  /* 맨 위로 버튼 */
+  .back-to-top,
+  .scroll-top,
+  .top-btn {
+    width: 52px !important;
+    height: 52px !important;
+    right: 16px !important;
+    bottom: 16px !important;
+  }
+}
+
+/* 아주 작은 기기 */
+@media (max-width: 480px) {
+  .container,
+  .container-wide,
+  .header-inner,
+  .footer-inner,
+  .site-footer-inner {
+    width: calc(100% - 18px) !important;
+  }
+
+  .hero-title {
+    font-size: clamp(1.8rem, 9vw, 2.5rem) !important;
+  }
+
+  .hero-actions .btn,
+  .hero-actions a,
+  .hero .btn,
+  .hero a.btn,
+  .hero-primary,
+  .hero-secondary {
+    min-height: 54px !important;
+    font-size: 1rem !important;
+  }
+
+  .service-flow-panel {
+    padding: 14px !important;
+    border-radius: 24px !important;
+  }
+
+  .service-flow-step {
+    min-height: 84px !important;
+    border-radius: 18px !important;
+    padding: 14px 10px !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .header-inner {
+    width: calc(100% - 20px);
+    height: 74px !important;
+  }
+
+  .header-logo img {
+    height: 42px !important;
+  }
+
+  .nav-toggle {
+    width: 40px;
+    height: 40px;
+  }
+
+  .nav-toggle span {
+    width: 22px;
+  }
+
+  .mobile-menu-inner {
+    width: calc(100% - 24px);
+    padding: 14px 0 20px;
+  }
+
+  .mobile-main-link {
+    font-size: 0.98rem;
+    margin-bottom: 10px;
+  }
+
+  .mobile-sub-links {
+    gap: 8px;
+  }
+
+  .mobile-sub-links a {
+    font-size: 0.93rem;
+    line-height: 1.5;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero,
+  .hero-photo {
+    min-height: auto !important;
+    padding: 40px 0 46px !important;
+  }
+
+  .hero-photo .hero-inner {
+    padding: 0 20px !important;
+  }
+
+  .hero-photo .hero-text {
+    max-width: 100%;
+    padding: 20px 0 30px !important;
+  }
+
+  .hero-photo .hero-eyebrow {
+    font-size: 12px;
+    padding: 8px 12px;
+    margin-bottom: 18px;
+  }
+
+  .hero-photo .hero-text h1 {
+    font-size: clamp(34px, 8vw, 44px) !important;
+    line-height: 1.12;
+  }
+
+  .hero-photo .hero-text p {
+    font-size: 15px !important;
+    line-height: 1.7;
+    margin-top: 18px;
+  }
+
+  .scroll-indicator {
+    display: none !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-buttons {
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 24px !important;
+  }
+
+  .hero-buttons .btn-primary,
+  .hero-buttons .btn-outline,
+  .hero-buttons .btn-light {
+    width: 100%;
+    min-height: 48px !important;
+    height: 48px;
+    padding: 0 18px !important;
+    font-size: 14px !important;
+    border-radius: 999px;
+  }
+}
+
+@media (max-width: 768px) {
+  .flow-wrap.flow-animated {
+    padding: 20px 16px !important;
+    border-radius: 24px !important;
+  }
+
+  .flow-track-glow,
+  .flow-track-line,
+  .flow-progress,
+  .flow-truck {
+    display: none !important;
+  }
+
+  .flow-status-row {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 12px !important;
+  }
+
+  .flow-status-item {
+    min-height: 72px;
+    padding: 14px 10px !important;
+    border-radius: 18px !important;
+    background: rgba(255,255,255,0.88) !important;
+    border: 1px solid rgba(173,194,238,0.38);
+    font-size: 1rem !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .flow-status-item.active {
+    transform: none !important;
+    text-shadow: none !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .flow-status-row {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .service-flow-grid {
+    grid-template-columns: 1fr !important;
+    gap: 14px !important;
+  }
+
+  .service-flow-step {
+    padding: 18px 16px !important;
+    border-radius: 20px !important;
+    min-height: auto !important;
+  }
+
+  .service-flow-step .step-num {
+    margin-bottom: 8px;
+    font-size: 0.85rem;
+  }
+
+  .service-flow-step h4 {
+    font-size: 1.05rem;
+    margin-bottom: 6px;
+  }
+
+  .service-flow-step p {
+    font-size: 0.92rem;
+    line-height: 1.6;
+  }
+}
+
+@media (max-width: 768px) {
+  .site-footer-top {
+    width: calc(100% - 24px) !important;
+    padding: 30px 0 24px !important;
+  }
+
+  .site-footer-brand {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+    margin-bottom: 20px !important;
+  }
+
+  .site-footer-logo img {
+    height: 44px !important;
+  }
+
+  .site-footer-company {
+    font-size: 1.06rem !important;
+  }
+
+  .site-footer-sitemap {
+    gap: 12px !important;
+  }
+
+  .footer-sitemap-row {
+    grid-template-columns: 1fr !important;
+    gap: 0 !important;
+  }
+
+  .footer-main-link {
+    font-size: 0.98rem !important;
+    padding: 8px 0 !important;
+    border-bottom: 1px solid rgba(15,23,42,0.06);
+  }
+
+  .footer-sub-links {
+    display: none !important;
+  }
+
+  .site-footer-info {
+    margin-top: 20px !important;
+    padding-top: 18px !important;
+  }
+
+  .site-footer-info p {
+    margin: 0 0 6px;
+    font-size: 0.87rem !important;
+    line-height: 1.65 !important;
+    word-break: keep-all;
+  }
+
+  .site-footer-info span {
+    display: none;
+  }
 }

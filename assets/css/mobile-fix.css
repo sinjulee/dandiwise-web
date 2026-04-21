@@ -1,0 +1,1104 @@
+/* =========================
+   mobile-fix.css
+   D&I WISE Mobile Final Patch
+   ========================= */
+
+/* -------------------------
+   Base
+   ------------------------- */
+html, body {
+  overflow-x: hidden;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+img,
+svg {
+  max-width: 100%;
+}
+
+.container-wide,
+.hero-inner,
+.sub-hero-inner,
+.site-footer-top {
+  width: min(1280px, calc(100% - 40px));
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* -------------------------
+   Tablet
+   ------------------------- */
+@media (max-width: 1024px) {
+  .container-wide,
+  .hero-inner,
+  .sub-hero-inner,
+  .site-footer-top {
+    width: calc(100% - 28px) !important;
+  }
+
+  .section {
+    padding: 84px 0 !important;
+  }
+
+  .section-heading {
+    margin-bottom: 42px !important;
+  }
+
+  .section-title,
+  .services-section-title,
+  .company-section-title,
+  .case-section-title,
+  .diff-section-title,
+  .esg-block-title {
+    font-size: clamp(1.9rem, 4.6vw, 2.6rem) !important;
+    line-height: 1.22 !important;
+  }
+
+  .section-desc,
+  .services-section-desc,
+  .company-section-desc,
+  .case-section-desc,
+  .diff-section-desc,
+  .vision-text,
+  .contact-estimate-desc {
+    font-size: 0.98rem !important;
+    line-height: 1.75 !important;
+  }
+
+  .grid-2,
+  .grid-3,
+  .case-grid,
+  .esg-grid,
+  .stats-wrap,
+  .network-row,
+  .target-grid,
+  .diff-card-grid,
+  .service-detail-grid,
+  .services-highlight-grid,
+  .service-structure-grid,
+  .service-flow-grid,
+  .capability-grid,
+  .case-article-grid,
+  .company-grid-2,
+  .company-info-grid,
+  .esg-card-grid {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+/* -------------------------
+   Mobile Header
+   ------------------------- */
+@media (max-width: 768px) {
+  .header-shell {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+  }
+
+  .header-inner {
+    width: calc(100% - 20px) !important;
+    height: 74px !important;
+    min-height: 74px !important;
+  }
+
+  .header-logo img {
+    height: 42px !important;
+    width: auto !important;
+    max-width: 210px;
+  }
+
+  .nav-toggle {
+    width: 40px !important;
+    height: 40px !important;
+    gap: 5px !important;
+  }
+
+  .nav-toggle span {
+    width: 22px !important;
+  }
+
+  .mobile-menu-inner {
+    width: calc(100% - 24px) !important;
+    padding: 14px 0 18px !important;
+  }
+
+  .mobile-menu-group + .mobile-menu-group {
+    margin-top: 14px !important;
+    padding-top: 14px !important;
+  }
+
+  .mobile-main-link {
+    font-size: 0.98rem !important;
+    margin-bottom: 10px !important;
+  }
+
+  .mobile-sub-links {
+    gap: 8px !important;
+    margin-top: 8px !important;
+  }
+
+  .mobile-sub-links a {
+    font-size: 0.92rem !important;
+    line-height: 1.5 !important;
+  }
+
+  /* -------------------------
+     Common spacing
+     ------------------------- */
+  .container-wide,
+  .hero-inner,
+  .sub-hero-inner,
+  .site-footer-top {
+    width: calc(100% - 20px) !important;
+  }
+
+  .section {
+    padding: 62px 0 !important;
+  }
+
+  .section-heading {
+    margin-bottom: 32px !important;
+  }
+
+  .section-kicker,
+  .services-section-kicker,
+  .sub-hero-kicker,
+  .vision-kicker,
+  .contact-kicker {
+    font-size: 0.76rem !important;
+    padding: 8px 12px !important;
+    margin-bottom: 14px !important;
+  }
+
+  .section-title,
+  .services-section-title,
+  .company-section-title,
+  .case-section-title,
+  .diff-section-title,
+  .esg-block-title,
+  .contact-estimate-title,
+  .vision-title {
+    font-size: clamp(1.7rem, 7vw, 2.2rem) !important;
+    line-height: 1.22 !important;
+    letter-spacing: -0.04em !important;
+  }
+
+  .section-desc,
+  .services-section-desc,
+  .company-section-desc,
+  .case-section-desc,
+  .diff-section-desc,
+  .vision-text,
+  .contact-estimate-desc,
+  .esg-detail-card p,
+  .company-card p,
+  .case-article-desc,
+  .case-subcard p,
+  .capability-card p {
+    font-size: 0.94rem !important;
+    line-height: 1.72 !important;
+  }
+
+  /* -------------------------
+     Main Hero
+     ------------------------- */
+  .hero,
+  .hero-photo {
+    min-height: auto !important;
+    padding: 42px 0 42px !important;
+  }
+
+  .hero-photo .hero-inner {
+    padding: 0 4px !important;
+  }
+
+  .hero-photo .hero-text {
+    max-width: 100% !important;
+    padding: 10px 0 20px !important;
+  }
+
+  .hero-photo .hero-eyebrow {
+    font-size: 12px !important;
+    padding: 8px 12px !important;
+    margin-bottom: 18px !important;
+  }
+
+  .hero-photo .hero-text h1 {
+    font-size: clamp(34px, 8.8vw, 44px) !important;
+    line-height: 1.12 !important;
+    max-width: 100% !important;
+  }
+
+  .hero-photo .hero-line-fixed {
+    white-space: normal !important;
+  }
+
+  .hero-photo .hero-text p {
+    margin-top: 18px !important;
+    font-size: 15px !important;
+    line-height: 1.7 !important;
+    max-width: 100% !important;
+  }
+
+.hero-buttons {
+  display: flex !important;
+  flex-direction: row !important;
+  justify-content: flex-start !important;
+  align-items: center !important;
+  gap: 10px !important;
+  flex-wrap: nowrap !important;
+  width: auto !important;
+  margin-top: 22px !important;
+}
+
+.hero-buttons .btn-primary,
+.hero-buttons .btn-outline,
+.hero-buttons .btn-light {
+  width: auto !important;
+  min-width: 112px !important;
+  max-width: 132px !important;
+  min-height: 44px !important;
+  height: 44px !important;
+  padding: 0 16px !important;
+  font-size: 13px !important;
+  border-radius: 999px !important;
+  flex: 0 0 auto !important;
+}
+
+  .scroll-indicator {
+    display: none !important;
+  }
+
+  /* -------------------------
+     Sub Hero
+     ------------------------- */
+  .sub-hero {
+    min-height: auto !important;
+    padding: 52px 0 44px !important;
+  }
+
+  .sub-hero-text h1 {
+    font-size: clamp(2rem, 8vw, 2.7rem) !important;
+    line-height: 1.16 !important;
+  }
+
+  .sub-hero-text p {
+    font-size: 0.95rem !important;
+    line-height: 1.7 !important;
+  }
+
+  /* -------------------------
+     Intro cards / stats
+     ------------------------- */
+  .intro-service-cards {
+    margin-top: 32px !important;
+    grid-template-columns: 1fr !important;
+    gap: 16px !important;
+  }
+
+  .intro-service-card {
+    min-height: 260px !important;
+    padding: 20px 18px 20px !important;
+    border-radius: 22px !important;
+  }
+
+  .intro-service-badge {
+    min-width: 44px !important;
+    height: 40px !important;
+    font-size: 0.95rem !important;
+    border-radius: 12px !important;
+  }
+
+  .intro-service-card-title {
+    font-size: 1.72rem !important;
+    line-height: 1.16 !important;
+  }
+
+  .intro-service-more {
+    min-width: 76px !important;
+    height: 34px !important;
+    margin-top: 18px !important;
+    font-size: 0.78rem !important;
+    letter-spacing: 0.08em !important;
+  }
+
+  .intro-service-overlay {
+    left: 18px !important;
+    right: 18px !important;
+    top: 132px !important;
+  }
+
+  .intro-service-card-panel {
+    min-height: 104px !important;
+    padding: 18px 16px !important;
+    border-radius: 16px !important;
+  }
+
+  .intro-service-card-text {
+    font-size: 0.9rem !important;
+    line-height: 1.62 !important;
+  }
+
+  .stats-wrap {
+    margin-top: 24px !important;
+    grid-template-columns: 1fr !important;
+    gap: 14px !important;
+  }
+
+  .stat-card {
+    padding: 22px 18px !important;
+    border-radius: 20px !important;
+    min-height: auto !important;
+  }
+
+  .stat-num {
+    font-size: clamp(2rem, 9vw, 2.6rem) !important;
+  }
+
+  .stat-label {
+    font-size: 0.92rem !important;
+  }
+
+  /* -------------------------
+     Service summary / common cards
+     ------------------------- */
+  .grid-3,
+  .case-grid,
+  .esg-grid,
+  .services-highlight-grid,
+  .service-detail-grid,
+  .case-article-grid,
+  .esg-card-grid,
+  .company-grid-2,
+  .company-info-grid {
+    gap: 14px !important;
+  }
+
+  .info-card,
+  .case-card,
+  .dark-card,
+  .esg-card,
+  .network-item,
+  .network-core,
+  .company-card,
+  .values-mobile-card,
+  .capability-card,
+  .case-article,
+  .case-subcard,
+  .esg-detail-card,
+  .service-highlight-card,
+  .service-detail-card,
+  .contact-estimate-form-card,
+  .contact-info-card {
+    padding: 22px 18px !important;
+    border-radius: 20px !important;
+  }
+
+  .card-title,
+  .case-title,
+  .dark-title,
+  .service-highlight-card h3,
+  .service-detail-card h3,
+  .company-card h3,
+  .case-article h3,
+  .esg-detail-card h4 {
+    font-size: 1.18rem !important;
+    line-height: 1.35 !important;
+  }
+
+  .card-text,
+  .case-text,
+  .dark-text,
+  .service-highlight-card p,
+  .service-detail-card p,
+  .service-detail-list,
+  .company-card p,
+  .case-subcard p {
+    font-size: 0.92rem !important;
+    line-height: 1.7 !important;
+  }
+
+  .case-list span,
+  .service-detail-list li {
+    font-size: 0.88rem !important;
+  }
+
+  /* -------------------------
+     Main process animation -> static
+     ------------------------- */
+  .flow-wrap.flow-animated {
+    padding: 18px 14px !important;
+    border-radius: 22px !important;
+  }
+
+  .flow-track-glow,
+  .flow-track-line,
+  .flow-progress,
+  .flow-truck {
+    display: none !important;
+  }
+
+  .flow-status-row {
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 12px !important;
+  }
+
+  .flow-status-item {
+    min-height: 70px !important;
+    padding: 14px 10px !important;
+    border-radius: 18px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    font-size: 0.98rem !important;
+    line-height: 1.3 !important;
+    text-align: center !important;
+  }
+
+  /* -------------------------
+     Why slider
+     ------------------------- */
+  .why-slider-controls {
+    margin-top: 18px !important;
+  }
+
+  .why-nav {
+    width: 38px !important;
+    height: 38px !important;
+  }
+
+  /* -------------------------
+     Network diagram
+     ------------------------- */
+  .network-structure-section {
+    padding-top: 62px !important;
+  }
+
+  .network-diagram-wrap {
+    overflow: hidden;
+  }
+
+  .network-ring-svg {
+    width: 100% !important;
+    height: auto !important;
+    max-width: 420px;
+    margin: 0 auto;
+    display: block;
+  }
+
+  /* -------------------------
+     Contact form
+     ------------------------- */
+  .contact-estimate-wrap {
+    grid-template-columns: 1fr !important;
+    gap: 18px !important;
+  }
+
+  .contact-info-list {
+    grid-template-columns: 1fr !important;
+  }
+
+  .contact-info-card {
+    gap: 12px !important;
+  }
+
+  .contact-info-icon {
+    width: 46px !important;
+    height: 46px !important;
+    border-radius: 14px !important;
+    font-size: 1.05rem !important;
+  }
+
+  .contact-form-title {
+    font-size: 1.18rem !important;
+    margin-bottom: 18px !important;
+  }
+
+  .estimate-grid.two-col {
+    grid-template-columns: 1fr !important;
+    gap: 14px !important;
+  }
+
+  .form-group label {
+    font-size: 0.9rem !important;
+    margin-bottom: 8px !important;
+  }
+
+  .form-group input,
+  .form-group select {
+    height: 50px !important;
+    line-height: 50px !important;
+    font-size: 15px !important;
+    border-radius: 14px !important;
+  }
+
+  .form-group textarea {
+    min-height: 136px !important;
+    font-size: 15px !important;
+    border-radius: 14px !important;
+  }
+
+  .estimate-submit-btn {
+    min-height: 50px !important;
+    font-size: 0.95rem !important;
+  }
+
+  /* -------------------------
+     Services page
+     ------------------------- */
+  .services-overview-section {
+    padding-top: 44px !important;
+  }
+
+  .services-section {
+    padding: 34px 0 36px !important;
+  }
+
+  .services-section-header {
+    margin-bottom: 24px !important;
+    text-align: center;
+  }
+
+  .services-bridge-band {
+    margin: 8px 0 !important;
+    min-height: 40px !important;
+  }
+
+  .service-structure-panel,
+  .service-flow-panel {
+    padding: 18px 14px !important;
+    border-radius: 22px !important;
+  }
+
+  .service-structure-brand-logo {
+    max-width: 180px !important;
+    margin: 0 auto !important;
+  }
+
+  .structure-connector,
+  .structure-lines-bottom,
+  .structure-connector-v2,
+  .structure-lines-bottom-v2 {
+    display: none !important;
+  }
+
+  .service-structure-grid,
+  .service-structure-grid-v2 {
+    grid-template-columns: 1fr !important;
+    gap: 14px !important;
+    margin-top: 18px !important;
+  }
+
+  .service-structure-card {
+    padding: 18px 16px !important;
+    border-radius: 18px !important;
+    text-align: center !important;
+  }
+
+  .service-structure-card h4 {
+    font-size: 1.04rem !important;
+    margin-bottom: 8px !important;
+  }
+
+  .service-structure-card p {
+    font-size: 0.92rem !important;
+    line-height: 1.65 !important;
+  }
+
+  .service-structure-bottom {
+    margin-top: 16px !important;
+  }
+
+  .service-structure-cowork {
+    padding: 14px 14px !important;
+    text-align: center !important;
+    border-radius: 16px !important;
+  }
+
+  .services-highlight-grid,
+  .service-detail-grid {
+    grid-template-columns: 1fr !important;
+    gap: 14px !important;
+  }
+
+  .service-highlight-card,
+  .service-detail-card {
+    padding: 20px 18px !important;
+    border-radius: 20px !important;
+  }
+
+  .service-badge {
+    width: 40px !important;
+    height: 40px !important;
+    font-size: 0.92rem !important;
+  }
+
+  .service-flow-grid {
+    grid-template-columns: 1fr !important;
+    gap: 12px !important;
+  }
+
+  .service-flow-step {
+    min-height: auto !important;
+    padding: 18px 16px !important;
+    border-radius: 18px !important;
+  }
+
+  .service-flow-step .step-num {
+    margin-bottom: 8px !important;
+    font-size: 0.82rem !important;
+  }
+
+  .service-flow-step h4 {
+    font-size: 1rem !important;
+    margin-bottom: 6px !important;
+  }
+
+  .service-flow-step p {
+    font-size: 0.9rem !important;
+    line-height: 1.62 !important;
+  }
+
+  /* -------------------------
+     Company page
+     ------------------------- */
+  .company-overview-section {
+    padding-top: 44px !important;
+  }
+
+  .company-section {
+    padding: 30px 0 32px !important;
+  }
+
+  .vision-panel {
+    padding: 30px 18px !important;
+    border-radius: 22px !important;
+  }
+
+  .vision-panel::after {
+    left: 18px !important;
+    right: 18px !important;
+  }
+
+  .values-shell {
+    display: none !important;
+  }
+
+  .values-mobile-list {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 14px !important;
+    margin-top: 20px !important;
+  }
+
+  /* -------------------------
+     Case page
+     ------------------------- */
+  .case-overview-section {
+    padding-top: 44px !important;
+  }
+
+  .case-section {
+    padding: 30px 0 32px !important;
+  }
+
+  .capability-panel {
+    padding: 20px 16px !important;
+    border-radius: 22px !important;
+  }
+
+  .capability-panel::after {
+    left: 16px !important;
+    right: 16px !important;
+  }
+
+  .case-map-image {
+    max-width: 100% !important;
+    border-radius: 16px !important;
+  }
+
+  /* -------------------------
+     Diff page
+     ------------------------- */
+  .diff-overview-section {
+    padding-top: 44px !important;
+  }
+
+  .target-grid,
+  .diff-card-grid {
+    grid-template-columns: 1fr !important;
+    gap: 14px !important;
+  }
+
+  .diff-card-btn {
+    min-height: auto !important;
+    padding: 22px 18px !important;
+    border-radius: 20px !important;
+  }
+
+  .diff-card-btn::after {
+    left: 18px !important;
+    right: 18px !important;
+  }
+
+  .diff-card-btn h3 {
+    font-size: 1.12rem !important;
+  }
+
+  .diff-card-btn p {
+    font-size: 0.9rem !important;
+    line-height: 1.65 !important;
+  }
+
+  .modal-box {
+    border-radius: 20px !important;
+  }
+
+  .modal-top {
+    padding: 20px 18px 16px !important;
+  }
+
+  .modal-body {
+    padding: 20px 18px 22px !important;
+    font-size: 0.94rem !important;
+    line-height: 1.75 !important;
+  }
+
+  .modal-title {
+    font-size: 1.36rem !important;
+  }
+
+  /* -------------------------
+     ESG page
+     ------------------------- */
+  .esg-overview-section {
+    padding-top: 44px !important;
+  }
+
+  .esg-block {
+    padding: 28px 0 30px !important;
+  }
+
+  .esg-card-grid {
+    grid-template-columns: 1fr !important;
+    gap: 14px !important;
+  }
+
+  /* -------------------------
+     Footer
+     ------------------------- */
+  .site-footer-top {
+    width: calc(100% - 20px) !important;
+    padding: 28px 0 22px !important;
+  }
+
+  .site-footer-brand {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 8px !important;
+    margin-bottom: 18px !important;
+  }
+
+  .site-footer-logo img {
+    height: 42px !important;
+  }
+
+  .site-footer-company {
+    font-size: 1.02rem !important;
+    line-height: 1.35 !important;
+  }
+
+  .site-footer-sitemap {
+    gap: 10px !important;
+  }
+
+  .footer-sitemap-row {
+    grid-template-columns: 1fr !important;
+    gap: 0 !important;
+  }
+
+  .footer-main-link {
+    font-size: 0.95rem !important;
+    padding: 8px 0 !important;
+    min-height: auto !important;
+    border-bottom: 1px solid rgba(15,23,42,0.06);
+  }
+
+  .footer-main-link::after {
+    display: none !important;
+  }
+
+  .footer-sub-links {
+    display: none !important;
+  }
+
+  .site-footer-info {
+    margin-top: 18px !important;
+    padding-top: 14px !important;
+  }
+
+  .site-footer-info p {
+    margin: 0 0 6px !important;
+    font-size: 0.86rem !important;
+    line-height: 1.65 !important;
+    word-break: keep-all !important;
+  }
+
+  .site-footer-info span {
+    display: none !important;
+  }
+}
+
+/* -------------------------
+   Small Mobile
+   ------------------------- */
+@media (max-width: 480px) {
+  .container-wide,
+  .hero-inner,
+  .sub-hero-inner,
+  .site-footer-top,
+  .header-inner {
+    width: calc(100% - 16px) !important;
+  }
+
+  .header-inner {
+    height: 68px !important;
+    min-height: 68px !important;
+  }
+
+  .header-logo img {
+    height: 38px !important;
+    max-width: 185px;
+  }
+
+  .hero-photo .hero-text h1 {
+    font-size: clamp(30px, 9vw, 38px) !important;
+  }
+
+  .hero-photo .hero-text p,
+  .section-desc,
+  .services-section-desc,
+  .company-section-desc,
+  .case-section-desc,
+  .diff-section-desc,
+  .vision-text,
+  .contact-estimate-desc {
+    font-size: 0.9rem !important;
+  }
+
+  .flow-status-row {
+    grid-template-columns: 1fr !important;
+  }
+
+  .flow-status-item {
+    min-height: 62px !important;
+    font-size: 0.94rem !important;
+  }
+
+  .site-footer-top {
+    padding: 24px 0 20px !important;
+  }
+
+  .site-footer-logo img {
+    height: 38px !important;
+  }
+
+  .hero-buttons {
+  gap: 8px !important;
+}
+
+.hero-buttons .btn-primary,
+.hero-buttons .btn-outline,
+.hero-buttons .btn-light {
+  min-width: 100px !important;
+  max-width: 120px !important;
+  height: 42px !important;
+  min-height: 42px !important;
+  padding: 0 14px !important;
+  font-size: 12.5px !important;
+}
+}
+
+/* ===== Hero button final override ===== */
+@media (max-width: 768px) {
+  .hero-photo .hero-buttons,
+  .hero .hero-buttons {
+    display: flex !important;
+    flex-direction: row !important;
+    justify-content: center !important;
+    align-items: center !important;
+    flex-wrap: nowrap !important;
+    gap: 8px !important;
+    width: auto !important;
+    max-width: none !important;
+    margin-top: 22px !important;
+  }
+
+  .hero-photo .hero-buttons .btn-primary,
+  .hero-photo .hero-buttons .btn-outline,
+  .hero-photo .hero-buttons .btn-light,
+  .hero .hero-buttons .btn-primary,
+  .hero .hero-buttons .btn-outline,
+  .hero .hero-buttons .btn-light {
+    display: inline-flex !important;
+    flex: 0 0 auto !important;
+    width: auto !important;
+    min-width: 108px !important;
+    max-width: 128px !important;
+    height: 42px !important;
+    min-height: 42px !important;
+    padding: 0 14px !important;
+    font-size: 13px !important;
+    line-height: 1 !important;
+    white-space: nowrap !important;
+    border-radius: 999px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-photo .hero-buttons,
+  .hero .hero-buttons {
+    gap: 7px !important;
+  }
+
+  .hero-photo .hero-buttons .btn-primary,
+  .hero-photo .hero-buttons .btn-outline,
+  .hero-photo .hero-buttons .btn-light,
+  .hero .hero-buttons .btn-primary,
+  .hero .hero-buttons .btn-outline,
+  .hero .hero-buttons .btn-light {
+    min-width: 96px !important;
+    max-width: 116px !important;
+    height: 40px !important;
+    min-height: 40px !important;
+    padding: 0 12px !important;
+    font-size: 12px !important;
+  }
+}
+
+/* =========================
+   Mobile - Introduction section
+   ========================= */
+@media (max-width: 768px) {
+  /* 섹션 여백 축소 */
+  .section.section-dark {
+    padding-top: 48px;
+    padding-bottom: 48px;
+  }
+
+  .section-heading {
+    margin-bottom: 20px;
+  }
+
+  .section-title {
+    font-size: clamp(1.8rem, 7vw, 2.4rem);
+    line-height: 1.28;
+  }
+
+  .section-desc {
+    font-size: 0.98rem;
+    line-height: 1.7;
+  }
+
+  /* 카드 리스트 간격 축소 */
+  .intro-service-cards {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 14px;
+    margin-top: 20px;
+  }
+
+  /* 카드 높이 축소 */
+  .intro-service-card {
+    min-height: 165px;
+    padding: 16px 16px 18px;
+    border-radius: 28px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .intro-service-card-top {
+    margin-bottom: 8px;
+  }
+
+  /* 숫자 배지 축소 */
+  .intro-service-badge {
+    width: 64px;
+    height: 64px;
+    border-radius: 18px;
+    font-size: 1.8rem;
+    font-weight: 800;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* 카드 메인 영역 */
+  .intro-service-card-main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    text-align: center;
+  }
+
+  /* 제목 축소 */
+  .intro-service-card-title {
+    font-size: clamp(1.9rem, 7vw, 2.5rem);
+    line-height: 1.15;
+    margin: 2px 0 0;
+    word-break: keep-all;
+  }
+
+  /* 모바일에서는 MORE 버튼 숨김 */
+  .intro-service-more {
+    display: none !important;
+  }
+
+  /* 모바일에서는 오버레이 슬라이드 제거 */
+  .intro-service-overlay {
+    position: static !important;
+    inset: auto !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: none !important;
+    pointer-events: auto !important;
+    background: transparent !important;
+    margin-top: 12px;
+  }
+
+  .intro-service-card-panel {
+    padding: 0 !important;
+    background: transparent !important;
+    border: 0 !important;
+    box-shadow: none !important;
+  }
+
+  .intro-service-card-text {
+    margin: 0;
+    font-size: 0.93rem;
+    line-height: 1.6;
+    text-align: center;
+    word-break: keep-all;
+  }
+}
+
+@media (max-width: 768px) {
+  .intro-service-card {
+    outline: 3px solid red !important;
+  }
+}
+
+@media (max-width: 768px) {
+  body {
+    background: red !important;
+  }
+}

@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>D&I WISE | 완벽한 콜드체인, 물류 설계에서 완성하다</title>
+  <meta name="description" content="디앤아이와이즈는 식품·식자재 물류에 특화된 3PL 물류대행 전문 기업입니다. 입고, 보관, 피킹, 배송, 납품까지 맞춤형 물류 솔루션을 제공합니다.">
 
     <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-M8EKJ6LYF7"></script>
@@ -16,6 +17,7 @@
   </script>
 
   <link rel="stylesheet" href="assets/css/style.css" />
+  <link rel="stylesheet" href="assets/css/mobile-fix.css" />
 </head>
 
 <body>
@@ -894,33 +896,48 @@
   </script>
 
   <script>
-    document.addEventListener('DOMContentLoaded', function () {
-      const cards = document.querySelectorAll('.intro-service-card');
-      const moreButtons = document.querySelectorAll('.intro-service-more');
+  document.addEventListener('DOMContentLoaded', function () {
+    const cards = document.querySelectorAll('.intro-service-card');
+    const moreButtons = document.querySelectorAll('.intro-service-more');
 
-      if (!cards.length || !moreButtons.length) return;
+    if (!cards.length || !moreButtons.length) return;
 
-      moreButtons.forEach((button) => {
-        button.addEventListener('click', function (e) {
-          e.preventDefault();
-          e.stopPropagation();
+    function closeAllCards() {
+      cards.forEach((card) => {
+        card.classList.remove('is-open');
+      });
+    }
 
-          const currentCard = this.closest('.intro-service-card');
-          if (!currentCard) return;
+    moreButtons.forEach((button) => {
+      button.addEventListener('click', function (e) {
+        if (window.innerWidth <= 768) {
+          closeAllCards();
+          return;
+        }
 
-          const isOpen = currentCard.classList.contains('is-open');
+        e.preventDefault();
+        e.stopPropagation();
 
-          cards.forEach((card) => {
-            card.classList.remove('is-open');
-          });
+        const currentCard = this.closest('.intro-service-card');
+        if (!currentCard) return;
 
-          if (!isOpen) {
-            currentCard.classList.add('is-open');
-          }
-        });
+        const isOpen = currentCard.classList.contains('is-open');
+
+        closeAllCards();
+
+        if (!isOpen) {
+          currentCard.classList.add('is-open');
+        }
       });
     });
-  </script>
+
+    window.addEventListener('resize', function () {
+      if (window.innerWidth <= 768) {
+        closeAllCards();
+      }
+    });
+  });
+</script>
 
 <script>
   document.addEventListener('DOMContentLoaded', function () {
@@ -1237,25 +1254,35 @@
     const target = document.getElementById('contact-estimate');
     if (!target) return;
 
-    const shouldMove =
-      window.location.hash === '#contact-estimate' ||
-      sessionStorage.getItem('scrollToEstimate') === '1';
+    // 1. 주소창의 파라미터 읽기
+    const urlParams = new URLSearchParams(window.location.search);
+    const hasScrollParam = urlParams.get('scroll') === 'estimate';
+    const hasHash = window.location.hash === '#contact-estimate';
 
-    if (!shouldMove) return;
+    // 해시나 파라미터 둘 다 없으면 스크롤하지 않음
+    if (!hasScrollParam && !hasHash) return;
 
-    sessionStorage.removeItem('scrollToEstimate');
-
+    // 2. 이동 위치 계산 (헤더 높이 140px 제외)
     const headerOffset = 140;
-    const targetTop =
-      target.getBoundingClientRect().top + window.pageYOffset - headerOffset;
+    const targetTop = target.getBoundingClientRect().top + window.pageYOffset - headerOffset;
 
+    // 3. 1차 즉시 이동
     window.scrollTo({ top: targetTop, behavior: 'auto' });
 
+    // 4. 2차 보정 후 부드러운 안착
     setTimeout(() => {
-      window.scrollTo({ top: targetTop, behavior: 'auto' });
+      window.scrollTo({ top: targetTop, behavior: 'smooth' });
+      
+      // 5. 스크롤 완료 후 URL을 깔끔하게 정리 (새로고침 시 재스크롤 방지)
+      // index.html?scroll=estimate -> index.html 로 주소창 몰래 변경
+      window.history.replaceState({}, document.title, window.location.pathname);
     }, 250);
   }
 
+  // HTML 렌더링 직후 즉시 실행
+  document.addEventListener('DOMContentLoaded', moveToEstimateSection);
+  
+  // 늦게 로딩되는 요소를 대비해 load 시점에도 한 번 더 체크 (선택)
   window.addEventListener('load', moveToEstimateSection);
 </script>
 
